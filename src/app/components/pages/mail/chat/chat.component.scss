@@ -1,0 +1,12 @@
+::ng-deep{
+    perfect-scrollbar{
+        z-index: 1;
+    }
+    .main-chat-footer{
+        border-radius: 8px;
+    }
+    .rtl .main-nav-line-chat .nav-link+.nav-link {
+        margin-right: 0px;
+        margin-left: 0;
+    }
+}

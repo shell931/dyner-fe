@@ -1,0 +1,108 @@
+::ng-deep {
+    // .rtl{
+    //     .form-inline{
+    //         // padding-left: 311px !important;
+    //     }
+    // }
+    //browse file
+    .browse-file {
+        outline: none;
+        visibility: hidden;
+    }
+    .custom-file-label {
+        height: 38px;
+        border-radius: 5px;
+    }
+    .custom-file-label::after {
+        background: #f1f4fb !important;
+        color: #68769a !important;
+        height: 38px;
+    }
+
+    //ng2-date-picker
+    dp-date-picker,
+    dp-date-picker.dp-material .dp-picker-input {
+        width: 100% !important;
+        height: 38px !important;
+    }
+    dp-date-picker.dp-material .dp-picker-input {
+        font-weight: 400;
+        line-height: 1.5;
+        color: #a8afc7;
+        background-color: #ffffff;
+        background-clip: padding-box;
+        border: 1px solid #e8e8f7;
+        border-radius: 5px;
+    }
+
+    dp-day-calendar.dp-material .dp-current-day {
+        border: 1px solid #F7435C !important !important;
+        background: #F7435C !important !important;
+        color: #fff;
+    }
+    dp-calendar-nav.dp-material .dp-calendar-nav-container {
+        border: 1px solid #e8e8f7 !important;
+        height: 40px !important;
+    }
+    dp-calendar-nav.dp-material .dp-nav-header-btn {
+        font-weight: bold;
+        color: #3b4863;
+    }
+    dp-day-calendar.dp-material .dp-calendar-wrapper {
+        border: 1px solid #e8e8f7 !important;
+        padding: 10px;
+    }
+    dp-day-calendar.dp-material .dp-calendar-weekday {
+        color: #3b4863 !important;
+        width: 33px !important;
+    }
+
+    dp-day-calendar .dp-calendar-day {
+        width: 33px !important;
+    }
+    dp-calendar-nav .dp-nav-btns-container {
+        padding: 15px;
+    }
+    dp-calendar-nav .dp-calendar-nav-container-left,
+    dp-calendar-nav .dp-calendar-nav-container-right {
+        padding: 5px;
+    }
+
+    .ng-dropdown-panel{
+        z-index: 3 !important;
+    }
+    ngb-datepicker.dropdown-menu{
+        transform: translate(-49px, 40px) !important;
+    }
+
+    .dp-material.dp-popup{
+        position: absolute !important;
+        left: -55px !important;
+    }
+    .md-drppicker.drops-down-auto.ltr{
+        left: 2px !important;
+    }
+    @media (min-width:576px) {
+        .md-drppicker{
+            width: 500px !important;
+        }
+    }
+
+}
+@media (max-width:775px) {
+    .input-group-prepend{
+        height: 40px !important;
+    }
+}
+
+.dp-material{
+    display: none !important;
+}
+
+@media (max-width:345px) {
+    .main-toggle.on span{
+        left: 56% !important;
+    }
+}
+
+

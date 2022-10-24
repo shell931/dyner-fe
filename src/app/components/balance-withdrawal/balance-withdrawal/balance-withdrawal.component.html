@@ -1,0 +1,91 @@
+<div class="breadcrumb-header justify-content-between">
+    <div class="left-content">
+        <div>
+            <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">Retiro de saldo</h2>
+            <p class="mg-b-0">Solicitar retiro</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-7 col-lg-7 col-xl-7">
+        <div class="card">
+            <div class="card-header pb-0">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">DETALLE DE RETIRO</h2>
+                <p class="mg-b-0 tx-14">Consulta el saldo a retirar</p>
+            </div>
+            <div class="card-body">
+                <div class="row row-sm">
+                    <div class="col-lg-12 mg-t-10 mg-lg-t-0">
+                        <p class="mg-b-0 tx-14">Valor a retirar</p>
+                        <input class="form-control" readonly type="text" value="{{totalTransfer}}">
+                    </div>
+                    <div class="col-lg-6 mg-t-10 mg-lg-t-0 mt-2">
+                        <p class="mg-b-0 tx-14">Impuesto 4x1000</p>
+                        <input class="form-control" disabled type="text" value="{{cuatropormil}}">
+                    </div>
+                    <div class="col-lg-6 mg-t-10 mg-lg-t-0 mt-2">
+                        <p class="mg-b-0 tx-14">Costo de la comisión</p>
+                        <input class="form-control" disabled type="text" value="{{discount}}">
+                    </div>
+                    <div class="col-lg-12 mg-t-10 mg-lg-t-0 mt-2">
+                        <p class="mg-b-0 tx-14">Total a retirar</p>
+                        <input class="form-control" disabled type="text" value="{{totalTransfer}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header pb-0">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">SELECCIONA LA CUENTA DESTINO</h2>
+            </div>
+            <div class="card-body" style="padding-left: 30px;">
+                <div *ngFor="let item of checkboxesDataList; let index = index" class="mt-2">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <input class="form-check-input" type="checkbox" [ngModel]="selectedIndex === index"
+                                (change)="changeSelectiontwo($event, index, item.id_cuenta)" checked="false"/>
+                                <img src="{{bankImage}}/{{item.bank.icon_image}}" class="img-bank-account" alt="logo">
+                        </div>
+                        <div class="flex-item">
+                            <p class="tx-14 num-cuenta">Número de cuenta de ahorros {{item.num_cuenta}}</p>
+                            <p class="tx-12 title-anex">Costo de la transacción $0 COP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-5 col-lg-5 col-xl-5">
+        <div class="card">
+            <div class="card-header pb-0">
+                <p class="mg-b-0 tx-14 color-title-card">SALDO DISPONIBLE PARA RETIROS</p>
+            </div>
+            <div class="card-body">
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1">${{totalTransfer}} COP</h1>
+                    </div>
+                    <div class="flex-item"><img src="./assets/img/svgicons/dashboard_disponible.svg"
+                            class="img-cards-dashboard" alt="logo"></div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <p class="mg-b-0 tx-14 color-title-card">Ver detalle</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-6 col-xl-6" align="center">
+        <div class="col-md-4">
+            <button class="btn btn-success btn-block" (click)="submitbutton()">Solicitar transferencia</button>
+        </div>
+        <div class="mt-2" *ngIf="validate_account_select">
+            <li style="color:red">
+                <label style="color:red">
+                    Debes seleccionar una cuenta bancaría
+                </label>
+            </li>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,80 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-header justify-content-between">
+	<div class="my-auto">
+		<div class="d-flex">
+			<h4 class="content-title mb-0 my-auto">Apps</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/
+				Notifications</span>
+		</div>
+	</div>
+	<div class="d-flex my-xl-auto right-content mr-2">
+		<div class="pr-1 mb-3 mb-xl-0">
+			<button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+		</div>
+		<div class="pr-1 mb-3 mb-xl-0">
+			<button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+		</div>
+		<div class="pr-1 mb-3 mb-xl-0">
+			<button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+		</div>
+		<div class="mb-3 mb-xl-0">
+			<div ngbDropdown class="btn-group">
+				<button type="button" class="btn btn-primary">14 Aug 2019</button>
+				<button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split"
+					id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate"
+					data-x-placement="bottom-end">
+					<a ngbDropdownItem href="javascript:;">2015</a>
+					<a ngbDropdownItem href="javascript:;">2016</a>
+					<a ngbDropdownItem href="javascript:;">2017</a>
+					<a ngbDropdownItem href="javascript:;">2018</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- breadcrumb -->
+<!-- div -->
+<div class="card mg-b-20">
+	<div class="card-body">
+		<div class="main-content-label mg-b-5">
+			Notification Types
+		</div>
+		<p class="mg-b-20">It is Very Easy to Customize and it uses in website apllication.</p>
+		<div class="example border-0 p-0">
+			<div class="btn-list">
+
+				<button class="btn btn-primary mg-t-5 ms-1" (click)="OnPrimary()">Primary</button>
+				<button class="btn btn-success mg-t-5 ms-1" (click)="OnSuccess()">Success</button>
+				<button class="btn btn-danger mg-t-5 ms-1" (click)="OnError()">Error</button>
+				<button class="btn btn-warning mg-t-5 ms-1" (click)="OnWarning()">Warning</button>
+				<button class="btn btn-info mg-t-5 ms-1" (click)="OnInfo()">Info</button>
+				<button class="btn btn-dark mg-t-5 ms-1" (click)="OnOpacity()">Opacity</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- div -->
+<notifier-container></notifier-container>
+
+
+<!-- div -->
+<div class="card mg-b-20">
+	<div class="card-body">
+		<div class="main-content-label mg-b-5">
+			Ngx-toastr
+		</div>
+		<p class="mg-b-20">It is Very Easy to Customize and it uses in website apllication.</p>
+		<div class="example border-0 p-0">
+			<div class="btn-list">
+				<button (click)="tost()"  class="btn btn-primary mg-t-5 ms-2">Success</button>
+				<button (click)="tost2()"  class="btn btn-primary mg-t-5 ms-2">Error</button>
+				<button (click)="tost3()"  class="btn btn-primary mg-t-5 ms-2">Info</button>
+				<button (click)="tost4()"  class="btn btn-primary mg-t-5 ms-2">show</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- div -->

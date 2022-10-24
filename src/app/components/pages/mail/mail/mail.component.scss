@@ -1,0 +1,21 @@
+// .dark-modal .modal-content {
+//     background-color: #292b2c;
+//     color: white;
+//   }
+//   .dark-modal .close {
+//     color: white;
+//   }
+//   .light-blue-backdrop {
+//     background-color: #5cb3fd;
+//   }
+::ng-deep {
+    .modal-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+      }
+    }
+    .btn-main-primary{
+      color: #fff !important;
+    }

@@ -1,0 +1,27 @@
+::ng-deep{
+    @media (max-width:480px) {
+        apx-chart > div {
+            width: initial !important;
+            height: initial !important;
+            display: flex;
+            justify-content: center;
+
+            svg{
+                overflow: visible !important;
+                transform: translateY(-10px);
+            }
+        }
+    }
+    // @media (max-width:330px) {
+    //     svg:nth-last-child(3){
+    //         transform: translateX(-29px) translateY(-10px);
+    //     }
+    // }
+    .chartjs-wrapper-demo{
+        height: auto!important;
+        width: auto!important;
+    }
+    .apexcharts-toolbar{
+        z-index: 7 !important;
+    }
+}

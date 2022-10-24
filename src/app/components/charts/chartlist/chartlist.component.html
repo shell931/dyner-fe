@@ -1,0 +1,206 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+        <div class="d-flex">
+            <h4 class="content-title mb-0 my-auto">Charts</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Charts List</span>
+        </div>
+    </div>
+    <div class="d-flex my-xl-auto right-content mr-2">
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+        </div>
+        <div class="mb-3 mb-xl-0">
+            <div ngbDropdown class="btn-group">
+                <button type="button" class="btn btn-primary">14 Aug 2019</button>
+                <button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+                    <a ngbDropdownItem href="javascript:;">2015</a>
+                    <a ngbDropdownItem href="javascript:;">2016</a>
+                    <a ngbDropdownItem href="javascript:;">2017</a>
+                    <a ngbDropdownItem href="javascript:;">2018</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    SVG PATH ANIMATION
+                </div>
+                <p class="mg-b-20">Below is the SVG Path Animation example.</p>
+                <div  >
+                    <x-chartist [type]="chart1.type" [data]="chart1.data" [options]="chart1.options"
+                    [events]="chart1.events" ></x-chartist>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    BI-POLAR LINE CHART WITH AREA ONLY
+                </div>
+                <p class="mg-b-20">Below is the bi-polar line chart with area example.</p>
+                <div  >
+                    <x-chartist [type]="chart3.type" [data]="chart3.data" [options]="chart3.options"
+                    [events]="chart3.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mb-1">
+                    ANIMATING A DONUT WITH SVG ANIMATE
+                </div>
+                <p class="mg-b-20">Below is the Donut with SVG Animate example.</p>
+                <div>
+                    <x-chartist [type]="chart2.type" [data]="chart2.data" [options]="chart2.options"
+                    [events]="chart2.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    LINE CHART WITH AREA
+                </div>
+                <p class="mg-b-20">Below is the line chart with area example.</p>
+                <div  >
+                    <x-chartist [type]="chart4.type" [data]="chart4.data" [options]="chart4.options"
+                    [events]="chart4.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    BI-POLAR BAR CHART
+                </div>
+                <p class="mg-b-20">Below is the bi-polar bar chart example..</p>
+                <div  >
+                    <x-chartist [type]="chart5.type" [data]="chart5.data" [options]="chart5.options"
+                    [events]="chart5.events"></x-chartist> 
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    STACKED BAR CHART
+                </div>
+                <p class="mg-b-20">Below is the stacked bar chart example.</p>
+                <div  >
+                    <x-chartist [type]="chart6.type" [data]="chart6.data" [options]="chart6.options"
+                    [events]="chart6.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    HORIZONTAL BAR CHART
+                </div>
+                <p class="mg-b-20">Below is the horizontal bar chart example.</p>
+                <div  >
+                    <x-chartist [type]="chart7.type" [data]="chart7.data" [options]="chart7.options"
+                    [events]="chart7.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    EXTREME RESPONSIVE CONFIGURATION
+                </div>
+                <p class="mg-b-20">Below is the Responsive Configuration example.</p>
+                <div  >
+                    <x-chartist [type]="chart8.type" [data]="chart8.data" [options]="chart8.options"
+                    [events]="chart8.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    SIMPLE LINE CHART
+                </div>
+                <p class="mg-b-20">Below is the simple line chart example.</p>
+                <div  >
+                    <x-chartist [type]="chart9.type" [data]="chart9.data" [options]="chart9.options"
+                    [events]="chart9.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    HOLES IN DATA
+                </div>
+                <p class="mg-b-20">Below is the holes in data chart example.</p>
+                <div  >
+                    <x-chartist [type]="chart10.type" [data]="chart10.data" [options]="chart10.options"
+                    [events]="chart10.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    FILLED HOLES IN DATA CHART
+                </div>
+                <p class="mg-b-20">Below is the filled holes in data chart example.</p>
+                <div  >
+                   
+                    <x-chartist [type]="chart11.type" [data]="chart11.data" [options]="chart11.options"
+                    [events]="chart11.events"></x-chartist>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /row -->
+

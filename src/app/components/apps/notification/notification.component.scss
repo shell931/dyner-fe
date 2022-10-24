@@ -1,0 +1,20 @@
+::ng-deep{
+    .notifier__notification.notifier__notification--material.notifier__notification--primary{
+        color: #fff;
+    background-color: #F7435C !important;
+    }
+    .notifier__container * {
+        fill: #fff;
+    }
+    .notifier__notification.notifier__notification--material.notifier__notification--opacity{
+        color: #fff;
+        background-color: #364261;
+        opacity: 0.8
+    }
+
+    .notifier__notification-button-icon{
+        margin-right: 0.5rem !important;
+    }
+
+}
+// notifier__notification notifier__notification--opacity notifier__notification--material

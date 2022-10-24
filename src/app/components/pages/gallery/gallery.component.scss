@@ -1,0 +1,15 @@
+::ng-deep{
+    .cdk-overlay-container {
+        z-index: 999999 !important;
+    }
+    .rtl{
+        .close-image{
+            position: absolute;
+            left: 20px;
+        }
+    }
+
+    .img-border-radius-container{
+        border-radius: 5px;
+    }
+}

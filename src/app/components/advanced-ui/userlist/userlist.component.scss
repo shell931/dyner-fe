@@ -1,0 +1,17 @@
+.card  .dropdown-toggle::after{
+    display: none !important;
+}
+.dropdown-menu
+{
+    right: 0;
+    left: initial !important;
+}
+.pagination{
+    flex-wrap: wrap;
+    li{
+        margin-block: 2px;
+    }
+}
+.table > :not(:last-child) > :last-child > *{
+    border-bottom-color: rgba(226, 232, 245, 0.1) !important;
+}

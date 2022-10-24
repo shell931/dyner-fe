@@ -1,0 +1,56 @@
+::ng-deep {
+    .accordion .card-header a,
+    .accordion .card-header button {
+        width: 100%;
+        text-align: left;
+    }
+    .accordion .card{
+        margin-bottom: 0;
+    }
+
+    #accordion11 .accordion .card,
+    #accordion12 .accordion .card{
+        .card-header a,
+        .card-header button{
+            background: #F7435C !important;
+            color: #fff;
+        }
+    }
+    #accordion12 .accordion .card .card-body{
+        padding: 1rem 
+    }
+    
+    #ngb-panel-4-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+
+    #ngb-panel-3-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+
+    // .accordion-item{
+    //     margin-bottom: 1rem !important;
+    // }
+
+    #ngb-panel-5-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+
+    #ngb-panel-6-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+
+    #ngb-panel-7-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+
+    #ngb-panel-0-header button{
+        background-color: #F7435C !important;
+        padding: 10px;
+    }
+}

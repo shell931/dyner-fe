@@ -1,0 +1,17 @@
+::ng-deep{
+    .cdk-overlay-container {
+        z-index: 999999 !important;
+    }
+
+    .rtl{
+        .g-btn-close {
+            position: absolute;
+            left: 0.9em;
+            top: 0.9em;
+            z-index: 60;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

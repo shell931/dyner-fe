@@ -1,0 +1,9 @@
+::ng-deep {
+    .todo-widget-header .dropdown-toggle::after {
+        display: none;
+    }
+}
+.ml-auto .dropdown-menu{
+    left: initial !important;
+    right: 0;
+}

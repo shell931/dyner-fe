@@ -1,0 +1,182 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+        <div class="d-flex">
+            <h4 class="content-title mb-0 my-auto">Charts</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/
+                Chartjs</span>
+        </div>
+    </div>
+    <div class="d-flex my-xl-auto right-content mr-2">
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+        </div>
+        <div class="mb-3 mb-xl-0">
+            <div ngbDropdown class="btn-group">
+                <button type="button" class="btn btn-primary">14 Aug 2019</button>
+                <button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+                    <a ngbDropdownItem href="javascript:;">2015</a>
+                    <a ngbDropdownItem href="javascript:;">2016</a>
+                    <a ngbDropdownItem href="javascript:;">2017</a>
+                    <a ngbDropdownItem href="javascript:;">2018</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">LINE CHART</h6>
+                    <p class="text-muted  card-sub-title">Basic Charts Of Valex template.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Area Chart</h6>
+                    <p class="text-muted  card-sub-title">Below is the basic area chart example.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [data]="AreaChartData" [options]="AreaChartOptions"
+                        colors="AreaChartColors" [type]="AreaChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-xl-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">STACKED BAR CHART</h6>
+                    <p class="text-muted  card-sub-title">Basic Charts Of Valex template.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [data]="barChart2Data" [options]="barChart2Options"
+                        [plugins]="barChart2Plugins" [legend]="barChart2Legend" [type]="barChart2Type"
+                        colors="barchart2Colors">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">STACKED BAR HORIZONTAL CHART</h6>
+                    <p class="text-muted  card-sub-title">Basic Charts Of Valex template.</p>
+                </div>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="row row-sm">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            Solid Color
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                            <canvas baseChart [data]="solidColorData" [options]="solidColorOptions"
+                                  [type]="solidColorType"
+                                colors="barchart2Colors">
+                            </canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                    <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-md-t-0">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            With Transparency
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                            <canvas baseChart [data]="solidColorData2" [options]="solidColorOptions2"
+                                 [type]="solidColorType2"
+                                colors="barchart2Colors">
+                            </canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                    <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-xl-t-0">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            Using Gradient Color
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                            <canvas baseChart [data]="solidColorData3" [options]="solidColorOptions3"
+                                  [type]="solidColorType3"
+                                colors="barchart3Colors">
+                            </canvas>
+                            <canvas id=Canvas #Canvas></canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                </div>
+            </div><!-- col-12 -->
+        </div><!-- col-12 -->
+    </div><!-- col-12 -->
+</div>
+<!-- End Row -->
+
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-6">
+        <div class="card mg-b-md-20 overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Pie Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas id="chartPie"></canvas> -->
+                    <canvas baseChart [data]="PieChartData" [options]="PieChartOptions" [type]="DoughnutChartType"></canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Donut Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas id="chartDonut"></canvas> -->
+                    <canvas baseChart [data]="PieChartData" [options]="PieChartOptions" [type]="PieChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+</div>

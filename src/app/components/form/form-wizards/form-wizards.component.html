@@ -1,0 +1,406 @@
+<!-- breadcrumb -->
+<div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+        <div class="d-flex">
+            <h4 class="content-title mb-0 my-auto">Forms</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/
+                Form-wizards</span>
+        </div>
+    </div>
+    <div class="d-flex my-xl-auto right-content mr-2">
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+        </div>
+        <div class="mb-3 mb-xl-0">
+            <div ngbDropdown class="btn-group">
+                <button type="button" class="btn btn-primary">14 Aug 2019</button>
+                <button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split"
+                    id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate"
+                    data-x-placement="bottom-end">
+                    <a ngbDropdownItem href="javascript:;">2015</a>
+                    <a ngbDropdownItem href="javascript:;">2016</a>
+                    <a ngbDropdownItem href="javascript:;">2017</a>
+                    <a ngbDropdownItem href="javascript:;">2018</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-12 col-md-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Basic Content Wizard 1</h6>
+                    <p class="text-muted card-sub-title">Below is an example of a basic horizontal form wizard.</p>
+                </div>
+                <div id="wizard1">
+                    <app-basic-content></app-basic-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Row -->
+
+<!-- Row -->
+<div class="row row-sm">
+    <div class="col-lg-12 col-md-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div>
+                    <h6 class="main-content-label mb-1">Basic Content Wizard 2</h6>
+                    <p class="text-muted card-sub-title">Below is an example of a basic horizontal form wizard.</p>
+                </div>
+                <div id="wizard2">
+                    <aw-wizard [navBarLayout]="'large-empty-symbols'">
+                        <aw-wizard-step stepTitle="Step 1" [navigationSymbol]="{ symbol: '1' }">
+                            <form [formGroup]="firstFormGroup">
+                                <div class="form-group">
+                                    <label for="name">First Name</label>
+                                    <input class="form-control" type="text" placeholder="Johan"
+                                        formControlName="firstName" onlyAlphabets>
+                                    <ng-container class="invalid"
+                                        *ngIf="firstFormGroup.get('firstName')?.hasError('required') && firstFormGroup.get('firstName')?.touched">
+                                        <small class="tx-danger">First Name is required</small>
+                                    </ng-container>
+                                </div>
+                                <div *ngIf=""></div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <input class="form-control" id="lname" type="text" placeholder="Deo"
+                                        formControlName="lastName" onlyAlphabets>
+                                    <ng-container class="invalid"
+                                        *ngIf="firstFormGroup.get('lastName')?.hasError('required') && firstFormGroup.get('lastName')?.touched">
+                                        <small class="tx-danger">Last Name is required</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact">Contact No.</label>
+                                    <input class="form-control digits" id="contact" type="number"
+                                        placeholder="123456789" formControlName="contactNumber" onlyNumbers>
+                                    <ng-container class="invalid"
+                                        *ngIf="firstFormGroup.get('contactNumber')?.hasError('required') && firstFormGroup.get('contactNumber')?.touched">
+                                        <small class="tx-danger">Contact is required</small>
+                                    </ng-container>
+                                </div>
+                                <button class="btn btn-primary pull-end" type="submit" awNextStep
+                                    [disabled]="!firstFormGroup.valid">Next</button>
+                            </form>
+                        </aw-wizard-step>
+                        <aw-wizard-step stepTitle="Step 2" [navigationSymbol]="{ symbol: '2' }">
+                            <form [formGroup]="secondFormGroup">
+                                <div class="form-group m-t-15">
+                                    <label for="exampleFormControlInput1">Email address</label>
+                                    <input class="form-control" id="exampleFormControlInput1" type="email"
+                                        placeholder="name@example.com" formControlName="email">
+                                    <ng-container class="invalid"
+                                        *ngIf="secondFormGroup.get('email')?.hasError('required') && secondFormGroup.get('email')?.touched">
+                                        <small class="tx-danger">Email is required</small>
+                                    </ng-container>
+                                    <ng-container class="invalid"
+                                        *ngIf="secondFormGroup.get('email')?.hasError('email') && secondFormGroup.get('email')?.touched">
+                                        <small class="tx-danger">Email is not valid</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input class="form-control" id="exampleInputPassword1" type="password"
+                                        placeholder="Password" formControlName="password">
+                                    <ng-container class="invalid"
+                                        *ngIf="secondFormGroup.get('password')?.hasError('required') && secondFormGroup.get('password')?.touched">
+                                        <small class="tx-danger">Password is required</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group" *ngIf="secondFormGroup.get('password')?.valid">
+                                    <label for="exampleInputPassword1">Confirm Password</label>
+                                    <input class="form-control" id="exampleInputcPassword1" type="password"
+                                        placeholder="Enter again" formControlName="cnfPassword">
+                                    <ng-container class="invalid"
+                                        *ngIf="secondFormGroup.get('cnfPassword')?.hasError('required') && secondFormGroup.get('cnfPassword')?.touched">
+                                        <small class="tx-danger">Confirm Password is required</small>
+                                    </ng-container>
+                                    <ng-container class="invalid"
+                                        *ngIf="secondFormGroup.get('cnfPassword')?.hasError('mustMatch') && secondFormGroup.get('cnfPassword')?.touched">
+                                        <small class="tx-danger">Password Doesn't match</small>
+                                    </ng-container>
+                                </div>
+                                <button class="btn btn-primary pull-right" type="button" awNextStep
+                                    [disabled]="!secondFormGroup.valid">Next</button>
+                                <button class="btn btn-secondary pull-end ms-1" type="button"
+                                    awPreviousStep>Previous</button>
+                            </form>
+                        </aw-wizard-step>
+                        <aw-wizard-step stepTitle="Step 3" [navigationSymbol]="{ symbol: '3' }">
+                            <form [formGroup]="thirdFormGroup">
+                                <div class="form-group custom-datepicker-dropdown custom-datepicker">
+                                    <label for="exampleFormControlInput1">Birthday:</label>
+                                    <input class="form-control digits" type="text" formControlName="birthdate"
+                                        ngbDatepicker #db="ngbDatepicker" [maxDate]="maxDate" (click)="db.toggle()">
+                                    <ng-container class="invalid"
+                                        *ngIf="thirdFormGroup.get('birthdate')?.hasError('required') && thirdFormGroup.get('birthdate')?.touched">
+                                        <small class="tx-danger">Birth Date is required</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input class="form-control digits" placeholder="Age" type="text"
+                                        formControlName="age">
+                                </div>
+                                <div class="form-group">
+                                    <label>Have Passport</label>
+                                    <input class="form-control digits" placeholder="Yes/No" type="text"
+                                        formControlName="hasPassport">
+                                    <ng-container class="invalid"
+                                        *ngIf="thirdFormGroup.get('hasPassport')?.hasError('required') && thirdFormGroup.get('hasPassport')?.touched">
+                                        <small class="tx-danger">Passport field is required</small>
+                                    </ng-container>
+                                </div>
+                                <button class="btn btn-primary pull-right" type="button" awNextStep
+                                    [disabled]="!thirdFormGroup.valid">Next</button>
+                                <button class="btn btn-secondary pull-end ms-1" type="button"
+                                    awPreviousStep>Previous</button>
+                            </form>
+                        </aw-wizard-step>
+                        <aw-wizard-completion-step stepTitle="Step 4" [navigationSymbol]="{ symbol: '4' }"
+                            awEnableBackLinks>
+                            <form [formGroup]="fourthFormGroup">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <input class="form-control mt-1" type="text" placeholder="Country"
+                                        required="required" formControlName="country">
+                                    <ng-container class="invalid"
+                                        *ngIf="fourthFormGroup.get('country')?.hasError('required') && fourthFormGroup.get('country')?.touched">
+                                        <small class="tx-danger">Country is required</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <input class="form-control mt-1" type="text" placeholder="State" required="required"
+                                        formControlName="state">
+                                    <ng-container class="invalid"
+                                        *ngIf="fourthFormGroup.get('state')?.hasError('required') && fourthFormGroup.get('state')?.touched">
+                                        <small class="tx-danger">State is required</small>
+                                    </ng-container>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input class="form-control mt-1" type="text" placeholder="City" required="required"
+                                        formControlName="city">
+                                    <ng-container class="invalid"
+                                        *ngIf="fourthFormGroup.get('city')?.hasError('required') && fourthFormGroup.get('city')?.touched">
+                                        <small class="tx-danger">City is required</small>
+                                    </ng-container>
+                                </div>
+                                <button class="btn btn-success pull-right" type="button" (click)="finish()"
+                                    [disabled]="!fourthFormGroup.valid">Finish</button>
+                                <button class="btn btn-secondary pull-end ms-1" type="button"
+                                    awPreviousStep>Previous</button>
+                            </form>
+                        </aw-wizard-completion-step>
+                    </aw-wizard>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Row -->
+
+<!--Row-->
+<div class="row ">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header border-bottom-0">
+                <div class="card-title">
+                    Vertical Orientation Wizard
+                </div>
+            </div>
+            <perfect-scrollbar>
+
+                <aw-wizard #wizard3 navBarLocation="left" [navBarLayout]="'large-filled-symbols'">
+
+                    <aw-wizard-step [stepTitle]="'Personal Information'" [navigationSymbol]="{ symbol: '1' }">
+
+                        <form #firstStep3="ngForm" novalidate>
+                            <h6><b> Personal Information </b></h6>
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="name">Name</label>
+                                <input class="form-control" ngModel #name="ngModel" required id="name2" name="name"
+                                    type="text" placeholder="Name">
+                                <small class="form-text text-danger"
+                                    *ngIf="!name.valid && (name.dirty || name.touched)">This field is
+                                    required!</small>
+                            </div>
+
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="email">Email</label>
+                                <input class="form-control input-md" ngModel #email="ngModel" required email id="email1"
+                                    name="email" type="email" placeholder="Email">
+                                <small class="form-text text-danger"
+                                    *ngIf="!email.valid && (email.dirty || email.touched)">Please enter a valid
+                                    email!</small>
+                            </div>
+
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="contact">Phone Number</label>
+                                <input class="form-control" ngModel #contact="ngModel" required id="contact"
+                                    contact="contact" type="number" name="contact" placeholder="Phone Number">
+                                <small class="form-text text-danger"
+                                    *ngIf="!contact.valid && (contact.dirty || contact.touched)">This field is
+                                    required!</small>
+                            </div>
+
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="address"> Address</label>
+                                <input class="form-control" ngModel #address="ngModel" required id="address"
+                                    address="address" name="address" type="text" placeholder="Address">
+                                <small class="form-text text-danger"
+                                    *ngIf="!address.valid && (address.dirty || address.touched)">This field is
+                                    required!</small>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary float-right me-2"
+                                    [disabled]="!firstStep3.valid" awNextStep>
+                                    Next
+                                </button>
+                                <button type="button" class="btn btn-secondary my-2" awPreviousStep disabled>
+                                    Previous</button>
+                            </div>
+                        </form>
+                    </aw-wizard-step>
+                    <aw-wizard-step [stepTitle]="'Billing Information'" [navigationSymbol]="{ symbol: '2' }">
+                        <h3>Billing Information</h3>
+                        <div class="table-responsive mg-t-20">
+                            <table class="table table-bordered border-bottom">
+                                <tbody>
+                                    <tr>
+                                        <td>Cart Subtotal</td>
+                                        <td class="text-right">$792.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Totals</span></td>
+                                        <td class="text-right text-muted"><span>$792.00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Order Total</span></td>
+                                        <td>
+                                            <h2 class="price text-right mb-0">$792.00</h2>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary float-right me-2" awNextStep>
+                                Next
+                            </button>
+                            <button type="button" class="btn btn-secondary" awPreviousStep>
+                                Previous</button>
+                        </div>
+                    </aw-wizard-step>
+                    <aw-wizard-step [stepTitle]="'Payment Details'" [navigationSymbol]="{ symbol: '3' }">
+                        <h3>Payment Details</h3>
+                        <form #thirdStep3="ngForm" novalidate>
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="cardName">CardHolder Name</label>
+                                <input class="form-control" ngModel #cardName="ngModel" required id="cardName"
+                                    name="cardName" type="text" placeholder="First Name">
+                                <small class="form-text text-danger"
+                                    *ngIf="!cardName.valid && (cardName.dirty || cardName.touched)">This field is
+                                    required!</small>
+                            </div>
+
+                            <div class="control-group form-group">
+                                <label class="form-control-label" for="cardNum"> Card number</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" ngModel #cardNum="ngModel" required
+                                        id="cardNum" name="cardNum" placeholder="Search for...">
+                                    <!-- <span class="input-group-append">
+                                        <button class="btn btn-info" type="button">
+                                            <i class="fa fa-cc-visa"></i>
+                                            &nbsp; 
+                                            <i class="fa fa-cc-amex">
+                                            </i> &nbsp;
+                                            <i class="fa fa-cc-mastercard"></i></button>
+                                    </span> -->
+                                    <span class="input-group-text  bg-transparent border-0 p-0">
+                                        <button class="btn btn-info" type="button"><i class="fab fa-cc-visa"></i> &nbsp;
+                                            <i class="fab fa-cc-amex"></i> &nbsp;
+                                            <i class="fab fa-cc-mastercard"></i></button>
+                                    </span>
+                                </div>
+                                <small class="form-text text-danger"
+                                    *ngIf="!cardNum.valid && (cardNum.dirty || cardNum.touched)">This field is
+                                    required!</small>
+                            </div>
+
+                            <div class="control-group form-group d-lg-flex">
+                                <div class="col-sm-8 ps-0">
+                                    <div class="form-group mb-sm-0">
+                                        <label class="form-label">Expiration</label>
+                                        <div class="input-group row">
+                                            <div class="col-6">
+                                                <input class="form-control" ngModel #cardMonth="ngModel" required
+                                                    id="cardMonth" name="cardMonth" type="number" placeholder="MM">
+                                                <small class="form-text text-danger"
+                                                    *ngIf="!cardMonth.valid && (cardMonth.dirty || cardMonth.touched)">This
+                                                    field is
+                                                    required!
+                                                </small>
+
+                                            </div>
+
+                                            <div class="col-6">
+                                                <input class="form-control" ngModel #cardYear="ngModel" required
+                                                    id="cardYear" name="cardYear" type="number" placeholder="YY">
+                                                <small class="form-text text-danger"
+                                                    *ngIf="!cardYear.valid && (cardYear.dirty || cardYear.touched)">This
+                                                    field is
+                                                    required!
+                                                </small>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 pe-0">
+                                    <div class="form-group mb-0">
+                                        <label class="form-label">CVV <i class="fa fa-question-circle"></i></label>
+                                        <input class="form-control" ngModel #cvvNum="ngModel" required id="cvvNum"
+                                            name="cvvNum" type="number" placeholder="CVV">
+                                        <small class="form-text text-danger"
+                                            *ngIf="!cvvNum.valid && (cvvNum.dirty || cvvNum.touched)">This field is
+                                            required!
+                                        </small>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary float-right me-2" awNextStep
+                                    (click)="finish()" [disabled]="!thirdStep3.valid">
+                                    Finish
+                                </button>
+                                <button type="button" class="btn btn-secondary" awPreviousStep>
+                                    Previous</button>
+                            </div>
+                        </form>
+
+                    </aw-wizard-step>
+                </aw-wizard>
+            </perfect-scrollbar>
+        </div>
+    </div>
+</div>
+<!-- /Row -->

@@ -1,0 +1,18 @@
+::ng-deep {
+    .pagination .page-item:last-child .page-link,
+    .pagination .page-item:first-child .page-link {
+        border-radius: 4px;
+        padding: 10px 25px;
+    }
+    .ng-dropdown-panel{
+        z-index: 3 !important;
+    }
+    app-products{
+        .pagination{
+            flex-wrap: wrap !important;
+            li{
+                margin-block:2px
+            }
+        }
+    }
+}

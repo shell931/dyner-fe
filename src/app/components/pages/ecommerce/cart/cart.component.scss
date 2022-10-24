@@ -1,0 +1,23 @@
+::ng-deep{
+    app-cart{
+        tbody tr:nth-child(4) .ng-dropdown-panel.ng-select-bottom{
+            top: -149px !important;
+        }
+    }
+    .ng-dropdown-panel{
+        z-index: 3 !important;
+    }
+}
+table th , table td {
+    font-size: 0.876rem !important;
+}
+.table > :not(:last-child) > :last-child > *{
+    border-bottom-color: rgba(226, 232, 245, 0.1) !important;
+}
+
+@media (max-width: 768px){
+    .shopping-cart-footer > .column .btn {
+        margin: 4px 0 !important;
+        
+    }
+}

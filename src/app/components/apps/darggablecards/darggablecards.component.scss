@@ -1,0 +1,18 @@
+#left-defaults,
+#right-defaults,
+#left-events
+{
+  touch-action: none;
+}
+::ng-deep{
+  app-darggablecards{
+      .tx-white-7:hover {
+          color: rgba(255, 255, 255, 0.9) !important;
+      }
+  }
+}
+.card-img-bottom {
+  width: 100%;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}

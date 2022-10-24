@@ -1,0 +1,161 @@
+<div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+        <div class="d-flex"><h4 class="content-title mb-0 my-auto">Apps</h4><span class="text-muted mt-1 tx-13 ms-2 mb-0">/ Calendar</span></div>
+    </div>
+    <div class="d-flex my-xl-auto right-content mr-2">
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+        </div>
+        <div class="pr-1 mb-3 mb-xl-0">
+            <button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+        </div>
+        <div class="mb-3 mb-xl-0">
+            <div ngbDropdown class="btn-group">
+                <button type="button" class="btn btn-primary">14 Aug 2019</button>
+                <button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+                    <a ngbDropdownItem href="javascript:;">2015</a>
+                    <a ngbDropdownItem href="javascript:;">2016</a>
+                    <a ngbDropdownItem href="javascript:;">2017</a>
+                    <a ngbDropdownItem href="javascript:;">2018</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb -->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-12">
+        <div class="card custom-card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-xl-2" id="external-events">
+                        <h4>Draggable Events</h4>
+                        <div mwlDroppable (drop)="externalDrop($event.dropData.event)" dragOverClass="drag-over">
+                            <div>
+                                <p *ngIf="events.length === 0"><em>No events added</em></p>
+                                <ul>
+                                    <li *ngFor="let event of events" mwlDraggable [dropData]="{event: event}"
+                                        [touchStartLongPress]="{ delay: 300, delta: 30 }" dragActiveClass="drag-active">
+                                        <a href="javascript:;">
+                                            {{ event.title }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xl-10">
+                        
+                        <div class="row text-center d-flex flex-wrap flex-column flex-md-row">
+                            <div class="col-md-3 text-start mb-2">
+                                <div class="btn-group">
+                                    <div class="btn btn-primary" mwlCalendarPreviousView [view]="view"
+                                        [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="btn btn-primary" mwlCalendarNextView [view]="view"
+                                        [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="btn btn-primary ms-2" mwlCalendarToday [(viewDate)]="viewDate">
+                                        Today
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+                            </div>
+                            <div class="col-md-5 text-end mb-2">
+                                <div class="btn-group">
+                                    <div class="btn btn-primary mb-1" (click)="setView(CalendarView.Month)"
+                                        [class.active]="view === CalendarView.Month">
+                                        Month
+                                    </div>
+                                    <div class="btn btn-primary mb-1" (click)="setView(CalendarView.Week)"
+                                        [class.active]="view === CalendarView.Week">
+                                        Week
+                                    </div>
+                                    <div class="btn btn-primary mb-1" (click)="setView(CalendarView.Day)"
+                                        [class.active]="view === CalendarView.Day">
+                                        Day
+                                    </div>
+                                    <button class="btn btn-raised btn-primary float-end mb-1" (click)="addEvent()">
+                                        Add Event
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12">
+
+                            </div>
+                        </div>
+                        <br />
+
+                        <div [ngSwitch]="view">
+                            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate"
+                                [events]="events" [activeDayIsOpen]="activeDayIsOpen" [refresh]="refresh"
+                                (dayClicked)="dayClicked($event.day)"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-month-view>
+                            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
+                                [events]="events" [refresh]="refresh" [snapDraggedEvents]="false"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventDropped($event)">
+                            </mwl-calendar-week-view>
+                            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate"
+                                [events]="events" [refresh]="refresh" [snapDraggedEvents]="false"
+                                (eventClicked)="handleEvent('Clicked', $event.event)"
+                                (eventTimesChanged)="eventDropped($event)">
+                            </mwl-calendar-day-view>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /row -->
+
+
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">{{ modalData?.action }}</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form action="#" class="form form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label>Event Title:</label>
+                    <input type="text" name="event-title" class="form-control" [(ngModel)]="modalData['event']['title']"
+                        (keyup)="refresh.next(true)" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Starts At:</label>
+                    <input class="form-control" name="event-title2" type="text" mwlFlatpickr [(ngModel)]="modalData['event']['start']"
+                   ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" />
+                </div>
+               
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="close()">OK</button>
+    </div>
+</ng-template>

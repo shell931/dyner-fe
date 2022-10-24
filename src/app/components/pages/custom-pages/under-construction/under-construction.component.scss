@@ -1,0 +1,92 @@
+// ::ng-deep{
+//     .test_Timer_class > span:nth-child(1){
+//             padding: 20px;
+//             background-color: #F7435C !important;
+//             color: white;
+//             border-radius: 5px;
+//             font-weight: 700!important;
+//             font-size: 1.75rem!important;
+//     }
+
+//     .test_Timer_class > span:nth-child(3){
+//         padding: 20px;
+//         background-color: #F7435C !important;
+//         color: white;
+//         border-radius: 5px;
+//         font-weight: 700!important;
+//         font-size: 1.75rem!important;
+//     }
+
+//     .test_Timer_class > span:nth-child(5){
+//         padding: 20px;
+//         background-color: #F7435C !important;
+//         color: white;
+//         border-radius: 5px;
+//         font-weight: 700!important;
+//         font-size: 1.75rem!important;
+// }
+// }
+
+
+
+#launch_date {
+	margin: 0;
+}
+.countdown-rtl {
+	direction: rtl;
+}
+.countdown-holding {
+	span {
+		color: #888;
+	}
+}
+.countdown-row {
+	clear: both;
+	width: 100%;
+	padding: 0px 2px;
+	text-align: center;
+}
+.countdown {
+	li {
+		display: inline-block;
+        font-size: 13px;
+        font-weight: 300;		
+		width: 126px;
+		height: 84px;
+		border-radius: 0px;
+		line-height: 22px;
+		padding: 20px;
+		text-align: center;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		box-shadow: 0 8px 16px 0 rgba(29, 29, 31 , 0.08);
+		color: #fff;
+        background-color: #F7435C !important;
+        border-radius: 10px;
+	}
+	.time {
+		font-size: 1.83rem;
+		padding-top: 2px;
+        font-weight: bold;
+	}
+}
+@media (max-width:991px) {
+	.countdown {
+		li {
+			margin: 20px 10px 10px 10px;
+		}
+	}
+	.is-countdown {
+		margin-top: 20px;
+	}
+}
+@media (min-width:992px) {
+	.countdown {
+		li {
+			margin: 30px 10px 5px 0;
+		}
+	}
+}

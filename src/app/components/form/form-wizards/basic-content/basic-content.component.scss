@@ -1,0 +1,10 @@
+::ng-deep{
+    .mat-horizontal-stepper-header-container{
+        padding: 20px;
+    }
+    aw-wizard-step{
+        form{
+            padding: 1rem !important;
+        }
+    }
+}

@@ -1,0 +1,146 @@
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
+        <div class="my-auto">
+            <div class="d-flex">
+                <h4 class="content-title mb-0 my-auto">Filemanager</h4><span
+                    class="text-muted mt-1 tx-13 ms-2 mb-0">/ File Details</span>
+            </div>
+        </div>
+        <div class="d-flex my-xl-auto right-content mr-2">
+            <div class="pr-1 mb-3 mb-xl-0">
+                <button type="button" class="btn btn-info btn-icon me-2"><i class="mdi mdi-filter-variant"></i></button>
+            </div>
+            <div class="pr-1 mb-3 mb-xl-0">
+                <button type="button" class="btn btn-danger btn-icon me-2"><i class="mdi mdi-star"></i></button>
+            </div>
+            <div class="pr-1 mb-3 mb-xl-0">
+                <button type="button" class="btn btn-warning  btn-icon me-2"><i class="mdi mdi-refresh"></i></button>
+            </div>
+            <div class="mb-3 mb-xl-0">
+                <div ngbDropdown class="btn-group">
+                    <button type="button" class="btn btn-primary">14 Aug 2019</button>
+                    <button type="button" ngbDropdownToggle class="btn btn-primary dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
+                        <a ngbDropdownItem href="javascript:;">2015</a>
+                        <a ngbDropdownItem href="javascript:;">2016</a>
+                        <a ngbDropdownItem href="javascript:;">2017</a>
+                        <a ngbDropdownItem href="javascript:;">2018</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+
+    <!-- Row -->
+
+    <div class="row row-sm">
+        <div class="col-xxl-8 col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-body px-4 pt-4">
+                    <a><img src="./assets/img/photos/blog-main.jpg" alt="img"
+                            class="cover-image rounded-7 w-100"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-4 col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card">
+                <div class=" card-body ">
+                    <h5 class="mb-3">File details :</h5>
+                    <div class="">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 border-top table-bordered text-nowrap">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">File-name</th>
+                                                <td>image.jpg</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">File-size</th>
+                                                <td>12.45mb</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">uploaded-date</th>
+                                                <td>01-12-2020</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">uploaded-by</th>
+                                                <td>prityy abodh</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">image-width</th>
+                                                <td>1000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">image-height</th>
+                                                <td>600</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">File-formate</th>
+                                                <td>jpg</td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th scope="row">File-location</th>
+                                                <td>storage/photos/image.jpg</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-8 col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card">
+                <div class="card-body h-100">
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let slide of slidesStore">
+                          <ng-template carouselSlide [id]="slide.id">
+                            <div class="item m-2">
+                              <div class="card">
+                                <div class="card custom-card overflow-hidden mb-0 ">
+                                  <a href="javascript:;"><img [src]="slide.src" [alt]="slide.alt"></a>
+                                  <div class="card-footer bd-t-0 py-3">
+                                    <div class="d-flex">
+                                      <div>
+                                        <h6 class="mb-0">{{slide.title}}</h6>
+                                      </div>
+                                      <div class="ms-auto">
+                                        <h6 class="text-muted mb-0">{{slide.size}}</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-template>
+                        </ng-container>
+                      </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-4 col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <h5 class="mb-3">Recent Files</h5>
+                    <ul id="lightgallery" class="list-unstyled row mb-0" gallerize>
+                        <li class="col-xs-6 col-sm-4 col-md-4 col-xl-3  border-bottom-0" *ngFor="let img of imageData" data-responsive="./assets/img/media/1.jpg" data-src="./assets/img/media/1.jpg" data-sub-html="<h4>Gallery Image 1</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                            <a>
+                                <img class="img-responsive rounded-5 my-2 mx-2" [src]="img.srcUrl" alt="Thumb-1">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Row -->
+

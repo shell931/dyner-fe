@@ -1,0 +1,61 @@
+// '#f10075', '#8500ff', '#7987a1', '#74de00','#f7557a','#007bff';
+// '#285cf7', '#f10075', '#8500ff', '#7987a1', '#74de00'
+::ng-deep {
+    .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut{
+        stroke: #f10075;
+    }
+    .ct-series-a .ct-slice-pie, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-area{
+        fill: #f10075;
+    }
+    .ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut{
+        stroke: #8500ff;
+    }
+    .ct-series-b .ct-slice-pie, .ct-series-b .ct-slice-donut-solid, .ct-series-b .ct-area{
+        fill: #8500ff;
+    }
+    .ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut{
+        stroke: #7987a1;
+    }
+    .ct-series-c .ct-slice-pie, .ct-series-c .ct-slice-donut-solid, .ct-series-c .ct-area{
+        fill: #7987a1;
+    }
+    .ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut{
+        stroke: #007bff;
+    }
+    .ct-series-d .ct-slice-pie, .ct-series-d .ct-slice-donut-solid, .ct-series-d .ct-area{
+        fill: #007bff;
+    }
+    .ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut{
+        stroke: #f7557a;
+    }
+    .ct-series-e .ct-slice-pie, .ct-series-e .ct-slice-donut-solid, .ct-series-e .ct-area{
+        fill: #f7557a;
+    }
+    .ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut{
+        stroke: #74de00;
+    }
+    .ct-series-f .ct-slice-pie, .ct-series-f .ct-slice-donut-solid, .ct-series-f .ct-area{
+        fill: #74de00;
+    }
+    .ct-series-g .ct-point, .ct-series-g .ct-line, .ct-series-g .ct-bar, .ct-series-g .ct-slice-donut{
+        stroke: #58a2f1;
+    }
+    .ct-series-g .ct-slice-pie, .ct-series-g .ct-slice-donut-solid, .ct-series-g .ct-area{
+        fill: #58a2f1;
+    }
+
+    .dark-theme{
+        .ct-label{
+            color: rgb(134, 134, 134);
+        }
+        .ct-grid{
+            stroke: rgb(59, 64, 81);
+        }
+    }
+
+
+}
+.chartjs-wrapper-demo{
+    height: auto!important;
+    width: auto!important;
+}
