@@ -1,0 +1,33 @@
+.main-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-check-transfer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-anex {
+    font-weight: 400;
+    color: #7987A1;
+    text-align: center;
+}
+
+.main-content-title{
+    text-align: center;
+}
+
+.mb-3, .my-3 {
+    margin-bottom: 2rem !important;
+}
