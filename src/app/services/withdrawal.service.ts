@@ -13,10 +13,15 @@ export class WithdrawalService {
     ) { }
 
     create_withdrawal = `${this.baseService.baseUrl}all-transfers-balance`;
+    get_withdrawal_list = `${this.baseService.baseUrl}paymentbuttons-transfers`;
 
     CreateWithdrawal(wData) {
         console.log(wData);
         const body = JSON.stringify(wData);
         return this.httpClient.post(`${this.create_withdrawal}`, body, {  headers: this.baseService.getAuthHeaders() });
     }
+
+    GetWithdrawalList() {
+        return this.httpClient.get(this.get_withdrawal_list, { headers: this.baseService.getAuthHeaders() });
+    }  
 }
