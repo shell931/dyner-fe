@@ -16,3 +16,22 @@ tr.mat-footer-row {
 .mat-cell, .mat-footer-cell {
     font-size: 12px;
 }
+
+.btn-icon i {
+    line-height: 0;
+    font-size: 0.9rem;
+}
+
+.btn-icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.margin-button-action{
+    margin-left: 5px;
+}

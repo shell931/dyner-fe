@@ -35,9 +35,18 @@ export const Full_Content_Routes: Routes = [
         path: 'payment-link',
         loadChildren: () => import('../../components/payment-link/payment-link.module').then(m => m.PaymentLinkModule)
     },
-
-
-
+    {
+        path: 'payment-link-create',
+        loadChildren: () => import('../../components/payment-link-create/payment-link-create.module').then(m => m.PaymentLinkCreateModule)
+    },
+    {
+        path: 'payment-link-edit/:id',
+        loadChildren: () => import('../../components/payment-link-edit/payment-link-edit.module').then(m => m.PaymentLinkEditModule)
+    },
+    {
+        path: 'payment-link-detail/:id',
+        loadChildren: () => import('../../components/payment-link-detail/payment-link-detail.module').then(m => m.PaymentLinkDetailModule)
+    },
     {
         path: 'icon',
         loadChildren: () => import('../../components/icon/icon.module').then(m => m.IconModule)

@@ -12,9 +12,25 @@ export class PaymentLinksService {
         private baseService: BaseService
     ) { }
 
-    list_links = `${this.baseService.baseUrl}links`;
+    base_links_url = `${this.baseService.baseUrl}links`;
 
     GetLinksList() {
-        return this.httpClient.get(this.list_links, { headers: this.baseService.getAuthHeaders() });
+        return this.httpClient.get(this.base_links_url, { headers: this.baseService.getAuthHeaders() });
     }
+
+    GetLinkById(id_link) {
+        let store: any;
+        return this.httpClient.get(`${this.base_links_url}/${id_link}`, { headers: this.baseService.getAuthHeaders() });
+    }
+
+    CreateLink(requestData) {
+        return this.httpClient.post<any>(`${this.base_links_url}`, requestData, {  headers: this.baseService.getAuthHeadersToFormData() });
+    }
+
+    UpdateLink(requestData, id_link) {
+        return this.httpClient.post<any>(`${this.base_links_url}/${id_link}`, requestData, {  headers: this.baseService.getAuthHeadersToFormData() });
+    }
+
+  
+
 }

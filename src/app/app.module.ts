@@ -12,12 +12,26 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
 import { WithdrawalHistoryComponent } from './components/withdrawal-history/withdrawal-history/withdrawal-history.component';
 import { DatafonoDigitalComponent } from './components/datafono-digital/datafono-digital/datafono-digital.component';
 import { PaymentLinkComponent } from './components/payment-link/payment-link/payment-link.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { BalanceWithdrawalResponseComponent } from './components/balance-withdrawal-response/balance-withdrawal-response/balance-withdrawal-response.component';
+import { PaymentLinkCreateComponent } from './components/payment-link-create/payment-link-create/payment-link-create.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DropzoneConfigInterface, DropzoneModule, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { PaymentLinkEditComponent } from './components/payment-link-edit/payment-link-edit/payment-link-edit.component';
+import { PaymentLinkDetailComponent } from './components/payment-link-detail/payment-link-detail/payment-link-detail.component';
 
+
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+  // Change this to your upload POST address:
+   url: 'https://httpbin.org/post',
+   acceptedFiles: 'image/*',
+  createImageThumbnails: true
+ };
 
 
 @NgModule({
@@ -29,6 +43,9 @@ import { BalanceWithdrawalResponseComponent } from './components/balance-withdra
     DatafonoDigitalComponent,
     PaymentLinkComponent,
     BalanceWithdrawalResponseComponent,
+    PaymentLinkCreateComponent,
+    PaymentLinkEditComponent,
+    PaymentLinkDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,10 +57,18 @@ import { BalanceWithdrawalResponseComponent } from './components/balance-withdra
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    DropzoneModule,
+    NgxDropzoneModule,
+    MatDatepickerModule
   ],  
   providers: [ 
-    
+    {
+      provide: DROPZONE_CONFIG,
+      useValue: DEFAULT_DROPZONE_CONFIG
+    },
     ColorPickerService
   ],
   bootstrap: [AppComponent],
