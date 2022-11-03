@@ -4,45 +4,45 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-advanced-form',
-  templateUrl: './advanced-form.component.html',
-  styleUrls: ['./advanced-form.component.scss']
+	selector: 'app-advanced-form',
+	templateUrl: './advanced-form.component.html',
+	styleUrls: ['./advanced-form.component.scss']
 })
 export class AdvancedFormComponent implements OnInit {
- 
-	 //ngx-dropzone
-	 files: File[] = [];
 
-	 onSelect(event: any) {
-	   this.files.push(...event.addedFiles);
-	 }
-   
-	 onRemove(event: any) {
-	   this.files.splice(this.files.indexOf(event), 1);
-	 }	
-	
-public disable: boolean = true;
+	//ngx-dropzone
+	files: File[] = [];
 
-  MultiseletDropDown:any[] = [];
-	MultiseletDropDown1:any[] = [];
-  SingleSearchItem = [];
-  SingleSearchSettings = {};
-  DisableItem = [];
-  DisableSettings = {};
-  groupDropdown:any[] = [];
-  SingleItems = [];
-  SingleSettings = {};
-  multipleItems = [];
-  multipleSettings = {};
-  groupItems = [];
+	onSelect(event: any) {
+		this.files.push(...event.addedFiles);
+	}
+
+	onRemove(event: any) {
+		this.files.splice(this.files.indexOf(event), 1);
+	}
+
+	public disable: boolean = true;
+
+	MultiseletDropDown: any[] = [];
+	MultiseletDropDown1: any[] = [];
+	SingleSearchItem = [];
+	SingleSearchSettings = {};
+	DisableItem = [];
+	DisableSettings = {};
+	groupDropdown: any[] = [];
+	SingleItems = [];
+	SingleSettings = {};
+	multipleItems = [];
+	multipleSettings = {};
+	groupItems = [];
 	groupSettings = {};
 
-  
 
-  constructor(private config: NgSelectConfig) { }
 
-  ngOnInit(): void {
-    this.MultiseletDropDown = [
+	constructor(private config: NgSelectConfig) { }
+
+	ngOnInit(): void {
+		this.MultiseletDropDown = [
 			{ "id": 1, "itemName": 'Volvo' },
 			{ "id": 2, "itemName": 'Saab' },
 			{ "id": 3, "itemName": 'Mercedes' },
@@ -67,7 +67,7 @@ public disable: boolean = true;
 			{ "id": 16, "itemName": 'Audi' },
 		]
 
-    this.groupDropdown = [
+		this.groupDropdown = [
 			{ "id": 1, "itemName": "India", "category": "asia" },
 			{ "id": 2, "itemName": "Singapore", "category": "asia pacific" },
 			{ "id": 3, "itemName": "Germany", "category": "Europe" },
@@ -76,29 +76,29 @@ public disable: boolean = true;
 			{ "id": 6, "itemName": "Sweden", "category": "Europe" },
 		];
 
-    this.SingleSettings = {
+		this.SingleSettings = {
 			singleSelection: true,
 			text: "Volvo",
 			classes: "myclass custom-class"
 		};
 
-    this.DisableSettings = {
-      text: "Saab",
+		this.DisableSettings = {
+			text: "Saab",
 			disabled: true
 		};
 
-    this.SingleSearchSettings = {
+		this.SingleSearchSettings = {
 			singleSelection: true,
 			text: 'Choose One',
 			enableSearchFilter: true,
 		};
 
-    this.multipleSettings = {
+		this.multipleSettings = {
 			text: "Volvo",
 			classes: "myclass custom-class"
 		};
 
-    this.groupSettings = {
+		this.groupSettings = {
 			singleSelection: false,
 			text: 'Volvo',
 			selectAllText: 'Select All',
@@ -108,20 +108,20 @@ public disable: boolean = true;
 			badgeShowLimit: 5,
 			groupBy: 'category'
 		}
-    
-  }
+
+	}
 
 
-	hasError(error){
-		console.log(error);	
+	hasError(error) {
+		console.log(error);
 	}
-	getNumber = (error)=>{
-		console.log(error);	
+	getNumber = (error) => {
+		console.log(error);
 	}
-	telInputObject(error){
-		console.log(error);	
+	telInputObject(error) {
+		console.log(error);
 	}
-	onCountryChange(error){
-		console.log(error);	
+	onCountryChange(error) {
+		console.log(error);
 	}
 }

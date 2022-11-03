@@ -21,13 +21,6 @@ export class BaseService {
         private router: Router,
     ) { }
 
-    getAuthHeaders() {
-        const token = localStorage.getItem('access_token');
-        return new HttpHeaders({
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
-        });
-    }
 
     GetErrorAuthSesion(error) {
         let myJSONError = JSON.stringify(error);
@@ -39,6 +32,23 @@ export class BaseService {
                 window.location.reload();
             });;
         }
+    }
+
+    getAuthHeaders() {
+        const token = localStorage.getItem('access_token');
+        return new HttpHeaders({
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        });
+    }
+
+    getAuthHeadersToFormData() {
+        const token = localStorage.getItem('access_token');
+        return new HttpHeaders({
+            // 'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${token}`
+
+        });
     }
 
 }

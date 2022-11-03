@@ -16,7 +16,7 @@ import { BaseService } from "src/app/services/base-service.service";
 })
 export class PaymentLinkComponent implements OnInit {
 
-    displayedColumns: string[] = ['descripcion', 'cod_producto', 'subtotal', 'end_date', 'total', 'estado'];
+    displayedColumns: string[] = ['descripcion', 'cod_producto', 'subtotal', 'end_date', 'total', 'status', 'action'];
 
     linksList: any[] = [];
     dataSource = new MatTableDataSource<any>(this.linksList);
@@ -54,7 +54,6 @@ export class PaymentLinkComponent implements OnInit {
 
 
     ngOnInit(): void {
-        console.log("yyyyyyy");
         this.PaymentLinksService.GetLinksList().subscribe(
             (LinkListdata) => {
                 this.GetLinksListF(LinkListdata)
@@ -67,11 +66,9 @@ export class PaymentLinkComponent implements OnInit {
     }
 
     GetLinksListF(LinkListdata) {     
-        console.log(LinkListdata.data.data);
         this.linksList = LinkListdata.data.data;
 		this.dataSource = new MatTableDataSource<any>(this.linksList);
         // setTimeout(() => this.dataSource.paginator = this.paginator);
-
         this.changeDetectorRef.detectChanges();
 		this.dataSource.paginator = this.paginator;
 		setTimeout(() => {
