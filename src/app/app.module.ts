@@ -24,6 +24,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { PaymentLinkEditComponent } from './components/payment-link-edit/payment-link-edit/payment-link-edit.component';
 import { PaymentLinkDetailComponent } from './components/payment-link-detail/payment-link-detail/payment-link-detail.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -62,7 +63,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     MatFormFieldModule,
     DropzoneModule,
     NgxDropzoneModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatRadioModule
   ],  
   providers: [ 
     {
