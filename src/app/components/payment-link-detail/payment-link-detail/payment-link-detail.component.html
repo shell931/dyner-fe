@@ -8,16 +8,20 @@
 
         <div class="flex-container">
             <div class="flex-item">
-                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success btn-block">Historial</button>
+                <button [routerLink]="['/transaction-history']" class="btn btn-success btn-block">Historial <img
+                        src="./assets/img/icons_link_detail/historico.svg" alt="logo" class="icon-buttons"></button>
             </div>
             <div class="flex-item margin-items-button-head">
-                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success btn-block">Borrar</button>
+                <button [routerLink]="['/balance-withdrawal',id_link]" class="btn btn-danger btn-block">Borrar <img
+                        src="./assets/img/icons_link_detail/delete.svg" alt="logo" class="icon-buttons"></button>
             </div>
             <div class="flex-item margin-items-button-head">
-                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success btn-block">Editar</button>
+                <button [routerLink]="['/payment-link-edit', id_link]" class="btn btn-info btn-block">Editar <img
+                    src="./assets/img/icons_link_detail/Edit.svg" alt="logo" class="icon-buttons"></button>
             </div>
             <div class="flex-item margin-items-button-head">
-                <button [routerLink]="['/payment-link']" class="btn btn-success btn-block">Hecho</button>
+                <button [routerLink]="['/payment-link']" class="btn btn-success btn-block">Hecho <img
+                        src="./assets/img/icons_link_detail/listo.svg" alt="logo" class="icon-buttons"></button>
             </div>
         </div>
 
@@ -29,28 +33,33 @@
             <div class="card-header pb-0">
                 <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">COMPARTE TU LINK EN LAS REDES SOCIALES
                 </h2>
-                <p class="mg-b-0 tx-14">Haz click en el ícono de la red sociales en la que deseas compartir tu link:</p>
             </div>
             <div class="card-body">
+                <p class="mg-b-0 tx-14 mb-3">Haz click en el ícono de la red sociales en la que deseas compartir tu
+                    link:</p>
                 <div class="flex-container">
                     <div class="flex-item">
-                        <img src="./assets/img/links_icons/facebook.svg" class="main-logo" alt="logo">
-
+                        <img src="./assets/img/links_icons/facebook.svg" class="icon-social-media" alt="logo">
                     </div>
                     <div class="flex-item">
-                        2
+                        <img src="./assets/img/links_icons/instagram.svg"
+                            class="icon-social-media margin-icon-social-media" alt="logo">
                     </div>
                     <div class="flex-item">
-                        3
+                        <img src="./assets/img/links_icons/messenger.svg"
+                            class="icon-social-media margin-icon-social-media" alt="logo">
                     </div>
                     <div class="flex-item">
-                        4
+                        <img src="./assets/img/links_icons/twitter.svg"
+                            class="icon-social-media margin-icon-social-media" alt="logo">
                     </div>
                     <div class="flex-item">
-                        5
+                        <img src="./assets/img/links_icons/whatsapp.svg"
+                            class="icon-social-media margin-icon-social-media" alt="logo">
                     </div>
                     <div class="flex-item">
-                        6
+                        <img src="./assets/img/links_icons/mail.svg" class="icon-social-media margin-icon-social-media"
+                            alt="logo">
                     </div>
                 </div>
 
@@ -61,15 +70,53 @@
                 <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">COPIA EL LINK DE PAGO</h2>
             </div>
             <div class="card-body" style="padding-left: 30px;">
+                <div class="row">
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" value="{{url_link}}" #userinput readonly>
+                    </div>
+                    <div class="col-md-3">
+                        <button (click)="copyInputMessage(userinput)" class="btn btn-purple btn-block">Copiar
+                            link
+                            <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons">
 
+                        </button>
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">PERSONALIZA EL BOTÓN PARA INCORPORARLO EN TU PÁGINA</h2>
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">INCORPORA EL BOTÓN DE PAGO
+                    EN TU PÁGINA</h2>
             </div>
             <div class="card-body" style="padding-left: 30px;">
 
+                <!-- <mat-radio-group [(ngModel)]="firstGroup" (ngModelChange)="onFirstGroupChange()">
+                    <div class="flex-container mb-2">
+                        <div class="flex-item margin-items-button-head">
+                            <mat-radio-button class="example-radio-button" [value]="1">Botón pequeño</mat-radio-button>
+                        </div>
+                        <div class="flex-item margin-items-button-head">
+                            <mat-radio-button class="example-radio-button" [value]="2">Botón mediano</mat-radio-button>
+                        </div>
+                        <div class="flex-item margin-items-button-head">
+                            <mat-radio-button class="example-radio-button" [value]="3">Botón grande
+                            </mat-radio-button>
+                        </div>
+                    </div>
+                </mat-radio-group> -->
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" value="{{url_link}}" #userinput readonly>
+                    </div>
+                    <div class="col-md-3">
+                        <button (click)="copyInputMessage(userinput)" class="btn btn-purple btn-block">Copiar
+                            botón <img
+                            src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,14 +127,73 @@
             </div>
             <div class="card-body">
 
+                <div fxLayout="row wrap" fxLayoutAlign="none" class="col-gap div_produc mt-3 mb-3"
+                    style="margin-left: 0px;" *ngIf="validate_image">
+                    <img class="img_size" src="{{linkImage}}/{{Image}}"
+                        style="width: 200px;height: 201px; margin-left: 0px;" mat-card-image alt="Photo">
+                </div>
+
+                <div class="flex-container-info mb-1">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Descripción</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <p class="mg-b-0 tx-14">{{description}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex-container-info mb-1 mt-2">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Fecha de vencimiento</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <p class="mg-b-0 tx-14">{{link_expiration}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex-container-info mb-1 mt-2">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Código de producto</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <p class="mg-b-0 tx-14">{{reference}}</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- <div class="flex-container-info">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">Subtotal</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <p class="mg-b-0 tx-14 mb-3">{{reference}}</p>
+                    </div>
+                </div>
+                <div class="flex-container-info">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">Impuesto</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <p class="mg-b-0 tx-14 mb-3">{{reference}}</p>
+                    </div>
+                </div> -->
+                <div class="flex-container-info mb-1 mt-2">
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Total</h2>
+                    </div>
+                    <div class="flex-item-info">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">{{price}}</h2>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">PREVISUALIZA EL BOTÓN</h2>
+            <div class="card-header pb-0" align="center">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">PREVISUALIZA EL LINK</h2>
             </div>
-            <div class="card-body">
-
+            <div class="card-body" align="center">
+                <div class="col-md-4">
+                    <a href="{{url_link}}" target="_blank" class="btn btn-purple btn-block" mat-menu-item>Ir</a>
+                </div>
             </div>
         </div>
     </div>
