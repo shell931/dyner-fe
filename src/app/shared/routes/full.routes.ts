@@ -24,6 +24,10 @@ export const Full_Content_Routes: Routes = [
         loadChildren: () => import('../../components/transaction-history/transaction-history.module').then(m => m.TransactionHistoryModule)
     },
     {
+        path: 'transaction-detail/:id',
+        loadChildren: () => import('../../components/transaction-detail/transaction-detail.module').then(m => m.TransactionDetailModule)
+    },
+    {
         path: 'withdrawal-history',
         loadChildren: () => import('../../components/withdrawal-history/withdrawal-history.module').then(m => m.WithdrawalHistoryModule)
     },

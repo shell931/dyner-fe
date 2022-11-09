@@ -5,6 +5,7 @@ import { NavService } from '../../services/nav.service';
 import { SidebarRightService } from '../../services/sidebar-right.service';
 import { SwitcherService } from '../../services/switcher.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
     selector: 'app-header',
@@ -15,12 +16,14 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     layoutSubscription: Subscription;
     public isCollapsed = true;
+    name_client: any = ""
 
     constructor(
         private sidebarRightservice: SidebarRightService,
         public navServices: NavService,
         public SwitcherService: SwitcherService,
         private router: Router,
+        private profileService: ProfileService,
     ) {
         this.layoutSubscription = sidebarRightservice.changeEmitted.subscribe(
             direction => {
@@ -32,6 +35,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         let navbarForm: any = document.querySelector('.navbar-form')
+        this.profileService.GetProfileData().subscribe(res => this.GetProfileDataF(res));
         navbarForm.addEventListener('click', (event: any) => {
             event.preventDefault();
             return;
@@ -99,12 +103,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
 
 
-    exit(){
+    exit() {
         localStorage.removeItem('access_token');
         this.router.navigate(['/login']).then(() => {
-           window.location.reload();
-        });; 
-     }
+            window.location.reload();
+        });;
+    }
+
+    GetProfileDataF(ProfileData) {
+        // console.log(ProfileData.data.user.client.nombre);
+        this.name_client = ProfileData.data.user.client.nombre;
+    }
 
 
 }

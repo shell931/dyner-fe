@@ -15,8 +15,12 @@
             </div>
             <div class="card-body">
                 <p class="mg-b-0 tx-14 mb-3">Con el datáfono 24, puedes cobrar de manera presencial y a distancia.</p>
-                <p class="mg-b-0 tx-14 mb-2">1. Si tu cobro es presencial, dile a tu pagador que escanee el código y continue con el pago. También puedes imprimirlo y dejarlo en lugar visible de tu tienda o lugar de trabajo.</p>
-                <p class="mg-b-0 tx-14">2. Si tu cobro es a distancia, simplemente copia el enlace y compártelo por redes sociales, sms, y más. Tu comprador solamente dará clic y continuará con su compra con múltiples opciones de pago de una manera fácil y segura.</p>
+                <p class="mg-b-0 tx-14 mb-2">1. Si tu cobro es presencial, dile a tu pagador que escanee el código y
+                    continue con el pago. También puedes imprimirlo y dejarlo en lugar visible de tu tienda o lugar de
+                    trabajo.</p>
+                <p class="mg-b-0 tx-14">2. Si tu cobro es a distancia, simplemente copia el enlace y compártelo por
+                    redes sociales, sms, y más. Tu comprador solamente dará clic y continuará con su compra con
+                    múltiples opciones de pago de una manera fácil y segura.</p>
             </div>
         </div>
     </div>
@@ -28,8 +32,13 @@
                 </div>
             </div>
             <div class="card-body">
-
                 <div class="row">
+                    <div class="col-md-12">
+                        <div align="center"> 
+                            <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="url_data_web"
+                            cssClass="bshadow"></ngx-qrcode>
+                        </div>
+                    </div>
                     <div class="col-md-9">
                         <input class="form-control" type="text" value="{{url_data_web}}" #userinput readonly>
                     </div>
@@ -37,15 +46,10 @@
                         <button (click)="copyInputMessage(userinput)" class="btn btn-purple btn-block">Copiar
                             link
                             <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons">
-
                         </button>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 </div>

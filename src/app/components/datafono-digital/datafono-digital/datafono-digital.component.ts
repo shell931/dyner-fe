@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
 import { BaseService } from "src/app/services/base-service.service";
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+
 
 @Component({
     selector: 'app-datafono-digital',
@@ -10,6 +12,9 @@ import { BaseService } from "src/app/services/base-service.service";
 export class DatafonoDigitalComponent implements OnInit {
 
     url_data_web: any;
+    elementType = NgxQrcodeElementTypes.URL;
+    correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+    value = "";
 
     constructor(
         private baseService: BaseService,
