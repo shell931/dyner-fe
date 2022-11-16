@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
   },
   {
-    path: '', title:"Valex - login",
+    path: '', title:"Dyner - login",
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   

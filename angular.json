@@ -61,7 +61,7 @@
               "@ckeditor/ckeditor5-build-classic",
               "leaflet"
             ],
-            "outputPath": "dist/valex",
+            "outputPath": "dist/dyner",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

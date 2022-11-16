@@ -1,0 +1,96 @@
+<div align="center">
+    <div class="breadcrumb-header-profile">
+        <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">Mi cuenta</h2>
+    </div>
+</div>
+
+<div align="center">
+    <div class="col-12 col-sm-5 col-lg-5 col-xl-5">
+        <div class="card">
+            <div class="card-header pb-0 align-start">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">DETALLES DE TU PERFIL</h2>
+            </div>
+            <div class="card-body ">
+                <p class="mg-b-0 tx-14 align-start mb-3">Consulta a continuación la información de tu perfil.</p>
+
+                <div class="flex-container mb-3" *ngIf="avatar">
+                    <div class="flex-item">
+                        <img src="{{avatar}}" class="img-avatar align-start " alt="logo">
+                    </div>
+                    <div class="flex-item">
+                        
+                    </div>
+                </div>
+
+                
+
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <p class="mg-b-0 tx-14 align-start mb-1">Razón social</p>
+                    </div>
+                    <div class="flex-item">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-1">{{name_commerce}}</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <p class="mg-b-0 tx-14 align-start mt-1 mb-1">Identificación</p>
+                    </div>
+                    <div class="flex-item">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-2 mt-2">{{nit}}</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <p class="mg-b-0 tx-14 align-start mt-1 mb-1">Nombre de contacto</p>
+                    </div>
+                    <div class="flex-item">
+                        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-2 mb-2">{{representante_legal}} </h2>
+                    </div>
+                </div>
+                <hr>
+                <p class="mg-b-0 tx-14 align-start mt-3">Logo del comercio</p>
+
+                <ngx-dropzone (change)="selectFileComplement($event)" [expandable]="true" [disableClick]="false"
+                    [accept]="'image/*'" [multiple]="false">
+                    <ngx-dropzone-label>¡Suelta tu imagen aqui para actualizar!
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of filesComplement"
+                        [file]="f" [removable]="true" (removed)="onRemoveComplement(f)">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})
+                        </ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header pb-0 align-start">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">CUENTAS DE DESEMBOLSO</h2>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let item of checkboxesDataList; let index = index" class="mt-2">
+                    <div class="flex-container ">
+                        <div class="flex-item">
+                            <img src="{{bankImage}}/{{item.bank.icon_image}}" class="img-bank-account" alt="logo">
+                        </div>
+                        <div class="flex-item align-start">
+                            <p class="tx-14 num-cuenta ">Número de cuenta de ahorros {{item.num_cuenta}}</p>
+                            <p class="tx-12 title-anex">Costo de la transacción $0 COP</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-sm-6 col-lg-6 col-xl-6 mb-3" align="center">
+        <div class="col-md-4">
+            <button (click)="submitbutton()" class="btn btn-success btn-block">Guardar cambios</button>
+        </div>
+    </div>
+</div>

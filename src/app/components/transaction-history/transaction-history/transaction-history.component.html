@@ -11,81 +11,80 @@
 <div class="row row-sm">
     <div class="col-md-12 col-lg-12 col-xl-12">
         <div class="card card-table-two">
-    
+
             <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">LISTADO DE TRANSACCIONES</h2>
             <p class="mg-b-0 tx-14">Consulta a continuación todas tus transacciones realizadas</p>
             <div class="table-responsive">
-                 <mat-form-field appearance="standard">
+                <mat-form-field appearance="standard">
                     <mat-label>Buscar</mat-label>
                     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
                 </mat-form-field>
                 <div class="mat-elevation-z8">
                     <table mat-table [dataSource]="dataSource" matSort>
-                        
+
                         <ng-container matColumnDef="servicio">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </th>
                             <td mat-cell *matCellDef="let row"> {{row.servicio}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="referenciatx">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
                             <td mat-cell *matCellDef="let row"> {{row.referenciatx}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="num_autorizacion">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Autorización </th>
                             <td mat-cell *matCellDef="let row"> {{row.num_autorizacion}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="created_at">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
                             <td mat-cell *matCellDef="let row"> {{row.created_at}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="descripcion">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
                             <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="total">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
-                            <td mat-cell *matCellDef="let row"> {{row.total}} </td>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor COP</th>
+                            <td mat-cell *matCellDef="let row">{{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}</td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="nombre_comprador">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
                             <td mat-cell *matCellDef="let row"> {{row.nombre_comprador}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="descripcion_estado">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
                             <td mat-cell *matCellDef="let row"> {{row.descripcion_estado}} </td>
                         </ng-container>
-    
+
                         <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
                             <td mat-cell *matCellDef="let row">
-                                <a href="www.google.com" title=""
-                                    ngbTooltip="Detalle">
+
+                                <a [routerLink]="['/transaction-detail',row.id]" 
+                                    title="" ngbTooltip="Detalle">
                                     Ver mas
                                 </a>
+
                             </td>
                         </ng-container>
-    
+
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-                    </table> 
-    
+                    </table>
+
                     <mat-paginator [pageSizeOptions]="[10, 10, 25, 100]" aria-label="Select page of users">
                     </mat-paginator>
                 </div>
-    
-    
+
+
             </div>
         </div>
     </div>
 </div>
-
-
-

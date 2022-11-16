@@ -19,7 +19,6 @@ export class PaymentLinksService {
     }
 
     GetLinkById(id_link) {
-        let store: any;
         return this.httpClient.get(`${this.base_links_url}/${id_link}`, { headers: this.baseService.getAuthHeaders() });
     }
 

@@ -1,24 +1,25 @@
-::ng-deep{
-    .main-header-right .dropdown-toggle::after{
+::ng-deep {
+    .main-header-right .dropdown-toggle::after {
         display: none !important;
     }
-    @media (max-width: 768px){
+
+    @media (max-width: 768px) {
         .main-body.app.sidebar-mini .main-header form[role=search].active input {
             padding-left: 20px !important;
             width: 96% !important;
         }
     }
 
-    
+
     @media screen and (min-width:480px) and (max-width: 768px) {
-        .stickyy{
-            position:  fixed !important;
+        .stickyy {
+            position: fixed !important;
         }
     }
 
     @media screen and (min-width:768px) and (max-width: 991px) {
-        .stickyy{
-            position:  fixed !important;
+        .stickyy {
+            position: fixed !important;
         }
     }
 
@@ -49,7 +50,53 @@
 // }
 
 @media (min-width:320px) and (max-width:328px) {
-    .nav-link#bs-example-navbar-collapse-1{
+    .nav-link#bs-example-navbar-collapse-1 {
         padding: 0.6rem 0rem !important;
     }
 }
+
+
+.flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+
+.flex-item:nth-child(1) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(2) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    }

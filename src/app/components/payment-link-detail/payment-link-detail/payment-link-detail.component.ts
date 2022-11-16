@@ -43,10 +43,6 @@ export class PaymentLinkDetailComponent implements OnInit {
                 this.baseService.GetErrorAuthSesion(error)
             }
         );
-
-        console.log(this.id_link);
-
-
     }
 
     GetLinkByIdF(Linktdata) {

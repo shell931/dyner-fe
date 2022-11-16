@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountStateComponent } from './account-state/account-state.component';
+import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 
 
 const routes: Routes = [
@@ -8,8 +8,8 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Dyner - Account State",
-                component: AccountStateComponent
+                path: '', title:"Dyner24 - Transaccion",
+                component: TransactionDetailComponent
             },
         ],
     }
@@ -18,4 +18,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class AccountStateRoutingModule { }
+export class TransactionDetailRoutingModule { }
