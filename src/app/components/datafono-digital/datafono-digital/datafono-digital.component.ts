@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
 import { BaseService } from "src/app/services/base-service.service";
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class DatafonoDigitalComponent implements OnInit {
     GetProfileDataF(ProfileData) {
         this.url_data_web = ProfileData.data.user.client.url_data_web;
         console.log(this.url_data_web);
-        
+
     }
 
     copyInputMessage(inputElement) {
@@ -45,5 +46,14 @@ export class DatafonoDigitalComponent implements OnInit {
         document.execCommand('copy');
         inputElement.setSelectionRange(0, 0);
     }
+
+    options: AnimationOptions = {
+        path: "./assets/img/lotties/6006-qr-code-scan.json"
+    };
+
+    // options: AnimationOptions = {
+    //     animationData: LottieTransferState.get('data.json'),
+    // };
+
 
 }

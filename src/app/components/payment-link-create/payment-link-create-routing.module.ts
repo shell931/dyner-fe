@@ -11,7 +11,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Valex - Dashboard",
+                path: '', title:"Dyner24 - Link de pago",
                 component: PaymentLinkCreateComponent
             },
         ],

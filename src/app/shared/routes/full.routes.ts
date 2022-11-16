@@ -99,4 +99,8 @@ export const Full_Content_Routes: Routes = [
         path: 'menu-levels',
         loadChildren: () => import('../../components/menu-levels/menu-levels.module').then(m => m.MenuLevelsModule)
     },
+    {
+        path: 'profile',
+        loadChildren: () => import('../../components/profile/profile.module').then(m => m.ProfileModule)
+    },
 ];
