@@ -7,7 +7,12 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationComponent } from './authentication.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LottieModule } from "ngx-lottie";
+import player from "lottie-web";
 
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MaterialModuleModule,
     ToastrModule.forRoot(), 
+    LottieModule.forRoot({ player: playerFactory })
   ]
 })
 export class AuthenticationModule { }

@@ -32,6 +32,7 @@ import { LottieModule } from "ngx-lottie";
 import player from "lottie-web";
 
 
+
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
   url: 'https://httpbin.org/post',
@@ -56,7 +57,7 @@ export function playerFactory() {
     PaymentLinkEditComponent,
     PaymentLinkDetailComponent,
     TransactionDetailComponent,
-    ProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

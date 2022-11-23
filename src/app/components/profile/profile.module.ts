@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UsMapModule } from 'angular-us-map';
 
+
  
 
 @NgModule({
@@ -17,6 +18,7 @@ import { UsMapModule } from 'angular-us-map';
     NgApexchartsModule,
     NgbModule,
     UsMapModule
-  ]
+  ],
+ 
 })
 export class ProfileModule { }

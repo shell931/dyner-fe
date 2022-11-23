@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
 
 interface TokenObj {
     access_token: string;
@@ -60,5 +61,10 @@ export class AuthenticationComponent implements OnInit {
 
         }
     }
+
+    options: AnimationOptions = {
+        path: "./assets/img/lotties/login-lottie.json"
+    };
+
 
 }
