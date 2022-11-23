@@ -23,7 +23,7 @@ const routes: Routes = [
               component: SignUpComponent
           },
           {
-              path: 'forgot-password', title:"Valex - Forgot Password",
+              path: 'forgot-password', title:"Dyner - Olvidaste tu contraseña",
               component: ForgotPasswordComponent
           },
           {

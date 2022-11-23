@@ -57129,6 +57129,10 @@ button.bg-dark:focus {
     background-color: #fff !important;
 }
 
+.bg-black {
+    background-color: #0F0F0F !important;
+}
+
 .bg-transparent {
     background-color: transparent !important;
 }
@@ -57293,6 +57297,10 @@ button.bg-dark:focus {
 
 .bg-primary-transparent {
     background-color: var(--primary-3) !important;
+}
+
+.bg-primary-color-withe {
+    background-color: #f1f1f1 !important;
 }
 
 .bg-secondary-transparent {
