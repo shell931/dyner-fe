@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
-        <div class="card">
+        <div class="card card-height">
             <div class="card-header pb-0">
                 <div align="center">
                     <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-2">ESCANEA EL CÓDIGO QR PARA PAGAR</h2>
@@ -36,7 +36,8 @@
                     <div class="col-md-12">
                         <div align="center"> 
                             <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="url_data_web"
-                            cssClass="bshadow"></ngx-qrcode>
+                            cssClass="bshadow"  [width]="180"
+                            [height]="180"></ngx-qrcode>
                         </div>
                     </div>
                     <div class="col-md-9">

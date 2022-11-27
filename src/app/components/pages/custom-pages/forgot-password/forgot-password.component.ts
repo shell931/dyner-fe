@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, FormArray, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
-
+import { FormControl, FormGroup, FormBuilder, FormArray, ValidatorFn, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from "src/app/services/authentication.service";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-forgot-password',
@@ -9,23 +11,42 @@ import { FormControl, FormGroup, FormBuilder, FormArray, Validators, ValidatorFn
 })
 export class ForgotPasswordComponent implements OnInit {
 
-    linkForm: FormGroup;
+    // loginForm: FormGroup;
+    loginForm!: UntypedFormGroup
+    emailPattern: string = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 
     constructor(
         private formGroup: FormBuilder,
+        private authenticationService: AuthenticationService,
+        private router: Router,
     ) { }
 
     ngOnInit(): void {
-        this.linkForm = this.formGroup.group({
-            email: ['', [Validators.required]],
-        });
-
+        this.loginForm = this.formGroup.group({
+            email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+        })
     }
 
 
-    submitbutton() {
-        console.log("hola");
+    submitbutton() {        
+        if (this.loginForm.valid) {
 
+            let myObjRecoverPass = {
+                "email": this.loginForm.value.email,
+            }; 
+
+            this.authenticationService.RecoverPassword(myObjRecoverPass).subscribe(
+                result => {
+                    console.log(result);
+                    this.router.navigate(['custompages/forgot-password-response']).then(() => {
+                        // this.show_spinner = false;
+                        // window.location.reload();
+                    });
+                    
+                }
+            );
+            
+        }
     }
 
 }

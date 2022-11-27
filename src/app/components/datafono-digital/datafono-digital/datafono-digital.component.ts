@@ -3,6 +3,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { BaseService } from "src/app/services/base-service.service";
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class DatafonoDigitalComponent implements OnInit {
     elementType = NgxQrcodeElementTypes.URL;
     correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
     value = "";
+    gatewayUrl = environment.api.gatewayUrl;
 
     constructor(
         private baseService: BaseService,
@@ -36,7 +38,7 @@ export class DatafonoDigitalComponent implements OnInit {
     }
 
     GetProfileDataF(ProfileData) {
-        this.url_data_web = ProfileData.data.user.client.url_data_web;
+        this.url_data_web = this.gatewayUrl+ProfileData.data.user.client.url_data_web;
         console.log(this.url_data_web);
 
     }
