@@ -17,7 +17,8 @@ export class DatafonoDigitalComponent implements OnInit {
     elementType = NgxQrcodeElementTypes.URL;
     correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
     value = "";
-    gatewayUrl = environment.api.gatewayUrl;
+    gatewayUrl = environment.api.gatewayUrl+'pay/';
+    public validate_copy: boolean = false;
 
     constructor(
         private baseService: BaseService,
@@ -44,9 +45,11 @@ export class DatafonoDigitalComponent implements OnInit {
     }
 
     copyInputMessage(inputElement) {
+        this.validate_copy = false;
         inputElement.select();
         document.execCommand('copy');
         inputElement.setSelectionRange(0, 0);
+        this.validate_copy = true;
     }
 
     options: AnimationOptions = {
