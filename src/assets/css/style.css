@@ -1135,6 +1135,19 @@ fieldset:disabled a.btn {
     box-shadow: 0 0 0 0.2rem rgba(141, 153, 175, 0.5);
 }
 
+.btn-success-dyner {
+    color: #fff;
+    background-color: #F7435C;
+    border-color: #F7435C;
+}
+
+.btn-success-dyner:hover {
+    color: #fff;
+    background-color: #dd4c60;
+    border-color: #dd4c60;
+}
+
+
 .btn-success {
     color: #fff;
     background-color: #22c03c;

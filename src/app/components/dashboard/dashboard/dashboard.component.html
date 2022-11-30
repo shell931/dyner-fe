@@ -18,7 +18,9 @@
         <div>
             <!-- <label class="tx-13">Número de transacciones</label>
             <h5>563,275</h5> -->
-            <button [routerLink]="['/balance-withdrawal']" class="btn btn-success btn-block">Solicitar transferencia</button>
+            <button [routerLink]="['/balance-withdrawal']" class="btn btn-success-dyner btn-block">Solicitar
+                retiro <img src="./assets/img/svgicons/transfers.svg"
+                class="img-cards-icons-button" alt="logo"></button>
         </div>
         <!-- <div>
             <label class="tx-13">Número de retiros</label>
@@ -40,9 +42,10 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-25 mg-b-1 mg-b-lg-1">{{capital_total_sum_service|currency : 'USD' : 'symbol' : '1.0-0'}} COP </h1>
+                        <h1 class="main-content-title tx-25 mg-b-1 mg-b-lg-1">{{capital_total_sum_service|currency :
+                            'USD' : 'symbol' : '1.0-0'}} COP </h1>
                     </div>
-                    <div class="flex-item"><img src="./assets/img/svgicons/dashboard_capital.svg"
+                    <div class="flex-item"><img src="./assets/img/svgicons/checkok.svg"
                             class="img-cards-dashboard" alt="logo"></div>
                 </div>
             </div>
@@ -59,9 +62,10 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1">{{dispo_total_sum_service|currency : 'USD' : 'symbol' : '1.0-0'}} COP</h1>
+                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1">{{dispo_total_sum_service|currency : 'USD'
+                            : 'symbol' : '1.0-0'}} COP</h1>
                     </div>
-                    <div class="flex-item"><img src="./assets/img/svgicons/dashboard_disponible.svg"
+                    <div class="flex-item"><img src="./assets/img/svgicons/wallet.svg"
                             class="img-cards-dashboard" alt="logo"></div>
                 </div>
             </div>
@@ -78,9 +82,10 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1"> {{en_transfe_total_sum_service|currency : 'USD' : 'symbol' : '1.0-0'}} COP </h1>
+                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1"> {{en_transfe_total_sum_service|currency :
+                            'USD' : 'symbol' : '1.0-0'}} COP </h1>
                     </div>
-                    <div class="flex-item"><img src="./assets/img/svgicons/dashboard_entransfe.svg"
+                    <div class="flex-item"><img src="./assets/img/svgicons/Transferencia.svg"
                             class="img-cards-dashboard" alt="logo"></div>
                 </div>
             </div>
@@ -356,8 +361,7 @@
                         <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
                             <td mat-cell *matCellDef="let row">
-                                <a href="www.google.com" title=""
-                                    ngbTooltip="Detalle">
+                                <a [routerLink]="['/transaction-detail',row.id]" title="" ngbTooltip="Detalle">
                                     Ver mas
                                 </a>
                                 <!-- <a href="javascript:void(0);" class="btn btn-sm btn-icon btn-salmon" title=""
