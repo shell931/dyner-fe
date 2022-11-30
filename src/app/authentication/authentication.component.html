@@ -58,19 +58,19 @@
 													<h2>¡Bienvenido!</h2>
 												</div>
 												
-												<h5 class="font-weight-semibold mb-4 colo-subl">Inicia sesión a continuación</h5>
+												<h5 class="font-weight-semibold mb-4 colo-subl">Ingresa tu correo electrónico</h5>
 												<form [formGroup]="loginForm">
 													<div class="form-group">
 														<label>Correo electrónico</label>
-														<input class="form-control" placeholder="Enter your email"
+														<input class="form-control" placeholder="Coloca tu correo"
 															type="text" formControlName="email">
 													</div>
 													<div class="form-group">
 														<label>Contraseña</label>
-														<input class="form-control" placeholder="Enter your password"
+														<input class="form-control" placeholder="Ingresa tu contraseña"
 															type="password" formControlName="password">
 													</div>
-													<button class="btn btn-main-primary btn-block"
+													<button class="btn btn-success-dyner btn-block"
 														[disabled]="!loginForm.valid" (click)="login_front()">Iniciar sesión</button>
 													<!-- <button class="mb-3 color_button_ac" mat-raised-button (click)="login_front()">Ingresar!</button> -->
 													<!-- <div class="row row-xs">
@@ -82,6 +82,17 @@
 															</div>
 														</div> -->
 												</form>
+
+
+												<div class="mt-2" *ngIf="validate_user">
+													<li style="color:red">
+														<label style="color:red">
+															Usuario o contraseña incorrectos
+														</label>
+													</li>
+												</div>
+
+
 												<div class="main-signin-footer mt-4">
 													<p><a routerLink="/custompages/forgot-password" class="colo-subl">¿Olvidaste tu contraseña?</a>
 													</p>

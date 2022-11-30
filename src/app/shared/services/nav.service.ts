@@ -73,23 +73,23 @@ export class NavService implements OnDestroy {
             headTitle: 'Transacciones'
         },
         {
-            path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
+            path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'send', badgeClass: 'success', active: true,
         },
         {
-            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
+            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'notes', badgeClass: 'success', active: true,
         },
         {
-            path: '/withdrawal-history', title: 'Historial de retiros', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
+            path: '/withdrawal-history', title: 'Historial de retiros', type: 'link', icon: 'sort', badgeClass: 'success', active: true,
         },
         {
             headTitle: 'Herramientas'
         },
 
         {
-            path: '/datafono-digital', title: 'Datáfono digital', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
+            path: '/datafono-digital', title: 'Datáfono digital', type: 'link', icon: 'credit_card', badgeClass: 'success', active: true,
         },
         {
-            path: '/payment-link', title: 'Link de pago', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
+            path: '/payment-link', title: 'Link de pago', type: 'link', icon: 'share', badgeClass: 'success', active: true,
         },
 
         // {

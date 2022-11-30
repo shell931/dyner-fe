@@ -29,6 +29,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import 'hammerjs';
 import 'mousetrap';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
+// import { ForgotPasswordResponseComponent } from './profile/custom-pages/forgot-password-response/forgot-password-response.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {

@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
-        <div class="card">
+        <div class="card card-height">
             <div class="card-header pb-0">
                 <div align="center">
                     <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-2">ESCANEA EL CÓDIGO QR PARA PAGAR</h2>
@@ -34,13 +34,18 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div align="center"> 
-                            <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="url_data_web"
-                            cssClass="bshadow"></ngx-qrcode>
+                        <div align="center">
+                            <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel"
+                                [value]="url_data_web" cssClass="bshadow" [width]="180" [height]="180"></ngx-qrcode>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <input class="form-control" type="text" value="{{url_data_web}}" #userinput readonly>
+                        <div class="mt-2" *ngIf="validate_copy">
+                            <label style="color:blue">
+                                ¡El url fue copiado!
+                            </label>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <button (click)="copyInputMessage(userinput)" class="btn btn-purple btn-block">Copiar
@@ -62,15 +67,16 @@
                     </div>
                     <div class="col-md-6">
                         <div align="center">
-                            <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-4">Seguridad de talla mundial a tu alcance.</h2>
-                            <p class="mg-b-0 tx-14 mb-2 mt-3" style="color:#4D5875">Tu QR de pago estará cifrado de punta a punta bajo los más altos estandares de seguridad internacional.</p>
+                            <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mt-4">Seguridad de talla mundial a tu
+                                alcance.</h2>
+                            <p class="mg-b-0 tx-14 mb-2 mt-3" style="color:#4D5875">Tu QR de pago estará cifrado de
+                                punta a punta bajo los más altos estandares de seguridad internacional.</p>
                         </div>
 
                     </div>
                     <div class="col-md-3">
                         <div align="center">
-                            <img src="./assets/img/svgicons/pci_cert.svg"
-                                class="img-cards-dashboard mt-5" alt="logo">
+                            <img src="./assets/img/svgicons/pci_cert.svg" class="img-cards-dashboard mt-5" alt="logo">
                         </div>
                     </div>
                 </div>

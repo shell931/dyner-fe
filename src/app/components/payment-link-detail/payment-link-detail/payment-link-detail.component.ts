@@ -21,7 +21,10 @@ export class PaymentLinkDetailComponent implements OnInit {
     url_link: any;
     validate_image: boolean = true;
     linkImage = environment.api.linkImage;
+    gatewayUrl = environment.api.gatewayUrl+'linkpay/';
     labelPosition: 'before' | 'after' = 'after';
+    public validate_copy: boolean = false;
+    public validate_copy_button: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -53,7 +56,7 @@ export class PaymentLinkDetailComponent implements OnInit {
         this.reference = Linktdata.data.cod_producto;
         this.link_expiration = Linktdata.data.end_date;
         this.Image = Linktdata.data.image;
-        this.url_link = Linktdata.data.url_link;
+        this.url_link = this.gatewayUrl+Linktdata.data.url_link;
 
         if (this.Image == null || this.Image == "") {
             this.validate_image = false;
@@ -61,10 +64,23 @@ export class PaymentLinkDetailComponent implements OnInit {
     }
 
     copyInputMessage(inputElement) {
+        this.validate_copy = false;
         inputElement.select();
         document.execCommand('copy');
         inputElement.setSelectionRange(0, 0);
+        this.validate_copy = true;
     }
+
+    copyInputMessageButton(inputElement) {
+        this.validate_copy_button = false;
+        inputElement.select();
+        document.execCommand('copy');
+        inputElement.setSelectionRange(0, 0);
+        this.validate_copy_button = true;
+    }
+
+    
+
     firstGroup = 0;
     onFirstGroupChange() {
         // if (this.firstGroup === 1 && this.secondGroup === 1) {

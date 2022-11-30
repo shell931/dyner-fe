@@ -38,7 +38,7 @@
             <div class="card-header pb-0">
                 <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">SELECCIONA LA CUENTA DESTINO</h2>
             </div>
-            <div class="card-body" style="padding-left: 30px;">
+            <div class="card-body"  style="padding-left: 40px;padding-right: 40px;">
                 <div *ngFor="let item of checkboxesDataList; let index = index" class="mt-2">
                     <div class="flex-container">
                         <div class="flex-item">
@@ -65,7 +65,7 @@
                     <div class="flex-item">
                         <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1">{{totalTransfer|currency : 'USD' : 'symbol' : '1.0-0'}} COP</h1>
                     </div>
-                    <div class="flex-item"><img src="./assets/img/svgicons/dashboard_disponible.svg"
+                    <div class="flex-item"><img src="./assets/img/svgicons/wallet.svg"
                             class="img-cards-dashboard" alt="logo"></div>
                 </div>
             </div>
@@ -77,7 +77,8 @@
 
     <div class="col-12 col-sm-6 col-lg-6 col-xl-6" align="center">
         <div class="col-md-4">
-            <button class="btn btn-success btn-block" (click)="submitbutton()">Solicitar transferencia</button>
+            <button class="btn btn-success-dyner btn-block" (click)="submitbutton()">Solicitar retiro <img src="./assets/img/svgicons/transfers.svg"
+                class="img-cards-icons-button" alt="logo"></button>
         </div>
         <div class="mt-2" *ngIf="validate_account_select">
             <li style="color:red">

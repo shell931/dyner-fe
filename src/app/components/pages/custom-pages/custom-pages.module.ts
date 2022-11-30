@@ -13,8 +13,9 @@ import { Error500Component } from './error500/error500.component';
 import { Error501Component } from './error501/error501.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxTimerModule } from 'ngx-timer';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ForgotPasswordResponseComponent } from './forgot-password-response/forgot-password-response.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,17 @@ import { NgxTimerModule } from 'ngx-timer';
     UnderConstructionComponent,
     Error404Component,
     Error500Component,
-    Error501Component
+    Error501Component,
+    ForgotPasswordResponseComponent
   ],
   imports: [
     CommonModule,
     CustomPagesRoutingModule,
     NgbModule,
-    NgxTimerModule
+    NgxTimerModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule
   ]
 })
 export class CustomPagesModule { }

@@ -16,6 +16,7 @@ interface TokenObj {
 export class AuthenticationComponent implements OnInit {
 
     loginForm!: UntypedFormGroup
+    public validate_user: boolean = false;
 
     constructor(
         private formBuilder: UntypedFormBuilder,
@@ -25,8 +26,8 @@ export class AuthenticationComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
-            email: ['valex@demo.com', Validators.required],
-            password: ['valex', Validators.required]
+            email: ['', Validators.required],
+            password: ['', Validators.required]
         })
     }
 
@@ -41,6 +42,7 @@ export class AuthenticationComponent implements OnInit {
     }
 
     login_front() {
+        this.validate_user = false;
         if (this.loginForm.valid) {
             this.AuthenticationServiceT.loginUser(this.loginForm.value).subscribe(
                 (result) => {
@@ -54,6 +56,7 @@ export class AuthenticationComponent implements OnInit {
                     }
                 },
                 error => {
+                    this.validate_user = true;
                     console.log("failll aquiii");
                     console.log(error)
                 }
