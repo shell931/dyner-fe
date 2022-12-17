@@ -87,6 +87,21 @@
                 </label>
             </li>
         </div>
+        <div class="mt-2" *ngIf="validate_account_grater">
+            <li style="color:red">
+                <label style="color:red">
+                    Valor no autorizado para retiros
+                </label>
+            </li>
+        </div>
+        <div class="mt-2" *ngIf="validate_last_transfer">
+            <li style="color:red">
+                <label style="color:red">
+                    Debe esperar por lo menos 72 horas para poder realizar una nueva solicitud de retiro
+                </label>
+            </li>
+        </div>
+        
     </div>
 
 </div>

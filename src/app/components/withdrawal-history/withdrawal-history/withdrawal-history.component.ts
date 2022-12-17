@@ -13,7 +13,7 @@ import { WithdrawalService } from "src/app/services/withdrawal.service";
 })
 export class WithdrawalHistoryComponent implements OnInit {
 
-    displayedColumns: string[] = ['id', 'num_cuenta', 'val_solicitado', 'val_transferido', 'created_at', 'status'];
+    displayedColumns: string[] = ['referencia', 'num_cuenta', 'val_solicitado', 'val_transferido', 'created_at', 'status'];
     withdrawal_list: any[] = [];
     dataSource = new MatTableDataSource<any>(this.withdrawal_list);
 

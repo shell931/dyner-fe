@@ -20,7 +20,8 @@ export class BalanceWithdrawalComponent implements OnInit {
     account: any[] = [];
     bankImage = environment.api.bankImage;
     public validate_account_select: boolean = false;
-
+    public validate_account_grater: boolean = false;
+    public validate_last_transfer: boolean = false;
     list: any[] = [];
 
     constructor(
@@ -46,6 +47,8 @@ export class BalanceWithdrawalComponent implements OnInit {
 
 
     GetAllTransferBalanceF(Alldata) {
+        console.log(Alldata);
+
         // this.selectedIndex = 0;
         this.totalTransfer = Alldata.data.totalTransfer;
         this.discount = Alldata.data.discount;
@@ -73,31 +76,46 @@ export class BalanceWithdrawalComponent implements OnInit {
     submitbutton() {
         console.log(this.selectedItemsList);
         console.log(this.event);
-        this.validate_account_select = false;
-        if (this.event == false) {
-            this.validate_account_select = true;
-        } else {
-            let myObjWithdrawal = {
-                "accountId": this.selectedItemsList,
-                "availableBalance": this.totalTransfer,
-                "totalTransfer": this.totalTransfer,
-                "cuatropormil": this.cuatropormil,
-                "preventionFund": 0,
-                "commissionTransfer": this.discount
-            };
-            
-            this.withdrawalService.CreateWithdrawal(myObjWithdrawal).subscribe(
-                result => {
-                    // console.log(result);
-                    this.router.navigate(['balance-withdrawal-response']).then(() => {
-                        // this.show_spinner = false;
-                        // window.location.reload();
-                    });
-                    
-                }
-            );
 
+        this.validate_account_grater = false;
+        if (this.totalTransfer < 1) {
+            this.validate_account_grater = true;
+        } else {
+            this.validate_account_select = false;
+            if (this.event == false) {
+                this.validate_account_select = true;
+            } else {
+                this.validate_last_transfer = false;
+                this.withdrawalService.GetLastTransfersTime().subscribe(
+                    result => {
+                        if (result['data'].valid == false) {
+                            this.validate_last_transfer = true;
+                        } else {
+                            let myObjWithdrawal = {
+                                "accountId": this.selectedItemsList,
+                                "availableBalance": this.totalTransfer,
+                                "totalTransfer": this.totalTransfer,
+                                "cuatropormil": this.cuatropormil,
+                                "preventionFund": 0,
+                                "commissionTransfer": this.discount
+                            };
+
+                            this.withdrawalService.CreateWithdrawal(myObjWithdrawal).subscribe(
+                                result => {
+                                    // console.log(result);
+                                    this.router.navigate(['balance-withdrawal-response']).then(() => {
+                                        // this.show_spinner = false;
+                                        // window.location.reload();
+                                    });
+
+                                }
+                            );
+                        }
+                    }
+                );
+            }
         }
+
 
     }
 }

@@ -46,9 +46,9 @@
                 <div class="mat-elevation-z8">
                     <table mat-table [dataSource]="dataSource" matSort>
                         
-                        <ng-container matColumnDef="id">
+                        <ng-container matColumnDef="referencia">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
-                            <td mat-cell *matCellDef="let row"> RF{{row.id}} </td>
+                            <td mat-cell *matCellDef="let row">{{row.referencia}} </td>
                         </ng-container>
     
                         <ng-container matColumnDef="num_cuenta">
