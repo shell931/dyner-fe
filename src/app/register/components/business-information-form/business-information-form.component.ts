@@ -14,8 +14,8 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
     { id: 2, description: 'Persona Juridica' }
   ];
   public businessInformationForm: FormGroup;
-  @Input() currentStep = 1;
-  @Input() totalSteps = 4;
+  @Input() currentStep;
+  @Input() totalSteps;
   @Input() identificationTypes: any[] = [];
   @Input() economityActivities: any[] = [];
 
@@ -31,7 +31,6 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {}
-
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['identificationTypes']) {

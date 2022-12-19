@@ -1,4 +1,8 @@
-<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+<div class="text-center">
+  <h2>Abre tu cuenta</h2>
+  <p>Paso {{currentStep}} de {{totalSteps}}</p>
+  <h5 class="text-primary pb-2">{{formTitle}}</h5>
+</div>
 <form [formGroup]="legalRepresentativeForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
   <div class="form-group">
     <label>Nombres</label>

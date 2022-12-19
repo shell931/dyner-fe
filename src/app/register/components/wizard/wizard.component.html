@@ -6,11 +6,13 @@
           <img src="./assets/img/brand/logo_dyner24.svg" class="main-logo mt-2 mb-3" alt="logo">
         </div>
         <app-business-information-form *ngSwitchCase="1" [identificationTypes]="identificationTypes"
-          [economityActivities]="economityActivities">
+          [economityActivities]="economityActivities" [currentStep]="currentStep" [totalSteps]="totalSteps">
         </app-business-information-form>
-        <app-describe-business-form *ngSwitchCase="2"></app-describe-business-form>
-        <app-address-form *ngSwitchCase="3"></app-address-form>
-        <app-legal-representative-form *ngSwitchCase="4"></app-legal-representative-form>
+        <app-describe-business-form *ngSwitchCase="2" [currentStep]="currentStep"
+          [totalSteps]="totalSteps"></app-describe-business-form>
+        <app-address-form *ngSwitchCase="3" [currentStep]="currentStep" [totalSteps]="totalSteps"></app-address-form>
+        <app-legal-representative-form *ngSwitchCase="4" [currentStep]="currentStep"
+          [totalSteps]="totalSteps"></app-legal-representative-form>
         <div class="row">
           <div class="col" *ngIf="currentStep > 1">
             <button class="btn btn-success-dyner btn-block" (click)="previousStep()">Anterior</button>

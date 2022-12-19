@@ -1,4 +1,8 @@
-<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+<div class="text-center">
+  <h2>Abre tu cuenta</h2>
+  <p>Paso {{currentStep}} de {{totalSteps}}</p>
+  <h5 class="text-primary pb-2">{{formTitle}}</h5>
+</div>
 <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
 
   <div class="form-group">
@@ -35,7 +39,8 @@
 
   <div class="form-group">
     <label>Dirección</label>
-    <input type="text" formControlName="address" class="form-control" placeholder="Ej: Carrera 116B # 16C - 20" required>
+    <input type="text" formControlName="address" class="form-control" placeholder="Ej: Carrera 116B # 16C - 20"
+      required>
     <div class="invalid-feedback">
       Por favor ingresa una dirección.
     </div>
@@ -43,7 +48,8 @@
 
   <div class="form-group">
     <label>Complemento</label>
-    <input type="text" formControlName="complement" class="form-control" placeholder="Ej: Apartamento, edificio, centro comercial." required>
+    <input type="text" formControlName="complement" class="form-control"
+      placeholder="Ej: Apartamento, edificio, centro comercial." required>
     <div class="invalid-feedback">
       Por favor ingresa un complemento.
     </div>

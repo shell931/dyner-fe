@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,8 @@ export class AddressFormComponent implements OnInit {
 
   public formTitle = 'Dirección';
   public addressForm: FormGroup;
+  @Input() currentStep;
+  @Input() totalSteps;
 
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({

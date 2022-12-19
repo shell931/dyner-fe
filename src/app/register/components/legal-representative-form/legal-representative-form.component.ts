@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,8 @@ export class LegalRepresentativeFormComponent implements OnInit {
 
   public formTitle = 'Representante legal';
   public legalRepresentativeForm: FormGroup;
+  @Input() currentStep;
+  @Input() totalSteps;
 
   constructor(private fb: FormBuilder) {
     this.legalRepresentativeForm = this.fb.group({
