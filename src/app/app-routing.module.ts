@@ -8,7 +8,7 @@ import { Full_Content_Routes } from './shared/routes/full.routes';
 import { SwitcherOneRoute } from './shared/routes/switcher-one-route';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '', component: FullLayoutComponent, children: Full_Content_Routes },
   { path: '', component: ContentLayoutComponent, children: Content_Routes },
   { path: '', component: SwitcherOneLayoutsComponent, children: SwitcherOneRoute },
@@ -17,12 +17,16 @@ const routes: Routes = [
     loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
   },
   {
-    path: '', title:"Dyner - login",
+    path: '', title: "Dyner - login",
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
-  
+  {
+    path: 'registro',
+    title: "Dyner - Registro",
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
+  },
   { path: '**', redirectTo: 'login' }
-  
+
 ];
 
 @NgModule({

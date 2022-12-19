@@ -1,0 +1,59 @@
+<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+  <div class="form-group">
+    <label>Departamento</label>
+    <select formControlName="department" class="form-control" required>
+      <option value="">Seleccionar</option>
+      <option value="1">Antioquia</option>
+      <option value="2">Cundinamarca</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor selecciona un departamento.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Ciudad</label>
+    <select formControlName="city" class="form-control" required>
+      <option value="">Seleccionar</option>
+      <option value="1">Bogotá</option>
+      <option value="2">Medellin</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor selecciona una ciudad.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Barrio</label>
+    <input type="text" formControlName="neighborhood" class="form-control" placeholder="Escribir barrio" required>
+    <div class="invalid-feedback">
+      Por favor ingresa un barrio.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Dirección</label>
+    <input type="text" formControlName="address" class="form-control" placeholder="Ej: Carrera 116B # 16C - 20" required>
+    <div class="invalid-feedback">
+      Por favor ingresa una dirección.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Complemento</label>
+    <input type="text" formControlName="complement" class="form-control" placeholder="Ej: Apartamento, edificio, centro comercial." required>
+    <div class="invalid-feedback">
+      Por favor ingresa un complemento.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Código Postal</label>
+    <input type="number" formControlName="postalCode" class="form-control" required>
+    <div class="invalid-feedback">
+      Por favor ingresa un código postal.
+    </div>
+  </div>
+</form>

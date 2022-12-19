@@ -29,6 +29,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail/transaction-detail.component';
 import { ProfileComponent } from './components/profile/profile/profile.component';
 import { LottieModule } from "ngx-lottie";
+import { RegisterModule } from './register/register.module';
 import player from "lottie-web";
 
 
@@ -77,6 +78,7 @@ export function playerFactory() {
     MatDatepickerModule,
     MatRadioModule,
     NgxQRCodeModule,
+    RegisterModule,
     LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [

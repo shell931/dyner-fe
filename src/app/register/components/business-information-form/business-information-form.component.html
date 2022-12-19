@@ -1,0 +1,68 @@
+<div class="text-center">
+  <h2>Abre tu cuenta</h2>
+  <p>Completa los siguientes datos y crearemos tu cuenta Dyner para que empieces a pagar y cobrar en
+    línea.</p>
+  <p>Paso {{currentStep}} de {{totalSteps}}</p>
+  <h5 class="text-primary pb-2">{{formTitle}}</h5>
+</div>
+<form [formGroup]="businessInformationForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="commerceName">Nombre del comercio</label>
+    <input type="text" id="commerceName" formControlName="commerceName" class="form-control"
+      placeholder="Ingrese nombre del comercio" required>
+    <div class="invalid-feedback">
+      Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="commerceType">Tipo de comercio</label>
+    <select id="commerceType" formControlName="commerceType" class="form-control" required>
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let item of commerceTypes" [value]="item.id">{{item.description}}</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor selecciona el tipo de comercio.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="documentType">Tipo de documento</label>
+    <select id="documentType" formControlName="documentType" class="form-control" required>
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let item of identificationTypes" [value]="item.id">{{item.description}}</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor selecciona el tipo de documento.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="documentNumber">Número de documento</label>
+    <input type="text" id="documentNumber" formControlName="documentNumber" class="form-control"
+      placeholder="Ingrese número de documento" required>
+    <div class="invalid-feedback">
+      Por favor ingresa el número de documento.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="economicActivity">Actividad económica</label>
+    <select id="economicActivity" formControlName="economicActivity" class="form-control" required>
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let item of economityActivities" [value]="item.id">{{item.description}}</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor ingresa la actividad económica.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" formControlName="email" class="form-control"
+      placeholder="Ingrese el correo electrónico" required>
+    <div class="invalid-feedback">
+      Por favor ingresa un correo electrónico válido.
+    </div>
+  </div>
+</form>
