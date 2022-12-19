@@ -22,6 +22,7 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder) {
     this.businessInformationForm = this.fb.group({
       commerceName: ['', Validators.required],
+      commerceType: ['', Validators.required],
       documentType: ['', [Validators.required]],
       documentNumber: ['', [Validators.required]],
       economicActivity: ['', [Validators.required]],
