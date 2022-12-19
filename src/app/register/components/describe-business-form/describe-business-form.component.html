@@ -6,40 +6,40 @@
 </div>
 <form [formGroup]="describeBusinessForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
   <div class="form-group">
-    <label>Número apróx. de transacciones mensuales</label>
-    <input type="number" formControlName="monthlyTransactions" class="form-control" placeholder="Ej: 200" required>
+    <label for="monthlyTransactions">Número apróx. de transacciones mensuales</label>
+    <input type="number" id="monthlyTransactions" formControlName="monthlyTransactions" class="form-control" placeholder="Ej: 200" required>
     <div class="invalid-feedback">
       Por favor ingresa un valor.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Ticket promedio</label>
-    <input type="number" formControlName="averageTicket" class="form-control" placeholder="Ej: $60.000" required>
+    <label for="averageTicket">Ticket promedio</label>
+    <input type="number" id="averageTicket" formControlName="averageTicket" class="form-control" placeholder="Ej: $60.000" required>
     <div class="invalid-feedback">
       Por favor ingrese el valor del ticket promedio.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Monto transaccionado apróx. mensual en COP</label>
-    <input type="number" formControlName="amountTransacted" class="form-control" placeholder="Ej: $12.000.000" required>
+    <label for="amountTransacted">Monto transaccionado apróx. mensual en COP</label>
+    <input type="number" id="amountTransacted" formControlName="amountTransacted" class="form-control" placeholder="Ej: $12.000.000" required>
     <div class="invalid-feedback">
       Por favor ingresa un valor.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Monto máximo estimado por transacción</label>
-    <input type="number" formControlName="maximumTransAmount" class="form-control" required>
+    <label for="maximumTransAmount">Monto máximo estimado por transacción</label>
+    <input type="number" id="maximumTransAmount" formControlName="maximumTransAmount" class="form-control" placeholder="Ej: $250.000" required>
     <div class="invalid-feedback">
       Por favor ingresa el monto maximo.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Describe tu negocio y tu actividad económica</label>
-    <textarea formControlName="describeBusiness" class="form-control" required></textarea>
+    <label for="maximumTransAmount">Describe tu negocio y tu actividad económica</label>
+    <textarea id="describeBusiness" formControlName="describeBusiness" class="form-control" placeholder="Escribe aquí a que se dedica tu negocio." required></textarea>
     <div class="invalid-feedback">
       Por ingresa la descripción de tu negocio.
     </div>

@@ -5,40 +5,40 @@
 </div>
 <form [formGroup]="legalRepresentativeForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
   <div class="form-group">
-    <label>Nombres</label>
-    <input type="text" formControlName="name" class="form-control" placeholder="Ingresa tus nombres completos" required>
+    <label for="name">Nombres</label>
+    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Ingresa tus nombres completos" required>
     <div class="invalid-feedback">
       Por favor ingresa tus nombres completos.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Apellidos</label>
-    <input type="text" formControlName="lastName" class="form-control" placeholder="Ingresa tus apellidos completos" required>
+    <label for="lastName">Apellidos</label>
+    <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Ingresa tus apellidos completos" required>
     <div class="invalid-feedback">
       Por favor ingresa tus apellidos completos.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Cédula</label>
-    <input type="number" formControlName="document" class="form-control" placeholder="Ingresa tu número de cedula" required>
+    <label for="document">Cédula</label>
+    <input type="number" id="document" formControlName="document" class="form-control" placeholder="Ingresa tu número de cedula" required>
     <div class="invalid-feedback">
       Por favor ingresa tu número de cedula.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Expedición cédula</label>
-    <input type="text" formControlName="documentExpedition" class="form-control" required>
+    <label for="documentExpedition">Expedición cédula</label>
+    <input type="text" id="documentExpedition" formControlName="documentExpedition" class="form-control" placeholder="dd/mm/aaaa" required>
     <div class="invalid-feedback">
       Por favor ingresa la fecha de expedición de tu documento.
     </div>
   </div>
 
   <div class="form-group">
-    <label>Celular</label>
-    <input type="number" formControlName="phone" class="form-control" placeholder="Ingresa tu número de celular" required>
+    <label for="phone">Celular</label>
+    <input type="number" id="phone" formControlName="phone" class="form-control" placeholder="Ingresa tu número de celular" required>
     <div class="invalid-feedback">
       Por favor ingresa tu número de celular.
     </div>
