@@ -1,6 +1,6 @@
 <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
   <ng-container [ngSwitch]="currentStep">
-    <div class="card text-white bg-dark mb-3" style="width: 450px;">
+    <div class="card text-white bg-dark mb-3" style="width: 480px;">
       <div class="card-body">
         <div class="text-center">
           <img src="./assets/img/brand/logo_dyner24.svg" class="main-logo mt-2 mb-3" alt="logo">
@@ -11,11 +11,13 @@
         <app-describe-business-form *ngSwitchCase="2"></app-describe-business-form>
         <app-address-form *ngSwitchCase="3"></app-address-form>
         <app-legal-representative-form *ngSwitchCase="4"></app-legal-representative-form>
-        <div>
-          <button class="btn btn-success-dyner btn-block" (click)="previousStep()"
-            *ngIf="currentStep > 1">Anterior</button>
-          <button class="btn btn-success-dyner btn-block" (click)="nextStep()"
-            *ngIf="currentStep < totalSteps">Siguiente</button>
+        <div class="row">
+          <div class="col" *ngIf="currentStep > 1">
+            <button class="btn btn-success-dyner btn-block" (click)="previousStep()">Anterior</button>
+          </div>
+          <div class="col" *ngIf="currentStep < totalSteps">
+            <button class="btn btn-success-dyner btn-block" (click)="nextStep()">Siguiente</button>
+          </div>
         </div>
         <div class="text-center mt-3">
           Volver al <a routerLink="/login">inicio de sesión</a>
