@@ -14,6 +14,7 @@ export class CommonService {
 
   public identificationTypesUrl = `${this.baseService.baseUrl}identification-types`;
   public economityActivitiesUrl = `${this.baseService.baseUrl}economity-activities`;
+  public departmentsUrl = `${this.baseService.baseUrl2}departments`;
 
   constructor(
     private httpClient: HttpClient,
@@ -40,6 +41,16 @@ export class CommonService {
     ));
   }
 
+  /**
+   * Get Departments list
+   * @returns 
+   */
+  public async getDepartments() {
+    return await firstValueFrom(this.httpClient.get(`${this.departmentsUrl}`, { headers: this.headers }).pipe(
+      map(response => this.adapterDepartments(response))
+    ));
+  }
+
   private adapterDocumentTypes(response: any): any {
     const documentTypes: any[] = [];
     response?.data?.forEach(item => {
@@ -60,6 +71,17 @@ export class CommonService {
       })
     });
     return documentTypes;
+  }
+
+  private adapterDepartments(response: any): any {
+    const departments: any[] = [];
+    response?.forEach(item => {
+      departments.push({
+        id: item.id_departamento,
+        description: item.departamento
+      })
+    });
+    return departments;
   }
 
 }

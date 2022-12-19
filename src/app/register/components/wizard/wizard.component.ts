@@ -14,6 +14,7 @@ export class WizardComponent implements OnInit {
   public totalSteps = 4;
   public identificationTypes: any[] = [];
   public economityActivities: any[] = [];
+  public departments: any[] = [];
 
   constructor(private commonService: CommonService) {
   }
@@ -31,6 +32,7 @@ export class WizardComponent implements OnInit {
     });
     this.identificationTypes = await this.commonService.getIdentificationTypes();
     this.economityActivities = await this.commonService.getEconomityActivities();
+    this.departments = await this.commonService.getDepartments();
   }
 
   previousStep() {

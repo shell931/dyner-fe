@@ -19,8 +19,7 @@ export class DescribeBusinessFormComponent implements OnInit {
       averageTicket: ['', Validators.required],
       amountTransacted: ['', Validators.required],
       maximumTransAmount: ['', Validators.required],
-      economicActivity: ['', Validators.required],
-      email: ['', Validators.required]
+      describeBusiness: ['', Validators.required]
     });
   }
 

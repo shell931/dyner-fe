@@ -12,6 +12,7 @@ export class AddressFormComponent implements OnInit {
   public addressForm: FormGroup;
   @Input() currentStep;
   @Input() totalSteps;
+  @Input() departments: any[] = [];
 
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({

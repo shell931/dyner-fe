@@ -8,8 +8,7 @@
     <label for="department">Departamento</label>
     <select formControlName="department" class="form-control" required>
       <option value="">Seleccionar</option>
-      <option value="1">Antioquia</option>
-      <option value="2">Cundinamarca</option>
+      <option *ngFor="let item of departments" [value]="item.id">{{item.description}}</option>
     </select>
     <div class="invalid-feedback">
       Por favor selecciona un departamento.

@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class BaseService {
 
     baseUrl = environment.api.baseUrl;
+    baseUrl2 = environment.api.baseUrl2;
     baseAuthUrl = environment.api.baseAuthUrl;
 
     headers = new HttpHeaders({

@@ -10,7 +10,7 @@
         </app-business-information-form>
         <app-describe-business-form *ngSwitchCase="2" [currentStep]="currentStep"
           [totalSteps]="totalSteps"></app-describe-business-form>
-        <app-address-form *ngSwitchCase="3" [currentStep]="currentStep" [totalSteps]="totalSteps"></app-address-form>
+        <app-address-form *ngSwitchCase="3" [departments]="departments" [currentStep]="currentStep" [totalSteps]="totalSteps"></app-address-form>
         <app-legal-representative-form *ngSwitchCase="4" [currentStep]="currentStep"
           [totalSteps]="totalSteps"></app-legal-representative-form>
         <div class="row">
