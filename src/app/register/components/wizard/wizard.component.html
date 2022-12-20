@@ -1,24 +1,35 @@
 <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
   <ng-container [ngSwitch]="currentStep">
-    <div class="card text-white bg-dark mb-3" style="width: 480px;">
+    <div class="card text-white mb-3 mt-5" style="width: 480px;">
       <div class="card-body">
         <div class="text-center">
           <img src="./assets/img/brand/logo_dyner24.svg" class="main-logo mt-2 mb-3" alt="logo">
         </div>
+        <div class="text-center">
+          <h3>{{stepInfoData[currentStep - 1]?.title}}</h3>
+          <p>{{stepInfoData[currentStep - 1]?.description}}</p>
+          <p>Paso {{currentStep}} de {{totalSteps}}</p>
+        </div>
         <app-business-information-form *ngSwitchCase="1" [identificationTypes]="identificationTypes"
-          [economityActivities]="economityActivities" [currentStep]="currentStep" [totalSteps]="totalSteps">
+          [economityActivities]="economityActivities" [currentData]="flowData"
+          (onSubmitFormDataEmit)="getDataCurrentForm($event)">
         </app-business-information-form>
-        <app-describe-business-form *ngSwitchCase="2" [currentStep]="currentStep"
-          [totalSteps]="totalSteps"></app-describe-business-form>
-        <app-address-form *ngSwitchCase="3" [departments]="departments" [currentStep]="currentStep" [totalSteps]="totalSteps"></app-address-form>
-        <app-legal-representative-form *ngSwitchCase="4" [currentStep]="currentStep"
-          [totalSteps]="totalSteps"></app-legal-representative-form>
+        <app-describe-business-form *ngSwitchCase="2" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
+          [currentData]="flowData"></app-describe-business-form>
+        <app-address-form *ngSwitchCase="3" [departments]="departments" (changeDepartmentEmit)="getCities($event)"
+          [cities]="cities" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
+          [currentData]="flowData"></app-address-form>
+        <app-legal-representative-form *ngSwitchCase="4" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
+          [currentData]="flowData"></app-legal-representative-form>
+        <app-attachments-form *ngSwitchCase="5" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
+          [currentData]="flowData"></app-attachments-form>
         <div class="row">
           <div class="col" *ngIf="currentStep > 1">
-            <button class="btn btn-success-dyner btn-block" (click)="previousStep()">Anterior</button>
+            <button class="btn btn-outline-danger btn-block" (click)="previousStep()">Anterior</button>
           </div>
-          <div class="col" *ngIf="currentStep < totalSteps">
-            <button class="btn btn-success-dyner btn-block" (click)="nextStep()">Siguiente</button>
+          <div class="col">
+            <button class="btn btn-success-dyner btn-block" (click)="nextStep()">{{currentStep < totalSteps
+                ? 'Siguiente' : 'Finalizar' }}</button>
           </div>
         </div>
         <div class="text-center mt-3">

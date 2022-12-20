@@ -2,3 +2,10 @@
 body {
     background-color: $black;
 }
+
+.card {
+    box-shadow: none;
+    border: none;
+    color: white;
+    background-color: #303030;
+}

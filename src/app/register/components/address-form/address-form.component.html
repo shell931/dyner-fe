@@ -1,16 +1,12 @@
-<div class="text-center">
-  <h2>Abre tu cuenta</h2>
-  <p>Paso {{currentStep}} de {{totalSteps}}</p>
-  <h5 class="text-primary pb-2">{{formTitle}}</h5>
-</div>
-<form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+<form [formGroup]="addressForm" class="needs-validation" novalidate>
   <div class="form-group">
-    <label for="department">Departamento</label>
-    <select formControlName="department" class="form-control" required>
+    <label for="departament">Departamento</label>
+    <select formControlName="departament" class="form-control" required>
       <option value="">Seleccionar</option>
       <option *ngFor="let item of departments" [value]="item.id">{{item.description}}</option>
     </select>
-    <div class="invalid-feedback">
+    <div *ngIf="formSent && addressForm?.get('departament')?.invalid" class="text-danger">
       Por favor selecciona un departamento.
     </div>
   </div>
@@ -18,25 +14,25 @@
     <label for="city">Ciudad</label>
     <select id="city" formControlName="city" class="form-control" required>
       <option value="">Seleccionar</option>
-      <option value="1">Bogotá</option>
-      <option value="2">Medellin</option>
+      <option *ngFor="let item of cities" [value]="item.id">{{item.description}}</option>
     </select>
-    <div class="invalid-feedback">
+    <div *ngIf="formSent && addressForm?.get('city')?.invalid" class="text-danger">
       Por favor selecciona una ciudad.
     </div>
   </div>
   <div class="form-group">
     <label for="neighborhood">Barrio</label>
-    <input type="text" id="neighborhood" formControlName="neighborhood" class="form-control" placeholder="Escribir barrio" required>
-    <div class="invalid-feedback">
+    <input type="text" id="neighborhood" formControlName="neighborhood" class="form-control"
+      placeholder="Escribir barrio" required>
+    <div *ngIf="formSent && addressForm?.get('neighborhood')?.invalid" class="text-danger">
       Por favor ingresa un barrio.
     </div>
   </div>
   <div class="form-group">
-    <label for="address">Dirección</label>
-    <input type="text" id="address" formControlName="address" class="form-control" placeholder="Ej: Carrera 116B # 16C - 20"
-      required>
-    <div class="invalid-feedback">
+    <label for="businessAddress">Dirección</label>
+    <input type="text" id="businessAddress" formControlName="businessAddress" class="form-control"
+      placeholder="Ej: Carrera 116B # 16C - 20" required>
+    <div *ngIf="formSent && addressForm?.get('businessAddress')?.invalid" class="text-danger">
       Por favor ingresa una dirección.
     </div>
   </div>
@@ -44,14 +40,15 @@
     <label for="address">Complemento</label>
     <input type="text" id="complement" formControlName="complement" class="form-control"
       placeholder="Ej: Apartamento, edificio, centro comercial." required>
-    <div class="invalid-feedback">
+    <div *ngIf="formSent && addressForm?.get('complement')?.invalid" class="text-danger">
       Por favor ingresa un complemento.
     </div>
   </div>
   <div class="form-group">
     <label for="postalCode">Código Postal</label>
-    <input type="number" id="postalCode" formControlName="postalCode" class="form-control" placeholder="Escriba el código postal" required>
-    <div class="invalid-feedback">
+    <input type="number" id="postalCode" formControlName="postalCode" class="form-control"
+      placeholder="Escriba el código postal" required>
+    <div *ngIf="formSent && addressForm?.get('postalCode')?.invalid" class="text-danger">
       Por favor ingresa un código postal.
     </div>
   </div>

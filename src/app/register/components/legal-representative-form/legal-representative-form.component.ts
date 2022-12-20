@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../../shared-service';
 
 @Component({
   selector: 'app-legal-representative-form',
@@ -10,24 +11,30 @@ export class LegalRepresentativeFormComponent implements OnInit {
 
   public formTitle = 'Representante legal';
   public legalRepresentativeForm: FormGroup;
-  @Input() currentStep;
-  @Input() totalSteps;
+  public formSent = false;
+  @Input() currentData: any = {};
+  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, sharedService: SharedService) {
+    sharedService.$emitter.subscribe(() => {
+      this.formSent = true;
+      this.submitFormData();
+    });
     this.legalRepresentativeForm = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required], 
       document: ['', Validators.required],
       documentExpedition: ['', Validators.required],
-      phone: ['', Validators.required]
+      businessPhone: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
+    this.legalRepresentativeForm.patchValue(this.currentData);
   }
 
-  onSubmit() {
-    console.log(this.legalRepresentativeForm.value);
+  submitFormData() {
+    this.onSubmitFormDataEmit.emit(this.legalRepresentativeForm);
   }
 
 }

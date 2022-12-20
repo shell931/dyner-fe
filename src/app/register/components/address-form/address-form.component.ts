@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../../shared-service';
 
 @Component({
   selector: 'app-address-form',
@@ -10,26 +11,38 @@ export class AddressFormComponent implements OnInit {
 
   public formTitle = 'Dirección';
   public addressForm: FormGroup;
-  @Input() currentStep;
-  @Input() totalSteps;
+  public formSent = false;
   @Input() departments: any[] = [];
+  @Input() cities: any[] = [];
+  @Input() currentData: any = {};
+  @Output() changeDepartmentEmit = new EventEmitter<number>();
+  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, sharedService: SharedService) {
+    sharedService.$emitter.subscribe(() => {
+      this.formSent = true;
+      this.submitFormData();
+    });
     this.addressForm = this.fb.group({
-      department: ['', Validators.required],
+      country: [1, Validators.required],
+      departament: ['', Validators.required],
       city: ['', Validators.required],
       neighborhood: ['', Validators.required],
-      address: ['', Validators.required],
+      businessAddress: ['', Validators.required],
       complement: ['', Validators.required],
       postalCode: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
+    this.addressForm?.get("departament")?.valueChanges.subscribe(id => {
+      this.changeDepartmentEmit.emit(id);
+    })
+    this.addressForm.patchValue(this.currentData);
   }
 
-  onSubmit() {
-    console.log(this.addressForm.value);
+  submitFormData() {
+    this.onSubmitFormDataEmit.emit(this.addressForm);
   }
 
 }

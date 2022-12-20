@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../../shared-service';
 
 @Component({
   selector: 'app-business-information-form',
@@ -9,28 +10,36 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class BusinessInformationFormComponent implements OnInit, OnChanges {
 
   public formTitle = 'Información del Negocio';
-  public commerceTypes = [
+  public bussinesTypes = [
     { id: 1, description: 'Persona Natural' },
     { id: 2, description: 'Persona Juridica' }
   ];
   public businessInformationForm: FormGroup;
-  @Input() currentStep;
-  @Input() totalSteps;
+  public formSent = false;
   @Input() identificationTypes: any[] = [];
   @Input() economityActivities: any[] = [];
+  @Input() currentData: any = {};
+  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, sharedService: SharedService) {
+    sharedService.$emitter.subscribe(() => {
+      this.formSent = true;
+      this.submitFormData();
+    });
     this.businessInformationForm = this.fb.group({
-      commerceName: ['', Validators.required],
-      commerceType: ['', Validators.required],
-      documentType: ['', [Validators.required]],
-      documentNumber: ['', [Validators.required]],
+      businessName: ['', Validators.required],
+      bussinesType: ['', Validators.required],
+      typeIdentification: ['', [Validators.required]],
+      businessDocument: ['', [Validators.required]],
       economicActivity: ['', [Validators.required]],
+      password: ['123456789', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.businessInformationForm.patchValue(this.currentData);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['identificationTypes']) {
@@ -41,12 +50,8 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
     }
   }
 
-  get businessInformationFormControl() {
-    return this.businessInformationForm.controls;
-  }
-
-  onSubmit() {
-    console.log(this.businessInformationForm.value);
+  submitFormData() {
+    this.onSubmitFormDataEmit.emit(this.businessInformationForm);
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../../shared-service';
 
 @Component({
   selector: 'app-describe-business-form',
@@ -10,10 +11,15 @@ export class DescribeBusinessFormComponent implements OnInit {
 
   public formTitle = 'Describe tu negocio';
   public describeBusinessForm: FormGroup;
-  @Input() currentStep;
-  @Input() totalSteps;
+  public formSent = false;
+  @Input() currentData: any = {};
+  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, sharedService: SharedService) {
+    sharedService.$emitter.subscribe(() => {
+      this.formSent = true;
+      this.submitFormData();
+    });
     this.describeBusinessForm = this.fb.group({
       monthlyTransactions: ['', Validators.required],
       averageTicket: ['', Validators.required],
@@ -24,10 +30,11 @@ export class DescribeBusinessFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.describeBusinessForm.patchValue(this.currentData);
   }
 
-  onSubmit() {
-    console.log(this.describeBusinessForm.value);
+  submitFormData() {
+    this.onSubmitFormDataEmit.emit(this.describeBusinessForm);
   }
 
 }

@@ -15,6 +15,7 @@ export class CommonService {
   public identificationTypesUrl = `${this.baseService.baseUrl}identification-types`;
   public economityActivitiesUrl = `${this.baseService.baseUrl}economity-activities`;
   public departmentsUrl = `${this.baseService.baseUrl2}departments`;
+  public citiesUrl = `${this.baseService.baseUrl}cities`;
 
   constructor(
     private httpClient: HttpClient,
@@ -51,12 +52,22 @@ export class CommonService {
     ));
   }
 
+  /**
+   * Get Cities list by department
+   * @returns 
+   */
+  public async getCitiesByDepartment(departmentId) {
+    return await firstValueFrom(this.httpClient.get(`${this.citiesUrl}/${departmentId}`, { headers: this.headers }).pipe(
+      map(response => this.adapterCities(response))
+    ));
+  }
+
   private adapterDocumentTypes(response: any): any {
     const documentTypes: any[] = [];
     response?.data?.forEach(item => {
       documentTypes.push({
-        id: item.id,
-        description: `${item.descripcion} - ${item.alias}`
+        id: item?.id,
+        description: `${item?.descripcion} - ${item?.alias}`
       })
     });
     return documentTypes;
@@ -66,8 +77,8 @@ export class CommonService {
     const documentTypes: any[] = [];
     response?.data?.forEach(item => {
       documentTypes.push({
-        id: item.id,
-        description: item.description
+        id: item?.id,
+        description: item?.description
       })
     });
     return documentTypes;
@@ -77,11 +88,22 @@ export class CommonService {
     const departments: any[] = [];
     response?.forEach(item => {
       departments.push({
-        id: item.id_departamento,
-        description: item.departamento
+        id: item?.id_departamento,
+        description: item?.departamento
       })
     });
     return departments;
+  }
+
+  private adapterCities(response: any): any {
+    const cities: any[] = [];
+    response?.data?.forEach(item => {
+      cities.push({
+        id: item?.id_municipio,
+        description: item?.municipio
+      })
+    });
+    return cities;
   }
 
 }

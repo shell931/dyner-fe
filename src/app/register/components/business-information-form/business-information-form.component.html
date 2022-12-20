@@ -1,48 +1,42 @@
-<div class="text-center">
-  <h2>Abre tu cuenta</h2>
-  <p>Completa los siguientes datos y crearemos tu cuenta Dyner para que empieces a pagar y cobrar en
-    línea.</p>
-  <p>Paso {{currentStep}} de {{totalSteps}}</p>
-  <h5 class="text-primary pb-2">{{formTitle}}</h5>
-</div>
-<form [formGroup]="businessInformationForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+<h5 class="text-primary text-center pb-2">{{formTitle}}</h5>
+<form [formGroup]="businessInformationForm" class="needs-validation" novalidate>
   <div class="form-group">
-    <label for="commerceName">Nombre del comercio</label>
-    <input type="text" id="commerceName" formControlName="commerceName" class="form-control"
+    <label for="businessName">Nombre del comercio</label>
+    <input type="text" id="businessName" formControlName="businessName" class="form-control"
       placeholder="Ingrese nombre del comercio" required>
-    <div class="invalid-feedback">
-      Name is required
+    <div *ngIf="formSent && businessInformationForm?.get('businessName')?.invalid" class="text-danger">
+      El nombre del comercio es requerido
     </div>
   </div>
 
   <div class="form-group">
-    <label for="commerceType">Tipo de comercio</label>
-    <select id="commerceType" formControlName="commerceType" class="form-control" required>
+    <label for="bussinesType">Tipo de comercio</label>
+    <select id="bussinesType" formControlName="bussinesType" class="form-control" required>
       <option value="">Selecciona una opción</option>
-      <option *ngFor="let item of commerceTypes" [value]="item.id">{{item.description}}</option>
+      <option *ngFor="let item of bussinesTypes" [value]="item.id">{{item.description}}</option>
     </select>
-    <div class="invalid-feedback">
-      Por favor selecciona el tipo de comercio.
+    <div *ngIf="formSent && businessInformationForm?.get('bussinesType')?.invalid" class="text-danger">
+      Seleccione el tipo de comercio
     </div>
   </div>
 
   <div class="form-group">
-    <label for="documentType">Tipo de documento</label>
-    <select id="documentType" formControlName="documentType" class="form-control" required>
+    <label for="typeIdentification">Tipo de documento</label>
+    <select id="typeIdentification" formControlName="typeIdentification" class="form-control" required>
       <option value="">Selecciona una opción</option>
       <option *ngFor="let item of identificationTypes" [value]="item.id">{{item.description}}</option>
     </select>
-    <div class="invalid-feedback">
-      Por favor selecciona el tipo de documento.
+    <div *ngIf="formSent && businessInformationForm?.get('typeIdentification')?.invalid" class="text-danger">
+      Seleccione el tipo de documento
     </div>
   </div>
 
   <div class="form-group">
-    <label for="documentNumber">Número de documento</label>
-    <input type="text" id="documentNumber" formControlName="documentNumber" class="form-control"
+    <label for="businessDocument">Número de documento</label>
+    <input type="text" id="businessDocument" formControlName="businessDocument" class="form-control"
       placeholder="Ingrese número de documento" required>
-    <div class="invalid-feedback">
-      Por favor ingresa el número de documento.
+    <div *ngIf="formSent && businessInformationForm?.get('businessDocument')?.invalid" class="text-danger">
+      Seleccione el número de documento
     </div>
   </div>
 
@@ -52,8 +46,8 @@
       <option value="">Selecciona una opción</option>
       <option *ngFor="let item of economityActivities" [value]="item.id">{{item.description}}</option>
     </select>
-    <div class="invalid-feedback">
-      Por favor ingresa la actividad económica.
+    <div *ngIf="formSent && businessInformationForm?.get('economicActivity')?.invalid" class="text-danger">
+      Seleccione la actividad económica
     </div>
   </div>
 
@@ -61,8 +55,8 @@
     <label for="email">Correo electrónico</label>
     <input type="email" id="email" formControlName="email" class="form-control"
       placeholder="Ingrese el correo electrónico" required>
-    <div class="invalid-feedback">
-      Por favor ingresa un correo electrónico válido.
+    <div *ngIf="formSent && businessInformationForm?.get('email')?.invalid" class="text-danger">
+      Ingrese un correo electrónico
     </div>
   </div>
 </form>

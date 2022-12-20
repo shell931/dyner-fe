@@ -9,6 +9,7 @@ import { AttachmentsFormComponent } from './components/attachments-form/attachme
 import { WizardComponent } from './components/wizard/wizard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from '../services/common.service';
+import { AlertsService } from '../services/alerts.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { CommonService } from '../services/common.service';
     ReactiveFormsModule,
     RegisterRoutingModule
   ],
-  providers: [CommonService]
+  providers: [CommonService, AlertsService]
 })
 export class RegisterModule { }

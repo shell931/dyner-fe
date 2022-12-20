@@ -1,45 +1,42 @@
-<div class="text-center">
-  <h2>Abre tu cuenta</h2>
-  <p>Paso {{currentStep}} de {{totalSteps}}</p>
-  <h5 class="text-primary pb-2">{{formTitle}}</h5>
-</div>
-<form [formGroup]="legalRepresentativeForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+<form [formGroup]="legalRepresentativeForm" class="needs-validation" novalidate>
   <div class="form-group">
-    <label for="name">Nombres</label>
-    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Ingresa tus nombres completos" required>
-    <div class="invalid-feedback">
+    <label for="firstName">Nombres</label>
+    <input type="text" id="firstName" formControlName="firstName" class="form-control"
+      placeholder="Ingresa tus nombres completos" required>
+    <div *ngIf="formSent && legalRepresentativeForm?.get('firstName')?.invalid" class="text-danger">
       Por favor ingresa tus nombres completos.
     </div>
   </div>
-
   <div class="form-group">
     <label for="lastName">Apellidos</label>
-    <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Ingresa tus apellidos completos" required>
-    <div class="invalid-feedback">
+    <input type="text" id="lastName" formControlName="lastName" class="form-control"
+      placeholder="Ingresa tus apellidos completos" required>
+    <div *ngIf="formSent && legalRepresentativeForm?.get('lastName')?.invalid" class="text-danger">
       Por favor ingresa tus apellidos completos.
     </div>
   </div>
-
   <div class="form-group">
     <label for="document">Cédula</label>
-    <input type="number" id="document" formControlName="document" class="form-control" placeholder="Ingresa tu número de cedula" required>
-    <div class="invalid-feedback">
+    <input type="number" id="document" formControlName="document" class="form-control"
+      placeholder="Ingresa tu número de cedula" required>
+    <div *ngIf="formSent && legalRepresentativeForm?.get('document')?.invalid" class="text-danger">
       Por favor ingresa tu número de cedula.
     </div>
   </div>
-
   <div class="form-group">
     <label for="documentExpedition">Expedición cédula</label>
-    <input type="text" id="documentExpedition" formControlName="documentExpedition" class="form-control" placeholder="dd/mm/aaaa" required>
-    <div class="invalid-feedback">
+    <input type="text" id="documentExpedition" formControlName="documentExpedition" class="form-control"
+      placeholder="dd/mm/aaaa" required>
+    <div *ngIf="formSent && legalRepresentativeForm?.get('documentExpedition')?.invalid" class="text-danger">
       Por favor ingresa la fecha de expedición de tu documento.
     </div>
   </div>
-
   <div class="form-group">
-    <label for="phone">Celular</label>
-    <input type="number" id="phone" formControlName="phone" class="form-control" placeholder="Ingresa tu número de celular" required>
-    <div class="invalid-feedback">
+    <label for="businessPhone">Celular</label>
+    <input type="number" id="businessPhone" formControlName="businessPhone" class="form-control"
+      placeholder="Ingresa tu número de celular" required>
+    <div *ngIf="formSent && legalRepresentativeForm?.get('businessPhone')?.invalid" class="text-danger">
       Por favor ingresa tu número de celular.
     </div>
   </div>
