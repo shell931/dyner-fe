@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class WizardComponent implements OnInit {
 
   public currentStep = 1;
-  public totalSteps = 5;
+  public totalSteps = 4;
   public currentFormValid = false;
   public identificationTypes: any[] = [];
   public economityActivities: any[] = [];

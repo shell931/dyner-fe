@@ -83,6 +83,7 @@
     "ngx-echarts": "^14.0.0",
     "ngx-intl-tel-input": "^3.2.0",
     "ngx-lottie": "^9.1.0",
+    "ngx-mask": "^14.2.4",
     "ngx-owl-carousel-o": "^14.0.0",
     "ngx-perfect-scrollbar": "^10.1.1",
     "ngx-quill": "^18.0.0",
