@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared-service';
+import { MustMatch } from 'src/app/shared/validations/passwordValidator';
 
 @Component({
   selector: 'app-user-access-form',
@@ -20,10 +21,15 @@ export class UserAccessFormComponent implements OnInit {
       this.formSent = true;
       this.submitFormData();
     });
-    this.userAccessForm = this.fb.group({
-      password: ['', Validators.required],
-      passwordConfirm: ['', Validators.required]
-    });
+    this.userAccessForm = this.fb.group(
+      {
+        password: ['', Validators.required],
+        passwordConfirm: ['', Validators.required]
+      },
+      {
+        validator: MustMatch('password', 'passwordConfirm')
+      }
+    );
   }
 
   ngOnInit(): void {

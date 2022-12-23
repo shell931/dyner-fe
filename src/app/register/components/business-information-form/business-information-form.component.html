@@ -33,8 +33,8 @@
 
   <div class="form-group">
     <label for="businessDocument">Número de documento</label>
-    <input type="text" id="businessDocument" formControlName="businessDocument" class="text-start form-control"
-      placeholder="Ingrese número de documento" [inputMask]="currencyInputMask">
+    <input type="number" id="businessDocument" formControlName="businessDocument" class="form-control"
+      placeholder="Ingrese número de documento">
     <div *ngIf="formSent && businessInformationForm?.get('businessDocument')?.invalid" class="text-danger">
       Seleccione el número de documento
     </div>

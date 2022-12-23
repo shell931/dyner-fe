@@ -18,8 +18,8 @@
   </div>
   <div class="form-group">
     <label for="document">Cédula</label>
-    <input type="text" id="document" formControlName="document" class="text-start form-control"
-      placeholder="Ingresa tu número de cedula" [inputMask]="currencyInputMask" required>
+    <input type="number" id="document" formControlName="document" class="form-control"
+      placeholder="Ingresa tu número de cedula" required>
     <div *ngIf="formSent && legalRepresentativeForm?.get('document')?.invalid" class="text-danger">
       Por favor ingresa tu número de cedula.
     </div>

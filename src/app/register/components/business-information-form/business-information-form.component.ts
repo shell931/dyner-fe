@@ -41,7 +41,6 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
       typeIdentification: ['', [Validators.required]],
       businessDocument: ['', [Validators.required]],
       economicActivity: ['', [Validators.required]],
-      password: [randomstring.generate(8), [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
