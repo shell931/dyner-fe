@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared-service';
+import { createMask } from '@ngneat/input-mask';
 
 @Component({
   selector: 'app-describe-business-form',
@@ -14,6 +15,23 @@ export class DescribeBusinessFormComponent implements OnInit {
   public formSent = false;
   @Input() currentData: any = {};
   @Output() onSubmitFormDataEmit = new EventEmitter<any>();
+
+  currencyInputMask = createMask({
+    alias: 'numeric',
+    groupSeparator: '.',
+    digits: 0,
+    digitsOptional: false,
+    prefix: '$ ',
+    placeholder: '0',
+  });
+
+  numberInputMask = createMask({
+    alias: 'numeric',
+    groupSeparator: '.',
+    digits: 0,
+    digitsOptional: false,
+    placeholder: '0',
+  });
 
   constructor(private fb: FormBuilder, sharedService: SharedService) {
     sharedService.$emitter.subscribe(() => {

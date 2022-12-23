@@ -6,10 +6,12 @@ import { DescribeBusinessFormComponent } from './components/describe-business-fo
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { LegalRepresentativeFormComponent } from './components/legal-representative-form/legal-representative-form.component';
 import { AttachmentsFormComponent } from './components/attachments-form/attachments-form.component';
+import { UserAccessFormComponent } from './components/user-access-form/user-access-form.component';
 import { WizardComponent } from './components/wizard/wizard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from '../services/common.service';
 import { AlertsService } from '../services/alerts.service';
+import { InputMaskModule } from '@ngneat/input-mask';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { AlertsService } from '../services/alerts.service';
     AddressFormComponent,
     LegalRepresentativeFormComponent,
     AttachmentsFormComponent,
-    WizardComponent
+    WizardComponent,
+    UserAccessFormComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    InputMaskModule
   ],
   providers: [CommonService, AlertsService]
 })

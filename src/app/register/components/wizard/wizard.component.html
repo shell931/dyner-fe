@@ -21,8 +21,8 @@
           [currentData]="flowData"></app-address-form>
         <app-legal-representative-form *ngSwitchCase="4" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
           [currentData]="flowData"></app-legal-representative-form>
-<!--         <app-attachments-form *ngSwitchCase="5" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
-          [currentData]="flowData"></app-attachments-form> -->
+        <app-user-access-form *ngSwitchCase="5" (onSubmitFormDataEmit)="getDataCurrentForm($event)"
+          [currentData]="flowData"></app-user-access-form>
         <div class="row">
           <div class="col" *ngIf="currentStep > 1">
             <button class="btn btn-outline-danger btn-block" (click)="previousStep()">Anterior</button>

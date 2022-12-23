@@ -30,12 +30,7 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
 import { ProfileComponent } from './components/profile/profile/profile.component';
 import { LottieModule } from "ngx-lottie";
 import { RegisterModule } from './register/register.module';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
 import player from "lottie-web";
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -82,8 +77,7 @@ export function playerFactory() {
     MatRadioModule,
     NgxQRCodeModule,
     RegisterModule,
-    LottieModule.forRoot({ player: playerFactory }),
-    NgxMaskModule.forRoot(maskConfig),
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [
     {
