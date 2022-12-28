@@ -5,9 +5,11 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AlertsService {
-  constructor(){}
-  public infoAlert(data) {
-    Swal.fire({
+
+  constructor() { }
+
+  public openInfoAlert(data) {
+    return Swal.fire({
       title: 'Alerta Informativa',
       text: 'Texto alerta informativa',
       confirmButtonText: 'Entendido',
@@ -18,5 +20,25 @@ export class AlertsService {
       },
       ...data
     });
+  }
+
+  public openLoadingAlert(data) {
+    return Swal.fire({
+      title: 'Cargando...',
+      text: 'Espera unos segundos por favor.',
+      background: '#282828',
+      showConfirmButton: false,
+      customClass: {
+        popup: 'text-white',
+      },
+      didOpen: () => {
+        Swal.showLoading()
+      },
+      ...data
+    });
+  }
+
+  public closeAlert() {
+    return Swal.close();
   }
 }

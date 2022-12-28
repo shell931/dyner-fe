@@ -3,6 +3,7 @@ import { CommonService } from 'src/app/services/common.service';
 import { SharedService } from '../../shared-service';
 import { MemberShipService } from 'src/app/services/membership.services';
 import { AlertsService } from 'src/app/services/alerts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wizard',
@@ -29,11 +30,17 @@ export class WizardComponent implements OnInit {
     { title: 'Abre tu cuenta', description: 'Con esta contraseña tendras acceso a la plataforma' },
   ];
 
-  constructor(private commonService: CommonService, private membershipService: MemberShipService, private sharedService: SharedService, private alertsService: AlertsService) {
+  constructor(
+    private commonService: CommonService,
+    private membershipService: MemberShipService,
+    private sharedService: SharedService,
+    private alertsService: AlertsService,
+    private router: Router
+  ) {
   }
 
   async ngOnInit() {
-    this.alertsService.infoAlert({
+    this.alertsService.openInfoAlert({
       title: 'Ten presente',
       text: 'Para tu proceso de afiliación se solicitarán documentos e información básica de tu negocio. Adicionalmente, te solicitaremos fotografías de tus documentos y de tu establecimiento.',
     })
@@ -72,14 +79,21 @@ export class WizardComponent implements OnInit {
 
   public async storeMembership(data) {
     try {
+      this.alertsService.openLoadingAlert({});
       const response = await this.membershipService.storeMembershipService(data);
       if (response.success) {
-        this.alertsService.infoAlert({
+        this.alertsService.closeAlert();
+        this.alertsService.openInfoAlert({
           title: 'Perfecto',
           text: 'Tu registro a sido realizado con exito',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/login'])
+          }
         });
       }
     } catch (error: any) {
+      this.alertsService.closeAlert();
       let errorObject = {
         title: 'Error!',
         icon: 'error',
@@ -92,7 +106,7 @@ export class WizardComponent implements OnInit {
           text: 'Usuario ya Existe!'
         }
       }
-      this.alertsService.infoAlert(errorObject)
+      this.alertsService.openInfoAlert(errorObject)
     }
   }
 }
