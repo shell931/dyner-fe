@@ -3,7 +3,6 @@ import { CommonService } from 'src/app/services/common.service';
 import { SharedService } from '../../shared-service';
 import { MemberShipService } from 'src/app/services/membership.services';
 import { AlertsService } from 'src/app/services/alerts.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-wizard',
@@ -27,7 +26,7 @@ export class WizardComponent implements OnInit {
     { title: 'Abre tu cuenta', description: 'La siguiente información no limitará el acceso a tus herramientas, es solo de carácter informativo.' },
     { title: 'Abre tu cuenta', description: '' },
     { title: 'Abre tu cuenta', description: '' },
-    { title: 'Abre tu cuenta', description: 'Sube los siguientes documentos. Serán necesarios para completar el proceso de verificación.' },
+    { title: 'Abre tu cuenta', description: 'Con esta contraseña tendras acceso a la plataforma' },
   ];
 
   constructor(private commonService: CommonService, private membershipService: MemberShipService, private sharedService: SharedService, private alertsService: AlertsService) {
@@ -80,12 +79,20 @@ export class WizardComponent implements OnInit {
           text: 'Tu registro a sido realizado con exito',
         });
       }
-    } catch (error) {
-      this.alertsService.infoAlert({
-        title: 'Error',
-        text: 'Se ha presentado un error, consulte con el administrador del sistema',
-        icon: 'error'
-      })
+    } catch (error: any) {
+      let errorObject = {
+        title: 'Error!',
+        icon: 'error',
+        text: 'Se ha presentado un error, consulte con el administrador del sistema'
+      };
+      if (error?.error?.message?.startsWith("SQLSTATE[23505]")) {
+        errorObject = {
+          title: 'Atención!',
+          icon: 'warning',
+          text: 'Usuario ya Existe!'
+        }
+      }
+      this.alertsService.infoAlert(errorObject)
     }
   }
 }

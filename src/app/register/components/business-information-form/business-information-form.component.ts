@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared-service';
+import  * as randomstring from 'randomstring';
+import { createMask } from '@ngneat/input-mask';
 
 @Component({
   selector: 'app-business-information-form',
@@ -9,6 +11,10 @@ import { SharedService } from '../../shared-service';
 })
 export class BusinessInformationFormComponent implements OnInit, OnChanges {
 
+  @Input() identificationTypes: any[] = [];
+  @Input() economityActivities: any[] = [];
+  @Input() currentData: any = {};
+  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
   public formTitle = 'Información del Negocio';
   public bussinesTypes = [
     { id: 1, description: 'Persona Natural' },
@@ -16,10 +22,13 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
   ];
   public businessInformationForm: FormGroup;
   public formSent = false;
-  @Input() identificationTypes: any[] = [];
-  @Input() economityActivities: any[] = [];
-  @Input() currentData: any = {};
-  @Output() onSubmitFormDataEmit = new EventEmitter<any>();
+  public currencyInputMask = createMask({
+    alias: 'numeric',
+    groupSeparator: '.',
+    digits: 0,
+    digitsOptional: false,
+    placeholder: '0',
+  });
 
   constructor(private fb: FormBuilder, sharedService: SharedService) {
     sharedService.$emitter.subscribe(() => {
@@ -32,7 +41,6 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
       typeIdentification: ['', [Validators.required]],
       businessDocument: ['', [Validators.required]],
       economicActivity: ['', [Validators.required]],
-      password: ['123456789', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }

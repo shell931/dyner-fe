@@ -32,8 +32,6 @@ import { LottieModule } from "ngx-lottie";
 import { RegisterModule } from './register/register.module';
 import player from "lottie-web";
 
-
-
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
   url: 'https://httpbin.org/post',

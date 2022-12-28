@@ -2,32 +2,32 @@
 <form [formGroup]="describeBusinessForm" class="needs-validation" novalidate>
   <div class="form-group">
     <label for="monthlyTransactions">Número apróx. de transacciones mensuales</label>
-    <input type="number" id="monthlyTransactions" formControlName="monthlyTransactions" class="form-control"
-      placeholder="Ej: 200" required>
+    <input type="text" id="monthlyTransactions" formControlName="monthlyTransactions" class="text-start form-control"
+      placeholder="Ej: 200" [inputMask]="numberInputMask" required>
     <div *ngIf="formSent && describeBusinessForm?.get('monthlyTransactions')?.invalid" class="text-danger">
       Por favor ingrese un valor
     </div>
   </div>
   <div class="form-group">
     <label for="averageTicket">Ticket promedio</label>
-    <input type="number" id="averageTicket" formControlName="averageTicket" class="form-control"
-      placeholder="Ej: $60.000" required>
+    <input type="text" id="averageTicket" formControlName="averageTicket" class="text-start form-control"
+      placeholder="Ej: $60.000" [inputMask]="currencyInputMask" required>
     <div *ngIf="formSent && describeBusinessForm?.get('averageTicket')?.invalid" class="text-danger">
       Por favor ingrese el valor del ticket promedio.
     </div>
   </div>
   <div class="form-group">
     <label for="amountTransacted">Monto transaccionado apróx. mensual en COP</label>
-    <input type="number" id="amountTransacted" formControlName="amountTransacted" class="form-control"
-      placeholder="Ej: $12.000.000" required>
+    <input type="text" id="amountTransacted" formControlName="amountTransacted" class="text-start form-control"
+      placeholder="Ej: $12.000.000" [inputMask]="currencyInputMask" required>
     <div class="invalid-feedback">
       Por favor ingresa un valor.
     </div>
   </div>
   <div class="form-group">
     <label for="maximumTransAmount">Monto máximo estimado por transacción</label>
-    <input type="number" id="maximumTransAmount" formControlName="maximumTransAmount" class="form-control"
-      placeholder="Ej: $250.000" required>
+    <input type="text" id="maximumTransAmount" formControlName="maximumTransAmount" class="text-start form-control"
+      placeholder="Ej: $250.000" [inputMask]="currencyInputMask" required>
     <div *ngIf="formSent && describeBusinessForm?.get('maximumTransAmount')?.invalid" class="text-danger">
       Por favor ingresa el monto maximo.
     </div>
