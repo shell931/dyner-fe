@@ -81,16 +81,9 @@ export class WizardComponent implements OnInit {
     try {
       this.alertsService.openLoadingAlert({});
       const response = await this.membershipService.storeMembershipService(data);
-      if (response.success) {
+      if (response?.success) {
         this.alertsService.closeAlert();
-        this.alertsService.openInfoAlert({
-          title: 'Perfecto',
-          text: 'Tu registro a sido realizado con exito',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.router.navigate(['/login'])
-          }
-        });
+        this.router.navigate([`/registro/finalizado`], { queryParams: { name: `${data?.firstName} ${data?.lastName}` } });
       }
     } catch (error: any) {
       this.alertsService.closeAlert();
@@ -106,7 +99,7 @@ export class WizardComponent implements OnInit {
           text: 'Usuario ya Existe!'
         }
       }
-      this.alertsService.openInfoAlert(errorObject)
+      this.alertsService.openInfoAlert(errorObject);
     }
   }
 }

@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from '../services/common.service';
 import { AlertsService } from '../services/alerts.service';
 import { InputMaskModule } from '@ngneat/input-mask';
+import { SuccessRegisterComponent } from './components/success-register/success-register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InputMaskModule } from '@ngneat/input-mask';
     LegalRepresentativeFormComponent,
     AttachmentsFormComponent,
     WizardComponent,
-    UserAccessFormComponent
+    UserAccessFormComponent,
+    SuccessRegisterComponent
   ],
   imports: [
     CommonModule,
