@@ -1,41 +1,60 @@
-<h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
-<form [formGroup]="attachmentsForm" class="needs-validation" novalidate>
-  <div class="form-group">
-    <label for="commerceCertificate" class="form-label text-white">Certificado de Cámara de Comercio</label>
-    <input type="file" id="commerceCertificate" formControlName="commerceCertificate" class="form-control">
-    <div class="invalid-feedback">
-      Certificado de camara de comercio requerido
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="rut" class="form-label text-white">RUT</label>
-    <input type="file" id="rut" formControlName="rut" class="form-control">
-    <div class="invalid-feedback">
-      RUT requerido
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="commercePhoto" class="form-label text-white">Foto del Comercio (Fachada, local u oficina)</label>
-    <input type="file" id="commercePhoto" formControlName="commercePhoto" class="form-control">
-    <div class="invalid-feedback">
-      Foto del Comercio requerido
-    </div>
-  </div>
+<div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+  <div class="card text-white mb-3 mt-5 px-3" style="width: 370px;">
+    <div class="card-body">
+      <div class="text-center">
+        <img src="./assets/img/brand/logo_dyner24.svg" class="main-logo mt-2 mb-3" alt="logo">
+      </div>
+      <div class="text-center">
+        <h3>Completa tu información</h3>
+        <p>Sube los siguientes documentos. Serán necesarios para completar el proceso de verificación.</p>
+      </div>
+      <h5 class="text-center text-primary pb-2">{{formTitle}}</h5>
+      <form [formGroup]="attachmentsForm" class="needs-validation" novalidate>
+        <div class="form-group">
+          <label for="commerceCertificate" class="form-label text-white">Certificado de Cámara de Comercio</label>
+          <input type="file" id="commerceCertificate" formControlName="commerceCertificate" class="form-control"
+            (change)="onFileSelected($event, 1, userId)">
+          <div *ngIf="attachmentsForm?.get('commerceCertificate')?.invalid" class="text-danger">
+            Formatos validos (.png, .jpeg, .pdf, .doc)
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rut" class="form-label text-white">RUT</label>
+          <input type="file" id="rut" formControlName="rut" class="form-control"
+            (change)="onFileSelected($event, 2, userId)">
+          <div *ngIf="attachmentsForm?.get('rut')?.invalid" class="text-danger">
+            Formatos validos (.png, .jpeg, .pdf, .doc)
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="commercePhoto" class="form-label text-white">Foto del Comercio (Fachada, local u
+            oficina)</label>
+          <input type="file" id="commercePhoto" formControlName="commercePhoto" class="form-control"
+            (change)="onFileSelected($event, 3, userId)">
+          <div *ngIf="attachmentsForm?.get('commercePhoto')?.invalid" class="text-danger">
+            Formatos validos (.png, .jpeg, .pdf, .doc)
+          </div>
+        </div>
 
-  <h5 class="text-primary text-center pb-2">{{formSubTitle}}</h5>
+        <h5 class="text-primary text-center pb-2">{{formSubTitle}}</h5>
 
-  <div class="form-group">
-    <label for="legalRepresentativePhoto" class="form-label text-white">Foto del representante legal</label>
-    <input type="file" id="legalRepresentativePhoto" formControlName="legalRepresentativePhoto" class="form-control">
-    <div class="invalid-feedback">
-      Foto del representante legal requerido
+        <div class="form-group">
+          <label for="legalRepresentativePhoto" class="form-label text-white">Foto del representante legal</label>
+          <input type="file" id="legalRepresentativePhoto" formControlName="legalRepresentativePhoto"
+            class="form-control" (change)="onFileSelected($event, 4, userId)">
+          <div *ngIf="attachmentsForm?.get('legalRepresentativePhoto')?.invalid" class="text-danger">
+            Formatos validos (.png, .jpeg, .pdf, .doc)
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="idPhoto" class="form-label text-white">Foto del documento de identidad</label>
+          <input type="file" id="idPhoto" formControlName="idPhoto" class="form-control"
+            (change)="onFileSelected($event, 5, userId)">
+          <div *ngIf="attachmentsForm?.get('idPhoto')?.invalid" class="text-danger">
+            Formatos validos (.png, .jpeg, .pdf, .doc)
+          </div>
+        </div>
+      </form>
     </div>
   </div>
-  <div class="form-group">
-    <label for="idPhoto" class="form-label text-white">Foto del documento de identidad</label>
-    <input type="file" id="idPhoto" formControlName="idPhoto" class="form-control">
-    <div class="invalid-feedback">
-      Foto del documento de identidad requerido
-    </div>
-  </div>
-</form>
+</div>

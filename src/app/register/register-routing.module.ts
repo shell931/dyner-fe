@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { WizardComponent } from './components/wizard/wizard.component';
 import { SuccessRegisterComponent } from './components/success-register/success-register.component';
+import { AttachmentsFormComponent } from './components/attachments-form/attachments-form.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,16 @@ const routes: Routes = [
         path: '',
         title: "Dyner24 - Registro Exitoso",
         component: SuccessRegisterComponent
+      },
+    ],
+  },
+  {
+    path: 'documentos',
+    children: [
+      {
+        path: '',
+        title: "Dyner24 - Cargue Documentos",
+        component: AttachmentsFormComponent
       },
     ],
   }

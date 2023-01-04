@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared-service';
-import  * as randomstring from 'randomstring';
 import { createMask } from '@ngneat/input-mask';
 
 @Component({

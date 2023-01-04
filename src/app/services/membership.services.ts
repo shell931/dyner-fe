@@ -20,6 +20,7 @@ export class MemberShipService {
     recover_password = `${this.baseService.baseAuthUrl}recover`;
     login = `${this.baseService.baseAuthUrl}login`;
     membershipUrl = `${this.baseService.baseUrl}membership`;
+    uploadFileUrl = `${this.baseService.baseUrl}upload-file`;
 
     /*  loginUser(authData) {
          const body = JSON.stringify(authData);
@@ -32,19 +33,29 @@ export class MemberShipService {
      } */
 
     /**
-   * Store register data
-   * @returns 
-   */
+     * Store register data
+     * @returns 
+    */
     public async storeMembershipService(data) {
         return await firstValueFrom(this.httpClient.post(`${this.membershipUrl}`, data, { headers: this.headers }).pipe(
-            map(response => this.adapterStoreMembership(response))
+            map(response => this.adapterResponseRequest(response))
         ));
     }
 
-    private adapterStoreMembership(response: any): any {
+    /**
+     * Store register data
+     * @returns 
+    */
+    public async uploadFileUserService(formData) {
+        return await firstValueFrom(this.httpClient.post(`${this.uploadFileUrl}`, formData, { headers: this.baseService.getAuthHeadersToFormData() }).pipe(
+            map(response => this.adapterResponseRequest(response))
+        ));
+    }
+
+    private adapterResponseRequest(response: any): any {
         return {
             ...response,
-            statusCode: response?.status_code, 
+            statusCode: response?.status_code,
         };
     }
 
