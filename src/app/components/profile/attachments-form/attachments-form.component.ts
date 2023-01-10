@@ -8,13 +8,10 @@ import { firstValueFrom, map } from 'rxjs';
 @Component({
   selector: 'app-attachments-form',
   templateUrl: './attachments-form.component.html',
-  styleUrls: ['./attachments-form.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./attachments-form.component.scss']
 })
 export class AttachmentsFormComponent implements OnInit {
 
-  public formTitle = 'Documentos de tu negocio';
-  public formSubTitle = 'Documentos del representante legal';
   public attachmentsForm: FormGroup;
   public userId: number = 0;
   @Input() currentData: any = {};
