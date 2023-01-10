@@ -5,7 +5,6 @@ import { BusinessInformationFormComponent } from './components/business-informat
 import { DescribeBusinessFormComponent } from './components/describe-business-form/describe-business-form.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { LegalRepresentativeFormComponent } from './components/legal-representative-form/legal-representative-form.component';
-import { AttachmentsFormComponent } from './components/attachments-form/attachments-form.component';
 import { UserAccessFormComponent } from './components/user-access-form/user-access-form.component';
 import { WizardComponent } from './components/wizard/wizard.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +19,6 @@ import { SuccessRegisterComponent } from './components/success-register/success-
     DescribeBusinessFormComponent,
     AddressFormComponent,
     LegalRepresentativeFormComponent,
-    AttachmentsFormComponent,
     WizardComponent,
     UserAccessFormComponent,
     SuccessRegisterComponent

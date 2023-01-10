@@ -12,6 +12,7 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
 import { WithdrawalHistoryComponent } from './components/withdrawal-history/withdrawal-history/withdrawal-history.component';
 import { DatafonoDigitalComponent } from './components/datafono-digital/datafono-digital/datafono-digital.component';
 import { PaymentLinkComponent } from './components/payment-link/payment-link/payment-link.component';
+import { AttachmentsFormComponent } from './components/profile/attachments-form/attachments-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -56,7 +57,8 @@ export function playerFactory() {
     PaymentLinkEditComponent,
     PaymentLinkDetailComponent,
     TransactionDetailComponent,
-    ProfileComponent
+    ProfileComponent,
+    AttachmentsFormComponent
   ],
   imports: [
     BrowserModule,
