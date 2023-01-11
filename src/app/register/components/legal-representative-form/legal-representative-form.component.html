@@ -25,10 +25,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="documentExpedition">Expedición cédula</label>
-    <input type="date" id="documentExpedition" formControlName="documentExpedition" class="form-control"
+    <label for="dateEx">Expedición cédula</label>
+    <input type="date" id="dateEx" formControlName="dateEx" class="form-control"
       placeholder="dd/mm/aaaa" required>
-    <div *ngIf="formSent && legalRepresentativeForm?.get('documentExpedition')?.invalid" class="text-danger">
+    <div *ngIf="formSent && legalRepresentativeForm?.get('dateEx')?.invalid" class="text-danger">
       Por favor ingresa la fecha de expedición de tu documento.
     </div>
   </div>

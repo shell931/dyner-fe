@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="commerceCertificate" class="form-label text-start">Certificado de Cámara de Comercio</label>
     <input type="file" id="commerceCertificate" formControlName="commerceCertificate" class="form-control"
-      (change)="onFileSelected($event, 1, userId)">
+      (change)="onFileSelected($event, 3, userId)">
     <div *ngIf="attachmentsForm?.get('commerceCertificate')?.invalid" class="text-danger">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
@@ -19,7 +19,7 @@
     <label for="commercePhoto" class="form-label text-start">Foto del Comercio (Fachada, local u
       oficina)</label>
     <input type="file" id="commercePhoto" formControlName="commercePhoto" class="form-control"
-      (change)="onFileSelected($event, 3, userId)">
+      (change)="onFileSelected($event, 4, userId)">
     <div *ngIf="attachmentsForm?.get('commercePhoto')?.invalid" class="text-danger">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
@@ -28,7 +28,7 @@
   <div class="form-group">
     <label for="legalRepresentativePhoto" class="form-label text-start">Foto del representante legal</label>
     <input type="file" id="legalRepresentativePhoto" formControlName="legalRepresentativePhoto" class="form-control"
-      (change)="onFileSelected($event, 4, userId)">
+      (change)="onFileSelected($event, 5, userId)">
     <div *ngIf="attachmentsForm?.get('legalRepresentativePhoto')?.invalid" class="text-danger">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
@@ -36,7 +36,7 @@
   <div class="form-group">
     <label for="idPhoto" class="form-label text-start">Foto del documento de identidad</label>
     <input type="file" id="idPhoto" formControlName="idPhoto" class="form-control"
-      (change)="onFileSelected($event, 5, userId)">
+      (change)="onFileSelected($event, 1, userId)">
     <div *ngIf="attachmentsForm?.get('idPhoto')?.invalid" class="text-danger">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
