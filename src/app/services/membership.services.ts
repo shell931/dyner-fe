@@ -37,7 +37,7 @@ export class MemberShipService {
      * @returns 
     */
     public async storeMembershipService(data) {
-        return await firstValueFrom(this.httpClient.post(`${this.membershipUrl}`, data, { headers: this.headers }).pipe(
+        return await firstValueFrom(this.httpClient.post(`${this.membershipUrl}`, this.adapterRequest(data), { headers: this.headers }).pipe(
             map(response => this.adapterResponseRequest(response))
         ));
     }
@@ -47,9 +47,21 @@ export class MemberShipService {
      * @returns 
     */
     public async uploadFileUserService(formData) {
-        return await firstValueFrom(this.httpClient.post(`${this.uploadFileUrl}`, formData, { headers: this.baseService.getAuthHeadersToFormData() }).pipe(
+        return await firstValueFrom(this.httpClient.post(`${this.uploadFileUrl}`, this.adapterRequest(formData), { headers: this.baseService.getAuthHeadersToFormData() }).pipe(
             map(response => this.adapterResponseRequest(response))
         ));
+    }
+
+    private adapterRequest(data: any): any {
+        return {
+            ...data,
+            num_aprox_tx: data?.numAproxTx,
+            ticket_prom: data?.ticketProm,
+            amount_aprox_tx_month: data?.amountAproxTxMonth,
+            maximun_amount_link: data?.maximumAmountLink,
+            date_ex: data?.dateEx,
+            postal_code: data?.postalCode
+        };
     }
 
     private adapterResponseRequest(response: any): any {
