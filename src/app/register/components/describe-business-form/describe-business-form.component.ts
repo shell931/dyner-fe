@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared-service';
-import { createMask } from '@ngneat/input-mask';
 
 @Component({
   selector: 'app-describe-business-form',
@@ -16,33 +15,16 @@ export class DescribeBusinessFormComponent implements OnInit {
   @Input() currentData: any = {};
   @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
-  currencyInputMask = createMask({
-    alias: 'numeric',
-    groupSeparator: '.',
-    digits: 0,
-    digitsOptional: false,
-    prefix: '$ ',
-    placeholder: '0',
-  });
-
-  numberInputMask = createMask({
-    alias: 'numeric',
-    groupSeparator: '.',
-    digits: 0,
-    digitsOptional: false,
-    placeholder: '0',
-  });
-
   constructor(private fb: FormBuilder, sharedService: SharedService) {
     sharedService.$emitter.subscribe(() => {
       this.formSent = true;
       this.submitFormData();
     });
     this.describeBusinessForm = this.fb.group({
-      monthlyTransactions: ['', Validators.required],
-      averageTicket: ['', Validators.required],
-      amountTransacted: ['', Validators.required],
-      maximumTransAmount: ['', Validators.required],
+      numAproxTx: ['', Validators.required],
+      ticketProm: ['', Validators.required],
+      amountAproxTxMonth: ['', Validators.required],
+      maximumAmountLink: ['', Validators.required],
       describeBusiness: ['', Validators.required]
     });
   }

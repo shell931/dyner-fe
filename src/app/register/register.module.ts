@@ -12,6 +12,7 @@ import { CommonService } from '../services/common.service';
 import { AlertsService } from '../services/alerts.service';
 import { InputMaskModule } from '@ngneat/input-mask';
 import { SuccessRegisterComponent } from './components/success-register/success-register.component';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SuccessRegisterComponent } from './components/success-register/success-
     CommonModule,
     ReactiveFormsModule,
     RegisterRoutingModule,
-    InputMaskModule
+    InputMaskModule,
+    CurrencyMaskModule
   ],
   providers: [CommonService, AlertsService]
 })

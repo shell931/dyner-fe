@@ -32,7 +32,7 @@ export class LegalRepresentativeFormComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required], 
       document: ['', Validators.required],
-      documentExpedition: ['', Validators.required],
+      dateEx: ['', Validators.required],
       businessPhone: ['', Validators.required]
     });
   }
