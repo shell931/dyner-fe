@@ -1009,6 +1009,7 @@ body {
 .Notification-scroll {
   max-height: 291px;
   position: relative;
+  overflow-y: scroll;
 }
 
 .cover-image {
