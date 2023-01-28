@@ -7,7 +7,7 @@ export const environment = {
     api: {
         baseUrl: ' http://52.44.5.11:2100/dyner-api-mobile/public/api/v1/',
         baseUrl2: ' http://52.44.5.11:2100/dyner-api-mobile/public/api/',
-        baseAuthUrl: ' http://52.44.5.11:2100/dyner-api-mobile/public/api/auth/',
+        baseAuthUrl: 'http://52.44.5.11:2100/dyner-api-mobile/public/api/auth/',
         baseProfileUrl: 'http://52.44.5.11:2100/dyner-api-mobile/public/api/auth/profile',
         bankImage: 'https://imagesdyner.s3.us-east-2.amazonaws.com',
         linkImage: 'https://img-productos-comercios-arianpay.s3.us-east-2.amazonaws.com',
