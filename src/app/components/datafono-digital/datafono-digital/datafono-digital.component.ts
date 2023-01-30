@@ -4,7 +4,8 @@ import { BaseService } from "src/app/services/base-service.service";
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
 import { environment } from 'src/environments/environment';
-
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-datafono-digital',
@@ -17,12 +18,16 @@ export class DatafonoDigitalComponent implements OnInit {
     elementType = NgxQrcodeElementTypes.URL;
     correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
     value = "";
-    gatewayUrl = environment.api.gatewayUrl+'pay/';
+    gatewayUrl = environment.api.gatewayUrl + 'pay/';
     public validate_copy: boolean = false;
+    public validate_active: boolean = true;
+
 
     constructor(
         private baseService: BaseService,
         private profileService: ProfileService,
+        public dialog: MatDialog,
+        public router: Router
     ) { }
 
     ngOnInit(): void {
@@ -39,9 +44,12 @@ export class DatafonoDigitalComponent implements OnInit {
     }
 
     GetProfileDataF(ProfileData) {
-        this.url_data_web = this.gatewayUrl+ProfileData.data.user.client.url_data_web;
-        console.log(this.url_data_web);
-
+        this.url_data_web = this.gatewayUrl + ProfileData.data.user.client.url_data_web;
+        this.validate_active = ProfileData.data.user.client.active;
+        console.log(this.validate_active);
+        if (this.validate_active == false) {
+            this.openDialog();
+        }
     }
 
     copyInputMessage(inputElement) {
@@ -60,5 +68,37 @@ export class DatafonoDigitalComponent implements OnInit {
     //     animationData: LottieTransferState.get('data.json'),
     // };
 
+    openDialog() {
+        this.dialog.open(DialogElementsExampleDialog);
+    }
+
+    redirect_account() {
+        this.router.navigate(['/profile']);
+        this.dialog.closeAll();
+    }
+
+
+
+}
+
+
+@Component({
+    selector: 'dialog-elements-example-dialog',
+    templateUrl: './dialog-elements-noactive.html',
+    styleUrls: ['./dialog-elements-noactive.css']
+})
+export class DialogElementsExampleDialog {
+    constructor(
+        public dialog: MatDialog,
+        public router: Router,
+    ) { }
+    close(): void {
+        this.dialog.closeAll();
+    }
+
+    redirect_account() {
+        this.router.navigate(['/profile']);
+        this.dialog.closeAll();
+    }
 
 }
