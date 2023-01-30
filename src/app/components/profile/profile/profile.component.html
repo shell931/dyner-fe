@@ -74,7 +74,7 @@
                 <div *ngFor="let item of checkboxesDataList; let index = index" class="mt-2">
                     <div class="flex-container ">
                         <div class="flex-item">
-                            <img src="{{bankImage}}/{{item.bank.icon_image}}" class="img-bank-account" alt="logo">
+                            <img src="{{bankImage}}/{{item?.bank?.icon_image}}" class="img-bank-account" alt="logo">
                         </div>
                         <div class="flex-item align-start">
                             <p class="tx-14 num-cuenta ">Número de cuenta de ahorros {{item.num_cuenta}}</p>
