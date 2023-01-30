@@ -32,6 +32,7 @@ import { ProfileComponent } from './components/profile/profile/profile.component
 import { LottieModule } from "ngx-lottie";
 import { RegisterModule } from './register/register.module';
 import player from "lottie-web";
+import { MatDialogModule } from '@angular/material/dialog';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -61,6 +62,7 @@ export function playerFactory() {
     AttachmentsFormComponent
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
