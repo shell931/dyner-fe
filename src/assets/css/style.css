@@ -2162,6 +2162,18 @@ input[type=button].btn-block {
     border-color: #f7435c;
 }
 
+.btn-grey {
+    color: #fff;
+    background-color: #727F9F;
+    border-color: #727F9F;
+}
+
+.btn-grey:hover {
+    color: #fff;
+    background-color: #727F9F;
+    border-color: #727F9F;
+}
+
 .btn-purple {
     color: #fff;
     background-color: #0162E8;

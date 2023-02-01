@@ -6,6 +6,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { BaseService } from "src/app/services/base-service.service";
+import { ProfileService } from 'src/app/services/profile.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 
@@ -17,19 +20,21 @@ import { BaseService } from "src/app/services/base-service.service";
 export class PaymentLinkComponent implements OnInit {
 
     displayedColumns: string[] = ['descripcion', 'cod_producto', 'subtotal', 'end_date', 'total', 'status', 'action'];
-
     linksList: any[] = [];
     dataSource = new MatTableDataSource<any>(this.linksList);
     // dataSource: MatTableDataSource<UserData>;
-
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
+    public validate_active: boolean = false;
 
 
     constructor(
         private PaymentLinksService: PaymentLinksService,
-        private baseService : BaseService,
+        private baseService: BaseService,
         private changeDetectorRef: ChangeDetectorRef,
+        private profileService: ProfileService,
+        public dialog: MatDialog,
+        public router: Router
     ) {
         // Create 100 users
         // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
@@ -54,6 +59,16 @@ export class PaymentLinkComponent implements OnInit {
 
 
     ngOnInit(): void {
+
+        this.profileService.GetProfileData().subscribe(
+            (Alldata) => {
+                this.GetProfileDataF(Alldata)
+            },
+            error => {
+                this.baseService.GetErrorAuthSesion(error)
+            }
+        );
+
         this.PaymentLinksService.GetLinksList().subscribe(
             (LinkListdata) => {
                 this.GetLinksListF(LinkListdata)
@@ -61,23 +76,61 @@ export class PaymentLinkComponent implements OnInit {
             error => {
                 this.baseService.GetErrorAuthSesion(error)
             }
-        ); 
-        
+        );
+
     }
 
-    GetLinksListF(LinkListdata) {     
+    GetProfileDataF(ProfileData) {
+        this.validate_active = ProfileData.data.user.client.active;
+        console.log(this.validate_active);
+        if (this.validate_active == false) {
+            this.openDialog();
+        }
+    }
+
+    GetLinksListF(LinkListdata) {
         this.linksList = LinkListdata.data.data;
-		this.dataSource = new MatTableDataSource<any>(this.linksList);
+        this.dataSource = new MatTableDataSource<any>(this.linksList);
         // setTimeout(() => this.dataSource.paginator = this.paginator);
         this.changeDetectorRef.detectChanges();
-		this.dataSource.paginator = this.paginator;
-		setTimeout(() => {
-			this.dataSource.paginator = this.paginator;
-		}, 0)
+        this.dataSource.paginator = this.paginator;
+        setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
+        }, 0)
 
     }
 
+    openDialog() {
+        this.dialog.open(DialogNoActive);
+    }
 
+    redirect_account() {
+        this.router.navigate(['/profile']);
+        this.dialog.closeAll();
+    }
+
+
+
+}
+
+@Component({
+    selector: 'dialog-elements-example-dialog',
+    templateUrl: './dialog-elements-noactive.html',
+    styleUrls: ['./dialog-elements-noactive.css']
+})
+export class DialogNoActive {
+    constructor(
+        public dialog: MatDialog,
+        public router: Router,
+    ) { }
+    close(): void {
+        this.dialog.closeAll();
+    }
+
+    redirect_account() {
+        this.router.navigate(['/profile']);
+        this.dialog.closeAll();
+    }
 
 }
 
