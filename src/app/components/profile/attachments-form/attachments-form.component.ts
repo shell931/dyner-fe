@@ -14,6 +14,11 @@ export class AttachmentsFormComponent implements OnInit {
 
   public attachmentsForm: FormGroup;
   public userId: number = 0;
+  public statusCamaraComercio!: number;
+  public statusRut! : number;
+  public statusDocument! : number;
+  public statusFachadaNegocio!: number;
+  
   @Input() currentData: any = {};
 
   constructor(
@@ -23,16 +28,18 @@ export class AttachmentsFormComponent implements OnInit {
     private alertsService: AlertsService,
   ) {
     this.attachmentsForm = this.fb.group({
-      commerceCertificate: ['', Validators.required],
-      rut: ['', Validators.required],
-      commercePhoto: ['', [Validators.required]],
-      legalRepresentativePhoto: ['', [Validators.required]],
-      idPhoto: ['', [Validators.required]],
+      commerceCertificate: [''],
+      rut: [''],
+      commercePhoto: [''],
+      legalRepresentativePhoto: [''],
+      idPhoto: ['', ],
     });
   }
 
   async ngOnInit() {
     this.getUserProfile();
+    this.GetStatusDocumentClient();
+    console.log(this.statusCamaraComercio,'td')
   }
 
   /**
@@ -73,6 +80,7 @@ export class AttachmentsFormComponent implements OnInit {
         formData.append("typeDocumentId", String(typeDocumentId));
         formData.append("document", file, file?.name);
         this.uploadFileUser(formData);
+        this.GetStatusDocumentClient();
       }
       else {
         // this.registerForm.reset();
@@ -94,7 +102,9 @@ export class AttachmentsFormComponent implements OnInit {
         throw new Error("No ha sido posible cargar el archivo");
       }
       this.alertsService.closeAlert();
+      console.log('entro')
       this.alertsService.openInfoAlert({ title: 'Perfecto', text: 'Documento cargado exitosamente' });
+      this.GetStatusDocumentClient();
     } catch (error: any) {
       this.alertsService.closeAlert();
       let errorObject = {
@@ -104,6 +114,29 @@ export class AttachmentsFormComponent implements OnInit {
       };
       this.alertsService.openInfoAlert(errorObject);
     }
+  }
+
+  public GetStatusDocumentClient(){
+    this.profileService.GetStatusDocumentClient()
+     .subscribe({
+      next: (response) =>{
+        this.statusCamaraComercio = response.camara_comercio;
+        this.statusRut = response.rut;
+        this.statusFachadaNegocio = response.fachada_negocio;
+        this.statusDocument =   response.document;
+        console.log('status',this.statusCamaraComercio,this.statusRut,this.statusFachadaNegocio,this.statusDocument)
+      },
+      error: (error) => {
+        this.alertsService.closeAlert();
+        let errorObject = {
+          title: 'Error!',
+          icon: 'error',
+          text: 'Se ha presentado un error, al consultar el estado de los documentos'
+        };
+        this.alertsService.openInfoAlert(errorObject);
+      }
+     })
+
   }
 
 }
