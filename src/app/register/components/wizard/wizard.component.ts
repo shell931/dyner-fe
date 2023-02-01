@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import { SharedService } from '../../shared-service';
 import { MemberShipService } from 'src/app/services/membership.services';
@@ -10,10 +16,8 @@ import { Router } from '@angular/router';
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.scss'],
   providers: [SharedService],
-  encapsulation: ViewEncapsulation.None
 })
-export class WizardComponent implements OnInit {
-
+export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
   public currentStep = 1;
   public totalSteps = 5;
   public currentFormValid = false;
@@ -23,11 +27,22 @@ export class WizardComponent implements OnInit {
   public cities: any[] = [];
   public flowData: any = {};
   public stepInfoData = [
-    { title: 'Abre tu cuenta', description: 'Sube los siguientes documentos. Serán necesarios para completar el proceso de verificación.' },
-    { title: 'Abre tu cuenta', description: 'La siguiente información no limitará el acceso a tus herramientas, es solo de carácter informativo.' },
+    {
+      title: 'Abre tu cuenta',
+      description:
+        'Sube los siguientes documentos. Serán necesarios para completar el proceso de verificación.',
+    },
+    {
+      title: 'Abre tu cuenta',
+      description:
+        'La siguiente información no limitará el acceso a tus herramientas, es solo de carácter informativo.',
+    },
     { title: 'Abre tu cuenta', description: '' },
     { title: 'Abre tu cuenta', description: '' },
-    { title: 'Abre tu cuenta', description: 'Con esta contraseña tendras acceso a la plataforma' },
+    {
+      title: 'Abre tu cuenta',
+      description: 'Con esta contraseña tendras acceso a la plataforma',
+    },
   ];
 
   constructor(
@@ -35,18 +50,30 @@ export class WizardComponent implements OnInit {
     private membershipService: MemberShipService,
     private sharedService: SharedService,
     private alertsService: AlertsService,
-    private router: Router
-  ) {
-  }
+    private router: Router,
+    private elementRef: ElementRef
+  ) {}
 
   async ngOnInit() {
     this.alertsService.openInfoAlert({
       title: 'Ten presente',
       text: 'Para tu proceso de afiliación se solicitarán documentos e información básica de tu negocio. Adicionalmente, te solicitaremos fotografías de tus documentos y de tu establecimiento.',
-    })
-    this.identificationTypes = await this.commonService.getIdentificationTypes();
-    this.economityActivities = await this.commonService.getEconomityActivities();
+    });
+    this.identificationTypes =
+      await this.commonService.getIdentificationTypes();
+    this.economityActivities =
+      await this.commonService.getEconomityActivities();
     this.departments = await this.commonService.getDepartments();
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
+      '#0F0F0F';
+  }
+
+  ngOnDestroy(): void {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
+      '#ecf0fa';
   }
 
   public async getCities(departmentId) {
@@ -73,33 +100,43 @@ export class WizardComponent implements OnInit {
     this.currentFormValid = form.valid;
     this.flowData = {
       ...this.flowData,
-      ...form?.value
-    }
+      ...form?.value,
+    };
   }
 
   public async storeMembership(data) {
     try {
       this.alertsService.openLoadingAlert({});
-      const response = await this.membershipService.storeMembershipService(data);
+      const response = await this.membershipService.storeMembershipService(
+        data
+      );
       if (response?.success) {
         this.alertsService.closeAlert();
-        this.router.navigate([`/registro/finalizado`], { queryParams: { name: `${data?.firstName} ${data?.lastName}` } });
+        this.router.navigate([`/registro/finalizado`], {
+          queryParams: { name: `${data?.firstName} ${data?.lastName}` },
+        });
       }
     } catch (error: any) {
       this.alertsService.closeAlert();
       let errorObject = {
         title: 'Error!',
         icon: 'error',
-        text: 'Se ha presentado un error, consulte con el administrador del sistema'
+        text: 'Se ha presentado un error, consulte con el administrador del sistema',
       };
-      if (error?.error?.message?.startsWith("SQLSTATE[23505]")) {
+      if (error?.error?.message?.startsWith('SQLSTATE[23505]')) {
         errorObject = {
           title: 'Atención!',
           icon: 'warning',
-          text: 'Usuario ya Existe!'
-        }
+          text: 'Usuario ya Existe!',
+        };
       }
       this.alertsService.openInfoAlert(errorObject);
     }
+  }
+
+  public sendEndRegistration() {
+    this.router.navigate([`/registro/finalizado`], {
+      queryParams: { name: `Edwar Pineda` },
+    });
   }
 }

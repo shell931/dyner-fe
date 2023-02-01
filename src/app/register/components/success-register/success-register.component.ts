@@ -1,24 +1,38 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-success-register',
   templateUrl: './success-register.component.html',
   styleUrls: ['./success-register.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class SuccessRegisterComponent implements OnInit {
-
+export class SuccessRegisterComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   public userName = '';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(params => {
-        // console.log('params', params); // { order: "popular" }
-        this.userName = params['name'];
-      });
+    this.route.queryParams.subscribe((params) => {
+      this.userName = params['name'];
+    });
   }
 
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
+      '#0F0F0F';
+  }
+
+  ngOnDestroy(): void {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
+      '#ecf0fa';
+  }
 }
