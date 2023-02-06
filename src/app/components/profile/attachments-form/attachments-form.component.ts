@@ -18,6 +18,7 @@ export class AttachmentsFormComponent implements OnInit {
   public statusRut! : number;
   public statusDocument! : number;
   public statusFachadaNegocio!: number;
+  public selfie!: number;
   
   @Input() currentData: any = {};
 
@@ -123,8 +124,9 @@ export class AttachmentsFormComponent implements OnInit {
         this.statusCamaraComercio = response.camara_comercio;
         this.statusRut = response.rut;
         this.statusFachadaNegocio = response.fachada_negocio;
+        this.selfie = response.selfie;
         this.statusDocument =   response.document;
-        console.log('status',this.statusCamaraComercio,this.statusRut,this.statusFachadaNegocio,this.statusDocument)
+        console.log('status',this.statusCamaraComercio,this.statusRut,this.statusFachadaNegocio,this.selfie,this.statusDocument)
       },
       error: (error) => {
         this.alertsService.closeAlert();
