@@ -2,7 +2,7 @@
 <div class="breadcrumb-header justify-content-between">
     <div class="left-content">
         <div>
-            <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">Hola, {{name_client}}!</h2>
+            <h1 class="main-content-title mg-b-1 mg-b-lg-1">Hola, {{name_client}}!</h1>
             <p class="mg-b-0">Resumen de transacciones.</p>
         </div>
     </div>
@@ -34,7 +34,7 @@
 
 
 <div class="row">
-    <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+    <div class="col-12 col-lg-4">
         <div class="card">
             <div class="card-header pb-0">
                 <p class="mg-b-0 tx-14 color-title-card">CAPITAL</p>
@@ -42,7 +42,7 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-25 mg-b-1 mg-b-lg-1">{{capital_total_sum_service|currency :
+                        <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1">{{capital_total_sum_service|currency :
                             'USD' : 'symbol' : '1.0-0'}} COP </h1>
                     </div>
                     <div class="flex-item"><img src="./assets/img/svgicons/checkok.svg"
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+    <div class="col-12 col-lg-4">
         <div class="card">
             <div class="card-header pb-0">
                 <p class="mg-b-0 tx-14 color-title-card">DISPONIBLE</p>
@@ -62,7 +62,7 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1">{{dispo_total_sum_service|currency : 'USD'
+                        <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1">{{dispo_total_sum_service|currency : 'USD'
                             : 'symbol' : '1.0-0'}} COP</h1>
                     </div>
                     <div class="flex-item"><img src="./assets/img/svgicons/wallet.svg"
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+    <div class="col-12 col-lg-4">
         <div class="card">
             <div class="card-header pb-0">
                 <p class="mg-b-0 tx-14 color-title-card">EN RETIRO</p>
@@ -82,7 +82,7 @@
             <div class="card-body">
                 <div class="flex-container">
                     <div class="flex-item">
-                        <h1 class="main-content-title tx-36 mg-b-1 mg-b-lg-1"> {{en_transfe_total_sum_service|currency :
+                        <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1"> {{en_transfe_total_sum_service|currency :
                             'USD' : 'symbol' : '1.0-0'}} COP </h1>
                     </div>
                     <div class="flex-item"><img src="./assets/img/svgicons/Transferencia.svg"
