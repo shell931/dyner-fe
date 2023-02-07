@@ -138,7 +138,5 @@ export class AttachmentsFormComponent implements OnInit {
         this.alertsService.openInfoAlert(errorObject);
       }
      })
-
   }
-
 }
