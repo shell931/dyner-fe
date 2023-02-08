@@ -61,19 +61,9 @@ export class PaymentLinkCreateComponent implements OnInit {
 
     //START SET EVENT FROM DROPZONE COMPLEMENT
     selectFileComplement(event) {
-        this.validate_img = false;
-        let index = this.filesComplement.length != event.addedFiles ? 0 : this.filesComplement.length;
-        event.addedFiles.map((item) => {
-            this.onValidatePixels(item)
-                .then((value) => {
-                    if (value) {
-                        this.filesComplement.push(item);
-                    } else {
-                        this.validate_img = true;
-                    }
-                });
-        });
-
+        if(this.filesComplement.length == 0){
+            this.filesComplement.push(...event.addedFiles);
+        }
     }
 
     onRemoveComplement(event) {
@@ -98,6 +88,7 @@ export class PaymentLinkCreateComponent implements OnInit {
     }
 
     onSelect(event: any) {
+        console.log('ev',event)
         this.files.push(...event.addedFiles);
     }
 
