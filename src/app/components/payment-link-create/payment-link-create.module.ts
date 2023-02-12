@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DropzoneConfigInterface, DropzoneModule, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -33,7 +34,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     ReactiveFormsModule,
     MatFormFieldModule,
     DropzoneModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    CurrencyMaskModule
   ]
 })
 export class PaymentLinkCreateModule { }

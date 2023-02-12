@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OverlayModule } from '@angular/cdk/overlay'
+import { OverlayModule } from '@angular/cdk/overlay';
 import { ColorPickerService } from 'ngx-color-picker';
 import { HttpClientModule } from '@angular/common/http';
 import { BalanceWithdrawalComponent } from './components/balance-withdrawal/balance-withdrawal/balance-withdrawal.component';
@@ -20,7 +20,11 @@ import { MatInputModule } from '@angular/material/input';
 import { BalanceWithdrawalResponseComponent } from './components/balance-withdrawal-response/balance-withdrawal-response/balance-withdrawal-response.component';
 import { PaymentLinkCreateComponent } from './components/payment-link-create/payment-link-create/payment-link-create.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DropzoneConfigInterface, DropzoneModule, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
+import {
+  DropzoneConfigInterface,
+  DropzoneModule,
+  DROPZONE_CONFIG,
+} from 'ngx-dropzone-wrapper';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { PaymentLinkEditComponent } from './components/payment-link-edit/payment-link-edit/payment-link-edit.component';
@@ -29,16 +33,17 @@ import { MatRadioModule } from '@angular/material/radio';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail/transaction-detail.component';
 import { ProfileComponent } from './components/profile/profile/profile.component';
-import { LottieModule } from "ngx-lottie";
+import { LottieModule } from 'ngx-lottie';
 import { RegisterModule } from './register/register.module';
-import player from "lottie-web";
+import player from 'lottie-web';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SessionGuard } from './shared/shared/sessionGuard';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
   url: 'https://httpbin.org/post',
   acceptedFiles: 'image/*',
-  createImageThumbnails: true
+  createImageThumbnails: true,
 };
 
 export function playerFactory() {
@@ -59,7 +64,7 @@ export function playerFactory() {
     PaymentLinkDetailComponent,
     TransactionDetailComponent,
     ProfileComponent,
-    AttachmentsFormComponent
+    AttachmentsFormComponent,
   ],
   imports: [
     MatDialogModule,
@@ -81,16 +86,17 @@ export function playerFactory() {
     MatRadioModule,
     NgxQRCodeModule,
     RegisterModule,
-    LottieModule.forRoot({ player: playerFactory })
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [
     {
       provide: DROPZONE_CONFIG,
-      useValue: DEFAULT_DROPZONE_CONFIG
+      useValue: DEFAULT_DROPZONE_CONFIG,
     },
-    ColorPickerService
+    ColorPickerService,
+    SessionGuard,
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
