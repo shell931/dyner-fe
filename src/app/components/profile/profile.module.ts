@@ -4,13 +4,17 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { UsMapModule } from 'angular-us-map';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from 'src/app/services/common.service';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MemberShipService } from 'src/app/services/membership.services';
+import { ProfileComponent } from './profile/profile.component';
+import { AttachmentsFormComponent } from './attachments-form/attachments-form.component';
+import { DocumentStatusComponent } from './document-status/document-status.component';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
  
@@ -18,6 +22,9 @@ import { MemberShipService } from 'src/app/services/membership.services';
 @NgModule({
   declarations: [
     // TransactionHistoryComponent
+    ProfileComponent,
+    AttachmentsFormComponent,
+    DocumentStatusComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +33,8 @@ import { MemberShipService } from 'src/app/services/membership.services';
     NgApexchartsModule,
     NgbModule,
     UsMapModule,
+    DropzoneModule,
+    NgxDropzoneModule
   ],
   providers: [CommonService, AlertsService, ProfileService, MemberShipService]
  

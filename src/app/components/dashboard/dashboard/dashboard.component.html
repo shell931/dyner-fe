@@ -316,7 +316,7 @@
                     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
                 </mat-form-field> -->
                 <div class="mat-elevation-z8">
-                    <table mat-table [dataSource]="dataSource" matSort>
+                    <table mat-table [dataSource]="dataSource" matSort class="table-striped">
                         <!-- ID Column -->
                         <ng-container matColumnDef="servicio">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </th>

@@ -38,6 +38,8 @@ import { RegisterModule } from './register/register.module';
 import player from 'lottie-web';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SessionGuard } from './shared/shared/sessionGuard';
+import { DocumentStatusComponent } from './components/profile/document-status/document-status.component';
+import { ProfileModule } from './components/profile/profile.module';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -63,8 +65,6 @@ export function playerFactory() {
     PaymentLinkEditComponent,
     PaymentLinkDetailComponent,
     TransactionDetailComponent,
-    ProfileComponent,
-    AttachmentsFormComponent,
   ],
   imports: [
     MatDialogModule,
@@ -86,6 +86,7 @@ export function playerFactory() {
     MatRadioModule,
     NgxQRCodeModule,
     RegisterModule,
+    ProfileModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [

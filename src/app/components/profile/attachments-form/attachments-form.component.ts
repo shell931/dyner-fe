@@ -13,7 +13,7 @@ import { firstValueFrom, map } from 'rxjs';
 export class AttachmentsFormComponent implements OnInit {
 
   public attachmentsForm: FormGroup;
-  public userId: number = 0;
+  public userId!: number;
   public statusCamaraComercio!: number;
   public statusRut! : number;
   public statusDocument! : number;
@@ -40,7 +40,6 @@ export class AttachmentsFormComponent implements OnInit {
   async ngOnInit() {
     this.getUserProfile();
     this.GetStatusDocumentClient();
-    console.log(this.statusCamaraComercio,'td')
   }
 
   /**
@@ -126,7 +125,6 @@ export class AttachmentsFormComponent implements OnInit {
         this.statusFachadaNegocio = response.fachada_negocio;
         this.selfie = response.selfie;
         this.statusDocument =   response.document;
-        console.log('status',this.statusCamaraComercio,this.statusRut,this.statusFachadaNegocio,this.selfie,this.statusDocument)
       },
       error: (error) => {
         this.alertsService.closeAlert();

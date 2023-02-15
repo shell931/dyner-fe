@@ -26,7 +26,7 @@
       <div class="card-body">
         <form [formGroup]="linkForm">
           <div class="row">
-            <div class="col-md-6 mt-2">
+            <div class="col-md-6">
               <p class="mg-b-0 tx-14">Descripción</p>
               <input
                 placeholder="Escribe una descripción"
@@ -53,9 +53,7 @@
                 maxlength="150"
                 class="form-control"
                 required=""
-                maxlength="13"
-                currencyMask
-                
+                maxlength="13"                
               />
               <mat-error
                 *ngIf="

@@ -47,7 +47,6 @@ export class ProfileComponent implements OnInit {
   }
 
   GetProfileDataF(ProfileData) {
-    console.log(ProfileData);
     this.name_commerce = ProfileData.data.user.client.nombre;
     this.representante_legal = ProfileData.data.user.client.representante_legal;
     this.nit = ProfileData.data.user.client.nit;
@@ -82,10 +81,10 @@ export class ProfileComponent implements OnInit {
           const width = img.naturalWidth;
           const height = img.naturalHeight;
           window.URL.revokeObjectURL(img.src);
-          if (width >= this.widthMin && height >= this.heightMin) {
-            resolve(false);
+          if (width <= this.widthMin && height <= this.heightMin) {
+            resolve(true);
           }
-          resolve(true);
+          resolve(false);
         };
       }
     });
