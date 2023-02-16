@@ -1,0 +1,12 @@
+<div *ngIf="status == 1" class="text-warning text-start fw-bold">
+  <i class="far fa-clock"></i>
+  Documento se encuentra en revisión
+</div>
+<div *ngIf="status == 2" class="text-success text-start fw-bold">
+  <i class="far fa-check-circle"></i>
+  Documento se encuentra en estado aprobado
+</div>
+<div *ngIf="status == 3" class="text-danger text-start fw-bold">
+  <i class="far fa-times-circle"></i>
+  Documento se encuentra en estado rechazado
+</div>

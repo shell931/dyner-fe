@@ -29,7 +29,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     ReactiveFormsModule,
     RegisterRoutingModule,
     InputMaskModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
   ],
   providers: [CommonService, AlertsService]
 })

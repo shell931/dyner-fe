@@ -1,89 +1,86 @@
 <form [formGroup]="attachmentsForm" class="needs-validation" novalidate>
-  <p class="text-secondary text-center my-2 fw-bold">Documentos de tu negocio</p>
+  <p class="text-secondary text-center my-2 fw-bold">
+    Documentos de tu negocio
+  </p>
   <div class="form-group">
-    <label for="commerceCertificate" class="form-label text-start">Certificado de Cámara de Comercio</label>
-    <input [disabled]='statusCamaraComercio==1 || statusCamaraComercio==2' type="file" id="commerceCertificate" class="form-control"
-      (change)="onFileSelected($event, 3, userId)">
-    <div class="text-danger">
+    <label for="commerceCertificate" class="form-label text-start"
+      >Certificado de Cámara de Comercio</label
+    >
+    <input
+      [disabled]="statusCamaraComercio == 1 || statusCamaraComercio == 2"
+      type="file"
+      id="commerceCertificate"
+      class="form-control"
+      (change)="onFileSelected($event, 3, userId)"
+    />
+    <div class="text-muted text-start">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
-    <div *ngIf="statusCamaraComercio==1" class="text-danger">
-      Documento se encuentra en revisión
-    </div>
-    <div *ngIf="statusCamaraComercio==2" class="text-danger">
-      Documento se encuentra en estado aprobado
-    </div>
-    <div *ngIf="statusCamaraComercio==3" class="text-danger">
-      Documento se encuentra en estado rechazado
-    </div>
+    <app-document-status [status]="statusCamaraComercio"></app-document-status>
   </div>
   <div class="form-group">
     <label for="rut" class="form-label text-start">RUT</label>
-    <input [disabled]='statusRut==1 || statusRut==2' type="file" id="rut" class="form-control" (change)="onFileSelected($event, 2, userId)">
-    <div class="text-danger">
+    <input
+      [disabled]="statusRut == 1 || statusRut == 2"
+      type="file"
+      id="rut"
+      class="form-control"
+      (change)="onFileSelected($event, 2, userId)"
+    />
+    <div class="text-muted text-start">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
-    <div *ngIf="statusRut==1" class="text-danger">
-      Documento se encuentra en revisión
-    </div>
-    <div *ngIf="statusRut==2" class="text-danger">
-      Documento se encuentra en estado aprobado
-    </div>
-    <div *ngIf="statusRut==3" class="text-danger">
-      Documento se encuentra en estado rechazado
-    </div>
+    <app-document-status [status]="statusRut"></app-document-status>
   </div>
   <div class="form-group">
-    <label for="commercePhoto" class="form-label text-start">Foto del Comercio (Fachada, local u
-      oficina)</label>
-    <input [disabled]='statusFachadaNegocio==1 || statusFachadaNegocio==2' type="file" id="commercePhoto" class="form-control"
-      (change)="onFileSelected($event, 6, userId)">
-    <div class="text-danger">
+    <label for="commercePhoto" class="form-label text-start"
+      >Foto del Comercio (Fachada, local u oficina)</label
+    >
+    <input
+      [disabled]="statusFachadaNegocio == 1 || statusFachadaNegocio == 2"
+      type="file"
+      id="commercePhoto"
+      class="form-control"
+      (change)="onFileSelected($event, 6, userId)"
+    />
+    <div class="text-muted text-start">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
-    <div *ngIf="statusFachadaNegocio==1" class="text-danger">
-      Documento se encuentra en revisión
-    </div>
-    <div *ngIf="statusFachadaNegocio==2" class="text-danger">
-      Documento se encuentra en estado aprobado
-    </div>
-    <div *ngIf="statusFachadaNegocio==3" class="text-danger">
-      Documento se encuentra en estado rechazado
-    </div>
+    <app-document-status [status]="statusFachadaNegocio"></app-document-status>
   </div>
-  <p class="text-secondary text-center my-2 fw-bold">Documentos del representante legal</p>
+  <p class="text-secondary text-center my-2 fw-bold">
+    Documentos del representante legal
+  </p>
   <div class="form-group">
-    <label for="legalRepresentativePhoto" class="form-label text-start">Foto del representante legal</label>
-    <input [disabled]='selfie==1 || selfie==2' type="file" id="legalRepresentativePhoto" class="form-control"
-      (change)="onFileSelected($event, 5, userId)">
-    <div class="text-danger">
+    <label for="legalRepresentativePhoto" class="form-label text-start"
+      >Foto del representante legal</label
+    >
+    <input
+      [disabled]="selfie == 1 || selfie == 2"
+      type="file"
+      id="legalRepresentativePhoto"
+      class="form-control"
+      (change)="onFileSelected($event, 5, userId)"
+    />
+    <div class="text-muted text-start">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
-    <div *ngIf="selfie==1" class="text-danger">
-      Documento se encuentra en revisión
-    </div>
-    <div *ngIf="selfie==2" class="text-danger">
-      Documento se encuentra en estado aprobado
-    </div>
-    <div *ngIf="selfie==3" class="text-danger">
-      Documento se encuentra en estado rechazado
-    </div>
+    <app-document-status [status]="selfie"></app-document-status>
   </div>
   <div class="form-group">
-    <label for="idPhoto" class="form-label text-start">Foto del documento de identidad</label>
-    <input [disabled]='statusDocument==1 || statusDocument==2' type="file" id="idPhoto" class="form-control"
-      (change)="onFileSelected($event, 1, userId)">
-    <div class="text-danger">
+    <label for="idPhoto" class="form-label text-start"
+      >Foto del documento de identidad</label
+    >
+    <input
+      [disabled]="statusDocument == 1 || statusDocument == 2"
+      type="file"
+      id="idPhoto"
+      class="form-control"
+      (change)="onFileSelected($event, 1, userId)"
+    />
+    <div class="text-muted text-start">
       Formatos validos (.png, .jpeg, .pdf, .doc)
     </div>
-    <div *ngIf="statusDocument==1" class="text-danger">
-      Documento se encuentra en revisión
-    </div>
-    <div *ngIf="statusDocument==2" class="text-danger">
-      Documento se encuentra en estado aprobado
-    </div>
-    <div *ngIf="statusDocument==3" class="text-danger">
-      Documento se encuentra en estado rechazado
-    </div>
+    <app-document-status [status]="statusDocument"></app-document-status>
   </div>
 </form>
