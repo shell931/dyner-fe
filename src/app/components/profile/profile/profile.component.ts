@@ -13,8 +13,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ProfileComponent implements OnInit {
   filesComplement: File[] = [];
   public validate_img: boolean = false;
-  widthMin: number = 700;
-  heightMin: number = 700;
+  widthMin: number = 350;
+  heightMin: number = 350;
   name_client: any;
   name_commerce: any;
   representante_legal: any;
@@ -119,7 +119,6 @@ export class ProfileComponent implements OnInit {
           // this.router.navigate(['profile']).then(() => {
           // //     // this.show_spinner = false;
           // //     // window.location.reload();
-
           // });
         },
         (error) => console.log(error)

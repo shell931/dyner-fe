@@ -1,279 +1,322 @@
 <div class="breadcrumb-header justify-content-between">
-    <div class="left-content">
-        <div>
-            <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">Detalle de transacción, {{referenciatx}} </h2>
-        </div>
+  <div class="left-content">
+    <div>
+      <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">
+        Detalle de transacción, {{ referenciatx }}
+      </h2>
     </div>
+  </div>
+  <div class="main-dashboard-header-right">
+    <div>
+      <button
+        [routerLink]="['/transaction-history']"
+        class="btn btn-success-dyner btn-block"
+      >
+        <img
+          src="./assets/img/svgicons/back.svg"
+          class="img-cards-icons-button"
+          alt="logo"
+        />
+        Volver
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-12 col-sm-7 col-lg-7 col-xl-7">
-        <div class="card">
-            <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">DATOS DEL COMPRADOR
-                </h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <!-- <p class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Nombre
+  <div class="col-12 col-sm-7 col-lg-7 col-xl-7">
+    <div class="card">
+      <div class="card-header pb-0">
+        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+          DATOS DEL COMPRADOR
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <!-- <p class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Nombre
                                 </p> -->
-                               <p class="tx-14 title-field">Nombre</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{nombre_comprador}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Email</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{correo}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
+                <p class="tx-14 title-field">Nombre</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ nombre_comprador }}</p>
+              </div>
             </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Email</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ correo }}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
         </div>
-        <div class="card">
-            <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">ESTADO DE LA TRANSACCIÓN</h2>
-            </div>
-            <div class="card-body" style="padding-left: 30px;">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Estado</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{descripcion_estado}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Respuesta banco</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{resp_banco}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Número de tarjeta</p>
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{num_tarjeta}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Fecha de transaccion</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{created_at}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Número de autorización</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{num_autorizacion}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Cuotas</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{cuotas}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Franquicia</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{franquicia}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Total</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{total|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="col-12 col-sm-5 col-lg-5 col-xl-5">
-        <div class="card">
-            <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">DATOS DE LA COMPRA</h2>
+    <div class="card">
+      <div class="card-header pb-0">
+        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+          ESTADO DE LA TRANSACCIÓN
+        </h2>
+      </div>
+      <div class="card-body" style="padding-left: 30px">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Estado</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ descripcion_estado }}</p>
+              </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Descripción</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{descripcion}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Total</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{total|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Respuesta banco</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ resp_banco }}</p>
+              </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-header pb-0">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">DESCUENTOS DE LA TRANSACCIÓN</h2>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Número de tarjeta</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ num_tarjeta }}</p>
+              </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Comisión porcentual (%)</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{comision_ps}} %</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Valor comisión porcentual ($)</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{val_comision_ps|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Rete ICA</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{val_rete_ica|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Comisión adicional</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{val_comision_adi_ps|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Rete fuente</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{val_rete_fuente|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item">
-                                <p class="tx-14 title-field">IVA sobre comisión</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{val_impuesto_comision|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Total descuento</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{total_descuento|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Fecha de transaccion</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ created_at }}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Número de autorización</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ num_autorizacion }}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Cuotas</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ cuotas }}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
 
-                    <div class="col-md-6">
-                        <div class="flex-container-internal">
-                            <div class="flex-item-internal">
-                                <p class="tx-14 title-field">Total abono:</p> 
-                            </div>
-                            <div class="flex-item-internal">
-                                <p class="mg-b-0 tx-14">{{total_abono|currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Franquicia</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ franquicia }}</p>
+              </div>
             </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Total</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ total | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="col-12 col-sm-5 col-lg-5 col-xl-5">
+    <div class="card">
+      <div class="card-header pb-0">
+        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+          DATOS DE LA COMPRA
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Descripción</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ descripcion }}</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Total</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ total | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header pb-0">
+        <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+          DESCUENTOS DE LA TRANSACCIÓN
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Comisión porcentual (%)</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">{{ comision_ps }} %</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Valor comisión porcentual ($)</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ val_comision_ps | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Rete ICA</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ val_rete_ica | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Comisión adicional</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{
+                    val_comision_adi_ps | currency : "USD" : "symbol" : "1.0-0"
+                  }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Rete fuente</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ val_rete_fuente | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item">
+                <p class="tx-14 title-field">IVA sobre comisión</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{
+                    val_impuesto_comision
+                      | currency : "USD" : "symbol" : "1.0-0"
+                  }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Total descuento</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ total_descuento | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
 
-
-
+          <div class="col-md-6">
+            <div class="flex-container-internal">
+              <div class="flex-item-internal">
+                <p class="tx-14 title-field">Total abono:</p>
+              </div>
+              <div class="flex-item-internal">
+                <p class="mg-b-0 tx-14">
+                  {{ total_abono | currency : "USD" : "symbol" : "1.0-0" }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
