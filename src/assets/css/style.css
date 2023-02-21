@@ -1137,14 +1137,14 @@ fieldset:disabled a.btn {
 
 .btn-success-dyner {
     color: #fff;
-    background-color: #F7435C;
-    border-color: #F7435C;
+    background-color: #F7435C !important;
+    border-color: #F7435C !important;
 }
 
 .btn-success-dyner:hover {
     color: #fff;
-    background-color: #dd4c60;
-    border-color: #dd4c60;
+    background-color: #dd4c60 !important;
+    border-color: #dd4c60 !important;
 }
 
 

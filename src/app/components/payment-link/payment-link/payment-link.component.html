@@ -1,113 +1,161 @@
 <div class="breadcrumb-header justify-content-between">
-    <div class="left-content">
-        <div>
-            <h1 class="main-content-title mg-b-1 mg-b-lg-1">LINKS DE PAGO</h1>
-            <p class="mg-b-0">Listado de links de pago</p>
-        </div>
+  <div class="left-content">
+    <div>
+      <h1 class="main-content-title mg-b-1 mg-b-lg-1">LINKS DE PAGO</h1>
+      <p class="mg-b-0">Listado de links de pago</p>
     </div>
-    <div class="main-dashboard-header-right">
-        <div *ngIf="validate_active">
-            <button [routerLink]="['/payment-link-create']" class="btn btn-success-dyner btn-block">Crear link de
-                pago <img src="./assets/img/svgicons/links-icon.svg"
-                class="img-cards-icons-button" alt="logo"></button>
-        </div>
+  </div>
+  <div class="main-dashboard-header-right">
+    <div *ngIf="validate_active">
+      <button
+        [routerLink]="['/payment-link-create']"
+        class="btn btn-success-dyner btn-block"
+      >
+        Crear link de pago
+        <img
+          src="./assets/img/svgicons/links-icon.svg"
+          class="img-cards-icons-button"
+          alt="logo"
+        />
+      </button>
     </div>
+  </div>
 </div>
 
-
 <div class="row row-sm">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header pb-0">
-                <div>
-                    <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">LISTA DE LINKS DE PAGO</h2>
-                    <p class="mg-b-0 tx-14">Selecciona uno de tus links de pago</p>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <mat-form-field appearance="standard">
-                        <mat-label>Buscar</mat-label>
-                        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-                    </mat-form-field>
-
-                    <div class="mat-elevation-z8">
-                        <table mat-table [dataSource]="dataSource" matSort class="table-striped">
-                            <!-- ID Column -->
-                            <ng-container matColumnDef="descripcion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-                                <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="cod_producto">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
-                                <td mat-cell *matCellDef="let row"> {{row.cod_producto}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="subtotal">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Subtotal </th>
-                                <td mat-cell *matCellDef="let row"> {{row.subtotal|currency : 'USD' : 'symbol' : '1.0-0'}}</td>
-                            </ng-container>
-
-
-                            <ng-container matColumnDef="end_date">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de vencimiento </th>
-                                <td mat-cell *matCellDef="let row"> {{row.end_date | date:'yyyy/M/d'}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="total">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
-                                <td mat-cell *matCellDef="let row"> {{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}</td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="status">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
-                                <td mat-cell *matCellDef="let row"> {{row.status.descripcion}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="action">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-                                <td mat-cell *matCellDef="let row">
-                                    <div class="flex-container">
-                                        <div class="flex-item">
-                                            <a [routerLink]="['/payment-link-edit',row.id]"
-                                                class="btn btn-sm btn-secondary btn-icon" title="" ngbTooltip="Detalle">
-                                                <i class="fas fa-pencil-alt	"></i>
-                                            </a>
-                                        </div>
-                                        <div class="flex-item margin-button-action" >
-                                            <a [routerLink]="['/payment-link-detail',row.id]"
-                                                class="btn btn-sm btn-secondary btn-icon" title="" ngbTooltip="Detalle">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- <a href="javascript:void(0);" class="btn btn-sm btn-icon btn-salmon" title=""
-                                        ngbTooltip="Detalle">
-                                        <i class="fas fa-eye"></i>
-                                    </a> -->
-                                </td>
-                            </ng-container>
-
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-                            <!-- Row shown when there is no matching data. -->
-                            <tr class="mat-row" *matNoDataRow>
-                                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-                            </tr>
-                        </table>
-
-                        <mat-paginator [pageSizeOptions]="[10, 10, 25, 100]" aria-label="Select page of users">
-                        </mat-paginator>
-                    </div>
-
-
-
-                </div>
-            </div>
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-header pb-0">
+        <div>
+          <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+            LISTA DE LINKS DE PAGO
+          </h2>
+          <p class="mg-b-0 tx-14">Selecciona uno de tus links de pago</p>
         </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <mat-form-field appearance="standard">
+            <mat-label>Buscar</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder=""
+              #input
+            />
+          </mat-form-field>
+
+          <div class="mat-elevation-z8">
+            <table
+              mat-table
+              [dataSource]="dataSource"
+              matSort
+              class="table-striped"
+            >
+              <!-- ID Column -->
+              <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Descripción
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="cod_producto">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Código
+                </th>
+                <td mat-cell *matCellDef="let row">{{ row.cod_producto }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="subtotal">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Subtotal
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  {{ row.subtotal | currency : "USD" : "symbol" : "1.0-0" }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="end_date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Fecha de vencimiento
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  {{ row.end_date | date : "yyyy/M/d" }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+                <td mat-cell *matCellDef="let row">
+                  {{ row.total | currency : "USD" : "symbol" : "1.0-0" }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Estado
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  {{ row.status.descripcion }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Acciones
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <div class="flex-container">
+                    <div class="flex-item">
+                      <a
+                        [routerLink]="['/payment-link-edit', row.id]"
+                        class="btn btn-sm btn-secondary btn-icon"
+                        ngbTooltip="Detalle"
+                      >
+                        <i class="fas fa-pencil-alt"></i>
+                      </a>
+                    </div>
+                    <div class="flex-item margin-button-action">
+                      <a
+                        [routerLink]="['/payment-link-detail', row.id]"
+                        class="btn btn-sm btn-secondary btn-icon"
+                        ngbTooltip="Detalle"
+                      >
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div>
+                    <div class="flex-item margin-button-action">
+                      <a
+                        class="btn btn-sm btn-secondary btn-icon text-white"
+                        ngbTooltip="Detalle"
+                        (click)="confirmDeletePaymentLink(row.id)"
+                      >
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </div>
+                  </div></td
+              ></ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">
+                  No data matching the filter "{{ input.value }}"
+                </td>
+              </tr>
+            </table>
+
+            <mat-paginator
+              [pageSizeOptions]="[10, 10, 25, 100]"
+              aria-label="Select page of users"
+            >
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

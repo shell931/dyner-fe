@@ -10,12 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { UsMapModule } from 'angular-us-map';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DetailsTableComponent } from './details-table/details-table.component';
 
 
  
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, DetailsTableComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
