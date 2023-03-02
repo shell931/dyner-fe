@@ -30,6 +30,10 @@ export class PaymentLinksService {
         return this.httpClient.post<any>(`${this.base_links_url}/${id_link}`, requestData, {  headers: this.baseService.getAuthHeadersToFormData() });
     }
 
+    DeleteLink(id_link) {
+        return this.httpClient.delete<any>(`${this.base_links_url}/${id_link}`, {  headers: this.baseService.getAuthHeadersToFormData() });
+    }
+
   
 
 }
