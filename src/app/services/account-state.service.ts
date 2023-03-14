@@ -17,7 +17,7 @@ export class AccountStateService {
 
     all_transfers_balance = `${this.baseService.baseUrl}all-transfers-balance`;
     payment_link_transfers_balance = `${this.baseService.baseUrl}links-transfers-balance`;
-    payment_buttons_transfers_balance = `${this.baseService.baseUrl}paymentbuttons-transfers-balance`;
+    payment_buttons_transfers_balance = `${this.baseService.baseUrl}all-transfers-balance`;
     total_sum_transactions = `${this.baseService.baseUrl}total-sum-transactions`;
 
 
