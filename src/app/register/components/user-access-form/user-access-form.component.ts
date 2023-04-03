@@ -13,6 +13,10 @@ export class UserAccessFormComponent implements OnInit {
   public formTitle = 'Contraseña para tu cuenta';
   public userAccessForm: FormGroup;
   public formSent = false;
+  public letterNumberRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  public fieldTextType: boolean = false;
+
+
   @Input() currentData: any = {};
   @Output() onSubmitFormDataEmit = new EventEmitter<any>();
 
@@ -23,8 +27,16 @@ export class UserAccessFormComponent implements OnInit {
     });
     this.userAccessForm = this.fb.group(
       {
-        password: ['', Validators.required],
-        passwordConfirm: ['', Validators.required]
+        password: ['', [
+          Validators.required,
+          Validators.pattern(this.letterNumberRegex)
+        ]
+        ],
+        passwordConfirm: ['', [
+          Validators.required,
+          Validators.pattern(this.letterNumberRegex)
+        ]
+        ],
       },
       {
         validator: MustMatch('password', 'passwordConfirm')
@@ -38,6 +50,10 @@ export class UserAccessFormComponent implements OnInit {
 
   submitFormData() {
     this.onSubmitFormDataEmit.emit(this.userAccessForm);
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 
 }
