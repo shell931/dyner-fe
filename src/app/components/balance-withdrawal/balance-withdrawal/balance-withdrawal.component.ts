@@ -22,6 +22,7 @@ export class BalanceWithdrawalComponent implements OnInit {
     public validate_account_grater: boolean = false;
     public validate_last_transfer: boolean = false;
     list: any[] = [];
+    clicked = false;
 
     constructor(
         private AccountStateService: AccountStateService,
@@ -68,19 +69,24 @@ export class BalanceWithdrawalComponent implements OnInit {
     }
 
     submitbutton() {
+        this.clicked = true;
         this.validate_account_grater = false;
         if (this.totalTransfer < 1) {
             this.validate_account_grater = true;
+            this.clicked = false;
         } else {
             this.validate_account_select = false;
             if (this.event == false) {
                 this.validate_account_select = true;
+                this.clicked = false;
             } else {
                 this.validate_last_transfer = false;
                 this.withdrawalService.GetLastTransfersTime().subscribe((result) => {
                     if (result['data'].valid == false) {
                         this.validate_last_transfer = true;
+                        this.clicked = false;
                     } else {
+                        this.clicked = true;
                         let myObjWithdrawal = {
                             accountId: this.selectedItemsList,
                             availableBalance: this.totalTransfer,

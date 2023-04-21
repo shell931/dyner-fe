@@ -11,6 +11,7 @@ import { BaseService } from "src/app/services/base-service.service";
 export class TransactionDetailComponent implements OnInit {
 
     id_transaction: any;
+    service_type: any;
     referenciatx: any;
     num_autorizacion: any;
     descripcion: any;
@@ -46,9 +47,10 @@ export class TransactionDetailComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe(res => {
             this.id_transaction = res['id'];
+            this.service_type   = res['service'];
         })
 
-        this.transactionService.GetTransactionById(this.id_transaction).subscribe(
+        this.transactionService.GetTransactionById(this.id_transaction, this.service_type).subscribe(
             (transaction_data) => {
                 this.GetTransactionByIdF(transaction_data)
             },
