@@ -29,7 +29,7 @@ export class NotificationService {
       }).pipe(map((response) => response.data));
   }
 
-  public readMessageService(id) {
+  public readMessageService(id: number) {
     const headers: HttpHeaders = this.baseService.getAuthHeaders();
     return this.httpClient
       .get<any>(`${this.baseService.baseUrl}showandupdatemessage/${id}`, {
