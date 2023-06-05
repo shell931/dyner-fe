@@ -16,6 +16,7 @@ export class BalanceWithdrawalComponent implements OnInit {
     totalTransfer: number = 0;
     discount: number = 0;
     cuatropormil: number = 0;
+    commissionTransfer: number = 0;
     account: any[] = [];
     bankImage = environment.api.bankImage;
     public validate_account_select: boolean = false;
@@ -50,6 +51,7 @@ export class BalanceWithdrawalComponent implements OnInit {
         this.discount = Alldata.data.discount;
         this.cuatropormil = Alldata.data.cuatropormil;
         this.account = Alldata.data.bankAccounts;
+        this.commissionTransfer = Alldata.data.commissionTransfer;
         for (var i = 0; i < Alldata.data.bankAccounts.length; i++) {
             this.checkboxesDataList.push({
                 id_cuenta: Alldata.data.bankAccounts[i].id_cuenta,
@@ -93,7 +95,8 @@ export class BalanceWithdrawalComponent implements OnInit {
                             totalTransfer: this.totalTransfer,
                             cuatropormil: this.cuatropormil,
                             preventionFund: 0,
-                            commissionTransfer: this.discount,
+                            // commissionTransfer: this.discount,
+                            commissionTransfer: this.commissionTransfer,
                         };
                         
                         this.withdrawalService
