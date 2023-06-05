@@ -16,12 +16,14 @@ export class BalanceWithdrawalComponent implements OnInit {
     totalTransfer: number = 0;
     discount: number = 0;
     cuatropormil: number = 0;
+    commissionTransfer: number = 0;
     account: any[] = [];
     bankImage = environment.api.bankImage;
     public validate_account_select: boolean = false;
     public validate_account_grater: boolean = false;
     public validate_last_transfer: boolean = false;
     list: any[] = [];
+    clicked = false;
 
     constructor(
         private AccountStateService: AccountStateService,
@@ -49,6 +51,7 @@ export class BalanceWithdrawalComponent implements OnInit {
         this.discount = Alldata.data.discount;
         this.cuatropormil = Alldata.data.cuatropormil;
         this.account = Alldata.data.bankAccounts;
+        this.commissionTransfer = Alldata.data.commissionTransfer;
         for (var i = 0; i < Alldata.data.bankAccounts.length; i++) {
             this.checkboxesDataList.push({
                 id_cuenta: Alldata.data.bankAccounts[i].id_cuenta,
@@ -68,26 +71,32 @@ export class BalanceWithdrawalComponent implements OnInit {
     }
 
     submitbutton() {
+        this.clicked = true;
         this.validate_account_grater = false;
         if (this.totalTransfer < 1) {
             this.validate_account_grater = true;
+            this.clicked = false;
         } else {
             this.validate_account_select = false;
             if (this.event == false) {
                 this.validate_account_select = true;
+                this.clicked = false;
             } else {
                 this.validate_last_transfer = false;
                 this.withdrawalService.GetLastTransfersTime().subscribe((result) => {
                     if (result['data'].valid == false) {
                         this.validate_last_transfer = true;
+                        this.clicked = false;
                     } else {
+                        this.clicked = true;
                         let myObjWithdrawal = {
                             accountId: this.selectedItemsList,
                             availableBalance: this.totalTransfer,
                             totalTransfer: this.totalTransfer,
                             cuatropormil: this.cuatropormil,
                             preventionFund: 0,
-                            commissionTransfer: this.discount,
+                            // commissionTransfer: this.discount,
+                            commissionTransfer: this.commissionTransfer,
                         };
                         
                         this.withdrawalService

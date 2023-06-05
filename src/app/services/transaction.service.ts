@@ -15,13 +15,12 @@ export class TransactionService {
     list_transactions = `${this.baseService.baseUrl}transactions`;
     transaction_by_id = `${this.baseService.baseUrl}transaction-by-id`;
 
-
     GetTransactionList() {
         return this.httpClient.get(this.list_transactions, { headers: this.baseService.getAuthHeaders() });
     }
 
-    GetTransactionById(id_transaction,servicio) {
-        return this.httpClient.get(`${this.transaction_by_id}/${id_transaction}/${servicio}`, { headers: this.baseService.getAuthHeaders() });
+    GetTransactionById(id_transaction, service_type) {
+        return this.httpClient.get(`${this.transaction_by_id}/${id_transaction}/${service_type}`, { headers: this.baseService.getAuthHeaders() });
     }
 
 }
