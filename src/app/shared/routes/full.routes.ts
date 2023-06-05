@@ -69,7 +69,7 @@ export const Full_Content_Routes: Routes = [
     },
     {
         path: 'advanced',
-        loadChildren: () => import('../../components/advanced-ui/advanced-ui.module').then(m => m.AdvancedUiModule)   
+        loadChildren: () => import('../../components/advanced-ui/advanced-ui.module').then(m => m.AdvancedUiModule)
     },
     {
         path: 'form',

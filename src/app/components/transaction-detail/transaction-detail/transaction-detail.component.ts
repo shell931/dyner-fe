@@ -57,12 +57,12 @@ export class TransactionDetailComponent implements OnInit {
             error => {
                 this.baseService.GetErrorAuthSesion(error)
             }
-        );    
+        );
     }
 
     GetTransactionByIdF(transaction_data){
         console.log(transaction_data);
-        
+
         this.referenciatx = transaction_data.data.referenciatx;
         this.num_autorizacion = transaction_data.data.num_autorizacion;
         this.descripcion = transaction_data.data.descripcion;
