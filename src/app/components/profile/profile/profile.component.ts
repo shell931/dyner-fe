@@ -13,8 +13,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ProfileComponent implements OnInit {
   filesComplement: File[] = [];
   public validate_img: boolean = false;
-  widthMin: number = 350;
-  heightMin: number = 350;
+  widthMin: Number = 700;
+  heightMin: Number = 700;
   name_client: any;
   name_commerce: any;
   representante_legal: any;
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
     this.avatar = ProfileData.data.user.client.avatar;
   }
 
-  selectFileComplement(event) {
+  /* selectFileComplement(event) {
     this.validate_img = false;
     event.addedFiles.map((item) => {
       this.onValidatePixels(item).then((value) => {
@@ -64,13 +64,18 @@ export class ProfileComponent implements OnInit {
         }
       });
     });
-  }
+  } */
+  selectFileComplement(event) {
+    if(this.filesComplement.length == 0){
+        this.filesComplement.push(...event.addedFiles);
+    }
+}
 
   onRemoveComplement(event) {
     this.filesComplement.splice(this.filesComplement.indexOf(event), 1);
   }
 
-  onValidatePixels(file: File) {
+  /* onValidatePixels(file: File) {
     return new Promise((resolve, reject) => {
       let reader = new FileReader();
       if (file) {
@@ -81,14 +86,31 @@ export class ProfileComponent implements OnInit {
           const width = img.naturalWidth;
           const height = img.naturalHeight;
           window.URL.revokeObjectURL(img.src);
-          if (width <= this.widthMin && height <= this.heightMin) {
+          if (height >= this.heightMin || width >= this.widthMin) {
             resolve(true);
           }
           resolve(false);
         };
       }
     });
-  }
+  } */
+
+  onValidatePixels(file: File) {
+    return new Promise((resolve, reject) => {
+        const Img = new Image();
+        Img.src = URL.createObjectURL(file);
+        Img.onload = (e: any) => {
+            console.log(e);
+            const height = e.path[0].height;
+            const width = e.path[0].width;
+            if (height >= this.heightMin || width >= this.widthMin) {
+                resolve(true);
+            }
+            resolve(false);
+        };
+    });
+
+}
 
   GetAllTransferBalanceF(Alldata) {
     for (var i = 0; i < Alldata.data.bankAccounts.length; i++) {

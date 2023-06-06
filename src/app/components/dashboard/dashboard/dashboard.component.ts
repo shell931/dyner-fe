@@ -116,6 +116,9 @@ export class DashboardComponent implements OnInit {
   }
 
   GetTotalSumTransactionsF(Alldata) {
+    console.log(Alldata);
+    
+
     this.capital_total_sum_service = Alldata.data.capital_total_sum_service;
     this.dispo_total_sum_service = Alldata.data.dispo_total_sum_service;
     this.en_transfe_total_sum_service =

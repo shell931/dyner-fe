@@ -13,24 +13,24 @@
 
     <ng-container matColumnDef="total">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
-      <td mat-cell *matCellDef="let row">{{ row.total | currency : 'USD' : 'symbol' : '1.0-2' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.total | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="total_descuento">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Descuento</th>
-      <td mat-cell *matCellDef="let row">{{ row.total_descuento | currency : 'USD' : 'symbol' : '1.0-2' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.total_descuento | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="total_abono">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Ab</th>
-      <td mat-cell *matCellDef="let row">{{ row.total_abono | currency : 'USD' : 'symbol' : '1.0-2' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.total_abono | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
       <td mat-cell *matCellDef="let row">
         <a
-          [routerLink]="['/transaction-detail', row.id]"
+          [routerLink]="['/transaction-detail', row.id, row.servicio]"
           title=""
           ngbTooltip="Detalle"
         >

@@ -24,7 +24,7 @@ export const Full_Content_Routes: Routes = [
         loadChildren: () => import('../../components/transaction-history/transaction-history.module').then(m => m.TransactionHistoryModule)
     },
     {
-        path: 'transaction-detail/:id/:servicio',
+        path: 'transaction-detail/:id/:service',
         loadChildren: () => import('../../components/transaction-detail/transaction-detail.module').then(m => m.TransactionDetailModule)
     },
     {
