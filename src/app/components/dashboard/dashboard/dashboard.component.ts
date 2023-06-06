@@ -12,7 +12,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
+import { MessagesTxService } from 'src/app/services/messagestx';
 import { MatTableDataSource } from '@angular/material/table';
 import { PaymentLinksService } from 'src/app/services/payment-links.service';
 
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     'descripcion_estado',
     'action',
   ];
-
+  displayedColumnstx: string[] = ['mensaje', 'fecha'];
   width = '100%';
   height = 400;
   type = 'usa';
@@ -54,7 +54,9 @@ export class DashboardComponent implements OnInit {
 
   total_detail: Array<any> = [];
 
+  messagetx_list: any[] = [];
   transaction_list: any[] = [];
+  dataSourcemtx = new MatTableDataSource<any>(this.messagetx_list);
   dataSource = new MatTableDataSource<any>(this.transaction_list);
 
   detailTitle = '';
@@ -69,6 +71,7 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private baseService: BaseService,
     private profileService: ProfileService,
+    private messageservices:MessagesTxService,
 
     private PaymentLinksService: PaymentLinksService,
     private transactionService: TransactionService,
@@ -158,4 +161,25 @@ export class DashboardComponent implements OnInit {
     this.detailTitle = modalTitle;
     this.detailObject = datailObject;
   }
+  GetMessagetxListF(TransactionMessageData) {
+    console.log(TransactionMessageData);
+    this.messagetx_list = TransactionMessageData.mensajes;
+    this.dataSourcemtx = new MatTableDataSource<any>(this.messagetx_list);
+}
+
+
+public openMessageTx(modal: any,id: number,) {
+    this.messageservices
+     .GetMessagesTxList(id)
+    .subscribe( (Alldata) => {
+      this.GetMessagetxListF(Alldata)
+  },
+  error => {
+      this.baseService.GetErrorAuthSesion(error)
+  });
+   this.modalService.open(modal, {
+    centered: true,
+    windowClass: 'animate__animated animate__zoomIn',
+   });
+}
 }
