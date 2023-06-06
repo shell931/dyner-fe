@@ -18,10 +18,10 @@ export class TransactionService {
 
     GetTransactionList() {
         return this.httpClient.get(this.list_transactions, { headers: this.baseService.getAuthHeaders() });
-    }  
+    }
 
-    GetTransactionById(id_transaction) {
-        return this.httpClient.get(`${this.transaction_by_id}/${id_transaction}`, { headers: this.baseService.getAuthHeaders() });
+    GetTransactionById(id_transaction,servicio) {
+        return this.httpClient.get(`${this.transaction_by_id}/${id_transaction}/${servicio}`, { headers: this.baseService.getAuthHeaders() });
     }
 
 }

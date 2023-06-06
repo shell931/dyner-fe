@@ -24,7 +24,7 @@ export const Full_Content_Routes: Routes = [
         loadChildren: () => import('../../components/transaction-history/transaction-history.module').then(m => m.TransactionHistoryModule)
     },
     {
-        path: 'transaction-detail/:id',
+        path: 'transaction-detail/:id/:servicio',
         loadChildren: () => import('../../components/transaction-detail/transaction-detail.module').then(m => m.TransactionDetailModule)
     },
     {
@@ -69,7 +69,7 @@ export const Full_Content_Routes: Routes = [
     },
     {
         path: 'advanced',
-        loadChildren: () => import('../../components/advanced-ui/advanced-ui.module').then(m => m.AdvancedUiModule)   
+        loadChildren: () => import('../../components/advanced-ui/advanced-ui.module').then(m => m.AdvancedUiModule)
     },
     {
         path: 'form',
