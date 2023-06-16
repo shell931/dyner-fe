@@ -60,6 +60,7 @@ export class BalanceWithdrawalComponent implements OnInit {
                 bank: Alldata.data.bankAccounts[i].bank,
             });
         }
+        
     }
 
     selectedIndex: number = 1000000;
