@@ -12,6 +12,8 @@ import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { BaseService } from 'src/app/services/base-service.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { CurrencyPipe } from '@angular/common';
+
 
 @Component({
     selector: 'app-payment-link-edit',
@@ -80,7 +82,7 @@ export class PaymentLinkEditComponent implements OnInit {
         let sub_total = this.formatInputTotal(Linktdata.data.subtotal);
         this.linkForm.get('price')?.setValue(sub_total);
         this.linkForm.get('tax_type')?.setValue(Linktdata.data.tax.id);
-        // this.linkForm.get('total')?.setValue(Math.trunc(Linktdata.data.total));        
+        // this.linkForm.get('total')?.setValue(Math.trunc(Linktdata.data.total));
         let total = this.formatInputTotal(Linktdata.data.total);
         this.linkForm.get('total')?.setValue(total);
         this.total_price = this.formatInputTotal(Linktdata.data.total);
@@ -166,7 +168,7 @@ export class PaymentLinkEditComponent implements OnInit {
     }
 
     submitbutton() {
-    
+
         const numericValue = this.linkForm.get('price')?.value.replace(/\D/g, "");
         this.linkForm.get('price')?.setValue(numericValue, { emitEvent: false });
 

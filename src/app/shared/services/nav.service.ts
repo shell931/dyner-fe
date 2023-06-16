@@ -94,6 +94,9 @@ export class NavService implements OnDestroy {
         {
           path: '/link-sub', title: 'Links de Suscripciones ', type: 'link', icon: 'repeat', badgeClass: 'success', active: true,
         },
+        {
+          path: '/dinamic-form', title: 'Formularios Dinamicos', type: 'link', icon: 'cached', badgeClass: 'success', active: true,
+        },
         // {
         //     headTitle: 'General'
         // },

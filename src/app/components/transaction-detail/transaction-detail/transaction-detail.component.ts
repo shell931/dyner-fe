@@ -48,6 +48,7 @@ export class TransactionDetailComponent implements OnInit {
 
     ngOnInit(): void {
 
+
         this.route.params.subscribe(res => {
             this.id_transaction = res['id'];
             this.servicio = res['service'];

@@ -1,0 +1,89 @@
+@import "../../../../assets/css/tables";
+
+table {
+  width: 100%;
+}
+
+.card-body {
+  padding-top: 0px;
+}
+
+// .mat-form-field {
+//   font-size: 14px;
+//   width: 100%;
+// }
+
+// td,
+// th {
+//   width: 25%;
+// }
+
+
+.flex-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: space-between;
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.flex-item:nth-child(1) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.flex-item:nth-child(2) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+/* Estilos para el contenedor del formulario */
+.form-container {
+  float: left; /* Mover el formulario a la izquierda */
+  width: 100%; /* Ancho del formulario (puedes ajustarlo según tus necesidades) */
+  padding: 10px; /* Espaciado interior del contenedor */
+}
+
+/* Estilos para el botón */
+.styled-button {
+  background-color: #ce1723; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interior del botón */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+.marco-azul {
+  border: 2px solid #0b3d91; /* Borde de 2 píxeles de ancho y color azul oscuro (#0b3d91) */
+  background-color: #e6e6e7; /* Color de fondo azul oscuro (#0b3d91) */
+  padding: 110px; /* Espacio interno de 20 píxeles para separar el contenido del borde */
+  color: #fff; /* Color de texto blanco para que contraste con el fondo */
+}
+
+/* Estilos adicionales según tus preferencias */

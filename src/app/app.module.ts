@@ -14,6 +14,7 @@ import { DatafonoDigitalComponent } from './components/datafono-digital/datafono
 import { PaymentLinkComponent } from './components/payment-link/payment-link/payment-link.component';
 import { LinkSubsComponent} from './components/link-subs/link-subs/link-subs.component';
 import { LinkSubsCreateComponent} from './components/link-subs-create/link-subs-create/link-subs-create.component';
+import {DinamicFormComponent} from './components/dinamic-form/dinamic-form/dinamic-form.component';
 import {LinkSubEditComponent} from './components/link-sub-edit/link-sub-edit/link-sub-edit.component';
 import { AttachmentsFormComponent } from './components/profile/attachments-form/attachments-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -60,6 +61,7 @@ export function playerFactory() {
   declarations: [
     AppComponent,
     BalanceWithdrawalComponent,
+    DinamicFormComponent,
     TransactionHistoryComponent,
     WithdrawalHistoryComponent,
     DatafonoDigitalComponent,

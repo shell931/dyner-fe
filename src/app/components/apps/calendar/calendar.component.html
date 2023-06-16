@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 col-xl-10">
-                        
+
                         <div class="row text-center d-flex flex-wrap flex-column flex-md-row">
                             <div class="col-md-3 text-start mb-2">
                                 <div class="btn-group">
@@ -133,7 +133,7 @@
 
 <ng-template #modalContent let-close="close">
     <div class="modal-header">
-        <h5 class="modal-title">{{ modalData?.action }}</h5>
+        <h5 class="modal-title">{{ modalData.action }}</h5>
         <button type="button" class="close" (click)="close()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -151,7 +151,7 @@
                     <input class="form-control" name="event-title2" type="text" mwlFlatpickr [(ngModel)]="modalData['event']['start']"
                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" />
                 </div>
-               
+
             </div>
         </form>
     </div>

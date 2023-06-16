@@ -36,9 +36,13 @@ export const Full_Content_Routes: Routes = [
         loadChildren: () => import('../../components/datafono-digital/datafono-digital.module').then(m => m.DatafonoDigitalModule)
     },
     {
-        path: 'payment-link',
-        loadChildren: () => import('../../components/payment-link/payment-link.module').then(m => m.PaymentLinkModule)
+        path: 'dinamic-form',
+        loadChildren: () => import('../../components/dinamic-form//dinamic-form.module').then(m => m.DinamicFormModule)
     },
+    {
+      path: 'payment-link',
+      loadChildren: () => import('../../components/payment-link/payment-link.module').then(m => m.PaymentLinkModule)
+  },
     {
       path: 'link-sub-create',
       loadChildren: () => import('../../components/link-subs-create/link-subs-create.module').then(m => m.LinkSubCreateModule)
