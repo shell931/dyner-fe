@@ -7,6 +7,9 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   public isSpinner = true;
 
   ngOnInit() {
