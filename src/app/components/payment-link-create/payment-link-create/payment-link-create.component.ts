@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class PaymentLinkCreateComponent implements OnInit {
 
-    linkForm: FormGroup;
+    linkForm!: FormGroup;
     filesComplement: File[] = [];
     public validate_img: boolean = false;
     widthMin: Number = 700;
@@ -55,7 +55,7 @@ export class PaymentLinkCreateComponent implements OnInit {
         });
 
     }
-    
+
 
     get name() { return this.linkForm.get('name'); }
 
@@ -130,7 +130,7 @@ export class PaymentLinkCreateComponent implements OnInit {
                 formDataDocIde.append('image', this.new_file);
             }
 
-            
+
 
             this.PaymentLinksService.CreateLink(formDataDocIde).subscribe(
                 result => {
@@ -158,6 +158,6 @@ export class PaymentLinkCreateComponent implements OnInit {
             lastModified: originalFile.lastModified,
         });
     }
-    
+
 
 }

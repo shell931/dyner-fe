@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./payment-link-edit.component.scss'],
 })
 export class PaymentLinkEditComponent implements OnInit {
-  linkForm: FormGroup;
+  linkForm!: FormGroup;
   filesComplement: File[] = [];
   public validate_img: boolean = false;
   widthMin: number = 700;
