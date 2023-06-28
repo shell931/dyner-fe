@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild, } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { LinksSubsService } from 'src/app/services/links-subs.service';
 import { BaseService } from "src/app/services/base-service.service";
@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
     styleUrls: ['./link-sub-detail.component.scss']
 })
 export class LinkDetailSubComponent implements OnInit {
-
 
     id_suscripcion: any;
     description: any;

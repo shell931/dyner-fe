@@ -10,7 +10,7 @@ import { MaterialModuleModule } from 'src/app/material-module/material-module.mo
 
 
 @NgModule({
-  // declarations: [PaymentLinkComponent],
+
   imports: [
     CommonModule,
     LinkSubsRoutingModule,

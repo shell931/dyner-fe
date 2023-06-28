@@ -13,6 +13,7 @@ export class LinksSubsService {
     ) { }
 
     base_links_url = `${this.baseService.baseUrl}links-suscripcion`;
+    base_delete_url = `${this.baseService.baseUrl}linksdeletesub`;
 
     GetLinksSubsList() {
         return this.httpClient.get(this.base_links_url, { headers: this.baseService.getAuthHeaders()});
@@ -31,7 +32,7 @@ export class LinksSubsService {
     }
 
     DeleteSubsLink(id_linksub) {
-        return this.httpClient.delete<any>(`${this.base_links_url}/${id_linksub}`, {  headers: this.baseService.getAuthHeadersToFormData() });
+        return this.httpClient.post<any>(`${this.base_delete_url}/${id_linksub}`, {  headers: this.baseService.getAuthHeadersToFormData() });
     }
 
 
