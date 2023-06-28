@@ -85,23 +85,19 @@
                 Este campo es obligatorio.</mat-error
               >
             </div>
-
             <div class="col-md-6 mt-2">
-              <p class="mg-b-0 tx-14">Vencimiento del link</p>
-              <!-- <mat-form-field color="white" > -->
-              <input
-                class="form-control"
-                formControlName="payment_day"
-                required=""
-
-              />
-              <!-- <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-                                <mat-datepicker #dp3 disabled="false"></mat-datepicker> -->
-              <!-- </mat-form-field> -->
-              <mat-error *ngIf="
+              <p class="mg-b-0 tx-14">Dia de Pago</p>
+              <select class="form-control" formControlName="payment_day">
+                <option *ngFor="let dia of diasPago" [value]="dia">{{ dia }}</option>
+              </select>
+              <mat-error
+                *ngIf="
                   linkSubForm.get('payment_day')?.hasError('required') &&
-                  linkSubForm.get('payment_day')?.touched " >
-                Este campo es obligatorio.</mat-error>
+                  linkSubForm.get('payment_day')?.touched
+                "
+              >
+                Este campo es obligatorio.</mat-error
+              >
             </div>
           </div>
 

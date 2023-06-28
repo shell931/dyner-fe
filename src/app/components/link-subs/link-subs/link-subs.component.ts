@@ -28,6 +28,7 @@ export class LinkSubsComponent implements OnInit {
     'product_code',
     'subtotal',
     'payment_day',
+    'created_at',
     'total',
     'status',
     'action',
@@ -66,7 +67,18 @@ export class LinkSubsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  getStatusLabel(status: string): string {
+    switch (status) {
+      case "1":
+        return 'Nuevo';
+      case "2":
+        return 'Activo';
+      case "3":
+        return 'Desaprobado';
+      default:
+        return '';
+    }
+  }
   ngOnInit(): void {
     this.profileService.GetProfileData().subscribe(
       (Alldata) => {

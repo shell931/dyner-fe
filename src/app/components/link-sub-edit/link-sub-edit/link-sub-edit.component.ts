@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 })
 
 export class LinkSubEditComponent implements OnInit {
+  diasPago: number[] = [];
   linkSubForm!: FormGroup;
   filesComplement: File[] = [];
   public validate_img: boolean = false;
@@ -39,6 +40,7 @@ export class LinkSubEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.diasPago = Array.from({ length: 25 }, (_, i) => i + 1);
     this.route.params.subscribe((res) => {
       this.id_linksub = res['id'];
     });
@@ -62,9 +64,10 @@ export class LinkSubEditComponent implements OnInit {
   }
 
   GetLinkSubByIdF(LinkSubtdata) {
-    this.linkSubForm.get('description')?.setValue(LinkSubtdata.data.descripcion);
+    this.linkSubForm.get('description')?.setValue(LinkSubtdata.data.description);
     this.linkSubForm.get('price')?.setValue(Math.trunc(LinkSubtdata.data.total));
     this.linkSubForm.get('reference')?.setValue(LinkSubtdata.data.product_code);
+    this.linkSubForm.get('payment_day')?.setValue(LinkSubtdata.data.payment_day);
   }
 
   submitbutton() {

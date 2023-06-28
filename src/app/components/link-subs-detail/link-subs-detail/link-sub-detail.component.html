@@ -182,7 +182,9 @@
                     <div class="flex-item-info">
                         <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Total</h2>
                     </div>
-
+                    <div class="flex-item-info">
+                      {{ price | currency : "USD" : "symbol" : "1.0-0" }}
+                  </div>
                 </div>
             </div>
         </div>
