@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { BaseService } from "src/app/services/base-service.service";
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-payment-link-detail',
@@ -30,6 +31,7 @@ export class PaymentLinkDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private PaymentLinksService: PaymentLinksService,
         private baseService: BaseService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -79,7 +81,42 @@ export class PaymentLinkDetailComponent implements OnInit {
         this.validate_copy_button = true;
     }
 
-    
+    confirmDeletePaymentLink(paymentLinkId){
+      Swal.fire({
+        icon: "warning",
+        title: 'Estas seguro que deseas realizar esta acción?',
+        text: "Una vez eliminado no podra recuperar esta información!",
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        customClass : {
+          confirmButton: 'btn btn-success-dyner'
+        },
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deletePaymentLink(paymentLinkId);
+        }
+      })
+    }
+    deletePaymentLink(paymentLinkId) {
+      const formDataDocIde = new FormData();
+      this.PaymentLinksService.DeleteLink(paymentLinkId,formDataDocIde).subscribe(
+        () => {
+          this.PaymentLinksService.GetLinksList().subscribe(
+            (LinkListdata) => {
+              this.GetLinkByIdF(LinkListdata);
+            },
+          );
+          this.router.navigate(['/payment-link']);
+        },
+        (error) => {
+          this.baseService.GetErrorAuthSesion(error);
+        }
+      );
+    }
+
+
 
     firstGroup = 0;
     onFirstGroupChange() {
