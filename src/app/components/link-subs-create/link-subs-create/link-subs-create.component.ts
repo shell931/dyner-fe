@@ -48,7 +48,7 @@ export class LinkSubsCreateComponent implements OnInit {
       this.linkSubForm = this.formGroup.group({
           price: ['', [Validators.required]],
           reference: ['', [Validators.required]],
-          description: ['', [Validators.required]],
+          description: ['', [Validators.required,Validators.maxLength(200)]],
           payment_day: ['', Validators.required]
       });
   }
