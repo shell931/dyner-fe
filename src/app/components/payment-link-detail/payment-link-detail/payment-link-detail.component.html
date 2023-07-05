@@ -12,9 +12,12 @@
                         src="./assets/img/icons_link_detail/historico.svg" alt="logo" class="icon-buttons"></button>
             </div>
             <div class="flex-item margin-items-button-head">
-                <button [routerLink]="['/balance-withdrawal',id_link]" class="btn btn-danger btn-block">Borrar <img
-                        src="./assets/img/icons_link_detail/delete.svg" alt="logo" class="icon-buttons"></button>
+                <button  (click)="confirmDeletePaymentLink(id_link)"class="btn btn-danger btn-block">Borrar <img
+                        src="./assets/img/icons_link_detail/delete.svg" alt="logo" class="icon-buttons">
+
+                    </button>
             </div>
+
             <div class="flex-item margin-items-button-head">
                 <button [routerLink]="['/payment-link-edit', id_link]" class="btn btn-info btn-block">Editar <img
                     src="./assets/img/icons_link_detail/Edit.svg" alt="logo" class="icon-buttons"></button>

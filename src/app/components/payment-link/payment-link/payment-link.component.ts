@@ -116,7 +116,8 @@ export class PaymentLinkComponent implements OnInit {
   }
 
   deletePaymentLink(paymentLinkId) {
-    this.PaymentLinksService.DeleteLink(paymentLinkId).subscribe(
+    const formDataDocIde = new FormData();
+    this.PaymentLinksService.DeleteLink(paymentLinkId,formDataDocIde).subscribe(
       () => {
         this.PaymentLinksService.GetLinksList().subscribe(
           (LinkListdata) => {

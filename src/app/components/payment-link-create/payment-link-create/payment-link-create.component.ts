@@ -4,6 +4,7 @@ import { NgSelectConfig } from '@ng-select/ng-select';
 import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { Router } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 
 @Component({
@@ -19,8 +20,7 @@ export class PaymentLinkCreateComponent implements OnInit {
     public validate_img: boolean = false;
     widthMin: Number = 700;
     heightMin: Number = 700;
-
-
+    currencyPipe: CurrencyPipe = new CurrencyPipe('es-CO');
     files: File[] = [];
     MultiseletDropDown: any[] = [];
     MultiseletDropDown1: any[] = [];
@@ -37,6 +37,7 @@ export class PaymentLinkCreateComponent implements OnInit {
     groupSettings = {};
     file: any;
     new_file: any;
+    inputValue = new FormControl('');
 
     constructor(
         private formGroup: FormBuilder,
@@ -95,14 +96,32 @@ export class PaymentLinkCreateComponent implements OnInit {
     onRemove(event: any) {
         this.files.splice(this.files.indexOf(event), 1);
     }
+    formatInput(event: Event) {
+      const inputElement = event.target as HTMLInputElement;
+      let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
 
+      // Verifica si el valor numérico es válido
+      if (isNaN(numericValue)) {
+        numericValue = 0;
+      }
 
+      // Realiza la conversión a pesos colombianos y actualiza el valor del input
+      const formattedValue = numericValue.toLocaleString('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+
+      this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
+    }
     submitbutton() {
+      const numericValue = this.linkForm.get('price')?.value.replace(/\D/g, "");
+      this.linkForm.get('price')?.setValue(numericValue, { emitEvent: false });
         if (this.linkForm.valid) {
             let values_link_form = this.linkForm.value;
             let count_images_to_upload = this.filesComplement.length;
             var today = new Date();
-
             for (var i = 0; i < this.filesComplement.length; i++) {
                 // get metadata file
                 this.file = this.filesComplement[i];

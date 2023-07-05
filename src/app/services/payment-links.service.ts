@@ -13,7 +13,7 @@ export class PaymentLinksService {
     ) { }
 
     base_links_url = `${this.baseService.baseUrl}links`;
-
+    base_delete = `${this.baseService.baseUrl}linksdelete`;
     GetLinksList() {
         return this.httpClient.get(this.base_links_url, { headers: this.baseService.getAuthHeaders() });
     }
@@ -30,10 +30,10 @@ export class PaymentLinksService {
         return this.httpClient.post<any>(`${this.base_links_url}/${id_link}`, requestData, {  headers: this.baseService.getAuthHeadersToFormData() });
     }
 
-    DeleteLink(id_link) {
-        return this.httpClient.delete<any>(`${this.base_links_url}/${id_link}`, {  headers: this.baseService.getAuthHeadersToFormData() });
+    DeleteLink(id_link,requestData) {
+        return this.httpClient.post<any>(`${this.base_delete}/${id_link}`, requestData,{  headers: this.baseService.getAuthHeadersToFormData() });
     }
 
-  
+
 
 }

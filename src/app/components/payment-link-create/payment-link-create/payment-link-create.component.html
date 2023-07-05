@@ -56,6 +56,8 @@
                 class="form-control"
                 required
                 maxlength="13"
+                (input)="formatInput($event)"
+
               />
               <mat-error
                 *ngIf="
@@ -63,8 +65,8 @@
                   linkForm.get('price')?.touched
                 "
               >
-                Este campo es obligatorio.</mat-error
-              >
+                Este campo es obligatorio.
+              </mat-error>
             </div>
           </div>
           <div class="row">

@@ -33,6 +33,7 @@ export class PaymentLinkEditComponent implements OnInit {
   file: any;
   new_file: any;
   validate_image: boolean = true;
+  inputValue = new FormControl('');
 
   constructor(
     private formGroup: FormBuilder,
@@ -78,7 +79,29 @@ export class PaymentLinkEditComponent implements OnInit {
     }
   }
 
+  formatInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
+
+    // Verifica si el valor numérico es válido
+    if (isNaN(numericValue)) {
+      numericValue = 0;
+    }
+
+    // Realiza la conversión a pesos colombianos y actualiza el valor del input
+    const formattedValue = numericValue.toLocaleString('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+
+    this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
+  }
+
   submitbutton() {
+    const numericValue = this.linkForm.get('price')?.value.replace(/\D/g, "");
+    this.linkForm.get('price')?.setValue(numericValue, { emitEvent: false });
     if (this.linkForm.valid) {
       let values_link_form = this.linkForm.value;
       let count_images_to_upload = this.filesComplement.length;

@@ -2,7 +2,7 @@
   <div class="left-content">
     <div>
       <h1 class="main-content-title mg-b-1 mg-b-lg-1">
-        Editar link de pago
+        Editar link de Suscripción
       </h1>
     </div>
   </div>
@@ -54,6 +54,7 @@
                 class="form-control"
                 required=""
                 maxlength="13"
+                (input)="formatInput($event)"
               />
               <mat-error
                 *ngIf="

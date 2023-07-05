@@ -36,6 +36,7 @@ export class LinkSubsCreateComponent implements OnInit {
     groupSettings = {};
     file: any;
     new_file: any;
+    inputValue = new FormControl('');
 
     constructor(
         private formGroup: FormBuilder,
@@ -48,7 +49,7 @@ export class LinkSubsCreateComponent implements OnInit {
       this.linkSubForm = this.formGroup.group({
           price: ['', [Validators.required]],
           reference: ['', [Validators.required]],
-          description: ['', [Validators.required]],
+          description: ['', [Validators.required,Validators.maxLength(200)]],
           payment_day: ['', Validators.required]
       });
   }
@@ -65,8 +66,28 @@ export class LinkSubsCreateComponent implements OnInit {
       this.files.splice(this.files.indexOf(event), 1);
   }
 
+  formatInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
 
+    // Verifica si el valor numérico es válido
+    if (isNaN(numericValue)) {
+      numericValue = 0;
+    }
+
+    // Realiza la conversión a pesos colombianos y actualiza el valor del input
+    const formattedValue = numericValue.toLocaleString('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+
+    this.linkSubForm.get('price')?.setValue(formattedValue, { emitEvent: false });
+  }
   submitbutton() {
+    const numericValue = this.linkSubForm.get('price')?.value.replace(/\D/g, "");
+    this.linkSubForm.get('price')?.setValue(numericValue, { emitEvent: false });
       if (this.linkSubForm.valid) {
           let values_sub_link_form = this.linkSubForm.value;
           var today = new Date();

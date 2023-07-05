@@ -128,6 +128,8 @@ export class LinkSubsComponent implements OnInit {
   }
 
   deleteLinkSubs(LinkSubskId) {
+
+
     this.LinksSubsService.DeleteSubsLink(LinkSubskId).subscribe(
       () => {
         this.LinksSubsService.GetLinksSubsList().subscribe(
