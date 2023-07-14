@@ -36,6 +36,8 @@ export class TransactionDetailComponent implements OnInit {
     val_impuesto_comision: any;
     total_descuento: any;
     total_abono: any;
+    metodopago: any;
+    celular:any;
 
 
     constructor(
@@ -45,7 +47,7 @@ export class TransactionDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        
+
         this.route.params.subscribe(res => {
             this.id_transaction = res['id'];
             this.servicio = res['service'];
@@ -65,30 +67,32 @@ export class TransactionDetailComponent implements OnInit {
     GetTransactionByIdF(transaction_data){
         console.log(transaction_data);
 
-        this.referenciatx = transaction_data.data.referenciatx;
-        this.num_autorizacion = transaction_data.data.num_autorizacion;
-        this.descripcion = transaction_data.data.descripcion;
-        this.nombre_comprador = transaction_data.data.nombre_comprador;
-        this.correo = transaction_data.data.correo;
-        this.cuotas = transaction_data.data.cuotas;
-        this.cod_respuesta = transaction_data.data.cod_respuesta;
-        this.resp_banco = transaction_data.data.resp_banco;
-        this.created_at = transaction_data.data.created_at;
-        this.total = transaction_data.data.total;
-        this.id_estado = transaction_data.data.id_estado;
-        this.descripcion_estado = transaction_data.data.descripcion_estado;
-        this.id_cliente = transaction_data.data.id_cliente;
-        this.servicio = transaction_data.data.servicio;
-        this.num_tarjeta = transaction_data.data.num_tarjeta;
-        this.franquicia = transaction_data.data.franquicia;
-        this.comision_ps = transaction_data.data.comision_ps;
-        this.val_comision_ps = transaction_data.data.val_comision_ps;
-        this.val_rete_ica = transaction_data.data.val_rete_ica;
-        this.val_comision_adi_ps = transaction_data.data.val_comision_adi_ps;
-        this.val_rete_fuente = transaction_data.data.val_rete_fuente;
-        this.val_impuesto_comision = transaction_data.data.val_impuesto_comision;
-        this.total_descuento = transaction_data.data.total_descuento;
-        this.total_abono = transaction_data.data.total_abono;
+        this.referenciatx = transaction_data.data.transaction.referenciatx;
+        this.num_autorizacion = transaction_data.data.transactiond.num_autorizacion;
+        this.descripcion = transaction_data.data.transaction.descripcion;
+        this.nombre_comprador = transaction_data.data.transactiond.nombre_comprador;
+        this.correo = transaction_data.data.transaction.correo;
+        this.cuotas = transaction_data.data.transaction.cuotas;
+        this.cod_respuesta = transaction_data.data.transaction.cod_respuesta;
+        this.resp_banco = transaction_data.data.transaction.resp_banco;
+        this.created_at = transaction_data.data.transaction.created_at;
+        this.total = transaction_data.data.transaction.total;
+        this.id_estado = transaction_data.data.transaction.id_estado;
+        this.descripcion_estado = transaction_data.data.transactiond.descripcion_estado;
+        this.id_cliente = transaction_data.data.transaction.id_cliente;
+        this.servicio = transaction_data.data.transaction.servicio;
+        this.num_tarjeta = transaction_data.data.transaction.num_tarjeta;
+        this.franquicia = transaction_data.data.transaction.franquicia;
+        this.comision_ps = transaction_data.data.transaction.comision_ps;
+        this.val_comision_ps = transaction_data.data.transaction.val_comision_ps;
+        this.val_rete_ica = transaction_data.data.transaction.val_rete_ica;
+        this.val_comision_adi_ps = transaction_data.data.transaction.val_comision_adi_ps;
+        this.val_rete_fuente = transaction_data.data.transaction.val_rete_fuente;
+        this.val_impuesto_comision = transaction_data.data.transactiond.val_impuesto_comision;
+        this.total_descuento = transaction_data.data.transaction.total_descuento;
+        this.total_abono = transaction_data.data.transaction.total_abono;
+        this.metodopago= transaction_data.data.transactiond.payment_metod;
+        this.celular= transaction_data.data.transaction.celular;
     }
 
 }

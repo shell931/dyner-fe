@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = [
     'servicio',
     'referenciatx',
+    'mediopago',
     'num_autorizacion',
     'created_at',
     'descripcion',
@@ -117,7 +118,7 @@ export class DashboardComponent implements OnInit {
 
   GetTotalSumTransactionsF(Alldata) {
     console.log(Alldata);
-    
+
 
     this.capital_total_sum_service = Alldata.data.capital_total_sum_service;
     this.dispo_total_sum_service = Alldata.data.dispo_total_sum_service;
