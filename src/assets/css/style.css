@@ -5,7 +5,7 @@
 Project        :   VALEX - HTML5 Bootstrap Admin Template
 Version        :   V.1.0
 Create Date    :   09/05/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Spruko Technologies Private Limited
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support	       :   support@spruko.com
@@ -3628,10 +3628,7 @@ select {
 button,
 [type=button],
 [type=reset],
-[type=submit] {
-    -webkit-appearance: button;
-}
-
+[type=submit]
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -3656,9 +3653,7 @@ input[type=checkbox] {
 input[type=date],
 input[type=time],
 input[type=datetime-local],
-input[type=month] {
-    -webkit-appearance: listbox;
-}
+input[type=month]
 
 textarea {
     overflow: auto;
@@ -3693,10 +3688,7 @@ progress {
     height: auto;
 }
 
-[type=search] {
-    outline-offset: -2px;
-    -webkit-appearance: none;
-}
+[type=search]
 
 [type=search]::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -15492,7 +15484,7 @@ a.tag-addon:hover {
     --transparentprimary-transparentcolor: rgba(255, 255, 255, 0.05);
     --transparent-body: #0b5bc9;
     --transparent-theme: rgba(0, 0, 0, 0.1);
-    --blue: #F7435C !important; 
+    --blue: #F7435C !important;
     --indigo: #F7435C !important;
     --purple: #4800c9;
     --pink: #f10075;
@@ -45642,9 +45634,7 @@ body.transparent-theme {
     stroke: var(--transparent-body);
 }
 
-.transparent-theme .sa-icon.sa-custom {
-    background-image: url("../../assets/img/brand/logo-white.png") !important;
-}
+
 
 .transparent-theme .dropdown-menu-left {
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1);
@@ -50290,7 +50280,6 @@ body.light-theme.app.body-style1 .main-header {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    -webkit-appearance: button;
     display: inline-block;
     font-weight: 400;
     text-align: center;

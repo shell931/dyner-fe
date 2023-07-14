@@ -16,7 +16,7 @@ import { number } from 'echarts';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-    displayedColumns: string[] = ['servicio', 'referenciatx', 'num_autorizacion', 'created_at', 'descripcion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
+    displayedColumns: string[] = ['servicio', 'referenciatx','mediopago', 'num_autorizacion', 'created_at', 'descripcion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     transaction_list: any[] = [];
     messagetx_list: any[] = [];
