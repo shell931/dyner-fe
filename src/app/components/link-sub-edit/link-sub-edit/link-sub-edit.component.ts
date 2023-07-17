@@ -50,7 +50,7 @@ export class LinkSubEditComponent implements OnInit {
       // name: ['', [Validators.required]],
       price: ['', [Validators.required]],
       reference: ['', [Validators.required]],
-      payment_day : ['', [Validators.required]],
+      // payment_day : ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
 
@@ -91,6 +91,7 @@ export class LinkSubEditComponent implements OnInit {
   }
 
   submitbutton() {
+    
     const numericValue = this.linkSubForm.get('price')?.value.replace(/\D/g, "");
     this.linkSubForm.get('price')?.setValue(numericValue, { emitEvent: false });
     if (this.linkSubForm.valid) {
@@ -102,7 +103,7 @@ export class LinkSubEditComponent implements OnInit {
       formDataDocIde.append('taxid', '2');
       formDataDocIde.append('total',  values_sub_link_form.price);
       formDataDocIde.append('_method', 'PUT');
-      formDataDocIde.append('payment_day', values_sub_link_form.payment_day);
+      // formDataDocIde.append('payment_day', values_sub_link_form.payment_day);
 
       this.LinksSubsService.UpdateSubsLink(formDataDocIde,this.id_linksub ).subscribe(
         (result) => {
