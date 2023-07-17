@@ -27,7 +27,7 @@ export class LinkSubsComponent implements OnInit {
     'description',
     'product_code',
     'subtotal',
-    'payment_day',
+    // 'payment_day',
     'created_at',
     'total',
     'status',

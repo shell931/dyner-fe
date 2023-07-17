@@ -49,8 +49,8 @@ export class LinkSubsCreateComponent implements OnInit {
       this.linkSubForm = this.formGroup.group({
           price: ['', [Validators.required]],
           reference: ['', [Validators.required]],
-          description: ['', [Validators.required,Validators.maxLength(200)]],
-          payment_day: ['', Validators.required]
+          description: ['', [Validators.required,Validators.maxLength(200)]]
+        //   payment_day: ['', Validators.required]
       });
   }
 
@@ -105,7 +105,7 @@ export class LinkSubsCreateComponent implements OnInit {
           formDataDocIde.append('subtotal', values_sub_link_form.price);
           formDataDocIde.append('taxid', '2');
           formDataDocIde.append('total', values_sub_link_form.price);
-          formDataDocIde.append('payment_day', values_sub_link_form.payment_day);
+        //   formDataDocIde.append('payment_day', values_sub_link_form.payment_day);
           this.LinksSubsService.CreateSubsLink(formDataDocIde).subscribe(
               result => {
                   this.router.navigate(['link-sub']).then(() => {
