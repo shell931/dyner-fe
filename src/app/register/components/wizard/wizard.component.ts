@@ -56,7 +56,7 @@ export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   async ngOnInit() {
     this.alertsService.openInfoAlert({
-      title: 'Ten presente',
+      title: 'Recuerda',
       text: 'Para tu proceso de afiliación se solicitarán documentos e información básica de tu negocio. Adicionalmente, te solicitaremos fotografías de tus documentos y de tu establecimiento.',
     });
     this.identificationTypes =

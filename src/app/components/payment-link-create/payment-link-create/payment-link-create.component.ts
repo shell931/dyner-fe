@@ -38,6 +38,12 @@ export class PaymentLinkCreateComponent implements OnInit {
     file: any;
     new_file: any;
     inputValue = new FormControl('');
+    total_price : any;
+
+    public taxTypes = [
+        { id: 1, description: '19%' },
+        { id: 2, description: '0%' }
+    ];
 
     constructor(
         private formGroup: FormBuilder,
@@ -53,6 +59,8 @@ export class PaymentLinkCreateComponent implements OnInit {
             reference: ['', [Validators.required]],
             link_expiration: ['', [Validators.required]],
             description: ['', [Validators.required]],
+            tax_type: ['', [Validators.required]],
+            total: ['', []],
         });
 
     }
@@ -62,7 +70,7 @@ export class PaymentLinkCreateComponent implements OnInit {
 
     //START SET EVENT FROM DROPZONE COMPLEMENT
     selectFileComplement(event) {
-        if(this.filesComplement.length == 0){
+        if (this.filesComplement.length == 0) {
             this.filesComplement.push(...event.addedFiles);
         }
     }
@@ -89,7 +97,7 @@ export class PaymentLinkCreateComponent implements OnInit {
     }
 
     onSelect(event: any) {
-        console.log('ev',event)
+        console.log('ev', event)
         this.files.push(...event.addedFiles);
     }
 
@@ -97,30 +105,81 @@ export class PaymentLinkCreateComponent implements OnInit {
         this.files.splice(this.files.indexOf(event), 1);
     }
     formatInput(event: Event) {
-      const inputElement = event.target as HTMLInputElement;
-      let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
-
-      // Verifica si el valor numérico es válido
-      if (isNaN(numericValue)) {
-        numericValue = 0;
-      }
-
-      // Realiza la conversión a pesos colombianos y actualiza el valor del input
-      const formattedValue = numericValue.toLocaleString('es-CO', {
-        style: 'currency',
-        currency: 'COP',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      });
-
-      this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
+        const inputElement = event.target as HTMLInputElement;
+        let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
+        // Verifica si el valor numérico es válido
+        if (isNaN(numericValue)) {
+            numericValue = 0;
+        }
+        // Calculo con tax
+        let valu_link_form = this.linkForm.value;
+        if(valu_link_form.tax_type == ''){
+            this.total_price = 0;
+        }else{
+            if(valu_link_form.tax_type == "1"){
+                this.total_price = (numericValue * 19)/100;
+                this.total_price = numericValue + this.total_price;
+                this.total_price = this.formatInputTotal(this.total_price);
+            }else{
+                this.total_price = (numericValue * 0)/100;
+                this.total_price = numericValue + this.total_price;
+                this.total_price = this.formatInputTotal(this.total_price);
+            }
+        }
+        // Realiza la conversión a pesos colombianos y actualiza el valor del input
+        const formattedValue = numericValue.toLocaleString('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
+        this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
     }
+
+    formatInputTotal(number) {
+        
+        let numericValue = parseFloat(number); // Elimina los caracteres no numéricos
+
+        // Verifica si el valor numérico es válido
+        if (isNaN(numericValue)) {
+            numericValue = 0;
+        }
+
+        // Realiza la conversión a pesos colombianos y actualiza el valor del input
+        const formattedValue = numericValue.toLocaleString('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
+        return formattedValue;
+    }
+
+    CalcTax(event: Event) {
+        const inputElement = event.target as HTMLInputElement;
+        let price = this.linkForm.get('price')?.value.replace(/\D/g, "");
+        let tax = inputElement.value;
+        if(tax == "1"){
+            this.total_price = (parseInt(price) * 19)/100;
+            this.total_price = parseInt(price) + this.total_price;
+            this.total_price = this.formatInputTotal(this.total_price);
+        }else{
+            this.total_price = (parseInt(price) * 0)/100;
+            this.total_price = parseInt(price) + this.total_price;
+            this.total_price = this.formatInputTotal(this.total_price);
+        }
+    }
+
     submitbutton() {
-      const numericValue = this.linkForm.get('price')?.value.replace(/\D/g, "");
-      this.linkForm.get('price')?.setValue(numericValue, { emitEvent: false });
+
+        const numericValue = this.linkForm.get('price')?.value.replace(/\D/g, "");
+        this.linkForm.get('price')?.setValue(numericValue, { emitEvent: false });
+
+
         if (this.linkForm.valid) {
             let values_link_form = this.linkForm.value;
             let count_images_to_upload = this.filesComplement.length;
+            const numericValueTotal = this.total_price.replace(/\D/g, "");
             var today = new Date();
             for (var i = 0; i < this.filesComplement.length; i++) {
                 // get metadata file
@@ -142,8 +201,8 @@ export class PaymentLinkCreateComponent implements OnInit {
             formDataDocIde.append('codeproduct', values_link_form.reference);
             formDataDocIde.append('description', values_link_form.description);
             formDataDocIde.append('subtotal', values_link_form.price);
-            formDataDocIde.append('taxid', '2');
-            formDataDocIde.append('total', values_link_form.price);
+            formDataDocIde.append('taxid', values_link_form.tax_type);
+            formDataDocIde.append('total', numericValueTotal);
             formDataDocIde.append('enddate', values_link_form.link_expiration);
             if (count_images_to_upload > 0) {
                 formDataDocIde.append('image', this.new_file);
