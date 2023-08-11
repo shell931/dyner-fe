@@ -11,7 +11,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Dyner24 - Link de pago",
+                path: '', title:"Dyner - Link de pago",
                 component: PaymentLinkEditComponent
             },
         ],

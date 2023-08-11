@@ -11,7 +11,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Dyner24 - Link de suscripción",
+                path: '', title:"Dyner - Link de suscripción",
                 component:LinkSubsComponent
             },
         ],
