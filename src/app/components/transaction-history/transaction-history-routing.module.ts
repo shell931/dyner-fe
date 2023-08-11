@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Dyner24 - Transacciones",
+                path: '', title:"Dyner - Transacciones",
                 component: TransactionHistoryComponent
             },
         ],
