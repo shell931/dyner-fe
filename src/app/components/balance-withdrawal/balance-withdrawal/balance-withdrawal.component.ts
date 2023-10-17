@@ -60,7 +60,7 @@ export class BalanceWithdrawalComponent implements OnInit {
                 bank: Alldata.data.bankAccounts[i].bank,
             });
         }
-        
+
     }
 
     selectedIndex: number = 1000000;
@@ -84,35 +84,35 @@ export class BalanceWithdrawalComponent implements OnInit {
                 this.clicked = false;
             } else {
                 this.validate_last_transfer = false;
-                this.withdrawalService.GetLastTransfersTime().subscribe((result) => {
-                    if (result['data'].valid == false) {
-                        this.validate_last_transfer = true;
-                        this.clicked = false;
-                    } else {
-                        this.clicked = true;
-                        let myObjWithdrawal = {
-                            accountId: this.selectedItemsList,
-                            availableBalance: this.totalTransfer,
-                            totalTransfer: this.totalTransfer,
-                            cuatropormil: this.cuatropormil,
-                            preventionFund: 0,
-                            // commissionTransfer: this.discount,
-                            commissionTransfer: this.commissionTransfer,
-                        };
-                        
-                        this.withdrawalService
-                            .CreateWithdrawal(myObjWithdrawal)
-                            .subscribe((result: any) => {
-                                console.log('result', result);
-                                this.router
-                                    .navigate(['balance-withdrawal-response'], { queryParams: { reference: result?.data?.referencia } })
-                                    .then(() => {
-                                        // this.show_spinner = false;
-                                        // window.location.reload();
-                                    });
+                // this.withdrawalService.GetLastTransfersTime().subscribe((result) => {
+                //     if (result['data'].valid == false) {
+                //         this.validate_last_transfer = true;
+                //         this.clicked = false;
+                //     } else {
+                this.clicked = true;
+                let myObjWithdrawal = {
+                    accountId: this.selectedItemsList,
+                    availableBalance: this.totalTransfer,
+                    totalTransfer: this.totalTransfer,
+                    cuatropormil: this.cuatropormil,
+                    preventionFund: 0,
+                    // commissionTransfer: this.discount,
+                    commissionTransfer: this.commissionTransfer,
+                };
+
+                this.withdrawalService
+                    .CreateWithdrawal(myObjWithdrawal)
+                    .subscribe((result: any) => {
+                        console.log('result', result);
+                        this.router
+                            .navigate(['balance-withdrawal-response'], { queryParams: { reference: result?.data?.referencia } })
+                            .then(() => {
+                                // this.show_spinner = false;
+                                // window.location.reload();
                             });
-                    }
-                });
+                    });
+                //     }
+                // });
             }
         }
     }

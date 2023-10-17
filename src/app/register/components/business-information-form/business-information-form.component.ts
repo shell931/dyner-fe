@@ -16,8 +16,8 @@ export class BusinessInformationFormComponent implements OnInit, OnChanges {
   @Output() onSubmitFormDataEmit = new EventEmitter<any>();
   public formTitle = 'Información del Negocio';
   public bussinesTypes = [
-    { id: 1, description: 'Persona Natural' },
-    { id: 2, description: 'Persona Juridica' }
+    { id: 'Persona Natural', description: 'Persona Natural' },
+    { id: 'Persona Juridica', description: 'Persona Juridica' }
   ];
   public businessInformationForm: FormGroup;
   public formSent = false;
