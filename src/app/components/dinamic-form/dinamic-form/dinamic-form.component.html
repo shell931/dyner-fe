@@ -1,0 +1,67 @@
+<div *ngIf="estado === ''">
+  <br>
+  <div class="marco-azul">
+    <!-- Tu contenido del banner aquí -->
+  </div>
+  <div class="breadcrumb-header" style="padding: 20px;">
+    <div class="left-content" style="width: 70%; float: left; margin-bottom: 20px;">
+      <div>
+        <h1 class="main-content-title mg-b-1 mg-b-lg-1" style="font-size: 33px;">Formularios Dinamicos</h1>
+      </div>
+      <br>
+      <p style="font-size: 17px;">Formularios de pagos dinámicos, donde puedes personalizar tu propio formulario con la identidad de tu empresa o negocio. Debes digitar tu subdominio para poder activar. La activación tardará entre 24 a 72 horas.</p>
+    </div>
+    <div class="form-container">
+      <form method="POST">
+        <label>Digita tu subdominio</label>
+        <input type="text" id="subdomain" name="subdomain">
+        <label>.payment.com</label>
+        <br>
+        <button type="submit" class="styled-button">Activar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="estado === 'pendiente'">
+  <br>
+      <div>
+        <h1 class="main-content-title mg-b-1 mg-b-lg-1" style="font-size: 33px;">Formularios Dinamicos</h1>
+      </div>
+      <br>
+      <p style="font-size: 17px;"> Aun no se encuentra diponible tu formulario, tan pronto lo este notificaremos mediante correo electronico</p>
+</div>
+
+<div *ngIf="estado === 'aprobado'">
+  <form>
+    <div>
+      <label for="nombreComercio">Nombre del Comercio:</label>
+      <input type="text" id="nombreComercio" name="nombreComercio" [(ngModel)]="nombreComercio">
+    </div>
+
+    <div>
+      <label for="logoComercio">Logo del Comercio:</label>
+      <input type="file" id="logoComercio" name="logoComercio" (change)="onLogoChange($event)">
+    </div>
+
+    <div>
+      <label>Seleccionar botón:</label>
+      <select [(ngModel)]="seleccionBoton" name="seleccionBoton">
+        <option value="boton1">Botón 1</option>
+        <option value="boton2">Botón 2</option>
+        <option value="boton3">Botón 3</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="button" >Guardar</button>
+    </div>
+  </form>
+
+  <div *ngIf="nombreComercio">
+    <h2>Vista Previa</h2>
+    <p>Nombre del Comercio: {{ nombreComercio }}</p>
+    <img *ngIf="logoComercio" [src]="getLogoUrl()" alt="Logo del Comercio">
+    <p>Botón Seleccionado: {{ seleccionBoton }}</p>
+  </div>
+</div>
