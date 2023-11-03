@@ -38,7 +38,7 @@
 						<a class="side-menu__item " [routerLink]="[menuItem.path] " [ngClass]="{ active: menuItem.active ,'is-expanded': menuItem.active}" ng-reflect-router-link-active-options
 							*ngIf="menuItem.type === 'link' " (click)="toggleNavActive(menuItem)">
 							<div class="">
-								<i class="material-icons-two-tone side-menu__icon" style="color: red">{{menuItem.icon}}</i>
+								<i class="material-icons-two-tone side-menu__icon" style="color: #C5C3C3 !important">{{menuItem.icon}}</i>
 							</div>
 							<span class="side-menu__label">{{menuItem.title}} </span>
 							<span class="badge bg-{{menuItem.badgeClass}} text-light" >{{menuItem.badgeValue}}</span>

@@ -1,67 +1,187 @@
-<div *ngIf="estado === ''">
-  <br>
-  <div class="marco-azul">
-    <!-- Tu contenido del banner aquí -->
-  </div>
-  <div class="breadcrumb-header" style="padding: 20px;">
-    <div class="left-content" style="width: 70%; float: left; margin-bottom: 20px;">
-      <div>
-        <h1 class="main-content-title mg-b-1 mg-b-lg-1" style="font-size: 33px;">Formularios Dinamicos</h1>
-      </div>
-      <br>
-      <p style="font-size: 17px;">Formularios de pagos dinámicos, donde puedes personalizar tu propio formulario con la identidad de tu empresa o negocio. Debes digitar tu subdominio para poder activar. La activación tardará entre 24 a 72 horas.</p>
+<div class="breadcrumb-header justify-content-between">
+    <div class="left-content">
+        <div>
+            <h1 class="main-content-title mg-b-1 mg-b-lg-1">FORMULARIOS PERSONALIZADOS</h1>
+            <p class="mg-b-0">Personaliza tu formulario de pagos</p>
+        </div>
     </div>
-    <div class="form-container">
-      <form method="POST">
-        <label>Digita tu subdominio</label>
-        <input type="text" id="subdomain" name="subdomain">
-        <label>.payment.com</label>
-        <br>
-        <button type="submit" class="styled-button">Activar</button>
-      </form>
-    </div>
-  </div>
 </div>
 
-<div *ngIf="estado === 'pendiente'">
-  <br>
-      <div>
-        <h1 class="main-content-title mg-b-1 mg-b-lg-1" style="font-size: 33px;">Formularios Dinamicos</h1>
-      </div>
-      <br>
-      <p style="font-size: 17px;"> Aun no se encuentra diponible tu formulario, tan pronto lo este notificaremos mediante correo electronico</p>
-</div>
+<div class="row row-sm">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <div *ngIf="estado === ''">
+                    <br>
+                    <div class="marco-azul">
+                    </div>
+                    <div class="breadcrumb-header" style="padding: 20px;">
+                        <div class="justificado" style="width: 70%; float: left; margin-bottom: 20px;">
+                            <p style="font-size: 17px;">Formularios de pagos dinámicos, donde puedes personalizar tu
+                                propio formulario
+                                con la identidad de tu empresa o negocio. Debes digitar tu subdominio para poder
+                                activar. La activación
+                                tardará entre 24 a 72 horas.</p>
+                        </div>
+                        <div class="form-container">
+                            <form [formGroup]="formForm">
+                                <label>Digita tu subdominio</label>
+                                <div class="flex-container-subdomain">
+                                    <div class="flex-item-subdomain">
 
-<div *ngIf="estado === 'aprobado'">
-  <form>
-    <div>
-      <label for="nombreComercio">Nombre del Comercio:</label>
-      <input type="text" id="nombreComercio" name="nombreComercio" [(ngModel)]="nombreComercio">
+                                        <input placeholder="Nombre de subdominio" formControlName="subdomain"
+                                            (input)="actualizarLabel()" maxlength="20" class="form-control" required=""
+                                            id="subdomain" name="subdomain" pattern="^[a-zA-Z0-9]*" />
+                                        <div *ngIf=" formForm.get('subdomain')?.hasError('pattern')"
+                                            style="color: red;">
+                                            Ingresa solo letras y números sin espacios.
+                                        </div>
+                                        <div *ngIf=" formForm.get('subdomain')?.hasError('required')"
+                                            style="color: red;">
+                                            Campo obligatorio.
+                                        </div>
+                                        <div *ngIf=" formForm.get('subdomain')?.touched" style="color: red;">
+                                        </div>
+                                    </div>
+                                    <div class="flex-item-subdomain">
+                                        <label>{{ "https://"+formForm.get('subdomain')?.value +".paymentprueba.pw"
+                                            }}</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <button (click)="submitbutton()" class="btn btn-success-dyner btn-block"
+                                    style="width: 30%;">
+                                    Activar
+                                </button>
+                                <div *ngIf="already_exists" style="color: red;">
+                                    El subdominio ya existe en nuestra plataforma, ingresa uno diferente.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="estado === 'pendiente'">
+                    <br>
+                    <div>
+                        <h1 class="main-content-title mg-b-1 mg-b-lg-1" style="font-size: 33px;">Formularios Dinamicos
+                        </h1>
+                    </div>
+                    <br>
+                    <p style="font-size: 17px;"> Aun no se encuentra diponible tu formulario, tan pronto lo este
+                        notificaremos mediante
+                        correo electronico</p>
+                </div>
+
+                <div *ngIf="estado === 'aprobado'">
+
+                    <div class="flex-container-fd mt-5 mb-2">
+                        <div class="column">
+                            <input placeholder="Escribe una descripción" maxlength="200"
+                                class="form-control full-width-input" required=""
+                                value="https://{{your_subdomain}}.paymentprueba.pw" readonly />
+                        </div>
+                        <div class="column">
+                            <button class="btn left-button btn-success-dyner button_save">Guardar</button>
+                            <!-- <button (click)="submitbutton()" class="btn btn-success-dyner btn-block left-button"
+                                style="width: 30%;">
+                                Activar
+                            </button> -->
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <form [formGroup]="dynamicForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mg-b-0 tx-14">Nombre de tu comercio</p>
+                                <input placeholder="Escribe una descripción" formControlName="name_client"
+                                    maxlength="200" class="form-control" required="" />
+                                <mat-error *ngIf="
+                                        dynamicForm.get('name_client')?.hasError('required') &&
+                                        dynamicForm.get('name_client')?.touched">
+                                    Este campo es obligatorio.</mat-error>
+
+                                <p class="mg-b-0 tx-14 mt-2">Logo de tu comercio</p>
+                                <ngx-dropzone (change)="selectFileComplement($event)" [expandable]="true"
+                                    [disableClick]="false" [accept]="'image/*'" [multiple]="false">
+                                    <ngx-dropzone-label>¡Suelta tu imagen aqui!
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                        *ngFor="let f of filesComplement" [file]="f" [removable]="true"
+                                        (removed)="onRemoveComplement(f)">
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})
+                                        </ngx-dropzone-label>
+                                    </ngx-dropzone-image-preview>
+                                </ngx-dropzone>
+                                <div align="center" class="mt-3" *ngIf="validate_img">
+                                    <label style="color: red">
+                                        La imagen debe tener formato jpg o png\n, tener más de 700
+                                        píxeles en uno de sus lados.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Personaliza tu botón de pago</p>
+                                <button class="btn" [style.background]="backgroundColor" [style.color]="textColor"
+                                    [style.border-radius]="borderRadius" [style.font-family]="fontFamily"
+                                    [style.padding]="padding" [style.font-weight]="fontWeight"
+                                    [style.font-size]="fontSize" [style.line-heigh]="lineHeigh" [style.height]="height"
+                                    [style.border]="border">
+                                    {{ buttonText }}
+                                </button>
+                                <a class="btn btn-sm btn-secondary btn-icon" ngbTooltip="Detalle" style="color: #fff;">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+
+                                <div ngbDropdown class="nav-item main-header-notification">
+                                    <button type="button" class="btn position-relative p-1" ngbDropdownToggle>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                        </svg>
+
+                                    </button>
+
+                                    <div ngbDropdownMenu>
+                                        <div class="menu-header-content bg-primary text-left">
+                                            <div class="d-flex">
+                                                <h6 class="dropdown-title mb-1 tx-15 text-white font-weight-semibold">
+                                                    Notificaciones
+                                                </h6>
+
+                                            </div>
+                                        </div>
+                                        <perfect-scrollbar>
+                                            <div class="main-notification-list Notification-scroll">
+                                                <div class="ms-3">
+                                                    fsfs
+                                                </div>
+                                                <div class="ms-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+
+                                            </div>
+                                        </perfect-scrollbar>
+
+                                        <div class="dropdown-footer bg-secondary">
+                                            fasdf
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
     </div>
-
-    <div>
-      <label for="logoComercio">Logo del Comercio:</label>
-      <input type="file" id="logoComercio" name="logoComercio" (change)="onLogoChange($event)">
-    </div>
-
-    <div>
-      <label>Seleccionar botón:</label>
-      <select [(ngModel)]="seleccionBoton" name="seleccionBoton">
-        <option value="boton1">Botón 1</option>
-        <option value="boton2">Botón 2</option>
-        <option value="boton3">Botón 3</option>
-      </select>
-    </div>
-
-    <div>
-      <button type="button" >Guardar</button>
-    </div>
-  </form>
-
-  <div *ngIf="nombreComercio">
-    <h2>Vista Previa</h2>
-    <p>Nombre del Comercio: {{ nombreComercio }}</p>
-    <img *ngIf="logoComercio" [src]="getLogoUrl()" alt="Logo del Comercio">
-    <p>Botón Seleccionado: {{ seleccionBoton }}</p>
-  </div>
 </div>

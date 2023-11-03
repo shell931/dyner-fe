@@ -1,286 +1,282 @@
-<!-- breadcrumb -->
-<div class="breadcrumb-header justify-content-between">
+<div class="container-fluid">
+    <!-- breadcrumb -->
+    <div class="breadcrumb-header justify-content-between">
 
-  <div class="left-content">
-      <div>
-          <h1 class="main-content-title mg-b-1 mg-b-lg-1">
-              Hola, {{ name_client }}!
-          </h1>
-          <p class="mg-b-0">Resumen de transacciones.</p>
-      </div>
-  </div>
-  <div class="main-dashboard-header-right">
-      <div>
-          <button [routerLink]="['/balance-withdrawal']" class="btn btn-success-dyner btn-block">
-              Solicitar retiro
-              <img src="./assets/img/svgicons/transfers.svg" class="img-cards-icons-button" alt="logo" />
-          </button>
-      </div>
-  </div>
-</div>
-<!-- /breadcrumb -->
+        <div class="left-content">
+            <div>
+                <h1 class="main-content-title mg-b-1 mg-b-lg-1">
+                    Hola, {{ name_client }}!
+                </h1>
+                <p class="mg-b-0">Resumen de transacciones.</p>
+            </div>
+        </div>
+        <div class="main-dashboard-header-right">
+            <div>
+                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success-dyner-green btn-block">
+                    Solicitar retiro
+                    <!-- <img src="./assets/img/svgicons/transfers.svg" class="img-cards-icons-button" alt="logo" /> -->
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
 
-<div class="row">
-  <div class="col-12 col-lg-4">
-      <div class="card">
-          <div class="card-header pb-0">
-              <p class="mg-b-0 tx-14 color-title-card">CAPITAL</p>
-          </div>
-          <div class="card-body">
-              <div class="flex-container">
-                  <div class="flex-item">
-                      <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1">
-                          {{
-                          capital_total_sum_service
-                          | currency : "USD" : "symbol" : "1.0-0"
-                          }}
-                          COP
-                      </h1>
-                  </div>
-                  <div class="flex-item">
-                      <img src="./assets/img/svgicons/checkok.svg" class="img-cards-dashboard" alt="logo" />
-                  </div>
-              </div>
-          </div>
-          <div class="card-footer">
-              <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <p class="mg-b-0 tx-14 color-title-card">APROBADO</p>
+                </div>
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                                {{
+                                capital_total_sum_service
+                                | currency : "USD" : "symbol" : "1.0-0"
+                                }}
+                                COP
+                            </h1>
+                        </div>
+                        <div class="flex-item">
+                            <img src="./assets/img/svgicons/check.svg" class="img-cards-dashboard" alt="logo"
+                                style="max-width: 80%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
           gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
         ">
-                  Ver detalle
-              </button>
-          </div>
-      </div>
-  </div>
-  <div class="col-12 col-lg-4">
-      <div class="card">
-          <div class="card-header pb-0">
-              <p class="mg-b-0 tx-14 color-title-card">DISPONIBLE</p>
-          </div>
-          <div class="card-body">
-              <div class="flex-container">
-                  <div class="flex-item">
-                      <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1">
-                          {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}}COP
-                      </h1>
-                  </div>
-                  <div class="flex-item">
-                      <img src="./assets/img/svgicons/wallet.svg" class="img-cards-dashboard" alt="logo" />
-                  </div>
-              </div>
-          </div>
-          <div class="card-footer">
-              <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
+                        Ver detalle
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <p class="mg-b-0 tx-14 color-title-card">DISPONIBLE</p>
+                </div>
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                                {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
+                            </h1>
+                        </div>
+                        <div class="flex-item">
+                            <img src="./assets/img/svgicons/dinero.svg" class="img-cards-dashboard" alt="logo"
+                                style="max-width: 80%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
           gridOpen(gridModal, 'DETALLE SALDO DISPONBILE', 'dispo_list_tx')
         ">
-                  Ver detalle
-              </button>
-          </div>
-      </div>
-  </div>
-  <div class="col-12 col-lg-4">
-      <div class="card">
-          <div class="card-header pb-0">
-              <p class="mg-b-0 tx-14 color-title-card">EN RETIRO</p>
-          </div>
-          <div class="card-body">
-              <div class="flex-container">
-                  <div class="flex-item">
-                      <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1">
-                          {{
-                          en_transfe_total_sum_service
-                          | currency : "USD" : "symbol" : "1.0-0"
-                          }}
-                          COP
-                      </h1>
-                  </div>
-                  <div class="flex-item">
-                      <img src="./assets/img/svgicons/Transferencia.svg" class="img-cards-dashboard" alt="logo" />
-                  </div>
-              </div>
-          </div>
-          <div class="card-footer">
-              <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
+                        Ver detalle
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <p class="mg-b-0 tx-14 color-title-card">EN RETIRO</p>
+                </div>
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                                {{
+                                en_transfe_total_sum_service
+                                | currency : "USD" : "symbol" : "1.0-0"
+                                }} COP
+                            </h1>
+                        </div>
+                        <div class="flex-item">
+                            <img src="./assets/img/svgicons/retiro.svg" class="img-cards-dashboard" alt="logo"
+                                style="max-width: 80%;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
           gridOpen(gridModal, 'DETALLE SALDO EN RETIRO', 'en_transfe_list_tx')
         ">
-                  Ver detalle
-              </button>
-          </div>
-      </div>
-  </div>
-</div>
+                        Ver detalle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="row row-sm">
-  <div class="col-md-12 col-lg-12 col-xl-12">
-      <div class="card card-table-two">
-          <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-              LISTADO DE TRANSACCIONES
-          </h2>
-          <p class="mg-b-0 tx-14">
-              Consulta a continuación todas tus transacciones realizadas
-          </p>
-          <div class="table-responsive">
-              <!-- <mat-form-field appearance="standard">
+    <div class="row row-sm">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="card card-table-two">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+                    LISTADO DE TRANSACCIONES
+                </h2>
+                <p class="mg-b-0 tx-14">
+                    Consulta a continuación todas tus transacciones realizadas
+                </p>
+                <div class="table-responsive">
+                    <!-- <mat-form-field appearance="standard">
                   <mat-label>Filter</mat-label>
                   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
               </mat-form-field> -->
-              <div class="mat-elevation-z8">
-                  <table mat-table [dataSource]="dataSource" matSort class="table-striped">
-                      <!-- ID Column -->
-                      <ng-container matColumnDef="servicio">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Servicio
-                          </th>
-                          <td mat-cell *matCellDef="let row">{{ row.servicio }}</td>
-                      </ng-container>
+                    <div class="mat-elevation-z8">
+                        <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
+                        <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
+                            <!-- ID Column -->
+                            <ng-container matColumnDef="servicio">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Servicio
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.servicio }}</td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="referenciatx">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Referencia
-                          </th>
-                          <td mat-cell *matCellDef="let row">{{ row.referenciatx }}</td>
-                      </ng-container>
-                      <ng-container matColumnDef="mediopago">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de pago </th>
-                        <td mat-cell *matCellDef="let row"> {{row.payment_metod}} </td>
-                    </ng-container>
-                      <ng-container matColumnDef="num_autorizacion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Autorización
-                          </th>
-                          <td mat-cell *matCellDef="let row">{{ row.num_autorizacion }}</td>
-                      </ng-container>
+                            <ng-container matColumnDef="referenciatx">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Referencia
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.referenciatx }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="mediopago">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de pago </th>
+                                <td mat-cell *matCellDef="let row"> {{row.payment_metod}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="num_autorizacion">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Autorización
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.num_autorizacion }}</td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="created_at">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
-                          <td mat-cell *matCellDef="let row">{{ row.created_at }}</td>
-                      </ng-container>
+                            <ng-container matColumnDef="created_at">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+                                <td mat-cell *matCellDef="let row">{{ row.created_at }}</td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="descripcion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Descripción
-                          </th>
-                          <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
-                      </ng-container>
+                            <ng-container matColumnDef="descripcion">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Descripción
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="total">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Valor COP
-                          </th>
-                          <td mat-cell *matCellDef="let row">
-                              {{ row.total | currency : "USD" : "symbol" : "1.0-0" }}
-                          </td>
-                      </ng-container>
+                            <ng-container matColumnDef="total">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    Valor COP
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.total | currency : "USD" : "symbol" : "1.0-0" }}
+                                </td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="nombre_comprador">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-                          <td mat-cell *matCellDef="let row">{{ row.nombre_comprador }}</td>
-                      </ng-container>
+                            <ng-container matColumnDef="nombre_comprador">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+                                <td mat-cell *matCellDef="let row">{{ row.nombre_comprador }}</td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="descripcion_estado">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
-                          <td mat-cell *matCellDef="let row">
-                              {{ row.descripcion_estado }}
-                          </td>
-                      </ng-container>
+                            <ng-container matColumnDef="descripcion_estado">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.descripcion_estado }}
+                                </td>
+                            </ng-container>
 
-                      <ng-container matColumnDef="action">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                              Acciones
-                          </th>
-                          <td mat-cell *matCellDef="let row">
-                            <a [routerLink]="['/transaction-detail',row.id,row.servicio]"
-                            title="" ngbTooltip="Detalle">
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    <div align="center">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let row">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-eye" viewBox="0 -1 16 16" id="IconChangeColor"> <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" id="mainIconPathAttribute" stroke-width="0.8" stroke="#5b6e88"></path> <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" id="mainIconPathAttribute" stroke="#5b6e88"></path> </svg>
+                                    <div align="center">
+                                        <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black"
+                                            ngbTooltip="Detalle">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
 
-                        </a>
-                        <a
-                        href="javascript:;"
-                        (click)="openMessageTx(scale,row.id)"
-                         > <button
-                        type="button"
-                        class="btn position-relative p-1"
-                        >
-                        <svg *ngIf="row.count_obs !== false"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="header-icon-svgs"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        stroke="currentColor"
-                         >
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                       </svg>
-                       <span *ngIf="row.count_obs>0" _ngcontent-sbt-c112="" class="position-absolute top-0 start-80 translate-middle badge rounded-pill bg-danger ng-star-inserted">{{row.count_obs}} </span>
+                                        <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button
+                                                type="button" class="btn position-relative p-1">
+                                                <svg *ngIf="row.count_obs !== false" xmlns="http://www.w3.org/2000/svg"
+                                                    class="header-icon-svgs" viewBox="0 0 16 16" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                                </svg>
+                                                <span *ngIf="row.count_obs>0" _ngcontent-sbt-c112=""
+                                                    class="position-absolute top-0 start-80 translate-middle badge rounded-pill bg-danger ng-star-inserted">{{row.count_obs}}
+                                                </span>
 
-                         </button>
-                         </a>
-                          </td>
-                      </ng-container>
+                                            </button>
+                                        </a> -->
+                                    </div>
 
-                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-                  </table>
 
-                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
-                  </mat-paginator>
-              </div>
-          </div>
-      </div>
-  </div>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                        </table>
+
+                        <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="per_page"
+                            [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #gridModal let-modal>
+        <div class="modal-header">
+            <h6 class="modal-title">{{ detailTitle }}</h6>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-details-table [items]="total_detail[detailObject]"></app-details-table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')">
+                Cerrar
+            </button>
+        </div>
+    </ng-template>
+
+    <ng-template #scale let-modal>
+        <div class="modal-header">
+            <h6 class="modal-title">Mensajes de Transacción</h6>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table mat-table [dataSource]="dataSourcemtx" matSort class="table-striped">
+                <ng-container matColumnDef="mensaje">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Mensaje </th>
+                    <td mat-cell *matCellDef="let rowtx"> {{rowtx.mensaje}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha</th>
+                    <td mat-cell *matCellDef="let rowtx"> {{rowtx.created_at}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnstx"></tr>
+                <tr mat-row *matRowDef="let rowtx; columns: displayedColumnstx;"></tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn ripple btn-primary" (click)="modal.close('Save click');">
+                Cerrar
+            </button>
+        </div>
+    </ng-template>
 </div>
-
-<ng-template #gridModal let-modal>
-  <div class="modal-header">
-      <h6 class="modal-title">{{ detailTitle }}</h6>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-      <app-details-table [items]="total_detail[detailObject]"></app-details-table>
-  </div>
-  <div class="modal-footer">
-      <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')">
-          Cerrar
-      </button>
-  </div>
-</ng-template>
-
-<ng-template #scale let-modal>
-<div class="modal-header">
-  <h6 class="modal-title">Mensajes de Transacción</h6>
-  <button
-    type="button"
-    class="close"
-    aria-label="Close"
-    (click)="modal.dismiss('Cross click')"
-  >
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <table mat-table [dataSource]="dataSourcemtx" matSort class="table-striped">
-  <ng-container matColumnDef="mensaje">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Mensaje </th>
-    <td mat-cell *matCellDef="let rowtx"> {{rowtx.mensaje}} </td>
-</ng-container>
-
-<ng-container matColumnDef="fecha">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha</th>
-    <td mat-cell *matCellDef="let rowtx"> {{rowtx.created_at}} </td>
-</ng-container>
-<tr mat-header-row *matHeaderRowDef="displayedColumnstx"></tr>
-<tr mat-row *matRowDef="let rowtx; columns: displayedColumnstx;"></tr>
-</table>
-</div>
-<div class="modal-footer">
-  <button
-    type="button"
-    class="btn ripple btn-primary"
-    (click)="modal.close('Save click');"
-  >
-  Cerrar
-  </button>
-</div>
-</ng-template>
-

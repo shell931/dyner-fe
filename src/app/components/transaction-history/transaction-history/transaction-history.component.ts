@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { AccountStateService } from 'src/app/services/account-state.service';
 import { TransactionService } from 'src/app/services/transaction.service';
@@ -16,7 +16,7 @@ import { number } from 'echarts';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-    displayedColumns: string[] = ['servicio', 'referenciatx','mediopago', 'num_autorizacion', 'created_at', 'descripcion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
+    displayedColumns: string[] = ['servicio', 'referenciatx', 'mediopago', 'num_autorizacion', 'created_at', 'descripcion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     transaction_list: any[] = [];
     messagetx_list: any[] = [];
@@ -25,10 +25,16 @@ export class TransactionHistoryComponent implements OnInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
+    isLoading = false;
+    totalRows: number = 0;
+    per_page = 0;
+    currentPage = 0;
+    pageSizeOptions: number[] = [5, 10, 25, 100];
+
 
     constructor(
         private transactionService: TransactionService,
-        private messageservices:MessagesTxService,
+        private messageservices: MessagesTxService,
         private baseService: BaseService,
         private changeDetectorRef: ChangeDetectorRef,
         private modalService: NgbModal
@@ -36,7 +42,7 @@ export class TransactionHistoryComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.transactionService.GetTransactionList().subscribe(
+        this.transactionService.GetTransactionList(this.currentPage).subscribe(
             (Alldata) => {
                 this.GetTransactionListF(Alldata)
             },
@@ -49,45 +55,55 @@ export class TransactionHistoryComponent implements OnInit {
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
-
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }
     }
 
-    GetTransactionListF(TransactionListdata) {
-        console.log(TransactionListdata);
+    loadData() {        
+        this.transactionService
+        .GetTransactionList(this.currentPage)
+        .subscribe((TransactionListdata) => {
+            this.GetTransactionListF(TransactionListdata);
+        });
+    }
 
-        this.transaction_list = TransactionListdata.data;
+    pageChanged(event: PageEvent) {
+        this.per_page = event.pageSize;
+        this.currentPage = event.pageIndex;
+        this.loadData();
+    }
+
+    GetTransactionListF(TransactionListdata) {
+        this.transaction_list = TransactionListdata.data.data;
+        this.totalRows = TransactionListdata.data.total;
+        this.per_page = TransactionListdata.data.per_page;
         this.dataSource = new MatTableDataSource<any>(this.transaction_list);
         this.changeDetectorRef.detectChanges();
-        this.dataSource.paginator = this.paginator;
-        setTimeout(() => {
-        	this.dataSource.paginator = this.paginator;
-        }, 0)
+        this.dataSource.sort = this.sort;
 
     }
 
     GetMessagetxListF(TransactionMessageData) {
-      console.log(TransactionMessageData);
-      this.messagetx_list = TransactionMessageData.mensajes;
-      this.dataSourcemtx = new MatTableDataSource<any>(this.messagetx_list);
-  }
+        console.log(TransactionMessageData);
+        this.messagetx_list = TransactionMessageData.mensajes;
+        this.dataSourcemtx = new MatTableDataSource<any>(this.messagetx_list);
+    }
 
 
-  public openMessageTx(modal: any,id: number,) {
-      this.messageservices
-       .GetMessagesTxList(id)
-      .subscribe( (Alldata) => {
-        this.GetMessagetxListF(Alldata)
-    },
-    error => {
-        this.baseService.GetErrorAuthSesion(error)
-    });
-     this.modalService.open(modal, {
-      centered: true,
-      windowClass: 'animate__animated animate__zoomIn',
-     });
-  }
+    public openMessageTx(modal: any, id: number,) {
+        this.messageservices
+            .GetMessagesTxList(id)
+            .subscribe((Alldata) => {
+                this.GetMessagetxListF(Alldata)
+            },
+                error => {
+                    this.baseService.GetErrorAuthSesion(error)
+                });
+        this.modalService.open(modal, {
+            centered: true,
+            windowClass: 'animate__animated animate__zoomIn',
+        });
+    }
 
 }

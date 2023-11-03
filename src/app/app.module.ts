@@ -45,6 +45,7 @@ import { SessionGuard } from './shared/shared/sessionGuard';
 import { DocumentStatusComponent } from './components/profile/document-status/document-status.component';
 import { ProfileModule } from './components/profile/profile.module';
 import { LinkDetailSubComponent } from './components/link-subs-detail/link-subs-detail/link-sub-detail.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -77,6 +78,7 @@ export function playerFactory() {
     LinkDetailSubComponent
   ],
   imports: [
+    NgbDropdownModule,
     MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,

@@ -12,11 +12,11 @@ export class TransactionService {
         private baseService: BaseService
     ) { }
 
-    list_transactions = `${this.baseService.baseUrl}transactions`;
+    list_transactions = `${this.baseService.baseUrl}transactions-paginate`;
     transaction_by_id = `${this.baseService.baseUrl}transaction-by-id`;
 
-    GetTransactionList() {
-        return this.httpClient.get(this.list_transactions, { headers: this.baseService.getAuthHeaders() });
+    GetTransactionList(currentPage) {
+        return this.httpClient.get(`${this.list_transactions}/${currentPage}`, { headers: this.baseService.getAuthHeaders() });
     }
 
     GetTransactionById(id_transaction, service_type) {

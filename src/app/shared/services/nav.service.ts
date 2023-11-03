@@ -76,10 +76,10 @@ export class NavService implements OnDestroy {
             path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'send', badgeClass: 'success', active: true,
         },
         {
-            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'notes', badgeClass: 'success', active: true,
+            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'payments', badgeClass: 'success', active: true,
         },
         {
-            path: '/withdrawal-history', title: 'Historial de retiros', type: 'link', icon: 'sort', badgeClass: 'success', active: true,
+            path: '/withdrawal-history', title: 'Historial de retiros', type: 'link', icon: 'receipt_long', badgeClass: 'success', active: true,
         },
         {
             headTitle: 'Herramientas'
@@ -92,11 +92,11 @@ export class NavService implements OnDestroy {
             path: '/payment-link', title: 'Links de pago', type: 'link', icon: 'share', badgeClass: 'success', active: true,
         },
         {
-          path: '/link-sub', title: 'Links de Suscripciones ', type: 'link', icon: 'repeat', badgeClass: 'success', active: true,
+          path: '/link-sub', title: 'Links de Suscripciones ', type: 'link', icon: 'share', badgeClass: 'success', active: true,
         },
-        {
-          path: '/dinamic-form', title: 'Formularios Dinamicos', type: 'link', icon: 'cached', badgeClass: 'success', active: true,
-        },
+        // {
+        //   path: '/dinamic-form', title: 'Formularios Personalizados', type: 'link', icon: 'cached', badgeClass: 'success', active: true,
+        // },
         // {
         //     headTitle: 'General'
         // },

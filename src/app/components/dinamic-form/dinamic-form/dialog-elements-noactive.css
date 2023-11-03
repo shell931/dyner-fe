@@ -17,7 +17,7 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    }
+}
 
 .flex-item:nth-child(1) {
     -webkit-order: 0;
@@ -29,7 +29,7 @@
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-    }
+}
 
 .flex-item:nth-child(2) {
     -webkit-order: 0;
@@ -41,4 +41,5 @@
     -webkit-align-self: flex-start;
     -ms-flex-item-align: start;
     align-self: flex-start;
-    }
+}
+

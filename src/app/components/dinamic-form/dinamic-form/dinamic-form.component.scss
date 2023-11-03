@@ -1,5 +1,7 @@
 @import "../../../../assets/css/tables";
 
+
+
 table {
   width: 100%;
 }
@@ -63,27 +65,118 @@ table {
   -ms-flex-item-align: start;
   align-self: flex-start;
 }
+
 /* Estilos para el contenedor del formulario */
 .form-container {
-  float: left; /* Mover el formulario a la izquierda */
-  width: 100%; /* Ancho del formulario (puedes ajustarlo según tus necesidades) */
-  padding: 10px; /* Espaciado interior del contenedor */
+  float: left;
+  /* Mover el formulario a la izquierda */
+  width: 100%;
+  /* Ancho del formulario (puedes ajustarlo según tus necesidades) */
+  padding: 10px;
+  /* Espaciado interior del contenedor */
 }
 
 /* Estilos para el botón */
 .styled-button {
-  background-color: #ce1723; /* Color de fondo del botón */
-  color: #fff; /* Color del texto del botón */
-  padding: 10px 20px; /* Espaciado interior del botón */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  background-color: #ce1723;
+  /* Color de fondo del botón */
+  color: #fff;
+  /* Color del texto del botón */
+  padding: 10px 20px;
+  /* Espaciado interior del botón */
+  border: none;
+  /* Sin borde */
+  cursor: pointer;
+  /* Cambiar el cursor al pasar sobre el botón */
 }
 
 .marco-azul {
-  border: 2px solid #0b3d91; /* Borde de 2 píxeles de ancho y color azul oscuro (#0b3d91) */
-  background-color: #e6e6e7; /* Color de fondo azul oscuro (#0b3d91) */
-  padding: 110px; /* Espacio interno de 20 píxeles para separar el contenido del borde */
-  color: #fff; /* Color de texto blanco para que contraste con el fondo */
+  border: 2px solid #0b3d91;
+  /* Borde de 2 píxeles de ancho y color azul oscuro (#0b3d91) */
+  background-color: #e6e6e7;
+  /* Color de fondo azul oscuro (#0b3d91) */
+  padding: 110px;
+  /* Espacio interno de 20 píxeles para separar el contenido del borde */
+  color: #fff;
+  /* Color de texto blanco para que contraste con el fondo */
 }
 
 /* Estilos adicionales según tus preferencias */
+
+.justificado {
+  text-align: justify;
+}
+
+
+.flex-container-fd {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* Alineamos el contenido verticalmente al centro */
+}
+
+.full-width-input {
+  flex: 2;
+  /* Aumentamos el factor de flexibilidad de la primera columna */
+}
+
+.left-button {
+  margin-left: auto;
+  /* Colocamos el botón en la esquina izquierda */
+}
+
+.button_save {
+  border-radius: 10px;
+}
+
+// .bottom-pay {
+//   padding: 12px 80px;
+//   background: #016FD0;
+//   border-radius: 48px;
+//   color: #fff;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 16px;
+//   line-height: 20px;
+//   height: 44px;
+//   border: solid 2px #016FD0;
+// }
+
+.btn-secondary {
+  color: #fff;
+  background-color: #737f9e;
+  border-color: #737f9e;
+}
+
+
+::ng-deep {
+  .main-header-right .dropdown-toggle::after {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .main-body.app.sidebar-mini .main-header form[role=search].active input {
+      padding-left: 20px !important;
+      width: 96% !important;
+    }
+  }
+
+
+  @media screen and (min-width:480px) and (max-width: 768px) {
+    .stickyy {
+      position: fixed !important;
+    }
+  }
+
+  @media screen and (min-width:768px) and (max-width: 991px) {
+    .stickyy {
+      position: fixed !important;
+    }
+  }
+
+
+}

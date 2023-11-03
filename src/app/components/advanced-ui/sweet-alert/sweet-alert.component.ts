@@ -54,7 +54,7 @@ export class SweetAlertComponent implements OnInit {
   basicAlert() {
      Swal.fire({
        title: 'Welcome to Your Admin Page',
-       confirmButtonColor: '#F7435C !important'
+       confirmButtonColor: '#f92d2d !important'
      })
   }
 
@@ -62,7 +62,7 @@ export class SweetAlertComponent implements OnInit {
     Swal.fire({
       title: 'Here is a title!',
       text: 'All are available in the template',
-      confirmButtonColor: '#F7435C !important'
+      confirmButtonColor: '#f92d2d !important'
     })
   }
 
@@ -71,7 +71,7 @@ export class SweetAlertComponent implements OnInit {
       icon: 'success',
       title: 'Well Done!',
       text: 'You clicked the button!',
-      confirmButtonColor: '#F7435C !important'
+      confirmButtonColor: '#f92d2d !important'
     })
   }
 
@@ -81,8 +81,8 @@ export class SweetAlertComponent implements OnInit {
       title: 'Are you sure ?',
       text: 'Your will not be able to recover this imaginary file!',
       showCancelButton: true,
-      confirmButtonColor: '#F7435C !important',
-      cancelButtonColor: '#F7435C !important',
+      confirmButtonColor: '#f92d2d !important',
+      cancelButtonColor: '#f92d2d !important',
       confirmButtonText: 'Yes, delete it!',
       reverseButtons: true
 
@@ -92,7 +92,7 @@ export class SweetAlertComponent implements OnInit {
           title: 'Deleted!',
           text: 'Your imaginary file has been deleted.',
           icon: 'success',
-          confirmButtonColor: '#F7435C !important'
+          confirmButtonColor: '#f92d2d !important'
         })
       }
     })
@@ -105,9 +105,9 @@ export class SweetAlertComponent implements OnInit {
       text: "You will not be able to recover this imaginary file!",
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
-      confirmButtonColor: '#F7435C !important',
+      confirmButtonColor: '#f92d2d !important',
       cancelButtonText: 'No, cancel it!',
-      cancelButtonColor: '#F7435C !important',
+      cancelButtonColor: '#f92d2d !important',
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
@@ -115,14 +115,14 @@ export class SweetAlertComponent implements OnInit {
           title: 'Deleted!',
           text: 'Your imaginary file has been deleted.',
           icon: 'success',
-          confirmButtonColor: '#F7435C !important'
+          confirmButtonColor: '#f92d2d !important'
         })
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire({
           title: 'Cancelled!',
           text: 'Your imaginary file is safe :)',
           icon: 'error',
-          confirmButtonColor: '#F7435C !important'
+          confirmButtonColor: '#f92d2d !important'
         })
       }
     })
@@ -133,7 +133,7 @@ export class SweetAlertComponent implements OnInit {
       title: 'Lovely',
       text: 'Your image is uploaded.',
       imageUrl: './assets/img/brand/logo.png',
-      confirmButtonColor: '#F7435C !important'
+      confirmButtonColor: '#f92d2d !important'
     })
   }
 
@@ -141,7 +141,7 @@ export class SweetAlertComponent implements OnInit {
     Swal.fire({
       title: 'Auto close alert!',
       text: 'I will close in 2 seconds.',
-      confirmButtonColor: '#F7435C !important',
+      confirmButtonColor: '#f92d2d !important',
       timer: 2000,
       timerProgressBar: true,
     })
@@ -156,7 +156,7 @@ export class SweetAlertComponent implements OnInit {
       hideClass: {
         popup: 'animate__animated animate__fadeOutUp'
       },
-      confirmButtonColor: '#F7435C !important',
+      confirmButtonColor: '#f92d2d !important',
     })
   }
 

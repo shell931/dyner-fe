@@ -1,94 +1,98 @@
-<div class="breadcrumb-header justify-content-between">
-    <div class="left-content">
-        <div>
-            <h1 class="main-content-title mg-b-1 mg-b-lg-1">
-                Editar link de Suscripción
-            </h1>
+<div class="container-fluid">
+    <div class="breadcrumb-header justify-content-between">
+        <div class="left-content">
+            <div>
+                <h1 class="main-content-title mg-b-1 mg-b-lg-1">
+                    Editar link de Suscripción
+                </h1>
+            </div>
+        </div>
+        <div class="main-dashboard-header-right">
+            <div>
+                <button [routerLink]="['/link-sub']" class="btn btn-success-dyner-green btn-block">
+                    <i class="fas fa-chevron-left"></i>
+                    Volver
+                </button>
+            </div>
         </div>
     </div>
-    <div class="main-dashboard-header-right">
-        <div>
-            <button [routerLink]="['/link-sub']" class="btn btn-success-dyner btn-block">
-                <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" />
-                Volver
-            </button>
-        </div>
-    </div>
-</div>
-
-<div class="row row-sm">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <form [formGroup]="linkSubForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="mg-b-0 tx-14">Descripción</p>
-                            <input placeholder="Escribe una descripción" formControlName="description" maxlength="200"
-                                class="form-control" required="" />
-                            <mat-error *ngIf="
-                            linkSubForm.get('description')?.hasError('required') &&
-                            linkSubForm.get('description')?.touched">
-                                Este campo es obligatorio.
-                            </mat-error>
+    
+    <div class="row row-sm">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="linkSubForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mg-b-0 tx-14">Descripción</p>
+                                <input placeholder="Escribe una descripción" formControlName="description" maxlength="200"
+                                    class="form-control" required="" />
+                                <mat-error *ngIf="
+                                linkSubForm.get('description')?.hasError('required') &&
+                                linkSubForm.get('description')?.touched">
+                                    Este campo es obligatorio.
+                                </mat-error>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <p class="mg-b-0 tx-14">Referencia</p>
+                                <input placeholder="Escribe el número de referencia" formControlName="reference"
+                                    maxlength="150" class="form-control" required="" maxlength="15" />
+                                <mat-error *ngIf="
+                                    linkSubForm.get('reference')?.hasError('required') &&
+                                    linkSubForm.get('reference')?.touched">
+                                    Este campo es obligatorio.
+                                </mat-error>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="mg-b-0 tx-14">Subtotal ($) COP</p>
+                                <input type="text" placeholder="Digita el valor de tu producto o servicio"
+                                    formControlName="price" maxlength="150" class="form-control" required="" maxlength="13"
+                                    (input)="formatInput($event)" />
+                                <mat-error *ngIf="
+                                    linkSubForm.get('price')?.hasError('required') &&
+                                    linkSubForm.get('price')?.touched">
+                                    Este campo es obligatorio.
+                                </mat-error>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <p class="mg-b-0 tx-14">Iva</p>
+                                <select id="tax_type" formControlName="tax_type" class="form-control"
+                                    (change)="CalcTax($event)" placeholder="Impuesto" required="">
+                                    <option *ngFor="let item of taxTypes" [value]="item.id">{{item.description}}
+                                    </option>
+                                </select>
+                                <mat-error *ngIf="
+                                    linkSubForm.get('tax_type')?.hasError('required') &&
+                                    linkSubForm.get('tax_type')?.touched">
+                                    Este campo es obligatorio.
+                                </mat-error>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <p class="mg-b-0 tx-14">Total ($) COP</p>
+                                <input type="text" placeholder="Total" formControlName="total" maxlength="150"
+                                    class="form-control" maxlength="13" [value]="total_price" readonly />
+                                <mat-error *ngIf="
+                                    linkSubForm.get('total')?.hasError('required') &&
+                                    linkSubForm.get('total')?.touched">
+                                    Este campo es obligatorio.
+                                </mat-error>
+                            </div>
+    
+    
                         </div>
-                        <div class="col-md-6 mt-2">
-                            <p class="mg-b-0 tx-14">Referencia</p>
-                            <input placeholder="Escribe el número de referencia" formControlName="reference"
-                                maxlength="150" class="form-control" required="" maxlength="15" />
-                            <mat-error *ngIf="
-                                linkSubForm.get('reference')?.hasError('required') &&
-                                linkSubForm.get('reference')?.touched">
-                                Este campo es obligatorio.
-                            </mat-error>
+                    </form>
+                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12 mt-4" align="center">
+                        <div class="col-md-2">
+                            <button (click)="submitbutton()" class="btn btn-success-dyner-green btn-block">
+                                Editar link de pago
+                            </button>
                         </div>
-                        <div class="col-md-4">
-                            <p class="mg-b-0 tx-14">Subtotal ($) COP</p>
-                            <input type="text" placeholder="Digita el valor de tu producto o servicio"
-                                formControlName="price" maxlength="150" class="form-control" required="" maxlength="13"
-                                (input)="formatInput($event)" />
-                            <mat-error *ngIf="
-                                linkSubForm.get('price')?.hasError('required') &&
-                                linkSubForm.get('price')?.touched">
-                                Este campo es obligatorio.
-                            </mat-error>
-                        </div>
-
-                        <div class="col-md-4">
-                            <p class="mg-b-0 tx-14">Iva</p>
-                            <select id="tax_type" formControlName="tax_type" class="form-control"
-                                (change)="CalcTax($event)" placeholder="Impuesto" required="">
-                                <option *ngFor="let item of taxTypes" [value]="item.id">{{item.description}}
-                                </option>
-                            </select>
-                            <mat-error *ngIf="
-                                linkSubForm.get('tax_type')?.hasError('required') &&
-                                linkSubForm.get('tax_type')?.touched">
-                                Este campo es obligatorio.
-                            </mat-error>
-                        </div>
-
-                        <div class="col-md-4">
-                            <p class="mg-b-0 tx-14">Total ($) COP</p>
-                            <input type="text" placeholder="Total" formControlName="total" maxlength="150"
-                                class="form-control" maxlength="13" [value]="total_price" readonly />
-                            <mat-error *ngIf="
-                                linkSubForm.get('total')?.hasError('required') &&
-                                linkSubForm.get('total')?.touched">
-                                Este campo es obligatorio.
-                            </mat-error>
-                        </div>
-
-
-                    </div>
-                </form>
-                <div class="col-12 col-sm-12 col-lg-12 col-xl-12 mt-4" align="center">
-                    <div class="col-md-2">
-                        <button (click)="submitbutton()" class="btn btn-success btn-block">
-                            Editar link de pago
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+</div>
+

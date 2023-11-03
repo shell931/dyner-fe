@@ -34,6 +34,6 @@ export class SuccessRegisterComponent
 
   ngOnDestroy(): void {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
-      '#ecf0fa';
+      '#e1e1e1';
   }
 }

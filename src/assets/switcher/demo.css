@@ -27,7 +27,7 @@
 	border-radius:3px;
 }
 .navstyle1:hover{
-	color:#F7435C !important;
+	color:#f92d2d !important;
 	cursor: pointer;
 }
 .wscolorcode1 {
@@ -490,16 +490,16 @@
     z-index: 1;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #F7435C !important;
+    background-color: #f92d2d !important;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-   border-color: #F7435C !important;
+   border-color: #f92d2d !important;
 }
 .onoffswitch2-checkbox:checked + .onoffswitch2-label {
-    background-color:#F7435C !important;
+    background-color:#f92d2d !important;
 }
 .onoffswitch2-checkbox:checked + .onoffswitch-label2, .onoffswitch2-checkbox:checked + .onoffswitch2-label:before {
-   border-color:#F7435C !important;
+   border-color:#f92d2d !important;
 }
 
 .light-theme .dark-pattern, .dark-pattern{
