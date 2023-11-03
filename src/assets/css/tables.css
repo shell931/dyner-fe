@@ -7,11 +7,11 @@ tr.mat-footer-row {
     height: 37px;
 }
 
-.mat-header-cell {
+/* .mat-header-cell {
     font-size: 12px;
     font-weight: 500;
     color: #242f48;
-}
+} */
 
 .mat-cell, .mat-footer-cell {
     font-size: 12px;

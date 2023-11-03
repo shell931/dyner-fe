@@ -13,7 +13,7 @@ export class AlertsService {
       title: 'Alerta Informativa',
       text: 'Texto alerta informativa',
       confirmButtonText: 'Entendido',
-      confirmButtonColor: '#F7435C',
+      confirmButtonColor: '#f92d2d',
       background: '#282828',
       customClass: {
         popup: 'text-white',

@@ -73,7 +73,7 @@ export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
-      '#ecf0fa';
+      '#e1e1e1';
   }
 
   public async getCities(departmentId) {

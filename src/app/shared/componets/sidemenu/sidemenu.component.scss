@@ -98,7 +98,8 @@
     li.slide.active .material-icons-two-tone,
     li.slide:hover .material-icons-two-tone{
         // filter:invert(6%) sepia(94%) saturate(10000%) hue-rotate(208deg) brightness(162%) contrast(112%) !important;
-        filter: invert(32%) sepia(81%) saturate(1444%) hue-rotate(324deg) brightness(101%) contrast(94%) !important;
+        // filter: invert(32%) sepia(81%) saturate(1444%) hue-rotate(324deg) brightness(101%) contrast(94%) !important;
+        color: #C5C3C3;
     }
 
     .leftmenu-color .material-icons-two-tone,

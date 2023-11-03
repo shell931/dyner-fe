@@ -7,7 +7,7 @@
       top: 11px !important; 
       left: 50% !important;
       border-radius: 0px !important; 
-      background: #F7435C !important  !important;
+      background: #f92d2d !important  !important;
   }
 
   .ngx-slider.slider1 .ngx-slider-pointer {
@@ -39,12 +39,12 @@
       height: 12px !important;
       border-radius: 0px;
       // background: transparent !important;
-      border: 1px solid #F7435C !important !important;
+      border: 1px solid #f92d2d !important !important;
       border-radius: 25px;
   }
 
   .ngx-slider .ngx-slider-selection{
-      background: #F7435C !important !important;
+      background: #f92d2d !important !important;
   }
 
   .ngx-slider.slider2 .ngx-slider-pointer {
@@ -54,7 +54,7 @@
       top: -6px !important;
       background-color: #fff !important;
       z-index: 3;
-      border: 1px solid #F7435C !important !important;
+      border: 1px solid #f92d2d !important !important;
       border-radius: 0px !important;  
   }
 
@@ -77,18 +77,18 @@
       background-color: #fff  !important;
       z-index: 3;
       border-radius: 16px !important;
-      border: 1px solid #F7435C !important !important;
+      border: 1px solid #f92d2d !important !important;
   }
 
   .ngx-slider.slider3 .ngx-slider-pointer:after {
       top: 5px !important;
       left: 5px !important;
-      background-color: #F7435C !important;
+      background-color: #f92d2d !important;
   }
 
   .ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value,
   .ngx-slider-span.ngx-slider-bubble.ngx-slider-model-high{
-      background: #F7435C !important;
+      background: #f92d2d !important;
       border-radius: 5px;
       font-size: 10px;
       color: #fff;
@@ -119,14 +119,14 @@
           background-color: #191f48 ;
       }
       .ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil, .ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor{
-          background: #F7435C !important ;
+          background: #f92d2d !important ;
           color: #fff;
       }
       .ngx-slider.slider2 .ngx-slider-pointer{
           background-color: #ccc !important;
       }
       .ngx-slider.slider3 .ngx-slider-bar{
-          border: 1px solid #F7435C !important !important;
+          border: 1px solid #f92d2d !important !important;
       }
  }
 }

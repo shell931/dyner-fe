@@ -1,6 +1,107 @@
+//variables.scss
+// @import "./assets/scss/variables";
+@import "../../../../assets/scss/variables";
+@import "../../../../assets/css/tables";
+
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-menu.dropdown-menu-right {
+    left: initial !important;
+    right: 0;
+}
+
+::ng-deep {
+    rect {
+        stroke: none !important;
+    }
+
+    fusioncharts g path {
+        fill: #409cff !important;
+    }
+
+    fusioncharts g path:hover {
+        fill: #094b92 !important;
+    }
+
+    .apexcharts-gridlines-horizontal line,
+    .apexcharts-gridlines-vertical line {
+        stroke: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .dark-theme {
+        .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+            background-color: $gray-900;
+            color: $white;
+        }
+    }
+
+    .card-dashboard-map-one .vmap-wrapper svg {
+        width: 100%;
+        height: inherit;
+    }
+
+    .rtl {
+        .apexcharts-datalabels-group {
+            transform: translateX(26px)
+        }
+    }
+}
+
+.table> :not(:last-child)> :last-child>* {
+    border-bottom-color: rgba(226, 232, 245, 0.1) !important;
+}
+
+#chart {
+    margin-bottom: 4rem;
+}
+
+.card-dashboard-map-one {
+    padding: 12px !important;
+}
+
+.customers .list-group-item {
+    padding: 0.75rem 1.25rem;
+}
+
+
+
+.card-body-style {
+    height: 415px;
+}
+
 .color-title-card {
     color: #7987A1;
     font-weight: 300;
+}
+
+.btn-icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-icon i {
+    line-height: 0;
+    font-size: 0.9rem;
+}
+
+
+.img-cards-dashboard {
+    height: 50px;
+}
+
+.img-cards-icons-button {
+    height: 15px;
+}
+
+.img-bank-account{
+    max-width: 85% !important;
 }
 
 .flex-container {
@@ -48,19 +149,8 @@
     align-self: flex-start;
 }
 
-.img-bank-account {
-    vertical-align: middle;
-    border-style: none;
-    max-width: 200px;
-    padding-left: 15px;
-}
-
-.num-cuenta{
-    font-weight: 700;
-}
-
-.title-anex{
-    font-weight: 400;
-    color: #7987A1;
-    text-align: end;
+a {
+    color: #15c;
+    text-decoration: none;
+    background-color: transparent;
 }

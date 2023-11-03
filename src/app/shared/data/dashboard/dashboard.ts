@@ -13,7 +13,7 @@ export let StatusData = {
         data: [26, 35, 41, 78, 34, 65, 27, 46, 37, 65, 49, 23, 49]
     }],
 
-    colors: ["#F7435C !important", '#f93a5a', '#f7a556'],
+    colors: ["#f92d2d !important", '#f93a5a', '#f7a556'],
 
     chart: {
         height: 249,
@@ -100,7 +100,7 @@ export let OrderData = {
 
             track: {
                 strokeWidth: "80%",
-                background: '#ecf0fa',
+                background: '#e1e1e1',
             },
             dropShadow: {
                 enabled: false,

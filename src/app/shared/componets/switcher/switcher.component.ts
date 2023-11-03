@@ -104,11 +104,11 @@ export class SwitcherComponent implements OnInit {
   
   }
 
-  public color1: string = '#F7435C !important';
-  public color2: string = '#F7435C !important';
-  public color3: string = '#F7435C !important';
-  public color4: string = '#F7435C !important';
-  public color5: string = '#F7435C !important';
+  public color1: string = '#f92d2d !important';
+  public color2: string = '#f92d2d !important';
+  public color3: string = '#f92d2d !important';
+  public color4: string = '#f92d2d !important';
+  public color5: string = '#f92d2d !important';
 
   public dynamicLightPrimary(data: any): void {
     this.color1 = data.color;

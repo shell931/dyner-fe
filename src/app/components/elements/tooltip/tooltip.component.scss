@@ -3,20 +3,20 @@
     .tooltipPrimary1 .tooltip-inner,
     .tooltipPrimary2 .tooltip-inner,
     .tooltipPrimary3 .tooltip-inner {
-        background-color: #F7435C !important;
+        background-color: #f92d2d !important;
         font-size: 125%;
     }
     .tooltipPrimary .arrow::before {
-        border-top-color: #F7435C !important;
+        border-top-color: #f92d2d !important;
     }
     .tooltipPrimary1 .arrow::before {
-        border-bottom-color: #F7435C !important;
+        border-bottom-color: #f92d2d !important;
     }
     .tooltipPrimary2 .arrow::before {
-        border-left-color: #F7435C !important;
+        border-left-color: #f92d2d !important;
     }
     .tooltipPrimary3 .arrow::before {
-        border-right-color: #F7435C !important;
+        border-right-color: #f92d2d !important;
     }
     @media (max-width:340px) {
         .tooltip.fade.bs-tooltip-left{

@@ -1,7 +1,7 @@
 :root {
-  --primary-bg-color: #F7435C !important;
+  --primary-bg-color: #f92d2d !important;
   --primary-bg-hover: #025cd8;
-  --primary-bg-border: #F7435C !important;
+  --primary-bg-border: #f92d2d !important;
   --primary-1: rgba(1, 98, 232, 0.1);
   --primary-2: rgba(1, 98, 232, 0.2);
   --primary-3: rgba(1, 98, 232, 0.3);
@@ -11,8 +11,8 @@
   --transparentprimary-transparentcolor: rgba(255, 255, 255, 0.05);
   --transparent-body: #0b5bc9;
   --transparent-theme: rgba(0, 0, 0, 0.1);
-  --blue: #F7435C !important;
-  --indigo: #F7435C !important;
+  --blue: #f92d2d !important;
+  --indigo: #f92d2d !important;
   --purple: #{$purple};
   --pink: #{$pink};
   --red: #{$danger};
@@ -24,7 +24,7 @@
   --white: #{$white};
   --gray: #{$gray-600};
   --gray-dark: #{$gray-800};
-  --primary: #F7435C !important;
+  --primary: #f92d2d !important;
   --secondary: #{$gray-600};
   --success: #{$success};
   --info: #{$info};
