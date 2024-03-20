@@ -27,8 +27,16 @@ export class AuthenticationComponent implements OnInit {
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             email: ['', Validators.required],
-            password: ['', Validators.required]
+            // password: ['', Validators.required]
+            password: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(4)]]
+
         })
+    }
+
+    onKeydown(event: KeyboardEvent) {
+      if (!((event.keyCode > 95 && event.keyCode < 106) || (event.keyCode > 47 && event.keyCode < 58) || event.keyCode == 8)) {
+        event.preventDefault();
+      }
     }
 
     get form() {

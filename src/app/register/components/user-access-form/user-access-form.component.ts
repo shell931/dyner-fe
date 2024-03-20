@@ -29,12 +29,12 @@ export class UserAccessFormComponent implements OnInit {
       {
         password: ['', [
           Validators.required,
-          Validators.pattern(this.letterNumberRegex)
+          // Validators.pattern(this.letterNumberRegex)
         ]
         ],
         passwordConfirm: ['', [
           Validators.required,
-          Validators.pattern(this.letterNumberRegex)
+          // Validators.pattern(this.letterNumberRegex)
         ]
         ],
       },
@@ -54,6 +54,12 @@ export class UserAccessFormComponent implements OnInit {
 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+
+  onKeydown(event: KeyboardEvent) {
+    if (!((event.keyCode > 95 && event.keyCode < 106) || (event.keyCode > 47 && event.keyCode < 58) || event.keyCode == 8)) {
+      event.preventDefault();
+    }
   }
 
 }

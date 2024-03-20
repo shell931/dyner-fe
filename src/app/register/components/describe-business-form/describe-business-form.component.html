@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="numAproxTx">Número apróx. de transacciones mensuales</label>
     <input type="text" id="numAproxTx" formControlName="numAproxTx" class="text-start form-control"
-      placeholder="Ej: 200" currencyMask [options]="{ prefix: '', precision: 0, thousands: '.'}" required>
+      placeholder="Ej: 200" currencyMask [options]="{ prefix: '', precision: 0, thousands: '.'}" required maxlength="13">
     <div *ngIf="formSent && describeBusinessForm?.get('numAproxTx')?.invalid" class="text-danger">
       Por favor ingrese un valor
     </div>
@@ -11,7 +11,7 @@
   <div class="form-group">
     <label for="ticketProm">Ticket promedio</label>
     <input type="text" id="ticketProm" formControlName="ticketProm" class="text-start form-control"
-      placeholder="Ej: $60.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required>
+      placeholder="Ej: $60.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required maxlength="13">
     <div *ngIf="formSent && describeBusinessForm?.get('ticketProm')?.invalid" class="text-danger">
       Por favor ingrese el valor del ticket promedio.
     </div>
@@ -19,7 +19,7 @@
   <div class="form-group">
     <label for="amountAproxTxMonth">Monto transaccionado apróx. mensual en COP</label>
     <input type="text" id="amountAproxTxMonth" formControlName="amountAproxTxMonth" class="text-start form-control"
-      placeholder="Ej: $12.000.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required>
+      placeholder="Ej: $12.000.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required maxlength="13">
     <div *ngIf="formSent && describeBusinessForm?.get('amountAproxTxMonth')?.invalid" class="text-danger">
       Por favor ingresa un valor.
     </div>
@@ -27,7 +27,7 @@
   <div class="form-group">
     <label for="maximumAmountLink">Monto máximo estimado por transacción</label>
     <input type="text" id="maximumAmountLink" formControlName="maximumAmountLink" class="text-start form-control"
-      placeholder="Ej: $250.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required>
+      placeholder="Ej: $250.000" currencyMask [options]="{ precision: 0, thousands: '.'}" required maxlength="13">
     <div *ngIf="formSent && describeBusinessForm?.get('maximumAmountLink')?.invalid" class="text-danger">
       Por favor ingresa el monto maximo.
     </div>

@@ -30,7 +30,7 @@ export class LegalRepresentativeFormComponent implements OnInit {
     });
     this.legalRepresentativeForm = this.fb.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
+      lastName: ['', Validators.required],
       document: ['', Validators.required],
       dateEx: ['', Validators.required],
       businessPhone: ['', Validators.required]
@@ -43,6 +43,12 @@ export class LegalRepresentativeFormComponent implements OnInit {
 
   submitFormData() {
     this.onSubmitFormDataEmit.emit(this.legalRepresentativeForm);
+  }
+
+  onKeydown(event: KeyboardEvent) {
+    if (!((event.keyCode > 95 && event.keyCode < 106) || (event.keyCode > 47 && event.keyCode < 58) || event.keyCode == 8)) {
+      event.preventDefault();
+    }
   }
 
 }
