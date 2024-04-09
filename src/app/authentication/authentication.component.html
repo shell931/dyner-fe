@@ -1,102 +1,197 @@
 <!-- Page -->
 <div class="page">
-  <div class="container-fluid bg-primary-color-withe">
-    <div class="row no-gutter">
-      <!-- The image half -->
+    <div class="container-fluid bg-primary-color-withe">
+        <div class="row no-gutter">
+            <!-- The image half -->
 
-      <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-color-withe">
-        <div class="row wd-100p mx-auto text-center">
-          <div class="col-md-12 col-lg-12 col-xl-12 my-auto mx-auto wd-100p">
-            <div>
-              <p class="tx-26">Ingresa tus credenciales de acceso,</p>
-              <p class="tx-26 p-font-weight">administra tus operaciones y</p>
-              <p class="tx-26 p-font-weight">
-                genera cobros a cualquier parte del mundo.
-              </p>
-            </div>
-            <div align="center">
-              <ng-lottie width="350px" [options]="options"></ng-lottie>
-            </div>
-            <div>
-              <div class="flex-container" align="center">
-                <div class="flex-item">
-                  <img src="./assets/img/login/pci-dss-login.svg" width="110px" alt="logo" />
-                </div>
-                <div class="flex-item">
-                  <img src="./assets/img/login/verify-by-visa.svg" width="110px" alt="logo" />
-                </div>
-                <div class="flex-item">
-                  <img src="./assets/img/login/master-sec-code.svg" width="180px" alt="logo" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-color-withe bg-image">
+                <div class="background-overlay"></div>
 
-      <!-- The content half -->
-      <div class="col-md-6 col-lg-6 col-xl-5 bg-black">
-        <div class="login d-flex align-items-center py-2">
-          <!-- Demo content-->
-          <div class="container p-0">
-            <div class="row">
-              <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
-                <div class="card-sigin">
-                  <div class="">
-                    <div class="card-sigin" align="center">
-                      <div class="main-signup-header">
-                        <img src="./assets/img/brand/dyner_oscuros.png" class="sign-favicon ht-60 mb-4" alt="logo" />
-                        <h2 class="sin-negrita">
-                          Bienvenido
-                        </h2>
-                        <h5 class="font-weight-semibold mb-4 colo-subl">
-                          Ingresa tu correo electrónico
-                        </h5>
-                        <form [formGroup]="loginForm" class="w-75">
-                          <div class="form-group">
-                            <label>Correo electrónico</label>
-                            <input class="form-control" placeholder="Ingresa tu correo" type="text"
-                              formControlName="email" />
-                          </div>
-                          <div class="form-group">
-                            <label>Contraseña</label>
-                            <input class="form-control" placeholder="Ingresa tu contraseña" type="password"
-                              formControlName="password" />
-                          </div>
-                          <button class="btn btn-success-dyner btn-block" [disabled]="!loginForm.valid"
-                            (click)="login_front()">
-                            Iniciar sesión
-                          </button>
-                        </form>
-
-                        <div class="mt-2" *ngIf="validate_user">
-                          <li style="color: red">
-                            <label style="color: red">
-                              Usuario o contraseña incorrectos
-                            </label>
-                          </li>
+                <div class="row wd-100p mx-auto align-items-center">
+                    <div class="col-md-12 col-lg-12 col-xl-12 my-auto mx-auto wd-100p content ">
+                        <div class="image-container">
+                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/title_login.png"
+                                class="sign-favicon ht-50 mb-4 img_title_login" alt="logo" style="margin-left: 0px;" />
                         </div>
-
-                        <div class="main-signin-footer mt-4">
-                          <p>
-                            <a routerLink="/custompages/forgot-password" class="colo-subl">¿Olvidaste tu contraseña?</a>
-                          </p>
-                          <!-- <p>Don't have an account? <a routerLink="/custompages/sign-in"
-															routerLinkActive="router-link-active">Create an Account</a>
-													</p> -->
+                        <div class="col-md-6 offset-md-3 title_content_card">
+                            <div class="card card-icons-banks">
+                                <div class="card-body">
+                                    <div class="flex-container">
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/visa.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/mastercard.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/dinners.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/american_expres.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/pse.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/codensa.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                    </div>
+                                    <div class="flex-container mt-3">
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/sured.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/paga_todo.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/nequi.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/rappipay.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/dale.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                        <div class="flex-item">
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/daviplata.png"
+                                                class="img_icon_card" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-            <!-- End -->
-          </div>
+
+            <!-- The content half -->
+            <div class="col-md-6 col-lg-6 col-xl-5 bg-second-contend">
+                <div class="login d-flex align-items-center py-2">
+                    <!-- Demo content-->
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+                                <div class="card-sigin" align="center" >
+                                    <div class="">
+
+                                        <div class="card card_login " style="border: 0.5px solid #4A4A4A;">
+                                            <div class="card-body">
+                                                <div class="card-sigin" align="center">
+                                                    <div class="main-signup-header">
+                                                        <img src="https://imagesd24.s3.us-east-2.amazonaws.com/GatewayPro.svg"
+                                                            class="sign-favicon ht-65 mb-4_5" alt="logo" />
+                                                        <p class="title_access_login tx-16">
+                                                            Bienvenido
+                                                        </p>
+                                                        <p class="sub_title_access_login mb-5 colo-subl tx-16">
+                                                            Ingresa con tus credenciales de acceso
+                                                        </p>
+                                                        <form [formGroup]="loginForm" class="w-75">
+                                                            <div class="form-group">
+                                                                <p class="title_access_login colo-subl tx-16">
+                                                                    Correo electrónico
+                                                                </p>
+                                                                <input class="form-control" type="text"
+                                                                    formControlName="email" tabindex="1" />
+                                                            </div>
+                                                            <div class="form-group mt-4 mb-6">
+                                                                <p class="title_access_login colo-subl tx-16">
+                                                                    Pin de acceso
+                                                                </p>
+                                                                <div class="flex-container-pin">
+                                                                    <div class="flex-item-pin">
+                                                                        <input class="form-control" type="password"
+                                                                            formControlName="password1"
+                                                                            (keydown)="onKeydown($event,0)"
+                                                                            maxlength="1" tabindex="2"
+                                                                            autocomplete="off" #pinInput />
+                                                                    </div>
+                                                                    <div class="flex-item-pin">
+                                                                        <input class="form-control" type="password"
+                                                                            formControlName="password2"
+                                                                            (keydown)="onKeydown($event,1)"
+                                                                            maxlength="1" tabindex="3"
+                                                                            autocomplete="off" #pinInput />
+                                                                    </div>
+                                                                    <div class="flex-item-pin">
+                                                                        <input class="form-control" type="password"
+                                                                            formControlName="password3"
+                                                                            (keydown)="onKeydown($event,2)"
+                                                                            maxlength="1" tabindex="4"
+                                                                            autocomplete="off" #pinInput />
+                                                                    </div>
+                                                                    <div class="flex-item-pin">
+                                                                        <input class="form-control" type="password"
+                                                                            formControlName="password4"
+                                                                            (keydown)="onKeydown($event,3)"
+                                                                            maxlength="1" tabindex="5"
+                                                                            autocomplete="off" #pinInput />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button
+                                                                class="btn btn-oscuros-dyner btn-block sub_title_botton_access_login"
+                                                                [disabled]="!loginForm.valid" (click)="login_front()">
+                                                                Iniciar sesión
+                                                            </button>
+                                                        </form>
+
+                                                        <div class="mt-2" *ngIf="validate_user">
+                                                            <li style="color: red">
+                                                                <label style="color: red">
+                                                                    Usuario o pin invalidos
+                                                                </label>
+                                                            </li>
+                                                        </div>
+
+                                                        <div class="main-signin-footer mt-4">
+                                                            <p>
+                                                                <a routerLink="/custompages/forgot-password"
+                                                                    class="colo-subl sub_title_access_login tx-12">Recuperar
+                                                                    contraseña</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <p class="title_access_login colo-subl tx-12 mt-5">¿No tienes una cuenta? <a
+                                                routerLink="/registro" routerLinkActive="router-link-active"
+                                                class="title_access_login colo-subl tx-12"
+                                                style="color:#3A82F7">Registrate</a>
+                                        </p>
+
+                                        <p class="colo-subl sub_title_access_login tx-10 mb-4_5">
+                                            Descarga la app en las tiendas disponibles y accede a numerosas herramientas
+                                        </p>
+                                        <div>
+                                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/iconos_login/pci_logo_dashboard.svg"
+                                                class="sign-favicon ht-30" alt="logo" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End -->
+                    </div>
+                </div>
+                <!-- End -->
+            </div>
         </div>
-        <!-- End -->
-      </div>
     </div>
-  </div>
-  <!-- End Page -->
+    <!-- End Page -->
 </div>

@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="firstName">Nombres</label>
     <input type="text" id="firstName" formControlName="firstName" class="form-control"
-      placeholder="Ingresa tus nombres completos" required>
+      placeholder="Ingresa tus nombres completos" required maxlength="20">
     <div *ngIf="formSent && legalRepresentativeForm?.get('firstName')?.invalid" class="text-danger">
       Por favor ingresa tus nombres completos.
     </div>
@@ -11,15 +11,15 @@
   <div class="form-group">
     <label for="lastName">Apellidos</label>
     <input type="text" id="lastName" formControlName="lastName" class="form-control"
-      placeholder="Ingresa tus apellidos completos" required>
+      placeholder="Ingresa tus apellidos completos" required maxlength="20">
     <div *ngIf="formSent && legalRepresentativeForm?.get('lastName')?.invalid" class="text-danger">
       Por favor ingresa tus apellidos completos.
     </div>
   </div>
   <div class="form-group">
     <label for="document">Cédula</label>
-    <input type="number" id="document" formControlName="document" class="form-control"
-      placeholder="Ingresa tu número de cedula" required>
+    <input type="text" id="document" formControlName="document" class="form-control"
+      placeholder="Ingresa tu número de cedula" required maxlength="20" (keydown)="onKeydown($event)">
     <div *ngIf="formSent && legalRepresentativeForm?.get('document')?.invalid" class="text-danger">
       Por favor ingresa tu número de cedula.
     </div>
@@ -34,8 +34,8 @@
   </div>
   <div class="form-group">
     <label for="businessPhone">Celular</label>
-    <input type="number" id="businessPhone" formControlName="businessPhone" class="form-control"
-      placeholder="Ingresa tu número de celular" required>
+    <input type="text" id="businessPhone" formControlName="businessPhone" class="form-control"
+      placeholder="Ingresa tu número de celular" required maxlength="20" (keydown)="onKeydown($event)">
     <div *ngIf="formSent && legalRepresentativeForm?.get('businessPhone')?.invalid" class="text-danger">
       Por favor ingresa tu número de celular.
     </div>

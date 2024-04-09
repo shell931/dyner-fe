@@ -9,8 +9,8 @@ export const environment = {
         baseUrl2: ' https://www.develop-dyner24.online/dyner-api-mobile/public/api/',
         baseAuthUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/',
         baseProfileUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/profile',
-        bankImage: 'https://imagesdynerv1.s3.us-east-2.amazonaws.com',
-        linkImage: 'https://img-productos-comercios-dyner-prod-v1.s3.us-east-2.amazonaws.com',
+        bankImage: 'https://imagesd24.s3.us-east-2.amazonaws.com',
+        linkImage: 'https://img-productos-comercios.s3.us-east-2.amazonaws.com',
         gatewayUrl: 'http://52.44.5.11:1400/dynergateway/public/'
     },
 };
