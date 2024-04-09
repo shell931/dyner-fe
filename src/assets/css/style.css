@@ -1141,6 +1141,12 @@ fieldset:disabled a.btn {
     border-color: #d5142f !important;
 }
 
+.btn-oscuros-dyner {
+  color: #fff;
+  background-color: #0C0C0C !important;
+  border-color: #0C0C0C !important;
+}
+
 .btn-success-dyner:hover {
     color: black;
     background-color: #f92d2d !important;
@@ -59034,6 +59040,10 @@ button.bg-dark:focus {
     margin-left: 1.5rem !important;
 }
 
+.mb-4_5, .my-4_5 {
+  margin-bottom: 2.5rem !important;
+}
+
 .m-5 {
     margin: 3rem !important;
 }
@@ -59051,6 +59061,10 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
     margin-bottom: 3rem !important;
+}
+
+.mb-6, .my-6 {
+  margin-bottom: 6rem !important;
 }
 
 .ms-5,
@@ -79542,3 +79556,15 @@ tr.mat-footer-row {
 }
 
 /* END ESTILOS DE TABLA GENERAL */
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(15 15 15 / 52%);
+  /* Color de fondo con transparencia (en este caso, blanco con 50% de opacidad) */
+  z-index: 1;
+  /* Asegura que el fondo esté detrás del contenido */
+}

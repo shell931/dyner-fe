@@ -10,7 +10,7 @@ import { MustMatch } from 'src/app/shared/validations/passwordValidator';
 })
 export class UserAccessFormComponent implements OnInit {
 
-  public formTitle = 'Contraseña para tu cuenta';
+  public formTitle = 'Establece un pin para tu cuenta';
   public userAccessForm: FormGroup;
   public formSent = false;
   public letterNumberRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
