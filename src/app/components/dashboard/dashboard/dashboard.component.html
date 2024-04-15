@@ -1,5 +1,13 @@
 <div class="container-fluid">
     <!-- breadcrumb -->
+    <div class="main-dashboard-header-right">
+            <img src="../../../../assets/img/Tapbar_Icon.png" class="icon-navtap" alt="cash" />
+        <div class="search-container">
+            <input type="text" placeholder="Buscar movimiento" />
+            <img src="../../../../assets/img/Vector.png" class="icon-lupa" alt="lupa" />
+        </div>
+    </div>
+    
     <div class="breadcrumb-header justify-content-between">
 
         <div class="left-content">
@@ -7,15 +15,6 @@
                 <h1 class="main-content-title mg-b-1 mg-b-lg-1">
                     Hola, {{ name_client }}!
                 </h1>
-                <p class="mg-b-0">Resumen de transacciones.</p>
-            </div>
-        </div>
-        <div class="main-dashboard-header-right">
-            <div>
-                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success-dyner-green btn-block">
-                    Solicitar retiro
-                    <!-- <img src="./assets/img/svgicons/transfers.svg" class="img-cards-icons-button" alt="logo" /> -->
-                </button>
             </div>
         </div>
     </div>
@@ -25,102 +24,144 @@
         <div class="col-12 col-lg-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <p class="mg-b-0 tx-14 color-title-card">APROBADO</p>
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="../../../../assets/img/Vector.png" class="icon-lupa-f" alt="lupa" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">Aprobado</p>
+                                </div>
+                                <div>
+                                    <p class="circle-yellow"></p>
+                                </div>      
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Transacciones aprobadas, en validación</p>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="flex-container">
                         <div class="flex-item">
-                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
                                 {{
                                 capital_total_sum_service
                                 | currency : "USD" : "symbol" : "1.0-0"
                                 }}
-                                COP
+                                
                             </h1>
-                        </div>
-                        <div class="flex-item">
-                            <img src="./assets/img/svgicons/check.svg" class="img-cards-dashboard" alt="logo"
-                                style="max-width: 80%;" />
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
-          gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
-        ">
-                        Ver detalle
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                      gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
+                    ">
+                        Ver detalles
                     </button>
                 </div>
             </div>
+            
         </div>
+        <!-- Second card -->
         <div class="col-12 col-lg-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <p class="mg-b-0 tx-14 color-title-card">DISPONIBLE</p>
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="../../../../assets/img/cash-outline.png" class="icon-cash" alt="cash" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">Disponible</p>
+                                </div>
+                                <div>
+                                    <p class="circle-green"></p>
+                                </div>    
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Saldo habilitado para retirar</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="flex-container">
                         <div class="flex-item">
-                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
                                 {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
                             </h1>
-                        </div>
-                        <div class="flex-item">
-                            <img src="./assets/img/svgicons/dinero.svg" class="img-cards-dashboard" alt="logo"
-                                style="max-width: 80%;" />
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
-          gridOpen(gridModal, 'DETALLE SALDO DISPONBILE', 'dispo_list_tx')
-        ">
-                        Ver detalle
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                        gridOpen(gridModal, 'DETALLE SALDO DISPONIBLE', 'dispo_list_tx')
+                    ">
+                        Ver detalles
                     </button>
                 </div>
             </div>
         </div>
+
+       <!--Three card --> 
         <div class="col-12 col-lg-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <p class="mg-b-0 tx-14 color-title-card">EN RETIRO</p>
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="../../../../assets/img/retire.png" class="icon-retire" alt="otro" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">En retiro</p>
+                                </div>
+                                <div >
+                                    <p class="circle-blue"></p>
+                                </div>
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Saldo en proceso de abono a cuenta</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="flex-container">
                         <div class="flex-item">
-                            <h1 class="main-content-title tx-34 mg-b-1 mg-b-lg-1 sin-negrita-font-weight-300">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
                                 {{
                                 en_transfe_total_sum_service
                                 | currency : "USD" : "symbol" : "1.0-0"
                                 }} COP
                             </h1>
-                        </div>
-                        <div class="flex-item">
-                            <img src="./assets/img/svgicons/retiro.svg" class="img-cards-dashboard" alt="logo"
-                                style="max-width: 80%;" />
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="mg-b-0 tx-14 color-title-card btn btn-link p-0" (click)="
-          gridOpen(gridModal, 'DETALLE SALDO EN RETIRO', 'en_transfe_list_tx')
-        ">
-                        Ver detalle
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                        gridOpen(gridModal, 'DETALLE SALDO EN RETIRO', 'en_transfe_list_tx')
+                    ">
+                        Ver detalles
                     </button>
                 </div>
             </div>
         </div>
+        
     </div>
 
     <div class="row row-sm">
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card card-table-two">
-                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+                <!-- <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                     LISTADO DE TRANSACCIONES
                 </h2>
                 <p class="mg-b-0 tx-14">
                     Consulta a continuación todas tus transacciones realizadas
-                </p>
+                </p> -->
                 <div class="table-responsive">
                     <!-- <mat-form-field appearance="standard">
                   <mat-label>Filter</mat-label>
@@ -128,16 +169,57 @@
               </mat-form-field> -->
                     <div class="mat-elevation-z8">
                         <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
-                        <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
+                        <table mat-table [dataSource]="dataSource" matSort class="table-principal">
                             <!-- ID Column -->
-                            <ng-container matColumnDef="servicio">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                                    Servicio
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{ row.servicio }}</td>
+
+                            <ng-container matColumnDef="created_at">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    Fecha</th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">{{ row.created_at }}</td>
                             </ng-container>
 
-                            <ng-container matColumnDef="referenciatx">
+                            <ng-container matColumnDef="num_autorizacion">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    Num Aprob
+                                </th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">{{ row.num_autorizacion }}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="servicio">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    Medio
+                                </th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">{{ row.servicio }}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="nombre_comprador">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    Nombre</th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">{{ row.nombre_comprador }}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="total">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    Valor
+                                </th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">
+                                    {{ row.total }}
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="descripcion_estado">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">Estado</th>
+                                <td mat-cell *matCellDef="let row" class="gray-text">
+                                    <div [ngClass]="{'estado-transaccion': true, 'rechazada': row.descripcion_estado === 'Rechazada', 'sin-procesar': row.descripcion_estado === 'Sin procesar',
+                                        'aprobada': row.descripcion_estado === 'Aprobado', 'transferida' :row.descripcion_estado === 'Transferida', 'disponible' : row.descripcion_estado === 'Disponible'}">
+                                        {{ row.descripcion_estado }}
+                                    </div>
+                                </td>
+                            </ng-container>
+                            
+                            
+
+                            <!-- <ng-container matColumnDef="referenciatx">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                                     Referencia
                                 </th>
@@ -147,58 +229,27 @@
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de pago </th>
                                 <td mat-cell *matCellDef="let row"> {{row.payment_metod}} </td>
                             </ng-container>
-                            <ng-container matColumnDef="num_autorizacion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                                    Autorización
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{ row.num_autorizacion }}</td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="created_at">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
-                                <td mat-cell *matCellDef="let row">{{ row.created_at }}</td>
-                            </ng-container>
-
+                           
                             <ng-container matColumnDef="descripcion">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                                     Descripción
                                 </th>
                                 <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="total">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                                    Valor COP
-                                </th>
-                                <td mat-cell *matCellDef="let row">
-                                    {{ row.total | currency : "USD" : "symbol" : "1.0-0" }}
-                                </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="nombre_comprador">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-                                <td mat-cell *matCellDef="let row">{{ row.nombre_comprador }}</td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="descripcion_estado">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
-                                <td mat-cell *matCellDef="let row">
-                                    {{ row.descripcion_estado }}
-                                </td>
-                            </ng-container>
+                            </ng-container> -->
 
                             <ng-container matColumnDef="action">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                                    <div align="center">
-                                        <i class="fas fa-cog"></i>
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                    <div align="center" >
+                                        <!-- <i class="fas fa-cog"></i> -->
+                                        Detalle
                                     </div>
                                 </th>
                                 <td mat-cell *matCellDef="let row">
 
                                     <div align="center">
-                                        <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black"
-                                            ngbTooltip="Detalle">
-                                            <i class="fas fa-chevron-right"></i>
+                                        <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black">
+                                            <!-- <i class="fas fa-chevron-right"></i> -->
+                                            Ver mas
                                         </a>
 
                                         <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button

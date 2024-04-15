@@ -70,7 +70,7 @@ export class NavService implements OnDestroy {
             path: '/dashboard', title: 'Dashboard', type: 'link', icon: 'dashboard', badgeClass: 'success', active: true,
         },
         {
-            headTitle: 'Transacciones'
+            headTitle: 'Movimientos'
         },
         {
             path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'send', badgeClass: 'success', active: true,

@@ -150,3 +150,218 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+
+.header-cell {
+    color: black; 
+}
+
+.gray-text {
+    color:  rgb(123, 105, 105);
+    line-height: 4; 
+}
+.rechazada {
+    color: #FF0000;
+}
+
+.estado-transaccion {
+    width: 100px; 
+    height: 25px; 
+    border-radius: 20px; 
+    padding: 5px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rechazada {
+    background-color: #E1C6C6;
+    border: 1px solid #841B1B;
+    color: #841B1B;
+}
+
+.sin-procesar {
+    color: #4A4A4A;
+    border: 1px solid #4A4A4A
+}
+.aprobada {
+    background-color: #E1E0C6;
+    border: 1px solid #847A1B;
+    color: #847A1B;
+}
+
+.transferida {
+    background-color: #C6DBE1;
+    border: 1px solid #1B7784;
+    color: #1B7784;
+}
+
+.disponible {
+    background-color: #C6E1C6;
+    border: 1px solid #5B841B;
+    color: #5B841B;
+}
+
+.bottom-border {
+    border-bottom: 2px solid #e8e8e8; 
+}
+
+.table-principal{
+   margin-top: 50px;
+   border-top: none;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item {
+    flex-grow: 1;
+}
+
+.circle-yellow {
+    width: 17px;
+    height: 17px;
+    background-color: #F4D012;
+    border-radius: 50%;
+    margin-right: 60px;
+    margin-left: 30px;  
+}
+
+.circle-green {
+    width: 17px;
+    height: 17px;
+    background-color: #3ADF5F;
+    border-radius: 50%;
+    margin-right: 45px;
+    margin-left: 35px;
+}
+
+.circle-blue {
+    width: 17px;
+    height: 17px;
+    background-color: #4069F8;
+    border-radius: 50%;
+    margin-right: 60px;
+    margin-left: 30px;
+}
+
+.icon-container {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;}
+
+.icon-lupa-f {
+    color: #525256;
+    width: 20px;
+    height: 20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.icon-cash {
+    color: #525256;
+    width: 30px;
+    height: 30px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.icon-retire {
+    color: #525256;
+    width: 30px;
+    height: 30px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.color-blue {
+    color: blue;
+}
+
+.card-header {
+    background-color: #000000;
+    height: 75px;
+}
+.color-price {
+    color: #000;
+    text-align: center;
+}
+
+.color-title-card {
+    color: #fff;
+    line-height: 6px;
+}
+.color-title-card-2 {
+    color: #727272;
+    text-align: center;
+}
+
+.card-footer {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+}
+
+.text-footer {
+    color: #007AFF
+}
+
+.card-body {
+    background-color: #f8f9fa;
+    color: #fff;
+    padding: 15px;
+}
+
+.main-content-title {
+    font-weight: 300;
+}
+.inline-block-container {
+    display: inline-block;
+}
+.main-dashboard-header-right {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.icon-container {
+    margin-right: 10px;
+}
+
+.search-container {
+    position: relative;
+}
+
+input[type="text"] {
+    padding-right: 30px;
+    border-radius: 10px;
+    padding: 7px;
+    width: 350px;
+    text-indent: 20px;
+}
+
+.icon-lupa {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.icon-navtap {
+    width: 40px; 
+    height: 45px; 
+    margin-left: auto;
+    margin-right: 10px
+}
+
+
+
+
