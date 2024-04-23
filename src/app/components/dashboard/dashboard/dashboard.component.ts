@@ -20,23 +20,25 @@ import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+  
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
 })
+
 export class DashboardComponent implements OnInit {
     displayedColumns: string[] = [
-        'servicio',
-        'referenciatx',
-        'mediopago',
-        'num_autorizacion',
         'created_at',
-        'descripcion',
+        'num_autorizacion',
+        'servicio',
         'nombre_comprador',
         'total',
         'descripcion_estado',
         'action',
+        //'referenciatx',
+        //'mediopago',
+        //'descripcion',    
     ];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     width = '100%';
@@ -141,8 +143,9 @@ export class DashboardComponent implements OnInit {
     }
 
     GetTotalSumTransactionsF(Alldata) {
-        console.log(Alldata);
-
+        //console.log(Alldata);
+        //console.log('data: ', JSON.stringify(Alldata));
+        
 
         this.capital_total_sum_service = Alldata.data.capital_total_sum_service;
         this.dispo_total_sum_service = Alldata.data.dispo_total_sum_service;
@@ -170,6 +173,13 @@ export class DashboardComponent implements OnInit {
     }
 
     GetTransactionListF(TransactionListdata) {
+        /* if (TransactionListdata && TransactionListdata.data && TransactionListdata.data.data) {
+            TransactionListdata.data.data.forEach(transaccion => {
+                console.log('Estado de la transacción:', JSON.stringify(transaccion.descripcion_estado));
+            });
+        } else {
+            console.log('No se encontraron datos de transacciones.');
+        } */
         this.transaction_list = TransactionListdata.data.data;
         this.totalRows = TransactionListdata.data.total;
         this.per_page = TransactionListdata.data.per_page;

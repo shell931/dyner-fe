@@ -1,14 +1,69 @@
 <div class="container-fluid">
     <!-- breadcrumb -->
-    <div class="breadcrumb-header justify-content-between">
+    <!-- <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
             <div>
                 <h1 class="main-content-title mg-b-1 mg-b-lg-1">Datáfono 24</h1>
             </div>
         </div>
+    </div> -->
+
+    <div class="card" style="width: 50%; margin: 0 auto; margin-bottom: 100px; margin-top: 100px;">
+        <div class="card-body">
+            <div class="row">
+               <div class="card-shadow">
+                    <div class="col-md-12">
+                        <div align="center">
+                            <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="url_data_web" cssClass="bshadow" [width]="200" [height]="200"></ngx-qrcode>
+                        </div>
+                    </div>
+                </div> 
+                <div class="card-form">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="url">URL:</label>
+                            <input class="form-control text" type="text" value="{{url_data_web}}" #userinput readonly style="width: 300px; border: none; background-color: #fff; margin-left: -10px;">
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <p type="email" class="text" id="email" readonly style="width: 300px;">example@correo.com</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="cobrador">Cobrador:</label>
+                            <p type="text" class="text" id="cobrador" readonly style="width: 300px;">Interpagos Colombia</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="respuesta">Descripción:</label>
+                            <p type="text" class="text" id="respuesta" style="width: 300px;">Monto abiero</p>
+                        </div>
+                    </div>
+               </div>
+               <div>
+                <div class="col-md-12">
+                    <div align="center">
+                        <button (click)="copyInputMessage(userinput)" class="button">Copiar link</button>
+                    </div>
+                    <div class="mt-2" *ngIf="validate_copy" align="center">
+                        <label style="color:blue">
+                            ¡El URL fue copiado!
+                        </label>
+                    </div>
+                </div> 
+               </div>   
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="../../../../assets/img/Tapbar_Icon.png" class="img-cards-icons-button" alt="logo" style="display: block; margin: 0 auto;" />
+                    <p style="font-size: 10px; padding:1px 20px; color: #838383">Puedes compartirlo por redes sociales o correo electrónico; asimismo, si lo prefieres, puedes imprimirlo y realizar el cobro de manera presencial</p>
+                </div>  
+            </div>
+        </div>        
     </div>
+    
+    
+    
+    
+
     <!-- /breadcrumb -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
             <div class="card card-height">
                 <div class="card-header pb-0">
@@ -60,7 +115,7 @@
                                 <button (click)="copyInputMessage(userinput)"
                                     class="btn btn-success-dyner-green btn-block">Copiar
                                     link
-                                    <!-- <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons"> -->
+                                    <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons"> 
                                 </button>
                             </div>
                         </div>
@@ -123,5 +178,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
