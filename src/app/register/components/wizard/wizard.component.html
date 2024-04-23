@@ -8,6 +8,7 @@
         <div class="text-center">
           <h3>{{stepInfoData[currentStep - 1]?.title}}</h3>
           <p>{{stepInfoData[currentStep - 1]?.description}}</p>
+
           <p>Paso {{currentStep}} de {{totalSteps}}</p>
         </div>
         <app-business-information-form *ngSwitchCase="1" [identificationTypes]="identificationTypes"
