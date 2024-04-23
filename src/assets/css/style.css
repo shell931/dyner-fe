@@ -474,7 +474,7 @@ License        :   Licensed under ThemeForest License
 }
 
 .bg-light {
-    background-color: #d0d7e8;
+    background-color: #e7e6e6 !important;
 }
 
 .rounded-pill {
@@ -774,7 +774,7 @@ a.badge-purple.focus {
 
 .bg-light {
     color: #242f48;
-    background-color: #e1e1e1;
+    background-color: #e7e6e6 !important;
 }
 
 a.bg-light:hover {
@@ -21253,7 +21253,7 @@ html.fullscreen-button .app-content {
     display: flex;
     align-items: center;
     position: relative;
-    height: 2.5rem;
+    height: 3.0rem;
     margin: 0 auto;
     justify-content: center;
     text-align: center;
@@ -36533,7 +36533,7 @@ body.rtl.leftbgimage5.gradient-menu .app-sidebar {
     padding: 15px 20px;
     width: 240px;
     background: #0F0F0F;
-    border-bottom: 1px solid #eae8f1;
+    border-bottom: 1px solid #0F0F0F;
     position: fixed;
     border-right: 1px solid #eae8f1;
     z-index: 999;
@@ -57121,7 +57121,7 @@ button.bg-purple:focus {
 }
 
 .bg-light {
-    background-color: #e1e1e1 !important;
+    background-color: #e7e6e6 !important;
 }
 
 a.bg-light:hover,
@@ -79439,69 +79439,6 @@ tr.mat-footer-row {
     font-weight: 300 !important;
 }
 
-/* ESTILOS DE TABLA GENERAL */
-
-.table-style-global {
-    border-spacing: 0;
-    border-collapse: separate;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    white-space: nowrap
-}
-
-.table-style-global td,
-.table-style-global th {
-    border: 1px solid #ddd;
-    padding: 3px !important;
-}
-
-.table-style-global tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.table-style-global tr:hover {
-    background-color: #ddd;
-}
-
-
-.table-style-global th {
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-    text-align: left !important;
-    background-color: #e7e5e5 !important;
-    color: black !important;
-}
-
-.mat-row {
-    padding: 0 !important;
-}
-
-/* Ajustar el padding horizontal y vertical de las celdas */
-.mat-cell {
-    font-size: 12px;
-    padding: 0px !important;
-    /* Ajusta estos valores según tus necesidades */
-}
-
-.mat-header-cell {
-    padding: 0;
-}
-
-/* Ajustar el padding de las celdas en el encabezado, si es necesario */
-.mat-header-cell .mat-header-cell-content {
-    padding: 0px 0px;
-    /* Ajusta estos valores según tus necesidades */
-}
-
-tr.mat-header-row {
-    height: 0px !important;
-}
-
-tr.mat-row,
-tr.mat-footer-row {
-    height: 28px !important;
-}
 
 
 /* input.mat-input-element {

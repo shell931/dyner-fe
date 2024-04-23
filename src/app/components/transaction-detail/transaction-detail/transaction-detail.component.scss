@@ -3,14 +3,21 @@
 }
 
 .title-field {
-    font-weight: 700;
-    color: #22252F;
+    font-weight: 400;
+    color: black;
+    padding-left: 5px !important;
 }
 
 hr {
     margin-top: 0px;
     margin-bottom: 10px
 }
+
+.card-body {
+    background-color: white;
+    border-radius: inherit;
+}
+
 
 p {
     margin-top: 0 !important;
@@ -49,9 +56,11 @@ input[type="text"] {
 }
 .text {
     color: #3A82F7;
+    padding-right: 5px;
 }
 .card-shadow {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     margin-bottom: 24px;
+    background-color: white;
 }

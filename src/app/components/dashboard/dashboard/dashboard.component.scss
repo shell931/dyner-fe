@@ -151,23 +151,16 @@ a {
     background-color: transparent;
 }
 
-.header-cell {
-    color: black; 
-}
 
-.gray-text {
-    color:  rgb(123, 105, 105);
-    line-height: 4; 
-}
 .rechazada {
     color: #FF0000;
 }
 
 .estado-transaccion {
-    width: 100px; 
-    height: 25px; 
-    border-radius: 20px; 
-    padding: 5px; 
+    width: 100px;
+    height: 25px;
+    border-radius: 20px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +195,7 @@ a {
 }
 
 .bottom-border {
-    border-bottom: 2px solid #e8e8e8; 
+    border-bottom: 2px solid #e8e8e8;
 }
 
 .table-principal{
@@ -226,7 +219,7 @@ a {
     background-color: #F4D012;
     border-radius: 50%;
     margin-right: 60px;
-    margin-left: 30px;  
+    margin-left: 30px;
 }
 
 .circle-green {
@@ -356,8 +349,8 @@ input[type="text"] {
 }
 
 .icon-navtap {
-    width: 40px; 
-    height: 45px; 
+    width: 40px;
+    height: 45px;
     margin-left: auto;
     margin-right: 10px
 }

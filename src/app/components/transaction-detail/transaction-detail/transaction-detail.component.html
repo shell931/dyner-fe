@@ -11,7 +11,7 @@
         <div class="main-dashboard-header-right">
             <div>
                 <button [routerLink]="['/transaction-history']" class="btn btn-success-dyner-green btn-block">
-                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" /> 
+                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" />
                     <i class="fas fa-chevron-left"></i>
                     Volver
                 </button>
@@ -31,9 +31,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="flex-container-internal">
-                        
+
                             <p class="tx-14 title-field">Cliente</p>
-                        
+
                             <p class="tx-14">{{ nombre_comprador }}</p>
                     </div>
                     <div class="flex-container-internal">
@@ -292,12 +292,12 @@
     </div>
 
  -->
-    <div class="main-dashboard-header-right">
+    <!-- <div class="main-dashboard-header-right">
         <div class="search-container">
             <input type="text" placeholder="Buscar movimiento" />
             <img src="../../../../assets/img/Vector.png" class="icon-lupa" alt="lupa" />
         </div>
-    </div>
+    </div> -->
 
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content m-lg-2">
@@ -312,7 +312,7 @@
         <!-- <div class="main-dashboard-header-right">
             <div>
                 <button [routerLink]="['/transaction-history']" class="btn btn-success-dyner-green btn-block">
-                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" /> 
+                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" />
                     <i class="fas fa-chevron-left"></i>
                     Volver
                 </button>
@@ -325,7 +325,7 @@
         <div class="col-12 col-md-6 col-sm-7 col-lg-7 col-xl-7">
             <div class="card-shadow">
                 <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                         Datos del comprador
                     </h2>
                     <hr style="background-color:#000; width: 50%;">
@@ -357,15 +357,13 @@
                                     <p class="mg-b-0 tx-14 text">{{ celular}}</p>
                                 </div>
                             </div>
-                            <hr />
                         </div>
-                        <hr/>
                     </div>
                 </div>
-            </div> 
+            </div>
             <div class="card-shadow">
                 <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                         Detalles de descuento
                     </h2>
                     <hr style="background-color:#000; width: 50%;">
@@ -388,9 +386,8 @@
                                 </div>
                                 <div class="flex-item-internal mb-3 bg-light">
                                     <p class="tx-14 title-field">Costo fijo Transacción</p>
-                                </div>                                 
+                                </div>
                             </div>
-                            <hr />
                         </div>
                         <div class="col-md-6 text-end"
                             *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
@@ -417,7 +414,7 @@
                                     <p class="mg-b-0 tx-14 text">
                                         {{ val_comision_adi_ps | currency : "USD" : "symbol" : "1.0-0" }}
                                     </p>
-                                </div> 
+                                </div>
                                 <!-- <div class="flex-item-internal">
                                     <p class="tx-14 title-field">Respuesta banco</p>
                                 </div>
@@ -425,7 +422,6 @@
                                     <p class="mg-b-0 tx-14">{{ resp_banco }}</p>
                                 </div> -->
                             </div>
-                            <hr />
                         </div>
                     </div>
                 </div>
@@ -434,7 +430,7 @@
         <div class="col-12 col-md-6 col-sm-5 col-lg-5 col-xl-5 h-100">
             <div class="card-shadow">
                 <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                         Detalles de la transacción
                     </h2>
                     <hr style="background-color: #000; width: 50%;">
@@ -449,7 +445,7 @@
                                 <div class="flex-item-internal mb-3">
                                     <p class="tx-14 title-field">Fecha de transaccion</p>
                                 </div>
-                                
+
                                 <div class="flex-item-internal mb-3 bg-light">
                                     <p class="tx-14 title-field">Autorización</p>
                                 </div>
@@ -475,7 +471,6 @@
                                     <p class="tx-14 title-field">Total Neto</p>
                                 </div>
                             </div>
-                            <hr />
                         </div>
                         <div class="col-md-6 text-end">
                             <div class="flex-container-internal">
@@ -526,8 +521,7 @@
                                     </p>
                                 </div> -->
                             </div>
-                            <hr />
-                        </div>                  
+                        </div>
 
 
                        <!--  <div class="col-md-6">
@@ -547,10 +541,10 @@
                 </div>
                 <div style="text-align: center;">
                     <img src="../../../../assets/img/heart_Icon.png" class="img-cards-icons-button" alt="logo" style="display: block; margin: 0 auto;" />
-                    <p style="font-size: 10px; padding:1px 20px; color: #838383">Puedes compartirlo por redes sociales o correo electrónico; asimismo, si lo prefieres, puedes imprimirlo y realizar el cobro de manera presencial</p>
-                </div>                
+                    <p style="font-size: 10px; padding:15px 20px; color: #838383">Puedes compartirlo por redes sociales o correo electrónico; asimismo, si lo prefieres, puedes imprimirlo y realizar el cobro de manera presencial</p>
+                </div>
             </div>
         </div>
-    </div> 
-   </div> 
+    </div>
+   </div>
 </div>
