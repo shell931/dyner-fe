@@ -1,3 +1,79 @@
+
+/* ESTILOS DE TABLA GENERAL */
+
+.table-style-global{
+  line-height: 4;
+}
+
+/* .table-style-global {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.table-style-global td,
+.table-style-global th {
+    border: 1px solid #ddd;
+    padding: 3px !important;
+}
+
+.table-style-global tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-style-global tr:hover {
+    background-color: #ddd;
+}
+
+
+.table-style-global th {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    text-align: left !important;
+    background-color: #e7e5e5 !important;
+    color: black !important;
+} */
+
+.mat-row {
+    padding: 0 !important;
+}
+
+/* Ajustar el padding horizontal y vertical de las celdas */
+.mat-cell {
+    font-size: 14px;
+    padding: 0px !important;
+    /* Ajusta estos valores según tus necesidades */
+}
+
+.mat-header-cell {
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+
+/* Ajustar el padding de las celdas en el encabezado, si es necesario */
+.mat-header-cell .mat-header-cell-content {
+    padding: 0px 0px;
+    /* Ajusta estos valores según tus necesidades */
+}
+
+tr.mat-header-row {
+    height: 0px !important;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 28px !important;
+}
+
+
+
+/* ESTILOS DE TABLA GENERAL END*/
+
 table {
     width: 100%;
 }
@@ -14,7 +90,7 @@ tr.mat-footer-row {
 } */
 
 .mat-cell, .mat-footer-cell {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .btn-icon i {
