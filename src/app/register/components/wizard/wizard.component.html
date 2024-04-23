@@ -3,11 +3,12 @@
     <div class="card text-white mb-3 mt-5 px-3" style="width: 370px;">
       <div class="card-body">
         <div class="text-center">
-          <img src="https://imagesd24.s3.us-east-2.amazonaws.com/Gatewaypro.white.png" class="main-logo mt-2 mb-3" alt="logo">
+          <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/dyner_pro_dark.png" class="main-logo mt-2 mb-3" alt="logo">
         </div>
         <div class="text-center">
           <h3>{{stepInfoData[currentStep - 1]?.title}}</h3>
           <p>{{stepInfoData[currentStep - 1]?.description}}</p>
+
           <p>Paso {{currentStep}} de {{totalSteps}}</p>
         </div>
         <app-business-information-form *ngSwitchCase="1" [identificationTypes]="identificationTypes"
