@@ -18,7 +18,7 @@
             <div>
                 <!-- <label class="tx-13">Número de transacciones</label>
                 <h5>563,275</h5> -->
-                <button [routerLink]="['/balance-withdrawal']" class="btn btn-success-dyner-green btn-block">Solicitar
+                <button [routerLink]="['/balance-withdrawal']" class="btn btn-oscuros-dyner btn-block">Solicitar
                     retiro </button>
             </div>
             <!-- <div>
@@ -27,69 +27,72 @@
             </div> -->
         </div>
     </div>
-    
-    
-    
-    
-    
+
+
+
+
+
     <div class="row row-sm">
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card card-table-two">
-        
+
                 <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">LISTADO DE RETIROS</h2>
                 <p class="mg-b-0 tx-14">Consulta a continuación todos tus retiros</p>
-                <div class="table-style-global">
-                     <mat-form-field appearance="standard">
-                        <mat-label>Buscar</mat-label>
-                        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
-                    </mat-form-field>
-                    <div class="mat-elevation-z8">
-                        <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
-                            
-                            <ng-container matColumnDef="referencia">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
-                                <td mat-cell *matCellDef="let row">{{row.referencia}} </td>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="num_cuenta">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cuenta </th>
-                                <td mat-cell *matCellDef="let row"> {{row.num_cuenta}} </td>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="val_solicitado">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor Solicitado </th>
-                                <td mat-cell *matCellDef="let row"> {{row.val_solicitado|currency : 'USD' : 'symbol' : '1.0-0'}}</td>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="val_transferido">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor Transferido </th>
-                                <td mat-cell *matCellDef="let row">{{row.val_transferido|currency : 'USD' : 'symbol' : '1.0-0'}}</td>
-                            </ng-container>
-    
-                            <ng-container matColumnDef="created_at">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Solicitud </th>
-                                <td mat-cell *matCellDef="let row"> {{row.created_at}} </td>
-                            </ng-container>
-    
-                            <ng-container matColumnDef="status">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
-                                <td mat-cell *matCellDef="let row"> {{row.status.descripcion}} </td>
-                            </ng-container>
-    
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-                        </table> 
-        
-                        <mat-paginator [pageSizeOptions]="[10, 10, 25, 100]" aria-label="Select page of users">
-                        </mat-paginator>
+
+                <div class="table-responsive">
+                    <div class="table-style-global">
+                        <mat-form-field appearance="standard">
+                            <mat-label>Buscar</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
+                        </mat-form-field>
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
+
+                                <ng-container matColumnDef="referencia">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
+                                    <td mat-cell *matCellDef="let row">{{row.referencia}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="num_cuenta">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Cuenta </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.num_cuenta}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="val_solicitado">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor Solicitado </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.val_solicitado|currency : 'USD' : 'symbol'
+                                        : '1.0-0'}}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="val_transferido">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor Transferido </th>
+                                    <td mat-cell *matCellDef="let row">{{row.val_transferido|currency : 'USD' : 'symbol'
+                                        : '1.0-0'}}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="created_at">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Solicitud </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.created_at}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.status.descripcion}} </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[10, 10, 25, 100]" aria-label="Select page of users">
+                            </mat-paginator>
+                        </div>
+
+
                     </div>
-        
-        
                 </div>
             </div>
         </div>
     </div>
-        
-</div>
 
+</div>

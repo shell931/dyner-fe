@@ -12,7 +12,7 @@ export class LoaderComponent implements OnInit {
   public loader = true;
 
   @Input() display = false;
-  constructor( private router: Router  ) { 
+  constructor( private router: Router  ) {
     this.router.events.subscribe({
       next: (event:NavigationEvent) => {
         if (event instanceof NavigationStart) {

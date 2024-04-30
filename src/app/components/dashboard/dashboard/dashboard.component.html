@@ -18,7 +18,8 @@
                 <div class="card-header pb-0">
                     <div class="flex-container">
                         <div class="icon-container">
-                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/lupa_dash.svg" class="icon-lupa-f" alt="lupa" />
+                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/lupa_dash.svg"
+                                class="icon-lupa-f" alt="lupa" />
                         </div>
                         <div class="flex-item">
                             <div class="flex-container">
@@ -44,7 +45,8 @@
                                 }}
 
                             </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +66,8 @@
                 <div class="card-header pb-0">
                     <div class="flex-container">
                         <div class="icon-container">
-                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/cash-outline.svg" class="icon-cash" alt="cash" style="height: 25px;"/>
+                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/cash-outline.svg"
+                                class="icon-cash" alt="cash" style="height: 25px;" />
                         </div>
                         <div class="flex-item">
                             <div class="flex-container">
@@ -87,7 +90,8 @@
                             <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
                                 {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
                             </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -101,20 +105,21 @@
             </div>
         </div>
 
-       <!--Three card -->
+        <!--Three card -->
         <div class="col-12 col-lg-4">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="flex-container">
                         <div class="icon-container">
-                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/Vector.svg" class="icon-retire" alt="otro" style="height: 20px;"/>
+                            <img src="https://imagesd24.s3.us-east-2.amazonaws.com/img_dashboard/Vector.svg"
+                                class="icon-retire" alt="otro" style="height: 20px;" />
                         </div>
                         <div class="flex-item">
                             <div class="flex-container">
                                 <div>
                                     <p class="mg-b-0 tx-28 color-title-card">En retiro</p>
                                 </div>
-                                <div >
+                                <div>
                                     <p class="circle-blue"></p>
                                 </div>
                             </div>
@@ -131,7 +136,8 @@
                                 | currency : "USD" : "symbol" : "1.0-0"
                                 }} COP
                             </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados</p>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -156,64 +162,78 @@
                 <p class="mg-b-0 tx-14">
                     Consulta a continuación todas tus transacciones realizadas
                 </p> -->
-                <div class="table-responsive">
-                    <!-- <mat-form-field appearance="standard">
+                <!-- <mat-form-field appearance="standard">
                   <mat-label>Filter</mat-label>
                   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
               </mat-form-field> -->
-                    <div class="mat-elevation-z8">
-                        <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
-                        <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
-                            <!-- ID Column -->
+                <div class="table-responsive">
+                    <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
+                    <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
+                        <!-- ID Column -->
 
-                            <ng-container matColumnDef="created_at">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    Fecha</th>
-                                <td mat-cell *matCellDef="let row" class=" ">{{ row.created_at }}</td>
-                            </ng-container>
+                        <ng-container matColumnDef="referenciatx">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Referencia</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.referenciatx }}</td>
+                        </ng-container>
 
-                            <ng-container matColumnDef="num_autorizacion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    Num Aprob
-                                </th>
-                                <td mat-cell *matCellDef="let row" class=" ">{{ row.num_autorizacion }}</td>
-                            </ng-container>
+                        <ng-container matColumnDef="created_at">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Fecha</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.created_at }}</td>
+                        </ng-container>
 
-                            <ng-container matColumnDef="servicio">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    Medio
-                                </th>
-                                <td mat-cell *matCellDef="let row" class=" ">{{ row.servicio }}</td>
-                            </ng-container>
+                        <ng-container matColumnDef="servicio">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Servicio
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.servicio }}</td>
+                        </ng-container>
 
-                            <ng-container matColumnDef="nombre_comprador">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    Nombre</th>
-                                <td mat-cell *matCellDef="let row" class=" ">{{ row.nombre_comprador }}</td>
-                            </ng-container>
+                        <ng-container matColumnDef="mediopago">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Medio de pago
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.payment_metod }}</td>
+                        </ng-container>
 
-                            <ng-container matColumnDef="total">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    Valor
-                                </th>
-                                <td mat-cell *matCellDef="let row" class=" ">
-                                    {{ row.total }}
-                                </td>
-                            </ng-container>
+                        <ng-container matColumnDef="num_autorizacion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Num Aprob
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.num_autorizacion }}</td>
+                        </ng-container>
 
-                            <ng-container matColumnDef="descripcion_estado">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">Estado</th>
-                                <td mat-cell *matCellDef="let row" class=" ">
-                                    <div [ngClass]="{'estado-transaccion': true, 'rechazada': row.descripcion_estado === 'Rechazada', 'sin-procesar': row.descripcion_estado === 'Sin procesar',
+                        <ng-container matColumnDef="nombre_comprador">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Nombre</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.nombre_comprador }}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="total">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Valor
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">
+                                {{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="descripcion_estado">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Estado</th>
+                            <td mat-cell *matCellDef="let row" class=" ">
+                                <div
+                                    [ngClass]="{'estado-transaccion': true, 'rechazada': row.descripcion_estado === 'Rechazada', 'sin-procesar': row.descripcion_estado === 'Sin procesar',
                                         'aprobada': row.descripcion_estado === 'Aprobado', 'transferida' :row.descripcion_estado === 'Transferida', 'disponible' : row.descripcion_estado === 'Disponible'}">
-                                        {{ row.descripcion_estado }}
-                                    </div>
-                                </td>
-                            </ng-container>
+                                    {{ row.descripcion_estado }}
+                                </div>
+                            </td>
+                        </ng-container>
 
 
 
-                            <!-- <ng-container matColumnDef="referenciatx">
+                        <!-- <ng-container matColumnDef="referenciatx">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                                     Referencia
                                 </th>
@@ -231,22 +251,22 @@
                                 <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
                             </ng-container> -->
 
-                            <ng-container matColumnDef="action">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                    <div align="center" >
-                                        <!-- <i class="fas fa-cog"></i> -->
-                                        Detalle
-                                    </div>
-                                </th>
-                                <td mat-cell *matCellDef="let row">
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                <div align="center">
+                                    <!-- <i class="fas fa-cog"></i> -->
+                                    Detalle
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let row">
 
-                                    <div align="center">
-                                        <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black">
-                                            <!-- <i class="fas fa-chevron-right"></i> -->
-                                            Ver mas
-                                        </a>
+                                <div align="center">
+                                    <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black">
+                                        <!-- <i class="fas fa-chevron-right"></i> -->
+                                        Ver mas
+                                    </a>
 
-                                        <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button
+                                    <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button
                                                 type="button" class="btn position-relative p-1">
                                                 <svg *ngIf="row.count_obs !== false" xmlns="http://www.w3.org/2000/svg"
                                                     class="header-icon-svgs" viewBox="0 0 16 16" fill="none"
@@ -260,20 +280,19 @@
 
                                             </button>
                                         </a> -->
-                                    </div>
+                                </div>
 
 
-                                </td>
-                            </ng-container>
+                            </td>
+                        </ng-container>
 
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-                        </table>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
 
-                        <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="per_page"
-                            [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
-                        </mat-paginator>
-                    </div>
+                    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="per_page"
+                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                    </mat-paginator>
                 </div>
             </div>
         </div>

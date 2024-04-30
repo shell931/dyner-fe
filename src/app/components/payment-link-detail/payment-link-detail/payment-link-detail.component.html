@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="main-dashboard-header-right">
-    
+
             <div class="flex-container">
                 <div class="flex-item">
                     <button [routerLink]="['/transaction-history']" class="btn btn-success btn-block">Historial <img
@@ -15,10 +15,10 @@
                 <div class="flex-item margin-items-button-head">
                     <button  (click)="confirmDeletePaymentLink(id_link)"class="btn btn-danger btn-block">Borrar <img
                             src="./assets/img/icons_link_detail/delete.svg" alt="logo" class="icon-buttons">
-    
+
                         </button>
                 </div>
-    
+
                 <div class="flex-item margin-items-button-head">
                     <button [routerLink]="['/payment-link-edit', id_link]" class="btn btn-info btn-block">Editar <img
                         src="./assets/img/icons_link_detail/Edit.svg" alt="logo" class="icon-buttons"></button>
@@ -28,7 +28,7 @@
                             src="./assets/img/icons_link_detail/listo.svg" alt="logo" class="icon-buttons"></button>
                 </div>
             </div>
-    
+
         </div>
     </div>
     <div class="row">
@@ -66,7 +66,7 @@
                                 alt="logo">
                         </div>
                     </div>
-    
+
                 </div>
             </div>
             <div class="card">
@@ -84,12 +84,12 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button (click)="copyInputMessage(userinput)" class="btn btn-success-dyner-green btn-block">Copiar
+                            <button (click)="copyInputMessage(userinput)" class="btn btn-oscuros-dyner btn-block">Copiar
                                 link
                                 <!-- <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons"> -->
-    
+
                             </button>
-    
+
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         EN TU PÁGINA</h2>
                 </div>
                 <div class="card-body" style="padding-left: 30px;">
-    
+
                     <!-- <mat-radio-group [(ngModel)]="firstGroup" (ngModelChange)="onFirstGroupChange()">
                         <div class="flex-container mb-2">
                             <div class="flex-item margin-items-button-head">
@@ -115,7 +115,7 @@
                             </div>
                         </div>
                     </mat-radio-group> -->
-    
+
                     <div class="row">
                         <div class="col-md-9">
                             <input class="form-control" type="text" value="{{url_link}}" #userinputBut readonly>
@@ -126,8 +126,8 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button (click)="copyInputMessageButton(userinputBut)" class="btn btn-success-dyner-green btn-block">Copiar
-                                botón 
+                            <button (click)="copyInputMessageButton(userinputBut)" class="btn btn-oscuros-dyner btn-block">Copiar
+                                botón
                                 <!-- <img src="./assets/img/icons_link_detail/copy.svg" alt="logo" class="icon-buttons"> -->
                             </button>
                         </div>
@@ -141,13 +141,13 @@
                     <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">RESUMEN DEL LINK DE PAGO</h2>
                 </div>
                 <div class="card-body">
-    
+
                     <div fxLayout="row wrap" fxLayoutAlign="none" class="col-gap div_produc mt-3 mb-3"
                         style="margin-left: 0px;" *ngIf="validate_image">
                         <img class="img_size" src="{{linkImage}}/{{Image}}"
                             style="width: 200px;height: 201px; margin-left: 0px;" mat-card-image alt="Photo">
                     </div>
-    
+
                     <div class="flex-container-info mb-1">
                         <div class="flex-item-info">
                             <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">Descripción</h2>
@@ -207,7 +207,7 @@
                 </div>
                 <div class="card-body" align="center">
                     <div class="col-md-4">
-                        <a href="{{url_link}}" target="_blank" class="btn btn-success-dyner-green btn-block" mat-menu-item>Ir</a>
+                        <a href="{{url_link}}" target="_blank" class="btn btn-oscuros-dyner btn-block" mat-menu-item>Ir</a>
                     </div>
                 </div>
             </div>

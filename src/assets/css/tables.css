@@ -5,6 +5,22 @@
   line-height: 4;
 }
 
+.table-style-global {
+  /* border-spacing: 0;
+  border-collapse: separate;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden; */
+  white-space: nowrap
+}
+
+.table-style-global td,
+.table-style-global th {
+    /* border: 1px solid #ddd; */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
 /* .table-style-global {
     border-spacing: 0;
     border-collapse: separate;
@@ -110,4 +126,15 @@ tr.mat-footer-row {
 
 .margin-button-action{
     margin-left: 5px;
+}
+
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: none !important;
+  text-indent: initial;
+  unicode-bidi: isolate;
+  border-spacing: 2px;
+  border-color: none !important;
 }

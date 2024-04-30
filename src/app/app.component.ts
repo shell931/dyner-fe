@@ -13,7 +13,17 @@ export class AppComponent {
   public isSpinner = true;
 
   ngOnInit() {
-    // this.isSpinner = false
-    fromEvent(window, 'load').subscribe(() => {document.querySelector('#glb-loader')?.classList.remove('loaderShow'); console.log('completed')});
+    fromEvent(window, 'load').subscribe(() => {
+      // Aquí establecemos un tiempo de espera después de que se dispare el evento load
+      setTimeout(() => {
+        this.isSpinner = false;
+        console.log('Load event completed and loader hidden after delay');
+      }, 3000); // El retardo está en milisegundos, 3000 ms son 3 segundos
+    });
   }
+
+  // ngOnInit() {
+  //   // this.isSpinner = false
+  //   fromEvent(window, 'load').subscribe(() => {document.querySelector('#glb-loader')?.classList.remove('loaderShow'); console.log('completed')});
+  // }
 }

@@ -8,7 +8,7 @@
         </div>
         <div class="main-dashboard-header-right">
             <div>
-                <button [routerLink]="['/payment-link']" class="btn btn-success-dyner-green btn-block">
+                <button [routerLink]="['/payment-link']" class="btn btn-oscuros-dyner btn-block">
                     <!-- <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" /> -->
                     <i class="fas fa-chevron-left"></i>
                     Volver
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row row-sm">
         <div class="col-xl-12">
             <div class="card">
@@ -32,7 +32,7 @@
                                     linkForm.get('description')?.touched">
                                     Este campo es obligatorio.</mat-error>
                             </div>
-    
+
                             <div class="col-md-6">
                                 <p class="mg-b-0 tx-14">Referencia</p>
                                 <input placeholder="Escribe el número de referencia" formControlName="reference"
@@ -42,7 +42,7 @@
                                 linkForm.get('reference')?.touched">
                                     Este campo es obligatorio.</mat-error>
                             </div>
-    
+
                             <div class="col-md-4">
                                 <p class="mg-b-0 tx-14">Subtotal ($) COP</p>
                                 <input type="text" placeholder="Digita el valor de tu producto o servicio"
@@ -54,7 +54,7 @@
                                     Este campo es obligatorio.
                                 </mat-error>
                             </div>
-    
+
                             <div class="col-md-4">
                                 <p class="mg-b-0 tx-14">Iva</p>
                                 <select id="tax_type" formControlName="tax_type" class="form-control"
@@ -68,7 +68,7 @@
                                     Este campo es obligatorio.
                                 </mat-error>
                             </div>
-    
+
                             <div class="col-md-4">
                                 <p class="mg-b-0 tx-14">Total ($) COP</p>
                                 <input type="text" placeholder="Total"
@@ -80,7 +80,7 @@
                                     Este campo es obligatorio.
                                 </mat-error>
                             </div>
-    
+
                         </div>
                         <div class="row">
                             <div class="col-md-4 mt-2">
@@ -123,7 +123,7 @@
                     </form>
                     <div class="col-12 col-sm-12 col-lg-12 col-xl-12 mt-4" align="center">
                         <div class="col-md-2">
-                            <button (click)="submitbutton()" class="btn btn-success-dyner-green btn-block">
+                            <button (click)="submitbutton()" class="btn btn-oscuros-dyner btn-block">
                                 Crear link de pago
                             </button>
                         </div>
