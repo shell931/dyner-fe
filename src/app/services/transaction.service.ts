@@ -15,8 +15,8 @@ export class TransactionService {
     list_transactions = `${this.baseService.baseUrl}transactions-paginate`;
     transaction_by_id = `${this.baseService.baseUrl}transaction-by-id`;
 
-    GetTransactionList(currentPage) {
-        return this.httpClient.get(`${this.list_transactions}/${currentPage}`, { headers: this.baseService.getAuthHeaders() });
+    GetTransactionList(currentPage, searchItem) {
+        return this.httpClient.get(`${this.list_transactions}/${currentPage}/${searchItem}`, { headers: this.baseService.getAuthHeaders() });
     }
 
     GetTransactionById(id_transaction, service_type) {

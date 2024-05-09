@@ -42,7 +42,7 @@ export class TransactionHistoryComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.transactionService.GetTransactionList(this.currentPage).subscribe(
+        this.transactionService.GetTransactionList(this.currentPage, 'null').subscribe(
             (Alldata) => {
                 this.GetTransactionListF(Alldata)
             },
@@ -62,7 +62,7 @@ export class TransactionHistoryComponent implements OnInit {
 
     loadData() {
         this.transactionService
-        .GetTransactionList(this.currentPage)
+        .GetTransactionList(this.currentPage, 'null')
         .subscribe((TransactionListdata) => {
             this.GetTransactionListF(TransactionListdata);
         });

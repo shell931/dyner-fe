@@ -1,0 +1,75 @@
+<div align="center" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="breadcrumb-header-profile">
+        <h1 class="main-content-title mg-b-1 mg-b-lg-1">Documentos</h1>
+    </div>
+</div>
+<div align="center">
+    <div class="col-12 col-sm-8 col-md-7 col-xl-6">
+        <div class="card">
+            <div class="card-header pb-0 align-start">
+                <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1">
+                    ADJUNTAR DOCUMENTOS
+                </h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="attachmentsForm" class="needs-validation" novalidate>
+                    <p class="text-secondary text-center my-2 fw-bold">
+                        Documentos de tu negocio
+                    </p>
+                    <div class="form-group">
+                        <label for="commerceCertificate" class="form-label text-start">Certificado de Cámara de
+                            Comercio</label>
+                        <input [disabled]="statusCamaraComercio == 1 || statusCamaraComercio == 2" type="file"
+                            id="commerceCertificate" class="form-control"
+                            (change)="onFileSelected($event, 3, userId)" />
+                        <div class="text-muted text-start">
+                            Formatos validos (.png, .jpeg, .pdf, .doc)
+                        </div>
+                        <app-document-status [status]="statusCamaraComercio"></app-document-status>
+                    </div>
+                    <div class="form-group">
+                        <label for="rut" class="form-label text-start">RUT</label>
+                        <input [disabled]="statusRut == 1 || statusRut == 2" type="file" id="rut" class="form-control"
+                            (change)="onFileSelected($event, 2, userId)" />
+                        <div class="text-muted text-start">
+                            Formatos validos (.png, .jpeg, .pdf, .doc)
+                        </div>
+                        <app-document-status [status]="statusRut"></app-document-status>
+                    </div>
+                    <div class="form-group">
+                        <label for="commercePhoto" class="form-label text-start">Foto del Comercio (Fachada, local u
+                            oficina)</label>
+                        <input [disabled]="statusFachadaNegocio == 1 || statusFachadaNegocio == 2" type="file"
+                            id="commercePhoto" class="form-control" (change)="onFileSelected($event, 6, userId)" />
+                        <div class="text-muted text-start">
+                            Formatos validos (.png, .jpeg, .pdf, .doc)
+                        </div>
+                        <app-document-status [status]="statusFachadaNegocio"></app-document-status>
+                    </div>
+                    <p class="text-secondary text-center my-2 fw-bold">
+                        Documentos del representante legal
+                    </p>
+                    <div class="form-group">
+                        <label for="legalRepresentativePhoto" class="form-label text-start">Foto del representante
+                            legal</label>
+                        <input [disabled]="selfie == 1 || selfie == 2" type="file" id="legalRepresentativePhoto"
+                            class="form-control" (change)="onFileSelected($event, 5, userId)" />
+                        <div class="text-muted text-start">
+                            Formatos validos (.png, .jpeg, .pdf, .doc)
+                        </div>
+                        <app-document-status [status]="selfie"></app-document-status>
+                    </div>
+                    <div class="form-group">
+                        <label for="idPhoto" class="form-label text-start">Foto del documento de identidad</label>
+                        <input [disabled]="statusDocument == 1 || statusDocument == 2" type="file" id="idPhoto"
+                            class="form-control" (change)="onFileSelected($event, 1, userId)" />
+                        <div class="text-muted text-start">
+                            Formatos validos (.png, .jpeg, .pdf, .doc)
+                        </div>
+                        <app-document-status [status]="statusDocument"></app-document-status>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

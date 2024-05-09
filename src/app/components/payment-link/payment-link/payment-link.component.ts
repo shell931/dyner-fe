@@ -163,7 +163,7 @@ export class DialogNoActive {
   }
 
   redirect_account() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/profile-documents']);
     this.dialog.closeAll();
   }
 }

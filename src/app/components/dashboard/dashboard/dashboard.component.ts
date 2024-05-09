@@ -119,7 +119,7 @@ export class DashboardComponent implements OnInit {
                     .GetProfileData()
                     .subscribe((res) => this.GetProfileDataF(res));
                 this.transactionService
-                    .GetTransactionList(this.currentPage)
+                    .GetTransactionList(this.currentPage, 'null')
                     .subscribe((TransactionListdata) => {
                         this.GetTransactionListF(TransactionListdata);
                     });
@@ -133,7 +133,7 @@ export class DashboardComponent implements OnInit {
 
     loadData() {
         this.transactionService
-            .GetTransactionList(this.currentPage)
+            .GetTransactionList(this.currentPage, 'null')
             .subscribe((TransactionListdata) => {
                 this.GetTransactionListF(TransactionListdata);
             });
