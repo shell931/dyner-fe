@@ -61,8 +61,8 @@
               "@ckeditor/ckeditor5-build-classic",
               "leaflet"
             ],
-            // "outputPath": "dist/dyner",
-            "outputPath": "dist/dyner-fe",
+            "outputPath": "dist/dyner",
+            // "outputPath": "dist/dyner-fe",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

@@ -24,22 +24,9 @@
                     <div class="mat-elevation-z8">
                         <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
 
-                            <ng-container matColumnDef="servicio">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </th>
-                                <td mat-cell *matCellDef="let row"> {{row.servicio}} </td>
-                            </ng-container>
-
                             <ng-container matColumnDef="referenciatx">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
                                 <td mat-cell *matCellDef="let row"> {{row.referenciatx}} </td>
-                            </ng-container>
-                            <ng-container matColumnDef="mediopago">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de pago </th>
-                                <td mat-cell *matCellDef="let row"> {{row.payment_metod}} </td>
-                            </ng-container>
-                            <ng-container matColumnDef="num_autorizacion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Autorización </th>
-                                <td mat-cell *matCellDef="let row"> {{row.num_autorizacion}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="created_at">
@@ -47,13 +34,24 @@
                                 <td mat-cell *matCellDef="let row"> {{row.created_at}} </td>
                             </ng-container>
 
-                            <ng-container matColumnDef="descripcion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-                                <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+
+                            <ng-container matColumnDef="servicio">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </th>
+                                <td mat-cell *matCellDef="let row"> {{row.servicio}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="mediopago">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de pago </th>
+                                <td mat-cell *matCellDef="let row"> {{row.payment_metod}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="num_autorizacion">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Num Aprob </th>
+                                <td mat-cell *matCellDef="let row"> {{row.num_autorizacion}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="total">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor COP</th>
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor</th>
                                 <td mat-cell *matCellDef="let row">{{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}
                                 </td>
                             </ng-container>

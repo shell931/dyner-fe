@@ -128,6 +128,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     });
   }
 
+  documents() {
+    this.router.navigate(['/profile-documents']).then(() => {
+      // window.location.reload();
+    });
+  }
+
   GetProfileDataF(ProfileData) {
     // console.log(ProfileData.data.user.client.nombre);
     this.name_client = ProfileData.data.user.client.nombre;

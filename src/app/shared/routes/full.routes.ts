@@ -40,25 +40,25 @@ export const Full_Content_Routes: Routes = [
         loadChildren: () => import('../../components/dinamic-form//dinamic-form.module').then(m => m.DinamicFormModule)
     },
     {
-      path: 'payment-link',
-      loadChildren: () => import('../../components/payment-link/payment-link.module').then(m => m.PaymentLinkModule)
-  },
-    {
-      path: 'link-sub-create',
-      loadChildren: () => import('../../components/link-subs-create/link-subs-create.module').then(m => m.LinkSubCreateModule)
+        path: 'payment-link',
+        loadChildren: () => import('../../components/payment-link/payment-link.module').then(m => m.PaymentLinkModule)
     },
     {
-      path: 'link-sub',
-      loadChildren: () => import('../../components/link-subs/link-subs.module').then(m => m.LinkSubsModule)
+        path: 'link-sub-create',
+        loadChildren: () => import('../../components/link-subs-create/link-subs-create.module').then(m => m.LinkSubCreateModule)
     },
     {
-      path: 'link-sub-edit/:id',
-      loadChildren: () => import('../../components/link-sub-edit/link-sub-edit.module').then(m => m.LinkSubEditModule)
-  },
-  {
-      path: 'link-sub-detail/:id',
-      loadChildren: () => import('../../components/link-subs-detail/link-sub-detail.module').then(m => m.LinkDetailSubModule)
-  },
+        path: 'link-sub',
+        loadChildren: () => import('../../components/link-subs/link-subs.module').then(m => m.LinkSubsModule)
+    },
+    {
+        path: 'link-sub-edit/:id',
+        loadChildren: () => import('../../components/link-sub-edit/link-sub-edit.module').then(m => m.LinkSubEditModule)
+    },
+    {
+        path: 'link-sub-detail/:id',
+        loadChildren: () => import('../../components/link-subs-detail/link-sub-detail.module').then(m => m.LinkDetailSubModule)
+    },
     {
         path: 'payment-link-create',
         loadChildren: () => import('../../components/payment-link-create/payment-link-create.module').then(m => m.PaymentLinkCreateModule)
@@ -122,5 +122,9 @@ export const Full_Content_Routes: Routes = [
     {
         path: 'profile',
         loadChildren: () => import('../../components/profile/profile.module').then(m => m.ProfileModule)
+    },
+    {
+        path: 'profile-documents',
+        loadChildren: () => import('../../components/profile-documents/profile-documents.module').then(m => m.ProfileDocumentsModule)
     },
 ];

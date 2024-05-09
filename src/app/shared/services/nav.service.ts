@@ -91,12 +91,12 @@ export class NavService implements OnDestroy {
         {
             path: '/payment-link', title: 'Links de pago', type: 'link', icon: 'question_answer', badgeClass: 'success', active: true,
         },
-        {
-            path: '/pay-button', title: 'Botón de pago', type: 'link', icon: 'monitor', badgeClass: 'success', active: true,
-        },
-        {
-            path: '/cart-pay', title: 'Carros de compra', type: 'link', icon: 'shopping_cart', badgeClass: 'success', active: true,
-        },
+        // {
+        //     path: '/pay-button', title: 'Botón de pago', type: 'link', icon: 'monitor', badgeClass: 'success', active: true,
+        // },
+        // {
+        //     path: '/cart-pay', title: 'Carros de compra', type: 'link', icon: 'shopping_cart', badgeClass: 'success', active: true,
+        // },
         {
           path: '/link-sub', title: 'Links de Suscripción ', type: 'link', icon: 'calendar_today', badgeClass: 'success', active: true,
         },

@@ -16,7 +16,7 @@ import { number } from 'echarts';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-    displayedColumns: string[] = ['servicio', 'referenciatx', 'mediopago', 'num_autorizacion', 'created_at', 'descripcion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
+    displayedColumns: string[] = ['referenciatx', 'created_at', 'servicio', 'mediopago', 'num_autorizacion','nombre_comprador', 'total', 'descripcion_estado', 'action'];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     transaction_list: any[] = [];
     messagetx_list: any[] = [];
@@ -42,7 +42,7 @@ export class TransactionHistoryComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.transactionService.GetTransactionList(this.currentPage).subscribe(
+        this.transactionService.GetTransactionList(this.currentPage, 'null').subscribe(
             (Alldata) => {
                 this.GetTransactionListF(Alldata)
             },
@@ -60,9 +60,9 @@ export class TransactionHistoryComponent implements OnInit {
         }
     }
 
-    loadData() {        
+    loadData() {
         this.transactionService
-        .GetTransactionList(this.currentPage)
+        .GetTransactionList(this.currentPage, 'null')
         .subscribe((TransactionListdata) => {
             this.GetTransactionListF(TransactionListdata);
         });

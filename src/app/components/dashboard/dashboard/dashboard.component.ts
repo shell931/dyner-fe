@@ -20,25 +20,28 @@ import { PaymentLinksService } from 'src/app/services/payment-links.service';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-  
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
 })
 
+
+
+
 export class DashboardComponent implements OnInit {
     displayedColumns: string[] = [
+        'referenciatx',
         'created_at',
-        'num_autorizacion',
         'servicio',
+        'mediopago',
+        'num_autorizacion',
         'nombre_comprador',
         'total',
         'descripcion_estado',
         'action',
-        //'referenciatx',
-        //'mediopago',
-        //'descripcion',    
+        //'descripcion',
     ];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     width = '100%';
@@ -116,7 +119,7 @@ export class DashboardComponent implements OnInit {
                     .GetProfileData()
                     .subscribe((res) => this.GetProfileDataF(res));
                 this.transactionService
-                    .GetTransactionList(this.currentPage)
+                    .GetTransactionList(this.currentPage, 'null')
                     .subscribe((TransactionListdata) => {
                         this.GetTransactionListF(TransactionListdata);
                     });
@@ -128,12 +131,12 @@ export class DashboardComponent implements OnInit {
     }
 
 
-    loadData() {        
+    loadData() {
         this.transactionService
-        .GetTransactionList(this.currentPage)
-        .subscribe((TransactionListdata) => {
-            this.GetTransactionListF(TransactionListdata);
-        });
+            .GetTransactionList(this.currentPage, 'null')
+            .subscribe((TransactionListdata) => {
+                this.GetTransactionListF(TransactionListdata);
+            });
     }
 
     pageChanged(event: PageEvent) {
@@ -145,7 +148,7 @@ export class DashboardComponent implements OnInit {
     GetTotalSumTransactionsF(Alldata) {
         //console.log(Alldata);
         //console.log('data: ', JSON.stringify(Alldata));
-        
+
 
         this.capital_total_sum_service = Alldata.data.capital_total_sum_service;
         this.dispo_total_sum_service = Alldata.data.dispo_total_sum_service;
@@ -173,6 +176,8 @@ export class DashboardComponent implements OnInit {
     }
 
     GetTransactionListF(TransactionListdata) {
+        console.log(TransactionListdata);
+
         /* if (TransactionListdata && TransactionListdata.data && TransactionListdata.data.data) {
             TransactionListdata.data.data.forEach(transaccion => {
                 console.log('Estado de la transacción:', JSON.stringify(transaccion.descripcion_estado));
