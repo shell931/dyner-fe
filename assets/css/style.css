@@ -47325,7 +47325,7 @@ body.transparent-theme {
 }
 
 /************background-transparent-images***********************/
-body.transparent-theme.bg-img1 {
+/* body.transparent-theme.bg-img1 {
     background: url(../img/media/bg-img1.jpg) !important;
     background-blend-mode: overlay;
     background-size: cover !important;
@@ -47407,7 +47407,7 @@ body.transparent-theme.bg-img4 .demo_changer {
     background: url(../img/media/bg-img4.jpg) !important;
     background-size: cover !important;
     background-position: center !important;
-}
+} */
 
 /************background-transparent-images***********************/
 .light-menu .main-sidebar-header {
