@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   layoutSubscription: Subscription;
   public isCollapsed = true;
   name_client: any = '';
+  avatar: any;
 
   constructor(
     private sidebarRightservice: SidebarRightService,
@@ -116,9 +117,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   exit() {
+
     localStorage.removeItem('access_token');
     this.router.navigate(['/login']).then(() => {
-      window.location.reload();
+      // window.location.reload();
     });
   }
 
@@ -137,6 +139,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   GetProfileDataF(ProfileData) {
     // console.log(ProfileData.data.user.client.nombre);
     this.name_client = ProfileData.data.user.client.nombre;
+    this.avatar = ProfileData.data.user.client.avatar;
   }
 
   public getNotifications(seeAllNotifications) {

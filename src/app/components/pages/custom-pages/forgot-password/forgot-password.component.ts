@@ -14,6 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
     // loginForm: FormGroup;
     loginForm!: UntypedFormGroup
     emailPattern: string = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
+    isExporting = false;
 
     constructor(
         private formGroup: FormBuilder,
@@ -28,12 +29,12 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
 
-    submitbutton() {        
+    submitbutton() {
         if (this.loginForm.valid) {
-
+            this.isExporting = true;
             let myObjRecoverPass = {
                 "email": this.loginForm.value.email,
-            }; 
+            };
 
             this.authenticationService.RecoverPassword(myObjRecoverPass).subscribe(
                 result => {
@@ -42,10 +43,10 @@ export class ForgotPasswordComponent implements OnInit {
                         // this.show_spinner = false;
                         // window.location.reload();
                     });
-                    
+
                 }
             );
-            
+
         }
     }
 

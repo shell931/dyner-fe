@@ -14,6 +14,7 @@ export class TransactionService {
 
     list_transactions = `${this.baseService.baseUrl}transactions-paginate`;
     transaction_by_id = `${this.baseService.baseUrl}transaction-by-id`;
+    get_report_transaction = `${this.baseService.baseUrl}get-report-transaction`;
 
     GetTransactionList(currentPage, searchItem) {
         return this.httpClient.get(`${this.list_transactions}/${currentPage}/${searchItem}`, { headers: this.baseService.getAuthHeaders() });
@@ -21,6 +22,12 @@ export class TransactionService {
 
     GetTransactionById(id_transaction, service_type) {
         return this.httpClient.get(`${this.transaction_by_id}/${id_transaction}/${service_type}`, { headers: this.baseService.getAuthHeaders() });
+    }
+
+
+    GetExportReportTransaction(startDate: string, endDate: string) {
+        const params = { startDate, endDate };
+        return this.httpClient.get<any[]>(`${this.get_report_transaction}/${startDate}/${endDate}`, { headers: this.baseService.getAuthHeaders() });
     }
 
 }

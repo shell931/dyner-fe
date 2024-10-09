@@ -7,8 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UsMapModule } from 'angular-us-map';
 
- 
-
+import {MatNativeDateModule} from '@angular/material/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   // declarations: [TransactionHistoryComponent],
   imports: [
@@ -16,7 +17,15 @@ import { UsMapModule } from 'angular-us-map';
     TransactionHistoryRoutingModule,
     NgApexchartsModule,
     NgbModule,
-    UsMapModule
-  ]
+    UsMapModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    MatDatepickerModule,
+  ],
 })
 export class TransactionHistoryModule { }

@@ -1,7 +1,6 @@
-
 /* ESTILOS DE TABLA GENERAL */
 
-.table-style-global{
+.table-style-global {
   line-height: 4;
 }
 
@@ -16,9 +15,9 @@
 
 .table-style-global td,
 .table-style-global th {
-    /* border: 1px solid #ddd; */
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+  /* border: 1px solid #ddd; */
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
 /* .table-style-global {
@@ -54,36 +53,36 @@
 } */
 
 .mat-row {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 /* Ajustar el padding horizontal y vertical de las celdas */
 .mat-cell {
-    font-size: 14px;
-    padding: 0px !important;
-    /* Ajusta estos valores según tus necesidades */
+  font-size: 14px;
+  padding: 0px !important;
+  /* Ajusta estos valores según tus necesidades */
 }
 
 .mat-header-cell {
-    padding: 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: black;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
 }
 
 /* Ajustar el padding de las celdas en el encabezado, si es necesario */
 .mat-header-cell .mat-header-cell-content {
-    padding: 0px 0px;
-    /* Ajusta estos valores según tus necesidades */
+  padding: 0px 0px;
+  /* Ajusta estos valores según tus necesidades */
 }
 
 tr.mat-header-row {
-    height: 0px !important;
+  height: 0px !important;
 }
 
 tr.mat-row,
 tr.mat-footer-row {
-    height: 28px !important;
+  height: 28px !important;
 }
 
 
@@ -91,12 +90,12 @@ tr.mat-footer-row {
 /* ESTILOS DE TABLA GENERAL END*/
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 tr.mat-row,
 tr.mat-footer-row {
-    height: 37px;
+  height: 37px;
 }
 
 /* .mat-header-cell {
@@ -105,27 +104,28 @@ tr.mat-footer-row {
     color: #242f48;
 } */
 
-.mat-cell, .mat-footer-cell {
-    font-size: 14px;
+.mat-cell,
+.mat-footer-cell {
+  font-size: 14px;
 }
 
 .btn-icon i {
-    line-height: 0;
-    font-size: 0.9rem;
+  line-height: 0;
+  font-size: 0.9rem;
 }
 
 .btn-icon {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 0.9rem;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
 }
 
-.margin-button-action{
-    margin-left: 5px;
+.margin-button-action {
+  margin-left: 5px;
 }
 
 
@@ -137,4 +137,74 @@ table {
   unicode-bidi: isolate;
   border-spacing: 2px;
   border-color: none !important;
+}
+
+
+.estado-transaccion {
+  width: 100px;
+  height: 25px;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rechazada {
+  background-color: #E1C6C6;
+  border: 1px solid #841B1B;
+  color: #841B1B;
+}
+
+.sin-procesar {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A
+}
+
+.aprobada {
+  background-color: #E1E0C6;
+  border: 1px solid #847A1B;
+  color: #847A1B;
+}
+
+.transferida {
+  background-color: #C6DBE1;
+  border: 1px solid #1B7784;
+  color: #1B7784;
+}
+
+.disponible {
+  background-color: #C6E1C6;
+  border: 1px solid #5B841B;
+  color: #5B841B;
+}
+
+.anulada {
+  background-color: #C6CEE1;
+  border: 1px solid #1B3884;
+  color: #1B3884;
+}
+
+.reversada {
+  background-color: #E1CEC6;
+  border: 1px solid #841B1B;
+  color: #841B1B;
+}
+
+.reclamacion {
+  background-color: #ff9e74;
+  border: 1px solid #861212;
+  color: #861212;
+}
+
+.retirada {
+  background-color: #C6DBE1;
+  border: 1px solid #1B7784;
+  color: #1B7784;
+}
+
+.enretiro {
+  background-color: #aed6f1;
+  border: 1px solid #2f698f;
+  color: #2f698f;
 }

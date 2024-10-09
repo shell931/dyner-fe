@@ -8,6 +8,9 @@ import { MessagesTxService } from 'src/app/services/messagestx';
 import { BaseService } from "src/app/services/base-service.service";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { number } from 'echarts';
+import * as XLSX from 'xlsx';
+
+
 
 @Component({
     selector: 'app-transaction-history',
@@ -16,7 +19,7 @@ import { number } from 'echarts';
 })
 export class TransactionHistoryComponent implements OnInit {
 
-    displayedColumns: string[] = ['referenciatx', 'created_at', 'servicio', 'mediopago', 'num_autorizacion','nombre_comprador', 'total', 'descripcion_estado', 'action'];
+    displayedColumns: string[] = ['referenciatx', 'created_at', 'servicio', 'mediopago', 'num_autorizacion', 'nombre_comprador', 'total', 'descripcion_estado', 'action'];
     displayedColumnstx: string[] = ['mensaje', 'fecha'];
     transaction_list: any[] = [];
     messagetx_list: any[] = [];
@@ -30,7 +33,13 @@ export class TransactionHistoryComponent implements OnInit {
     per_page = 0;
     currentPage = 0;
     pageSizeOptions: number[] = [5, 10, 25, 100];
+    detailTitle = '';
+    detailObject = '';
 
+    startDate: string = "";
+    endDate: string = "";
+
+    isExporting = false;
 
     constructor(
         private transactionService: TransactionService,
@@ -52,6 +61,47 @@ export class TransactionHistoryComponent implements OnInit {
         );
     }
 
+    exportToExcel(): void {
+        this.isExporting = true;
+
+        if (this.startDate && this.endDate) {
+            this.transactionService.GetExportReportTransaction(this.startDate, this.endDate).subscribe(data => {
+                const formattedData = data.map(item => ({
+                    REFERENCIA: item.referenciatx,
+                    BIN: item.bin,
+                    NUM_TARJETA: item.num_tarjeta,
+                    COMERCIO: item.nombre,
+                    FECHA: item.created_at,
+                    NOMBRE: item.nombreth,
+                    NUM_IDENTIFICACION: item.num_identificacion,
+                    CELULAR: item.celular,
+                    CORREO: item.correo,
+                    IP: item.ip,
+                    TRESDS: item.threeds,
+                    ESTADO: item.estadotx,
+                    FRANQUICIA: item.franquicia,
+                    ENTIDAD_PAGO: item.provtransaccional,
+                    TOTAL: item.total,
+                    DESCUENTO: item.total_descuento,
+                    ABONO: item.total_abono,
+                    COD_RESPUESTA: item.cod_respuesta,
+                    RESP_MENSAJE: item.resp_banco,
+                    NUM_AUTORIZACION: item.num_autoriza_cadena,
+                    SERVICIO: item.servicio,
+                    CU: item.codigounico
+                }));
+
+                const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(formattedData);
+                const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(workbook, worksheet, 'DataSheet');
+                XLSX.writeFile(workbook, 'DataExport.xlsx');
+                this.isExporting = false;
+            });
+        } else {
+            alert('Por favor, selecciona un rango de fechas.');
+        }
+    }
+
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -62,10 +112,10 @@ export class TransactionHistoryComponent implements OnInit {
 
     loadData() {
         this.transactionService
-        .GetTransactionList(this.currentPage, 'null')
-        .subscribe((TransactionListdata) => {
-            this.GetTransactionListF(TransactionListdata);
-        });
+            .GetTransactionList(this.currentPage, 'null')
+            .subscribe((TransactionListdata) => {
+                this.GetTransactionListF(TransactionListdata);
+            });
     }
 
     pageChanged(event: PageEvent) {
@@ -105,5 +155,15 @@ export class TransactionHistoryComponent implements OnInit {
             windowClass: 'animate__animated animate__zoomIn',
         });
     }
+
+    gridOpen(gridModal: any, modalTitle: string, datailObject: string) {
+        this.modalService.open(gridModal, { size: 'sm' });
+        this.detailTitle = modalTitle;
+        this.detailObject = datailObject;
+    }
+
+
+
+
 
 }
