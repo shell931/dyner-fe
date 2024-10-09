@@ -391,86 +391,86 @@ body.light-theme.app.body-style1 {
       .main-error-wrapper.page {
         background: $transparent-body !important;
       }
-      &.bg-img1 {
-        background: url(../img/media/bg-img1.jpg) !important;
-        background-blend-mode: overlay !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
-        .page {
-          background: url(../img/media/bg-img1.jpg);
-          background-blend-mode: overlay;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          content: "";
-          left: 0;
-          right: 0;
-          top: 0;
-        }
-      }
-      &.bg-img2 {
-        background: url(../img/media/bg-img2.jpg) !important;
-        background-blend-mode: overlay !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
-        .page {
-          background: url(../img/media/bg-img2.jpg);
-          background-blend-mode: overlay;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          content: "";
-          left: 0;
-          right: 0;
-          top: 0;
-        }
-      }
-      &.bg-img3 {
-        background: url(../img/media/bg-img3.jpg) !important;
-        background-blend-mode: overlay !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
-        .page {
-          background: url(../img/media/bg-img3.jpg);
-          background-blend-mode: overlay;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          content: "";
-          left: 0;
-          right: 0;
-          top: 0;
-        }
-      }
-      &.bg-img4 {
-        background: url(../img/media/bg-img4.jpg) !important;
-        background-blend-mode: overlay !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
-        .page {
-          background: url(../img/media/bg-img4.jpg);
-          background-blend-mode: overlay;
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          content: "";
-          left: 0;
-          right: 0;
-          top: 0;
-        }
-      }
+      // &.bg-img1 {
+      //   background: url(../img/media/bg-img1.jpg) !important;
+      //   background-blend-mode: overlay !important;
+      //   background-size: cover !important;
+      //   background-position: center !important;
+      //   background-repeat: no-repeat !important;
+      //   background-attachment: fixed !important;
+      //   .page {
+      //     background: url(../img/media/bg-img1.jpg);
+      //     background-blend-mode: overlay;
+      //     background-size: cover;
+      //     background-position: center;
+      //     background-repeat: no-repeat;
+      //     background-attachment: fixed;
+      //     content: "";
+      //     left: 0;
+      //     right: 0;
+      //     top: 0;
+      //   }
+      // }
+      // &.bg-img2 {
+      //   background: url(../img/media/bg-img2.jpg) !important;
+      //   background-blend-mode: overlay !important;
+      //   background-size: cover !important;
+      //   background-position: center !important;
+      //   background-repeat: no-repeat !important;
+      //   background-attachment: fixed !important;
+      //   .page {
+      //     background: url(../img/media/bg-img2.jpg);
+      //     background-blend-mode: overlay;
+      //     background-size: cover;
+      //     background-position: center;
+      //     background-repeat: no-repeat;
+      //     background-attachment: fixed;
+      //     content: "";
+      //     left: 0;
+      //     right: 0;
+      //     top: 0;
+      //   }
+      // }
+      // &.bg-img3 {
+      //   background: url(../img/media/bg-img3.jpg) !important;
+      //   background-blend-mode: overlay !important;
+      //   background-size: cover !important;
+      //   background-position: center !important;
+      //   background-repeat: no-repeat !important;
+      //   background-attachment: fixed !important;
+      //   .page {
+      //     background: url(../img/media/bg-img3.jpg);
+      //     background-blend-mode: overlay;
+      //     background-size: cover;
+      //     background-position: center;
+      //     background-repeat: no-repeat;
+      //     background-attachment: fixed;
+      //     content: "";
+      //     left: 0;
+      //     right: 0;
+      //     top: 0;
+      //   }
+      // }
+      // &.bg-img4 {
+      //   background: url(../img/media/bg-img4.jpg) !important;
+      //   background-blend-mode: overlay !important;
+      //   background-size: cover !important;
+      //   background-position: center !important;
+      //   background-repeat: no-repeat !important;
+      //   background-attachment: fixed !important;
+      //   .page {
+      //     background: url(../img/media/bg-img4.jpg);
+      //     background-blend-mode: overlay;
+      //     background-size: cover;
+      //     background-position: center;
+      //     background-repeat: no-repeat;
+      //     background-attachment: fixed;
+      //     content: "";
+      //     left: 0;
+      //     right: 0;
+      //     top: 0;
+      //   }
+      // }
     }
   }
 }

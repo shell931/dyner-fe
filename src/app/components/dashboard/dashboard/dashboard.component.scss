@@ -153,47 +153,11 @@ a {
 }
 
 
-.rechazada {
-    color: #FF0000;
-}
+// .rechazada {
+//     color: #FF0000;
+// }
 
-.estado-transaccion {
-    width: 100px;
-    height: 25px;
-    border-radius: 20px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.rechazada {
-    background-color: #E1C6C6;
-    border: 1px solid #841B1B;
-    color: #841B1B;
-}
-
-.sin-procesar {
-    color: #4A4A4A;
-    border: 1px solid #4A4A4A
-}
-.aprobada {
-    background-color: #E1E0C6;
-    border: 1px solid #847A1B;
-    color: #847A1B;
-}
-
-.transferida {
-    background-color: #C6DBE1;
-    border: 1px solid #1B7784;
-    color: #1B7784;
-}
-
-.disponible {
-    background-color: #C6E1C6;
-    border: 1px solid #5B841B;
-    color: #5B841B;
-}
 
 .bottom-border {
     border-bottom: 2px solid #e8e8e8;
