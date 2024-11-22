@@ -41,15 +41,15 @@
     #glb-loader {
       display: none;
     }
-  
+
     #glb-loader.loaderShow {
       display: block;
     }
-  
+
     #glb-loader {
       position: fixed;
       z-index: 50000;
-      background: #fff;
+      background: rgb(0 0 0 / 89%);
       left: 0;
       top: 0;
       right: 0;

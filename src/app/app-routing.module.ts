@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    title: 'Dyner - login',
+    title: 'Xpay - login',
     loadChildren: () =>
       import('./authentication/authentication.module').then(
         (m) => m.AuthenticationModule
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    title: 'Dyner - Registro',
+    title: 'Xpay - Registro',
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterModule),
   },

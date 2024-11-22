@@ -1,229 +1,229 @@
 <div class="container-fluid" style="background-color: #fff; padding: 5px;">
 
-  <div class="breadcrumb-header justify-content-between">
+    <div class="breadcrumb-header justify-content-between">
 
-    <div class="left-content">
-      <div>
-        <h1 class="main-content-title mg-b-1 mg-b-lg-1">
-          Hola, {{ name_client }}!
-        </h1>
-      </div>
+        <div class="left-content">
+            <div>
+                <h1 class="main-content-title mg-b-1 mg-b-lg-1">
+                    Hola, {{ name_client }}!
+                </h1>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- /breadcrumb -->
+    <!-- /breadcrumb -->
 
-  <div class="row">
-    <div class="col-12 col-lg-4">
-      <div class="card">
-        <div class="card-header pb-0">
-          <div class="flex-container">
-            <div class="icon-container">
-              <img src="https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_dashboard/lupa_dash.svg" class="icon-lupa-f"
-                alt="lupa" />
-            </div>
-            <div class="flex-item">
-              <div class="flex-container">
-                <div>
-                  <p class="mg-b-0 tx-28 color-title-card">Aprobado</p>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/lupa_dash.svg"
+                                class="icon-lupa-f" alt="lupa" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">Aprobado</p>
+                                </div>
+                                <div>
+                                    <p class="circle-yellow"></p>
+                                </div>
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Transacciones aprobadas, en validación</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div>
-                  <p class="circle-yellow"></p>
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
+                                {{
+                                capital_total_sum_service
+                                | currency : "USD" : "symbol" : "1.0-0"
+                                }}
+
+                            </h1>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <p class="mg-b-0 tx-12 color-title-card">Transacciones aprobadas, en validación</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="card-body">
-          <div class="flex-container">
-            <div class="flex-item">
-              <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                {{
-                capital_total_sum_service
-                | currency : "USD" : "symbol" : "1.0-0"
-                }}
-
-              </h1>
-              <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
                       gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
                     ">
-            Ver detalles
-          </button>
-        </div>
-      </div>
-
-    </div>
-    <!-- Second card -->
-    <div class="col-12 col-lg-4">
-      <div class="card">
-        <div class="card-header pb-0">
-          <div class="flex-container">
-            <div class="icon-container">
-              <img src="https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_dashboard/cash-outline.svg" class="icon-cash"
-                alt="cash" style="height: 25px;" />
-            </div>
-            <div class="flex-item">
-              <div class="flex-container">
-
-
-                <div>
-                  <p class="mg-b-0 tx-28 color-title-card">Disponible</p>
+                        Ver detalles
+                    </button>
                 </div>
-                <div>
-                  <p class="circle-green"></p>
+            </div>
+
+        </div>
+        <!-- Second card -->
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/cash-outline.svg"
+                                class="icon-cash" alt="cash" style="height: 25px;" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+
+
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">Disponible</p>
+                                </div>
+                                <div>
+                                    <p class="circle-green"></p>
+                                </div>
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Saldo habilitado para retirar</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <p class="mg-b-0 tx-12 color-title-card">Saldo habilitado para retirar</p>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="flex-container">
-            <div class="flex-item">
-              <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
-              </h1>
-              <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
+                                {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
+                            </h1>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
                         gridOpen(gridModal, 'DETALLE SALDO DISPONIBLE', 'dispo_list_tx')
                     ">
-            Ver detalles
-          </button>
+                        Ver detalles
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!--Three card -->
-    <div class="col-12 col-lg-4">
-      <div class="card">
-        <div class="card-header pb-0">
-          <div class="flex-container">
-            <div class="icon-container">
-              <img src="https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_dashboard/Vector.svg" class="icon-retire"
-                alt="otro" style="height: 20px;" />
-            </div>
-            <div class="flex-item">
-              <div class="flex-container">
-                <div>
-                  <p class="mg-b-0 tx-28 color-title-card">En retiro</p>
+        <!--Three card -->
+        <!-- <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="flex-container">
+                        <div class="icon-container">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/Vector.svg"
+                                class="icon-retire" alt="otro" style="height: 20px;" />
+                        </div>
+                        <div class="flex-item">
+                            <div class="flex-container">
+                                <div>
+                                    <p class="mg-b-0 tx-28 color-title-card">En retiro</p>
+                                </div>
+                                <div>
+                                    <p class="circle-blue"></p>
+                                </div>
+                            </div>
+                            <p class="mg-b-0 tx-12 color-title-card">Saldo en proceso de abono a cuenta</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <p class="circle-blue"></p>
+                <div class="card-body">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
+                                {{
+                                en_transfe_total_sum_service
+                                | currency : "USD" : "symbol" : "1.0-0"
+                                }} COP
+                            </h1>
+                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <p class="mg-b-0 tx-12 color-title-card">Saldo en proceso de abono a cuenta</p>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="flex-container">
-            <div class="flex-item">
-              <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                {{
-                en_transfe_total_sum_service
-                | currency : "USD" : "symbol" : "1.0-0"
-                }} COP
-              </h1>
-              <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                <div class="card-footer">
+                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
                         gridOpen(gridModal, 'DETALLE SALDO EN RETIRO', 'en_transfe_list_tx')
                     ">
-            Ver detalles
-          </button>
-        </div>
-      </div>
+                        Ver detalles
+                    </button>
+                </div>
+            </div>
+        </div> -->
+
     </div>
 
-  </div>
-
-  <div class="row row-sm">
-    <div class="col-md-12 col-lg-12 col-xl-12">
-      <div class="card card-table-two">
-        <!-- <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
+    <div class="row row-sm">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="card card-table-two">
+                <!-- <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                     LISTADO DE TRANSACCIONES
                 </h2>
                 <p class="mg-b-0 tx-14">
                     Consulta a continuación todas tus transacciones realizadas
                 </p> -->
-        <!-- <mat-form-field appearance="standard">
+                <!-- <mat-form-field appearance="standard">
                   <mat-label>Filter</mat-label>
                   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sometext" #input>
               </mat-form-field> -->
-        <div class="table-responsive">
-          <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
-          <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
-            <!-- ID Column -->
+                <div class="table-responsive">
+                    <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
+                    <table mat-table [dataSource]="dataSource" matSort class="table-style-global">
+                        <!-- ID Column -->
 
-            <ng-container matColumnDef="referenciatx">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Referencia</th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.referenciatx }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="referenciatx">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Referencia</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.referenciatx }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="created_at">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Fecha</th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.created_at }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="created_at">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Fecha</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.created_at }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="servicio">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Servicio
-              </th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.servicio }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="servicio">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Servicio
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.servicio }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="mediopago">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Medio de pago
-              </th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.payment_metod }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="mediopago">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Medio de pago
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.payment_metod }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="num_autorizacion">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Num Aprob
-              </th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.num_autorizacion }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="num_autorizacion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Num Aprob
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.num_autorizacion }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="nombre_comprador">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Nombre</th>
-              <td mat-cell *matCellDef="let row" class=" ">{{ row.nombre_comprador }}</td>
-            </ng-container>
+                        <ng-container matColumnDef="nombre_comprador">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Nombre</th>
+                            <td mat-cell *matCellDef="let row" class=" ">{{ row.nombre_comprador }}</td>
+                        </ng-container>
 
-            <ng-container matColumnDef="total">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Valor
-              </th>
-              <td mat-cell *matCellDef="let row" class=" ">
-                {{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}
-              </td>
-            </ng-container>
+                        <ng-container matColumnDef="total">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Valor
+                            </th>
+                            <td mat-cell *matCellDef="let row" class=" ">
+                                {{row.total|currency : 'USD' : 'symbol' : '1.0-0'}}
+                            </td>
+                        </ng-container>
 
-            <ng-container matColumnDef="descripcion_estado">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                Estado</th>
-              <td mat-cell *matCellDef="let row" class=" ">
-                <div [ngClass]="{'estado-transaccion': true,
+                        <ng-container matColumnDef="descripcion_estado">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                Estado</th>
+                            <td mat-cell *matCellDef="let row" class=" ">
+                                <div [ngClass]="{'estado-transaccion': true,
                                     'rechazada': row.descripcion_estado === 'Rechazada',
                                     'sin-procesar': row.descripcion_estado === 'Sin procesar',
                                     'aprobada': row.descripcion_estado === 'Aprobado',
@@ -235,14 +235,14 @@
                                     'retirada' : row.descripcion_estado === 'Retirada',
                                     'enretiro' : row.descripcion_estado === 'En retiro'
                                   }">
-                  {{ row.descripcion_estado }}
-                </div>
-              </td>
-            </ng-container>
+                                    {{ row.descripcion_estado }}
+                                </div>
+                            </td>
+                        </ng-container>
 
 
 
-            <!-- <ng-container matColumnDef="referenciatx">
+                        <!-- <ng-container matColumnDef="referenciatx">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                                     Referencia
                                 </th>
@@ -260,22 +260,22 @@
                                 <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
                             </ng-container> -->
 
-            <ng-container matColumnDef="action">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                <div align="center">
-                  <!-- <i class="fas fa-cog"></i> -->
-                  Detalle
-                </div>
-              </th>
-              <td mat-cell *matCellDef="let row">
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
+                                <div align="center">
+                                    <!-- <i class="fas fa-cog"></i> -->
+                                    Detalle
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let row">
 
-                <div align="center">
-                  <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black">
-                    <!-- <i class="fas fa-chevron-right"></i> -->
-                    Ver mas
-                  </a>
+                                <div align="center">
+                                    <a [routerLink]="['/transaction-detail',row.id,row.servicio]" class="text-black">
+                                        <!-- <i class="fas fa-chevron-right"></i> -->
+                                        Ver mas
+                                    </a>
 
-                  <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button
+                                    <!-- <a href="javascript:;" (click)="openMessageTx(scale,row.id)"> <button
                                                 type="button" class="btn position-relative p-1">
                                                 <svg *ngIf="row.count_obs !== false" xmlns="http://www.w3.org/2000/svg"
                                                     class="header-icon-svgs" viewBox="0 0 16 16" fill="none"
@@ -289,67 +289,67 @@
 
                                             </button>
                                         </a> -->
+                                </div>
+
+
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="per_page"
+                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                    </mat-paginator>
                 </div>
-
-
-              </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-          </table>
-
-          <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="per_page"
-            [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
-          </mat-paginator>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <ng-template #gridModal let-modal>
-    <div class="modal-header">
-      <h6 class="modal-title">{{ detailTitle }}</h6>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <app-details-table [items]="total_detail[detailObject]"></app-details-table>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')">
-        Cerrar
-      </button>
-    </div>
-  </ng-template>
+    <ng-template #gridModal let-modal>
+        <div class="modal-header">
+            <h6 class="modal-title">{{ detailTitle }}</h6>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-details-table [items]="total_detail[detailObject]"></app-details-table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')">
+                Cerrar
+            </button>
+        </div>
+    </ng-template>
 
-  <ng-template #scale let-modal>
-    <div class="modal-header">
-      <h6 class="modal-title">Mensajes de Transacción</h6>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <table mat-table [dataSource]="dataSourcemtx" matSort class="table-striped">
-        <ng-container matColumnDef="mensaje">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Mensaje </th>
-          <td mat-cell *matCellDef="let rowtx"> {{rowtx.mensaje}} </td>
-        </ng-container>
+    <ng-template #scale let-modal>
+        <div class="modal-header">
+            <h6 class="modal-title">Mensajes de Transacción</h6>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table mat-table [dataSource]="dataSourcemtx" matSort class="table-striped">
+                <ng-container matColumnDef="mensaje">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Mensaje </th>
+                    <td mat-cell *matCellDef="let rowtx"> {{rowtx.mensaje}} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="fecha">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha</th>
-          <td mat-cell *matCellDef="let rowtx"> {{rowtx.created_at}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumnstx"></tr>
-        <tr mat-row *matRowDef="let rowtx; columns: displayedColumnstx;"></tr>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn ripple btn-primary" (click)="modal.close('Save click');">
-        Cerrar
-      </button>
-    </div>
-  </ng-template>
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha</th>
+                    <td mat-cell *matCellDef="let rowtx"> {{rowtx.created_at}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnstx"></tr>
+                <tr mat-row *matRowDef="let rowtx; columns: displayedColumnstx;"></tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn ripple btn-primary" (click)="modal.close('Save click');">
+                Cerrar
+            </button>
+        </div>
+    </ng-template>
 </div>

@@ -100,6 +100,8 @@ export class BalanceWithdrawalComponent implements OnInit {
                     commissionTransfer: this.commissionTransfer,
                 };
 
+
+
                 this.withdrawalService
                     .CreateWithdrawal(myObjWithdrawal)
                     .subscribe((result: any) => {

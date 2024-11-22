@@ -67,29 +67,29 @@ export class NavService implements OnDestroy {
 
     MENUITEMS: Menu[] = [
         {
-            path: '/dashboard', title: 'Dashboard', type: 'link', icon: 'favorite', badgeClass: 'success', active: true,
+            path: '/dashboard', title: 'Dashboard', type: 'link', icon: 'Dashboard.svg', badgeClass: 'success', active: true,
         },
         {
             headTitle: 'Movimientos'
         },
+        // {
+        //     path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'system_updated_alt', badgeClass: 'success', active: true,
+        // },
         {
-            path: '/balance-withdrawal', title: 'Retiro de saldo', type: 'link', icon: 'system_updated_alt', badgeClass: 'success', active: true,
+            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'Historial_Transacciones.svg', badgeClass: 'success', active: true,
         },
         {
-            path: '/transaction-history', title: 'Historial de transacciones', type: 'link', icon: 'receipt_long', badgeClass: 'success', active: true,
-        },
-        {
-            path: '/withdrawal-history', title: 'Historial de retiros', type: 'link', icon: 'wallet', badgeClass: 'success', active: true,
+            path: '/withdrawal-history', title: 'Historial de transferencias', type: 'link', icon: 'Historial_retiros.svg', badgeClass: 'success', active: true,
         },
         {
             headTitle: 'Herramientas'
         },
 
         {
-            path: '/datafono-digital', title: 'Datáfono digital', type: 'link', icon: 'drag_indicator', badgeClass: 'success', active: true,
+            path: '/datafono-digital', title: 'Datáfono digital', type: 'link', icon: 'Datafono_digital.svg', badgeClass: 'success', active: true,
         },
         {
-            path: '/payment-link', title: 'Links de pago', type: 'link', icon: 'question_answer', badgeClass: 'success', active: true,
+            path: '/payment-link', title: 'Links de pago', type: 'link', icon: 'Link_pago.svg', badgeClass: 'success', active: true,
         },
         // {
         //     path: '/pay-button', title: 'Botón de pago', type: 'link', icon: 'monitor', badgeClass: 'success', active: true,
@@ -98,7 +98,7 @@ export class NavService implements OnDestroy {
         //     path: '/cart-pay', title: 'Carros de compra', type: 'link', icon: 'shopping_cart', badgeClass: 'success', active: true,
         // },
         {
-          path: '/link-sub', title: 'Links de Suscripción ', type: 'link', icon: 'calendar_today', badgeClass: 'success', active: true,
+          path: '/link-sub', title: 'Links de Suscripción ', type: 'link', icon: 'Link_suscripción.svg', badgeClass: 'success', active: true,
         },
         // {
         //   path: '/dinamic-form', title: 'Formularios Personalizados', type: 'link', icon: 'cached', badgeClass: 'success', active: true,
