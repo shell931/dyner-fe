@@ -12,13 +12,13 @@ export const environment = {
     },
     // URL'S TO DEV QA ENVIROMENT //
     // api: {
-    //     baseUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/v1/',
-    //     baseUrl2: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/',
-    //     baseAuthUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/',
-    //     baseProfileUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/profile',
-    //     bankImage: 'https://imagesdynerv2.s3.us-east-1.amazonaws.com',
-    //     linkImage: 'https://img-productos-comercios-arianpay.s3.us-east-1.amazonaws.com',
-    //     gatewayUrl: 'https://www.develop-dyner24.online/dynergateway/public/'
+        // baseUrl: 'https://x-dev.cloud/api-mobile/public/api/v1/',
+        // baseUrl2: 'https://x-dev.cloud/api-mobile/public/api/',
+        // baseAuthUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/',
+        // baseProfileUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/profile',
+        // bankImage: 'https://imagesdynerv2.s3.us-east-1.amazonaws.com',
+        // linkImage: 'https://img-productos-comercios-arianpay.s3.us-east-1.amazonaws.com',
+        // gatewayUrl: 'https://x-dev.cloud/dynergateway/public/'
     // },
 };
 

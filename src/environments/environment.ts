@@ -5,11 +5,11 @@
 export const environment = {
     production: false,
     api: {
-        baseUrl: ' https://www.develop-dyner24.online/dyner-api-mobile/public/api/v1/',
-        baseUrl2: ' https://www.develop-dyner24.online/dyner-api-mobile/public/api/',
-        baseAuthUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/',
-        baseProfileUrl: 'https://www.develop-dyner24.online/dyner-api-mobile/public/api/auth/profile',
-        bankImage: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com',
+        baseUrl: ' https://x-dev.cloud/api-mobile/public/api/v1/',
+        baseUrl2: ' https://x-dev.cloud/api-mobile/public/api/',
+        baseAuthUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/',
+        baseProfileUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/profile',
+        bankImage: 'https://img-app-v1.s3.us-east-1.amazonaws.com',
         linkImage: 'https://img-productos-comercios-pro.s3.us-east-1.amazonaws.com',
         gatewayUrl: 'http://52.44.5.11:1400/dynergateway/public/'
     },

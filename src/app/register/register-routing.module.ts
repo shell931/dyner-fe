@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        title: "Dyner - Registro",
+        title: "Registro",
         component: WizardComponent
       },
     ],
@@ -21,7 +21,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        title: "Dyner - Registro Exitoso",
+        title: "Registro Exitoso",
         component: SuccessRegisterComponent
       },
     ],

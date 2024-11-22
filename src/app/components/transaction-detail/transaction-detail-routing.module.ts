@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: '', title:"Dyner - Transaccion",
+                path: '', title:"Transaccion",
                 component: TransactionDetailComponent
             },
         ],

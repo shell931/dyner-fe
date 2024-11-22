@@ -25,17 +25,17 @@ export class ProfileComponent implements OnInit {
     avatar: any;
 
     paymentMethods = [
-        { id: 1, name: 'Tarjeta de crédito', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/cards.svg', selected: false },
-        { id: 2, name: 'Débito Bancario PSE', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/pse.svg', selected: false },
-        { id: 3, name: 'Pago en efectivo', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/apostar_susuerte_group.svg', selected: false },
-        { id: 4, name: 'Pago en corresponsales bancarios', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/bancos_2.svg', selected: false },
-        { id: 5, name: 'Bancolombia', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/bancolombia_logo.svg', selected: false },
-        { id: 6, name: 'Nequi', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/nequi_logo.svg', selected: false },
-        { id: 7, name: 'Daviplata', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/daviplata_mini.svg', selected: false },
-        { id: 8, name: 'Dale', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/dale_mini_2.svg', selected: false },
-        { id: 9, name: 'Lulo', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/lulo_mini.svg', selected: false },
-        { id: 10, name: 'RappiPay', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/rappi_pay_mini_2.svg', selected: false },
-        { id: 11, name: 'Movii', img: 'https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_gateway/movii_moni_2.svg', selected: false },
+        { id: 1, name: 'Tarjeta de crédito', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/cards.svg', selected: false },
+        { id: 2, name: 'Débito Bancario PSE', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/pse.svg', selected: false },
+        { id: 3, name: 'Pago en efectivo', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/apostar_susuerte_group.svg', selected: false },
+        { id: 4, name: 'Pago en corresponsales bancarios', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/bancos_2.svg', selected: false },
+        { id: 5, name: 'Bancolombia', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/bancolombia_logo.svg', selected: false },
+        { id: 6, name: 'Nequi', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/nequi_logo.svg', selected: false },
+        { id: 7, name: 'Daviplata', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/daviplata_mini.svg', selected: false },
+        { id: 8, name: 'Dale', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/dale_mini_2.svg', selected: false },
+        { id: 9, name: 'Lulo', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/lulo_mini.svg', selected: false },
+        { id: 10, name: 'RappiPay', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/rappi_pay_mini_2.svg', selected: false },
+        { id: 11, name: 'Movii', img: 'https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/movii_moni_2.svg', selected: false },
     ];
 
     checkboxesDataList: any = [];

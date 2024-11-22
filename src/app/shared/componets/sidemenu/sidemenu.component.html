@@ -1,9 +1,12 @@
+<div *ngIf="isSpinner" style="height:100vh;" id="glb-loader" class="loaderShow">
+  <img src="./assets/img/loaded24.gif" class="loader-img" alt="loader" style="height:45px">
+</div>
 <!-- <div class="app-sidebar__overlay" data-toggle="sidebar"></div> -->
 <div class="sticky" [ngClass]="{ 'sticky-pin': scrolled }">
 	<aside class="app-sidebar sidebar-scroll">
 		<perfect-scrollbar>
 			<div class="main-sidebar-header active" routerLink="/dashboard">
-				<a class="desktop-logo logo-light active"><img src="https://imagesd24-pro.s3.us-east-1.amazonaws.com/img_dashboard/dyner_pro_dark_circle.svg" class="main-logo" alt="logo"></a>
+				<a class="desktop-logo logo-light active"><img src="https://img-app-v1.s3.amazonaws.com/img_dashboard/xpay_oscuros.svg" class="main-logo" alt="logo"></a>
 				<a class="desktop-logo logo-dark active"><img src="./assets/img/brand/logo-white.png" class="main-logo" alt="logo"></a>
 				<a class="logo-icon mobile-logo icon-light active"><img src="./assets/img/brand/favicon.ico" alt="logo"></a>
 				<a class="logo-icon mobile-logo icon-dark active"><img src="./assets/img/brand/favicon.ico" alt="logo"></a>
@@ -39,7 +42,9 @@
 						<a class="side-menu__item " [routerLink]="[menuItem.path] " [ngClass]="{ active: menuItem.active ,'is-expanded': menuItem.active}" ng-reflect-router-link-active-options
 							*ngIf="menuItem.type === 'link' " (click)="toggleNavActive(menuItem)">
 							<div class="">
-								<i class="material-icons-two-tone side-menu__icon" style="color: #C5C3C3 !important">{{menuItem.icon}}</i>
+
+								<!-- <i class="material-icons-two-tone side-menu__icon" style="color: #C5C3C3 !important">{{menuItem.icon}}</i> -->
+                <img width="20" height="20" src="assets/iconfonts/iconsmenu/{{menuItem.icon}}" style="margin-right: 10px;">
 							</div>
 							<span class="side-menu__label">{{menuItem.title}} </span>
 							<span class="badge bg-{{menuItem.badgeClass}} text-light" >{{menuItem.badgeValue}}</span>
