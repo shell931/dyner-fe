@@ -17,6 +17,7 @@ export class SidemenuComponent implements OnInit {
     public url: any;
     public windowSubscribe$!: any;
     name_client: any = ""
+    avatar: any;
     constructor(
         private router: Router,
         private navServices: NavService,
@@ -173,7 +174,7 @@ export class SidemenuComponent implements OnInit {
             setTimeout(() => {
                 this.isSpinner = false;
                 console.log('Spinner hidden after delay');
-            }, 3000);
+            }, 2000);
 
             this.menuItems.forEach((a: any) => {
                 if (this.menuItems.includes(item)) {
@@ -182,6 +183,7 @@ export class SidemenuComponent implements OnInit {
                 if (!a.children) {
                     return false;
                 }
+
                 a.children.forEach((b: any) => {
                     if (a.children.includes(item)) {
                         b.active = false;
@@ -294,7 +296,7 @@ export class SidemenuComponent implements OnInit {
         setTimeout(() => {
             this.isSpinner = false;
             console.log('Spinner hidden after delay');
-        }, 3000);
+        }, 2000);
     }
 
     scrolled: boolean = false;
@@ -312,5 +314,6 @@ export class SidemenuComponent implements OnInit {
     GetProfileDataF(ProfileData) {
         // console.log(ProfileData.data.user.client.nombre);
         this.name_client = ProfileData.data.user.client.nombre;
+        this.avatar = ProfileData.data.user.client.avatar;
     }
 }

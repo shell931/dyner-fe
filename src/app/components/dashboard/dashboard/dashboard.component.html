@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #fff; padding: 5px;">
 
-    <div class="breadcrumb-header justify-content-between">
+    <!-- <div class="breadcrumb-header justify-content-between">
 
         <div class="left-content">
             <div>
@@ -9,153 +9,148 @@
                 </h1>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /breadcrumb -->
 
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="flex-container">
-                        <div class="icon-container">
-                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/lupa_dash.svg"
-                                class="icon-lupa-f" alt="lupa" />
-                        </div>
-                        <div class="flex-item">
-                            <div class="flex-container">
-                                <div>
-                                    <p class="mg-b-0 tx-28 color-title-card">Aprobado</p>
-                                </div>
-                                <div>
-                                    <p class="circle-yellow"></p>
-                                </div>
-                            </div>
-                            <p class="mg-b-0 tx-12 color-title-card">Transacciones aprobadas, en validación</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <div class="flex-container">
-                        <div class="flex-item">
-                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                                {{
-                                capital_total_sum_service
-                                | currency : "USD" : "symbol" : "1.0-0"
-                                }}
-
-                            </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
-                      gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
-                    ">
-                        Ver detalles
-                    </button>
-                </div>
-            </div>
-
-        </div>
-        <!-- Second card -->
-        <div class="col-12 col-lg-6">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="flex-container">
-                        <div class="icon-container">
-                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/cash-outline.svg"
-                                class="icon-cash" alt="cash" style="height: 25px;" />
-                        </div>
-                        <div class="flex-item">
-                            <div class="flex-container">
-
-
-                                <div>
-                                    <p class="mg-b-0 tx-28 color-title-card">Disponible</p>
-                                </div>
-                                <div>
-                                    <p class="circle-green"></p>
-                                </div>
-                            </div>
-                            <p class="mg-b-0 tx-12 color-title-card">Saldo habilitado para retirar</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="flex-container">
-                        <div class="flex-item">
-                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                                {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
-                            </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
-                        gridOpen(gridModal, 'DETALLE SALDO DISPONIBLE', 'dispo_list_tx')
-                    ">
-                        Ver detalles
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!--Three card -->
-        <!-- <div class="col-12 col-lg-4">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="flex-container">
-                        <div class="icon-container">
-                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/Vector.svg"
-                                class="icon-retire" alt="otro" style="height: 20px;" />
-                        </div>
-                        <div class="flex-item">
-                            <div class="flex-container">
-                                <div>
-                                    <p class="mg-b-0 tx-28 color-title-card">En retiro</p>
-                                </div>
-                                <div>
-                                    <p class="circle-blue"></p>
-                                </div>
-                            </div>
-                            <p class="mg-b-0 tx-12 color-title-card">Saldo en proceso de abono a cuenta</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="flex-container">
-                        <div class="flex-item">
-                            <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
-                                {{
-                                en_transfe_total_sum_service
-                                | currency : "USD" : "symbol" : "1.0-0"
-                                }} COP
-                            </h1>
-                            <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y retenciones aplicados
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
-                        gridOpen(gridModal, 'DETALLE SALDO EN RETIRO', 'en_transfe_list_tx')
-                    ">
-                        Ver detalles
-                    </button>
-                </div>
-            </div>
-        </div> -->
-
-    </div>
 
     <div class="row row-sm">
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card card-table-two">
+
+
+                <div class="container-main-dash">
+                    <div class="item-container-main-dash">
+                        <div class="card-container-resume">
+                            <!-- <div class="card-resume"> -->
+                            <div class="card-item-resume ">
+                                <div class="value_one">
+                                    <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/Icono_check.svg"
+                                        class="img-status-one" alt="cash" />
+                                    <span class="status-resume spam_one">Aprobado</span>
+                                    <span class="amount-resume spam_one">{{capital_total_sum_service| currency : "USD"
+                                        :"symbol" : "1.0-0"}}</span>
+                                </div>
+                                <div class="view-detail">
+                                    <button class="mg-b-0 tx-13 btn btn-link p-0 text-footer"
+                                        (click)="gridOpen(gridModal, 'DETALLE SALDO APROBADO', 'capital_list_tx')" style="color:#007AFF">
+                                        Ver detalles
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="card-item-resume" style="">
+                                <div class="value_two">
+                                    <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/Icono_wallet.svg"
+                                        class="img-status-two" alt="cash" />
+                                    <span class="status-resume spam_two">Disponible</span>
+                                    <span class="amount-resume spam_two">{{dispo_total_sum_service | currency : "USD" :
+                                        "symbol" : "1.0-0"}}</span>
+                                </div>
+                                <div class="view-detail">
+                                    <button class="mg-b-0 tx-13 btn btn-link p-0 text-footer" (click)="gridOpen(gridModal, 'DETALLE SALDO DISPONIBLE', 'dispo_list_tx')">
+                                        Ver detalles
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="item-container-main-dash">
+                        <div class="">
+                            <div class="card-brands">
+                                <div class="">
+                                    <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/dash_user_visa.svg"
+                                        class=" img-brand" alt="cash" />
+                                </div>
+                                <div class="" style="margin-left: 10px;">
+                                    <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/dash_user_mastercar.svg"
+                                        class=" img-brand" alt="cash" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="flex-container">
+                                    <div class="icon-container">
+                                        <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/lupa_dash.svg"
+                                            class="icon-lupa-f" alt="lupa" /><b style="color:black">Aprobado</b>
+                                    </div>
+                                    <div class="flex-item">
+                                        <div class="flex-container">
+                                            <div>
+                                                <b style="color:black">{{capital_total_sum_service| currency : "USD" :
+                                                    "symbol" : "1.0-0"}}</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                              gridOpen(gridModal, 'DETALLE SALDO CAPITAL', 'capital_list_tx')
+                            ">
+                                    Ver detalles
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                                <div class="flex-container">
+                                    <div class="icon-container">
+                                        <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/cash-outline.svg"
+                                            class="icon-cash" alt="cash" style="height: 25px;" />
+                                    </div>
+                                    <div class="flex-item">
+                                        <div class="flex-container">
+
+
+                                            <div>
+                                                <p class="mg-b-0 tx-28 color-title-card">Disponible</p>
+                                            </div>
+                                            <div>
+                                                <p class="circle-green"></p>
+                                            </div>
+                                        </div>
+                                        <p class="mg-b-0 tx-12 color-title-card">Saldo habilitado para retirar</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="flex-container">
+                                    <div class="flex-item">
+                                        <h1 class="main-content-title tx-38 mg-b-1 mg-b-lg-1 color-price">
+                                            {{dispo_total_sum_service | currency : "USD" : "symbol" : "1.0-0"}} COP
+                                        </h1>
+                                        <p class="mg-b-0 tx-9 mt-3 color-title-card-2">Valor con descuentos y
+                                            retenciones aplicados
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="mg-b-0 tx-15 btn btn-link p-0 text-footer" (click)="
+                                gridOpen(gridModal, 'DETALLE SALDO DISPONIBLE', 'dispo_list_tx')
+                            ">
+                                    Ver detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
                 <!-- <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
                     LISTADO DE TRANSACCIONES
                 </h2>
@@ -192,7 +187,7 @@
 
                         <ng-container matColumnDef="mediopago">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header class="black-text header-cell">
-                                Medio de pago
+                                Procesador
                             </th>
                             <td mat-cell *matCellDef="let row" class=" ">{{ row.payment_metod }}</td>
                         </ng-container>
@@ -318,7 +313,7 @@
             <app-details-table [items]="total_detail[detailObject]"></app-details-table>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')">
+            <button type="button" class="btn ripple btn-secondary" (click)="modal.close('Save click')" style="background-color:#007AFF">
                 Cerrar
             </button>
         </div>
@@ -347,7 +342,7 @@
             </table>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn ripple btn-primary" (click)="modal.close('Save click');">
+            <button type="button" class="btn ripple btn-primary" (click)="modal.close('Save click');" style="background-color:#007AFF">
                 Cerrar
             </button>
         </div>
