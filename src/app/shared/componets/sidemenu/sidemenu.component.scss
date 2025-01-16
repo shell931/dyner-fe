@@ -65,7 +65,7 @@ img {
             display: block !important;
         }
 
-        .leftmenu-color .app.sidenav-toggled .side-menu__label, 
+        .leftmenu-color .app.sidenav-toggled .side-menu__label,
         .leftmenu-dark .app.sidenav-toggled .side-menu__label,
         .leftmenu-gradient .app.sidenav-toggled .side-menu__label
         {
@@ -79,7 +79,7 @@ img {
         {
             width: 80px !important;
         }
-        
+
         .leftbgimage1 .sidenav-toggled.sidenav-toggled-open .app-sidebar:before,
         .leftbgimage2 .sidenav-toggled.sidenav-toggled-open .app-sidebar:before,
         .leftbgimage3 .sidenav-toggled.sidenav-toggled-open .app-sidebar:before,
@@ -90,7 +90,7 @@ img {
         }
 
     }
-    
+
     // EDIT COLOR ICON SIDEBAR WITHOUT SELECT BY CARLOS ARRIERO
     .material-icons-two-tone{
         // filter: invert(8%) sepia(94%) saturate(60189%) hue-rotate(208deg) brightness(101%) contrast(112%);
@@ -134,7 +134,7 @@ img {
     .app-sidebar{
         touch-action: none;
     }
-    
+
     .side-menu > li:not(:nth-child(2)) .side-item.side-item-category {
         margin-top: 20px;
     }
@@ -169,4 +169,37 @@ perfect-scrollbar{
 
 .side-menu .slide .side-menu__item {
     padding: 6px 20px 6px 22px;
+}
+
+
+.banner-one-sidemenu{
+  padding-left: 20px;
+  margin-top: 50px;
+}
+
+.banner-two-sidemenu{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.banner-trhee-sidemenu{
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  margin-top: auto; /* Empuja este div al final del contenedor */
+
+
+
+  // height: 64px; /* Altura fija del elemento */
+  padding: 15px 20px; /* Espaciado interno */
+  width: 240px; /* Ancho fijo */
+  background: #0F0F0F; /* Color de fondo */
+  border-bottom: 1px solid #0F0F0F; /* Borde inferior */
+  border-right: 1px solid #eae8f1; /* Borde derecho */
+  position: fixed; /* Fijo en su posición */
+  z-index: 999; /* Por encima del resto */
+  bottom: 0; /* Anclado a la parte inferior */
+  transition: left 0.3s ease, width 0.3s ease;
+  border-top-width: 10px;
+  padding-top: 0px;
 }

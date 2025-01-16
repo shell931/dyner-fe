@@ -100,27 +100,6 @@
     height: 15px;
 }
 
-.flex-container {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-content: space-between;
-    -ms-flex-line-pack: justify;
-    align-content: space-between;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-}
-
 .flex-item:nth-child(1) {
     -webkit-order: 0;
     -ms-flex-order: 0;
@@ -163,14 +142,14 @@ a {
     border-bottom: 2px solid #e8e8e8;
 }
 
-.table-principal{
-   margin-top: 50px;
-   border-top: none;
+.table-principal {
+    margin-top: 50px;
+    border-top: none;
 }
 
 .flex-container {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
 }
 
@@ -212,7 +191,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;}
+    border-radius: 10px;
+}
 
 .icon-lupa-f {
     color: #525256;
@@ -246,6 +226,7 @@ a {
     background-color: #e8e8e8;
     height: 75px;
 }
+
 .color-price {
     color: #000;
     text-align: center;
@@ -255,6 +236,7 @@ a {
     color: #000;
     line-height: 6px;
 }
+
 .color-title-card-2 {
     color: #727272;
     text-align: center;
@@ -278,9 +260,11 @@ a {
 .main-content-title {
     font-weight: 300;
 }
+
 .inline-block-container {
     display: inline-block;
 }
+
 .main-dashboard-header-right {
     display: flex;
     align-items: center;
@@ -322,4 +306,157 @@ input[type="text"] {
 
 
 
+.container-main-dash {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* Permite que los elementos se muevan a una nueva fila si es necesario */
+    width: 100%;
+}
 
+.item-container-main-dash {
+    flex: 1;
+    min-width: 300px;
+    /* Asegura que el elemento no sea demasiado pequeño */
+    margin-bottom: 20px;
+    /* Espacio entre filas en pantallas pequeñas */
+}
+
+.card-container-resume {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas se muevan a nuevas filas */
+}
+
+.card-item-resume {
+    width: 250px;
+}
+
+.view-detail {
+    text-align: end;
+}
+
+
+
+.value_one {
+    border: 1px solid #847A1C;
+    background-color: #E1E0C7;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    min-width: 150px;
+}
+
+.value_two {
+    border: 1px solid #5B841B;
+    background-color: #C6E1C6;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    min-width: 150px;
+}
+
+.card-brands {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    /* Permite que las imágenes se muevan a nuevas filas */
+}
+
+.img-brand {
+    height: 25px;
+    width: auto;
+}
+
+.icon-resume {
+    color: green;
+    font-size: 24px;
+}
+
+.status-resume {
+    font-weight: bold;
+}
+
+.amount-resume {
+    font-size: 18px;
+    color: #333;
+}
+
+.spam_one {
+    color: #847A1C;
+}
+
+.spam_two {
+    color: #5B841B;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-main-dash {
+        flex-direction: column;
+        /* Apila los elementos verticalmente */
+        align-items: stretch;
+    }
+
+    .item-container-main-dash {
+        text-align: center;
+        /* Centra los elementos en pantallas pequeñas */
+    }
+
+    .card-container-resume {
+        justify-content: center;
+        /* Centra las tarjetas */
+    }
+
+    .card-brands {
+        justify-content: center;
+        /* Centra las imágenes */
+        gap: 20px;
+        /* Aumenta el espacio entre imágenes */
+    }
+}
+
+.img-brand {
+    height: 100%;
+    width: 100%;
+}
+
+.value_one {
+    flex: 1;
+    /* Se expandirá para ocupar más espacio disponible */
+    max-width: 400px;
+    /* Ajusta este valor al ancho máximo deseado */
+    width: 100%;
+    /* Permite que crezca en un entorno flexible */
+    display: flex;
+
+}
+
+.value_two {
+    flex: 1;
+    /* Se expandirá para ocupar más espacio disponible */
+    max-width: 400px;
+    /* Ajusta este valor al ancho máximo deseado */
+    width: 100%;
+    /* Permite que crezca en un entorno flexible */
+    display: flex;
+
+}
+
+.img-status-one {
+    height: 90%;
+    width: 10%;
+}
+
+.img-status-two {
+    height: 90%;
+    width: 10%;
+}

@@ -12,7 +12,7 @@ import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-details-table',
   templateUrl: './details-table.component.html',
-  styleUrls: ['./details-table.component.scss'], 
+  styleUrls: ['./details-table.component.scss'],
 })
 export class DetailsTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -20,8 +20,8 @@ export class DetailsTableComponent implements OnInit {
   @Input() items: any = [];
   public dataSource = new MatTableDataSource<any>(this.items);
   public displayedColumns: string[] = [
+    'referenciatx',
     'created_at',
-    'num_autoriza_cadena',
     'total',
     'total_descuento',
     'total_abono',

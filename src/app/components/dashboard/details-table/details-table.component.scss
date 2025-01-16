@@ -1,0 +1,38 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding-left: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 22px;
+}
+
+
+.mat-header-cell {
+  color: rgb(0 0 0) !important;
+}
+
+.mat-header-cell {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  line-height: 2.5 !important;
+}
+
+.mat-cell {
+  font-size: 13px !important;
+  font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  line-height: 2.5 !important;
+
+}

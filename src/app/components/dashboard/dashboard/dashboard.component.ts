@@ -146,7 +146,9 @@ export class DashboardComponent implements OnInit {
     }
 
     GetTotalSumTransactionsF(Alldata) {
-        //console.log(Alldata);
+        console.log("all transac ... data");
+
+        console.log(Alldata);
         //console.log('data: ', JSON.stringify(Alldata));
 
 

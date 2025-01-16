@@ -1,551 +1,175 @@
-<div class="container-fluid" style="background-color: #fff; padding: 5px;">
-
-    <!-- <div class="breadcrumb-header justify-content-between">
-        <div class="left-content">
-            <div>
-                <h2 class="main-content-title tx-21 mg-b-1 mg-b-lg-1">
-                    Detalle de transacción, {{ referenciatx }}
-                </h2>
-            </div>
-        </div>
-        <div class="main-dashboard-header-right">
-
-            <div>
-                <button [routerLink]="['/transaction-history']" class="btn btn-success-dyner-green btn-block">
-                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" />
-                    <i class="fas fa-chevron-left"></i>
-                    Volver
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header pb-0">
-        </div>
-        <div class="card-body" style="">
+<div class="container-fluid" style="background-color: #fff; padding: 25px;">
 
 
-            <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                DATOS DEL COMPRADOR
-            </h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-
-                            <p class="tx-14 title-field">Cliente</p>
-
-                            <p class="tx-14">{{ nombre_comprador }}</p>
-                    </div>
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Correo Electrónico</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ correo }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Celular</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ celular}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-
-            <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                ESTADO DE LA TRANSACCIÓN
-            </h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Estado</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ descripcion_estado }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Respuesta banco</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ resp_banco }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Número de tarjeta</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ num_tarjeta }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Fecha de transaccion</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ created_at }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Número de autorización</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ num_autorizacion }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Cuotas</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ cuotas }}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Franquicia</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ franquicia }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Total Neto</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ total | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Medio de Pago</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ metodopago}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-
-            <h2 class="main-content-title tx-14 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                DESCUENTOS DE LA TRANSACCIÓN
-            </h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Descripción</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ descripcion }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Total Neto</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ total | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field"> Tarifa Dyner24 2.9%</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">{{ comision_ps }} %</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Valor comisión porcentual ($)</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ val_comision_ps | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Rete ica 0.414%</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ val_rete_ica | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Costo fijo Transacción</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ val_comision_adi_ps | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Rete Fuente 1.5%</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ val_rete_fuente | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item">
-                            <p class="tx-14 title-field">IVA Comisión</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ val_impuesto_comision | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Total descuento</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ total_descuento | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="flex-container-internal">
-                        <div class="flex-item-internal">
-                            <p class="tx-14 title-field">Saldo Total COP:</p>
-                        </div>
-                        <div class="flex-item-internal">
-                            <p class="mg-b-0 tx-14">
-                                {{ total_abono | currency : "USD" : "symbol" : "1.0-0" }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-    </div>
-
- -->
-    <!-- <div class="main-dashboard-header-right">
-        <div class="search-container">
-            <input type="text" placeholder="Buscar movimiento" />
-            <img src="../../../../assets/img/Vector.png" class="icon-lupa" alt="lupa" />
-        </div>
-    </div> -->
-
-    <div class="breadcrumb-header justify-content-between">
-        <div class="left-content m-lg-2">
-            <div>
-                <p class="main-content-title tx-14 mg-b-1 mg-b-lg-1" style="color: #000">
-                    <!-- Detalle de transacción, {{ referenciatx }} -->
-                    Consulta a continuación todos los detalles de esta transacción
-                </p>
-                <p class="tx-10">Si tienes dudas adicionales comunícate con nuestros asesores. </p>
-            </div>
-        </div>
-        <!-- <div class="main-dashboard-header-right">
-            <div>
-                <button [routerLink]="['/transaction-history']" class="btn btn-success-dyner-green btn-block">
-                    <img src="./assets/img/svgicons/back.svg" class="img-cards-icons-button" alt="logo" />
-                    <i class="fas fa-chevron-left"></i>
-                    Volver
-                </button>
-            </div>
-        </div> -->
-    </div>
-
-   <div class="card p-4 br-2 mt-4" style="background-color: #F5F5F5;">
     <div class="row">
         <div class="col-12 col-md-6 col-sm-7 col-lg-7 col-xl-7">
-            <div class="card-shadow">
-                <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                        Datos del comprador
-                    </h2>
-                    <hr style="background-color:#000; width: 50%;">
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Cliente</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Correo Electrónico</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Celular</p>
-                                </div>
-                            </div>
+            <div class="mt-20">
+                <p class="main-content-title tx-24 mg-b-1 mg-b-lg-1" style="color: #000;     font-weight: 500;">
+                    <!-- Detalle de transacción, {{ referenciatx }} -->
+                    Consulta los detalles de esta transacción
+                </p>
+                <p class="tx-14" style="font-weight: 200;">Conoce los costos asociados a cada operación realizada</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-sm-5 col-lg-5 col-xl-5 h-100">
+            <div class="item-container-main-dash">
+                <div class="">
+                    <div class="card-brands">
+                        <div class="mt-20">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/dash_user_visa.svg"
+                                class=" img-brand" alt="cash" />
                         </div>
-                        <div class="col-md-6 text-end">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">{{ nombre_comprador }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">{{ correo }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">{{ celular}}</p>
-                                </div>
-                            </div>
+                        <div class="mt-20" style="margin-left: 10px;">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/dash_user_mastercar.svg"
+                                class=" img-brand" alt="cash" />
+                        </div>
+                        <div class="" style="margin-left: 10px;">
+                            <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/medios_nuevos.svg"
+                                class=" img-brands" alt="cash" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-shadow">
-                <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                        Detalles de descuento
-                    </h2>
-                    <hr style="background-color:#000; width: 50%;">
+        </div>
+
+        <div class="col-12 col-md-6 col-sm-7 col-lg-7 col-xl-7">
+            <div class="card">
+                <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2 color-title-card">
+                    Datos del comprador
+                </h2>
+                <div class="item">
+                    <span class="label">Nombre</span>
+                    <span class="value">{{ nombre_comprador }}</span>
                 </div>
-                <div class="card-body" style="padding-left: 30px">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field"> Tarifa plataforma 2.9%</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Rete ica 0.414%</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Rete Fuente 1.5%</p>
-                                </div>
-                                <div class="flex-item mb-3">
-                                    <p class="tx-14 title-field">IVA Comisión</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Costo fijo Transacción</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-end"
-                            *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">{{ comision_ps }} %</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ val_rete_ica | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ val_rete_fuente | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ val_impuesto_comision | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ val_comision_adi_ps | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <!-- <div class="flex-item-internal">
-                                    <p class="tx-14 title-field">Respuesta banco</p>
-                                </div>
-                                <div class="flex-item-internal">
-                                    <p class="mg-b-0 tx-14">{{ resp_banco }}</p>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Correo electrónico</span>
+                    <span class="value">{{ correo }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Celular</span>
+                    <span class="value">{{ celular}}</span>
+                </div>
+            </div>
+            <div class="card" style="padding-bottom: 30px;">
+                <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2 color-title-card">
+                    Detalles de descuento
+                </h2>
+                <div class="item">
+                    <span class="label">Tarifa X PAY </span>
+                    <span class="value">{{ comision_ps }} %</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Rete ICA 0-414%</span>
+                    <span class="value">{{ val_rete_ica | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Rete Fuente 1.5%</span>
+                    <span class="value">{{ val_rete_fuente | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">IVA Comisión</span>
+                    <span class="value">{{ val_impuesto_comision | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Costo fijo transacción</span>
+                    <span class="value">{{ val_comision_adi_ps | currency : "USD" : "symbol" : "1.0-0" }}</span>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-6 col-sm-5 col-lg-5 col-xl-5 h-100">
-            <div class="card-shadow">
-                <div class="card-header pb-0">
-                    <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2">
-                        Detalles de la transacción
-                    </h2>
-                    <hr style="background-color: #000; width: 50%;">
+
+            <div class="card">
+                <h2 class="main-content-title tx-16 mg-b-1 mg-b-lg-1 mb-2 mt-2 color-title-card">
+                    Detalles de la transacción
+                </h2>
+                <div class="item">
+                    <span class="label">Estado</span>
+                    <span class="value">{{ descripcion_estado }}</span>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Estado</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Fecha de transaccion</p>
-                                </div>
-
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Autorización</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Medio de Pago</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="tx-14 title-field">Franquicia</p>
-                                </div>
-                                <div class="flex-item-internal mb-3" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="tx-14 title-field">Número de tarjeta</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="tx-14 title-field">Cuotas</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Total bruto</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="tx-14 title-field">Descuento</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="tx-14 title-field">Total Neto</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-end">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">{{ descripcion_estado }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">{{ created_at }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">{{ num_autorizacion }}0</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ metodopago}}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="mg-b-0 tx-14 text">{{ franquicia }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="mg-b-0 tx-14 text">{{ num_tarjeta }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light" *ngIf="metodopago !='Nequi'&& metodopago !='Ach'&& metodopago !='Bancolombia'">
-                                    <p class="mg-b-0 tx-14 text">{{ cuotas }}</p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ total | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3 bg-light">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ total_descuento | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <div class="flex-item-internal mb-3">
-                                    <p class="mg-b-0 tx-14 text">
-                                        {{ total | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                                <!-- <div class="flex-item-internal">
-                                    <p class="tx-14 title-field">Valor comisión porcentual ($)</p>
-                                </div>
-                                <div class="flex-item-internal">
-                                    <p class="mg-b-0 tx-14">
-                                        {{ val_comision_ps | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div> -->
-                            </div>
-                        </div>
-
-
-                       <!--  <div class="col-md-6">
-                            <div class="flex-container-internal">
-                                <div class="flex-item-internal">
-                                    <p class="tx-14 title-field">Saldo Total COP:</p>
-                                </div>
-                                <div class="flex-item-internal">
-                                    <p class="mg-b-0 tx-14">
-                                        {{ total_abono | currency : "USD" : "symbol" : "1.0-0" }}
-                                    </p>
-                                </div>
-                            </div>
-                            <hr />
-                        </div> -->
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Fecha de transacción</span>
+                    <span class="value">{{ created_at }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Autorización</span>
+                    <span class="value">{{ num_autorizacion }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Procesador</span>
+                    <span class="value">{{ metodopago}}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Franquicia</span>
+                    <span class="value">{{ franquicia }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Número de tarjeta</span>
+                    <span class="value">{{ num_tarjeta }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Cuotas</span>
+                    <span class="value">{{ cuotas }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Total bruto</span>
+                    <span class="value">{{ total | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Descuento</span>
+                    <span class="value">{{ total_descuento | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+                <div class="divider"></div>
+                <div class="item">
+                    <span class="label">Total neto</span>
+                    <span class="value">{{ total_abono | currency : "USD" : "symbol" : "1.0-0" }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12" align="center" style="margin-top: 20px;">
+            <div style="max-width: 1200px;">
+                <div class="item-foot">
+                    <div>
+                        <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_dashboard/vr_detail_tx.svg"
+                            alt="cash" style="width: 300px;" />
                     </div>
-                </div>
-                <div style="text-align: center;">
-                    <img src="https://img-app-v1.s3.us-east-1.amazonaws.com/img_gateway/Tapbar_Icon_heart.svg" class="img-cards-icons-button" alt="logo" style="display: block; margin: 0 auto;" />
-                    <p style="font-size: 10px; padding:15px 20px; color: #838383">Puedes compartirlo por redes sociales o correo electrónico; asimismo, si lo prefieres, puedes imprimirlo y realizar el cobro de manera presencial</p>
+                    <div>
+                        <p class="tx-10" style="color: #696666; font">
+                            <b>
+                                Seguridad y Cumplimiento Garantizados
+                            </b>
+                        </p>
+                        <p class="tx-10" style="color: #696666;font-weight: 300;">
+                            Cada transacción realizada a través de nuestra plataforma es supervisada, controlada y
+                            procesada
+                            a través de canales internacionales altamente seguros, que cumplen rigurosamente con las
+                            normativas y regulaciones financieras y tributarias vigentes en la región. Contamos con los
+                            más
+                            altos estándares de seguridad para proteger tanto tus datos como tus operaciones. Nuestra
+                            infraestructura está diseñada para garantizar que todas las transacciones se realicen con
+                            total
+                            transparencia, confidencialidad y conforme a las exigencias de las autoridades regulatorias
+                            locales e internacionales. Puedes tener la certeza de que tu experiencia de pago es no solo
+                            segura, sino también completamente compatible con las leyes fiscales y financieras
+                            aplicables
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-   </div>
+
 </div>

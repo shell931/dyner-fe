@@ -1,18 +1,19 @@
 <div class="table-responsive">
-  <table mat-table [dataSource]="dataSource" matSort class="table-striped w-100">
+  <table mat-table [dataSource]="dataSource" matSort class="">
     <!-- ID Column -->
+
+    <ng-container matColumnDef="referenciatx">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Referencia	</th>
+      <td mat-cell *matCellDef="let row">{{ row.referenciatx }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="created_at">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
       <td mat-cell *matCellDef="let row">{{ row.created_at }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="num_autoriza_cadena">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header># Autorización</th>
-      <td mat-cell *matCellDef="let row">{{ row.num_autoriza_cadena }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total bruto</th>
       <td mat-cell *matCellDef="let row">{{ row.total | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
     </ng-container>
 
@@ -22,7 +23,7 @@
     </ng-container>
 
     <ng-container matColumnDef="total_abono">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Ab</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total neto</th>
       <td mat-cell *matCellDef="let row">{{ row.total_abono | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
     </ng-container>
 
@@ -30,10 +31,8 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
       <td mat-cell *matCellDef="let row">
         <a
-          [routerLink]="['/transaction-detail', row.id, row.servicio]"
-          title=""
-          ngbTooltip="Detalle"
-        >
+          [routerLink]="['/transaction-detail/', row.id, row.services]"
+          title="" ngbTooltip="Detalle" style="color:#007AFF">
           Ver más
         </a>
       </td>
