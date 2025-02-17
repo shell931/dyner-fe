@@ -1,9 +1,10 @@
 /* ESTILOS DE TABLA GENERAL */
 
 .table-style-global {
-  line-height: 2.5;
+  line-height: 2.3;
   font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serifsans-serif !important;
   font-size: 13px !important;
+  font-weight: 300;
 }
 
 .table-style-global {
@@ -62,6 +63,7 @@
 .mat-cell {
   font-size: 13px !important;
   padding: 0px !important;
+  color: rgb(0 0 0) !important;
   /* Ajusta estos valores según tus necesidades */
 }
 

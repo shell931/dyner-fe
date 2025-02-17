@@ -10,8 +10,8 @@ export const environment = {
         baseAuthUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/',
         baseProfileUrl: 'https://x-dev.cloud/api-mobile/public/api/auth/profile',
         bankImage: 'https://img-app-v1.s3.us-east-1.amazonaws.com',
-        linkImage: 'https://img-productos-comercios-pro.s3.us-east-1.amazonaws.com',
-        gatewayUrl: 'http://52.44.5.11:1400/dynergateway/public/'
+        linkImage: 'https://img-productos-comercios-v1.s3.us-east-1.amazonaws.com',
+        gatewayUrl: 'https://www.x-dev.cloud/gateway/public/'
     },
 };
 
