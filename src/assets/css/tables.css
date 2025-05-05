@@ -2,8 +2,9 @@
 
 .table-style-global {
   line-height: 2.3;
-  font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serifsans-serif !important;
+  font-family: "Inter var", sans-serif !important;
   font-size: 13px !important;
+  font-feature-settings: "zero", "ss01";
   font-weight: 300;
 }
 

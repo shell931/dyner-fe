@@ -90,18 +90,22 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const chat: any = document.querySelector('.chat-scroll');
-    let ps1 = new PerfectScrollbar(chat, {
-      wheelPropagation: false,
-      wheelSpeed: 2,
-      suppressScrollX: true,
-    });
+    if (chat) {
+      let ps1 = new PerfectScrollbar(chat, {
+        wheelPropagation: false,
+        wheelSpeed: 2,
+        suppressScrollX: true,
+      });
+    }
 
     const notification: any = document.querySelector('.Notification-scroll');
-    let ps2 = new PerfectScrollbar(notification, {
-      wheelPropagation: false,
-      wheelSpeed: 2,
-      suppressScrollX: true,
-    });
+    if (notification) {
+      let ps2 = new PerfectScrollbar(notification, {
+        wheelPropagation: false,
+        wheelSpeed: 2,
+        suppressScrollX: true,
+      });
+    }
   }
 
   SearchActive = 'Notactive';
@@ -158,7 +162,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public openNotification(modal: any, idNotification: number, message: string) {
     this.notificationService
       .readMessageService(idNotification)
-      .subscribe(() => {});
+      .subscribe(() => { });
     this.notificationMessageModal = message;
     this.modalService.open(modal, {
       centered: true,

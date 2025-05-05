@@ -52,7 +52,7 @@ export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
     private alertsService: AlertsService,
     private router: Router,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.alertsService.openInfoAlert({
@@ -68,7 +68,7 @@ export class WizardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
-      '#0F0F0F';
+      '#232323';
   }
 
   ngOnDestroy(): void {

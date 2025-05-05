@@ -97,40 +97,36 @@ export class PaymentLinkEditComponent implements OnInit {
     }
 
     formatInput(event: Event) {
-        const inputElement = event.target as HTMLInputElement;
-        let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
-
-        // Verifica si el valor numérico es válido
-        if (isNaN(numericValue)) {
-            numericValue = 0;
-        }
-
-        // Calculo con tax
-        let valu_link_form = this.linkForm.value;
-        if (valu_link_form.tax_type == '') {
-            this.total_price = 0;
-        } else {
-            if (valu_link_form.tax_type == "1") {
-                this.total_price = (numericValue * 19) / 100;
-                this.total_price = numericValue + this.total_price;
-                this.total_price = this.formatInputTotal(this.total_price);
-            } else {
-                this.total_price = (numericValue * 0) / 100;
-                this.total_price = numericValue + this.total_price;
-                this.total_price = this.formatInputTotal(this.total_price);
-            }
-        }
-
-        // Realiza la conversión a pesos colombianos y actualiza el valor del input
-        const formattedValue = numericValue.toLocaleString('es-CO', {
-            style: 'currency',
-            currency: 'COP',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        });
-
-        this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
-    }
+      const inputElement = event.target as HTMLInputElement;
+      let numericValue = parseFloat(inputElement.value.replace(/\D/g, '')); // Elimina los caracteres no numéricos
+      // Verifica si el valor numérico es válido
+      if (isNaN(numericValue)) {
+          numericValue = 0;
+      }
+      // Calculo con tax
+      let valu_link_form = this.linkForm.value;
+      if(valu_link_form.tax_type == ''){
+          this.total_price = 0;
+      }else{
+          if(valu_link_form.tax_type == "1"){
+              this.total_price = (numericValue * 19)/100;
+              this.total_price = numericValue + this.total_price;
+              this.total_price = this.formatInputTotal(this.total_price);
+          }else{
+              this.total_price = (numericValue * 0)/100;
+              this.total_price = numericValue + this.total_price;
+              this.total_price = this.formatInputTotal(this.total_price);
+          }
+      }
+      // Realiza la conversión a pesos colombianos y actualiza el valor del input
+      const formattedValue = numericValue.toLocaleString('es-CO', {
+          style: 'currency',
+          currency: 'COP',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+      });
+      this.linkForm.get('price')?.setValue(formattedValue, { emitEvent: false });
+  }
 
 
     formatInputTotal(number) {

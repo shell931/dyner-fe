@@ -15,11 +15,10 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class SuccessRegisterComponent
-  implements OnInit, AfterViewInit, OnDestroy
-{
+  implements OnInit, AfterViewInit, OnDestroy {
   public userName = '';
 
-  constructor(private route: ActivatedRoute, private elementRef: ElementRef) {}
+  constructor(private route: ActivatedRoute, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -29,7 +28,7 @@ export class SuccessRegisterComponent
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor =
-      '#0F0F0F';
+      '#232323';
   }
 
   ngOnDestroy(): void {
